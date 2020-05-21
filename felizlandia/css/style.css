@@ -1,3 +1,13 @@
+body {
+	font-family: 'Montserrat', sans-serif;
+	/*font-family: 'Balsamiq Sans', cursive;*/
+}
+
+.navbar {
+	background-color: rgba(25, 67, 160, 0.2); /* cor azul aleatória */
+	/*background-color: rgba(12, 93, 166, 0.2);*/ /* cor que está no trello #0c5da6  */
+}
+
 
 .paralax1, .paralax2, .paralax3{
 	background-size: cover;
@@ -12,16 +22,16 @@
 
 
 .paralax1{
-	background-image: url(https://www.hdnicewallpapers.com/Walls/Big/Countries%20and%20City/Islands_of_Adventure_Theme_Park_in_Florida_USA_Photo.jpg);
+	background-image: url(../img/bg1.gif);
 	 
 }
 
 .paralax2{
-	background-image: url(https://www.itl.cat/pngfile/big/173-1739586_amusement-parks-hd-wallpaper-carousel-4k.jpg);
+	background-image: url(../img/bg2.jpg);
 }
 
 .paralax3{
-	background-image: url(https://i.gifer.com/kk5.gif);
+	background-image: url(../img/bg3.jpg);
 }
 
 
@@ -37,8 +47,8 @@
 }
 
 .fundofalso{
-	background-color: rgba(26, 24, 24) !important;
-	opacity: 0.6;
+	/*background-color: rgb(26, 24, 24) !important;*/
+	/*opacity: 0.6;*/
 	background-size: cover;
 	position: fixed;
 	width: 100%;
@@ -82,7 +92,7 @@ li.nav-item{
 a.nav-link{
 	color: white;
 	font-weight: bold;
-	font-style: normal;
+	/*font-style: normal;*/
 	opacity: 1;
 	font-size: 20px;
 	
@@ -136,7 +146,8 @@ li.nav-item:hover{
 	background-color:  rgba(0, 0, 0, 0.931);
 	color: rgb(26, 142, 209);
 	font-size: 30px;
-	margin: 0 auto;
+	/*font-weight: bold;*/
+	margin: 10px auto;
 	text-align: center;
 	padding-top: 10px;
 }
@@ -169,10 +180,10 @@ p,.texto,.texto2{
 	padding: 0;
 	width: 100%;
 	opacity: 1;
-	background-color: rgba(66, 122, 226,0.950);
-	color: white;
-	
-	margin: 0 auto;
+	background-color: rgba(21, 1, 22, 0.801);
+	color: rgb(166, 177, 194);
+	/*font-weight: bold;*/
+	margin: 10px auto;
 	text-align: center;
 	font-size: 35px;
 }
@@ -182,9 +193,8 @@ p,.texto,.texto2{
 }
 
 .texto2 h1{
-	font-weight: bold;
-	color: rgb(235, 202, 19);
-	font-weight: bold;
+	color: rgb(207, 145, 29);
+	/*font-weight: bold;*/
 	font-size: 70px;
 	text-align: center;
 	margin-top: 10px;
