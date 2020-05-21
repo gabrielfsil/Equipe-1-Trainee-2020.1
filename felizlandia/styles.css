@@ -12,16 +12,28 @@
 
 
 .paralax1{
-	background-image: url(https://wallpapercave.com/wp/wp2327040.jpg);
+	background-image: url(https://www.hdnicewallpapers.com/Walls/Big/Countries%20and%20City/Islands_of_Adventure_Theme_Park_in_Florida_USA_Photo.jpg);
 	 
 }
 
 .paralax2{
-	background-image: url(https://wallpaperaccess.com/full/151220.jpg);
+	background-image: url(https://www.itl.cat/pngfile/big/173-1739586_amusement-parks-hd-wallpaper-carousel-4k.jpg);
 }
 
 .paralax3{
 	background-image: url(https://i.gifer.com/kk5.gif);
+}
+
+
+.paginaAtual{
+	display: inline-block;
+	text-align: left;
+	font-size: 70px;
+	font-weight: bold;
+	color: white;
+	margin-left: 30px;
+	padding-right: 40px;
+	border-bottom: white solid;
 }
 
 .fundofalso{
@@ -39,20 +51,27 @@ img.logo{
 	width: 100%;
 	height: 100%;
 	max-width: 400px;
-	max-height: 200px
+	max-height: 200px;
 
 }
 
 
 .carousel{
 	display: inline-block;
-	border: solid black 2px;
+	padding: 10px;
+	background-color: rgb(39, 38, 38);
 	margin-top: 30px;
 	margin-bottom: 30px;
 	width: 70%;
 	height: 90%;
 	max-width: 1100px;
 	max-height: 900px;
+}
+
+.carousel-caption{ 
+	color:yellow; 
+	font-size: 28px;
+	font-weight: bold;
 }
 
 li.nav-item{
@@ -112,22 +131,24 @@ li.nav-item:hover{
 }
 
 .texto{
-	width: 80%;
+	width: 100%;
 	opacity: 1;
-	background-color:  #174e50ec;
-	color: rgb(10, 10, 10);
+	background-color:  rgba(0, 0, 0, 0.931);
+	color: rgb(26, 142, 209);
 	font-size: 30px;
-	font-weight: bold;
-	margin: 10px auto;
+	margin: 0 auto;
 	text-align: center;
+	padding-top: 10px;
 }
 
 .texto h1{
+	font-weight: bold;
 	font-size: 70px;
-	color: orange;
+	color: blue;
 }
 
 .texto h2{
+	color: blue;
 	font-size: 50px;
 }
 
@@ -146,31 +167,146 @@ p,.texto,.texto2{
 .texto2{
 	margin: 0;
 	padding: 0;
-	width: 80%;
+	width: 100%;
 	opacity: 1;
-	background-color: rgba(21, 1, 22, 0.801);
-	color: rgb(166, 177, 194);
-	font-weight: bold;
-	margin: 10px auto;
+	background-color: rgba(66, 122, 226,0.950);
+	color: white;
+	
+	margin: 0 auto;
 	text-align: center;
 	font-size: 35px;
 }
 
+.texto2 img{
+	border: 2px solid white;
+}
+
 .texto2 h1{
-	color: rgb(207, 145, 29);
+	font-weight: bold;
+	color: rgb(235, 202, 19);
 	font-weight: bold;
 	font-size: 70px;
+	text-align: center;
+	margin-top: 10px;
+
+}
+
+.RedesSociais{
+	width: 100%;
+	background-color: rgb(235, 202, 19);
+	font-size: 25px;
+	color: rgb(39, 38, 38);
+	font-family: Impact, Charcoal, sans-serif;
+	text-align: center;
+	margin: 0;
+}
+
+.subRS{ /*redesociais*/
+	padding: 10px;
+	margin-left: 40px;
+	margin-right: 40px;
+	display: inline-block;
+	height: 100%;
+}
+
+.subRS a{
+	font-size: 20px;
+	color: rgb(66, 122, 226);
+}
+
+.subRS a:hover{
+	color: black;
 }
 
 
+.informaçoes{
+	margin: 0;
+	background-color: rgb(66, 122, 226);
+	color: white;
+	font-size: 15px;
+	width: 100%;
+}
 
-@media (max-width: 768px){
+.barratecnica{
+	margin: 20px;
+	padding: 20px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	text-align: center;
+	
+}
+
+.barratecnica img{
+	width: 100px;
+	display: block;
+	height: 100px;
+	margin: 10px auto;
+}
+
+.informaçoes h1{
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.informaçoes ul{
+	display: block;
+	list-style: none;
+	margin: 60px;
+
+}
+
+.informaçoes li{
+	margin: 7px;
+}
+.informaçoes li:hover{
+	color: yellow;
+	transition: 1s;
+	cursor: pointer;
+}
+
+.barratecnica a{
+	color: yellow;
+	margin: 5px;
+	text-decoration: none;
+}
+
+.barratecnica a:hover{
+	color: rgb(243, 242, 186);
+	transition: 1s;
+}
+
+.icone{
+	width: 30px;
+	height: 30px;
+	margin: 2px;
+}
+
+.icone:hover{
+	transform: scale(1.2);
+	transition: 0.4s;
+}
+
+
+.coluna{
+	vertical-align: top;
+	margin: 0px;
+	display: inline-block;
+	width: 23%;
+	height: 100%;
+}
+
+
+@media (max-width: 767px){  /* nao esta em 768px(padrao) pois causa um bug do bootstrap de a navbar ficar pra fora da tela nessa resul*/
+
+
 	.carousel-inner > .carousel-item > img {
 		width: 15em;
 		height: 15em;
 	}
 
-	.texto, .texto2{
+	.texto, .texto2, .caixaTexto{
 		font-size: 18px;
 	}
 
@@ -195,4 +331,23 @@ p,.texto,.texto2{
 		transition: 0.7s;
 	}
 
+	.rodape{
+		font-size: 25px;
+	}
+
+	.paginaAtual{
+	font-size: 30px;
+	margin-left: 10px;
+	padding-right: 10px;
+	}
+
+	.coluna{
+		display: none;
+	}
+
+	.barratecnica{
+		margin-top: 0;
+	}
+
 }
+
