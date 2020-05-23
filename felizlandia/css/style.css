@@ -27,11 +27,11 @@ body {
 }
 
 .paralax2{
-	background-image: url(../img/bg2.jpg);
+	background-image: url(../img/bg5.jpg);
 }
 
 .paralax3{
-	background-image: url(../img/bg3.jpg);
+	background-image: url(../img/bg6.jpg);
 }
 
 
@@ -44,6 +44,19 @@ body {
 	margin-left: 30px;
 	padding-right: 40px;
 	border-bottom: white solid;
+}
+
+.TogglerPaginaAtual{
+	display: none;
+	text-align: center;
+	font-size: 25px;
+	font-weight: bold;
+	color: white;
+	margin-left: 10px;
+	margin-right: 15px;
+	padding-right: 10px;
+	padding-left: 10px;
+
 }
 
 .fundofalso{
@@ -76,6 +89,7 @@ img.logo{
 	height: 90%;
 	max-width: 1100px;
 	max-height: 900px;
+	
 }
 
 .carousel-caption{ 
@@ -101,7 +115,7 @@ a.nav-link{
 
 
 li.nav-item:hover{
-	background-color: black;
+	background-color: grey;
 	transform: scale(1.3);
 	opacity: 1;
 	transition: 0.7s;
@@ -130,9 +144,8 @@ li.nav-item:hover{
 
 .rodape{
 	width: 100%;
-	background-color: black;
-	opacity: 0.8;
-	color: blue;
+	background-color: rgba(25, 67, 160, 0.800);
+	color: rgba(247, 211, 8, 0.95);
 	text-align: center;
 	font-size: 80px;
 	line-height: 100px;
@@ -150,6 +163,7 @@ li.nav-item:hover{
 	margin: 10px auto;
 	text-align: center;
 	padding-top: 10px;
+	margin-top: 0;
 }
 
 .texto h1{
@@ -180,8 +194,8 @@ p,.texto,.texto2{
 	padding: 0;
 	width: 100%;
 	opacity: 1;
-	background-color: rgba(21, 1, 22, 0.801);
-	color: rgb(166, 177, 194);
+	background-color: rgba(25, 67, 160, 0.800);
+	color: white;
 	/*font-weight: bold;*/
 	margin: 10px auto;
 	text-align: center;
@@ -193,13 +207,50 @@ p,.texto,.texto2{
 }
 
 .texto2 h1{
-	color: rgb(207, 145, 29);
-	/*font-weight: bold;*/
+	color: rgb(235, 202, 19);
+	font-weight: bold;
 	font-size: 70px;
 	text-align: center;
 	margin-top: 10px;
 
 }
+
+.Cartoes{
+	width: 100%;
+	background-color: rgba(247, 211, 8, 0.95);
+	text-align: center;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	margin: 0 auto;
+}
+
+.cardlink{
+	color: rgb(66, 122, 226);
+	text-decoration: none;
+	font-weight: bold;
+
+}
+
+.card-title{
+	font-weight: bold;
+	color: rgba(25, 67, 160, 0.800);
+}
+
+.blue{
+	color: rgba(235, 202, 19,0.950);
+}
+
+h5.blue{
+	color: rgba(247, 211, 8, 0.95);
+}
+
+.cardlink:hover, .blue:hover{
+	color: rgb(3, 14, 37);
+	transition: 1s;
+	text-decoration: none;
+}
+
+
 
 .RedesSociais{
 	width: 100%;
@@ -231,7 +282,7 @@ p,.texto,.texto2{
 
 .informaçoes{
 	margin: 0;
-	background-color: rgb(66, 122, 226);
+	background-color: rgb(25, 67, 160);
 	color: white;
 	font-size: 15px;
 	width: 100%;
@@ -307,10 +358,8 @@ p,.texto,.texto2{
 	height: 100%;
 }
 
-
-@media (max-width: 767px){  /* nao esta em 768px(padrao) pois causa um bug do bootstrap de a navbar ficar pra fora da tela nessa resul*/
-
-
+@media (max-width: 767px){ 
+	
 	.carousel-inner > .carousel-item > img {
 		width: 15em;
 		height: 15em;
@@ -329,13 +378,20 @@ p,.texto,.texto2{
 	}
 
 	img.logo{
-		width: 200px;
-		height: 150px;
-		margin-right: 0px;
+		width: 100px;
+		height: 60px;
+		
+	}
+	.navbar-toggler span{
+		width: 30px;
+		height: 30px;
+		margin-right: 0;
+
 	}
 
 	li.nav-item:hover{
-		background-color: black;
+		pad: 10px;
+		background-color: grey;
 		transform: scale(1.1);
 		opacity: 1;
 		transition: 0.7s;
@@ -346,9 +402,11 @@ p,.texto,.texto2{
 	}
 
 	.paginaAtual{
-	font-size: 30px;
-	margin-left: 10px;
-	padding-right: 10px;
+	 display: none;
+	}
+
+	.TogglerPaginaAtual{
+		display: inline-block;
 	}
 
 	.coluna{
@@ -361,3 +419,56 @@ p,.texto,.texto2{
 
 }
 
+/* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
+
+.card img{
+	width: 100%;
+}
+.atracoes{
+	/*background-color:  rgba(158, 51, 131, 0.5);*/
+	/*background-color:  rgb(241, 173, 173,0.5);*/
+	padding-top:3%;
+	padding-right: 5%;
+	padding-left: 5%;
+	background-color: rgb(255, 220, 238);
+
+}
+
+.atracoes h1{
+	color: white;
+	font-size: 50px;
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+.atracoes h2{
+	color: rgb(236, 81, 9);
+	font-size: 30px;
+	text-align: center;
+	margin-top: 1%;
+
+
+
+}
+
+.atracoes-paralax1{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/bg3.jpg);;
+}
+.atracoes-paralax1 h1{
+	color: white;
+	font-weight: bold;
+	padding-left:3%;
+}
+
+
+
+
+/*FIM DA ESTILLIZAÇÃO PÁGINA DE ATRAÇÕES*/
