@@ -36,14 +36,13 @@ body {
 
 
 .paginaAtual{
-	display: inline-block;
+	display: inline-block; /*removida borda*/
 	text-align: left;
 	font-size: 70px;
 	font-weight: bold;
 	color: white;
 	margin-left: 30px;
 	padding-right: 40px;
-	border-bottom: white solid;
 }
 
 .TogglerPaginaAtual{
@@ -75,6 +74,7 @@ img.logo{
 	height: 100%;
 	max-width: 400px;
 	max-height: 200px;
+	min-width: 70px; /*bug na tela do ipad, a logo fica minuscula*/
 
 }
 
@@ -99,8 +99,8 @@ img.logo{
 }
 
 li.nav-item{
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: 8px; /*ambas eram 10px, alteradas para 8 para evitar bug na tela do ipad*/
+	margin-left: 8px;
 	opacity: 1;
 }
 a.nav-link{
