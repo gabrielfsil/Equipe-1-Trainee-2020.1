@@ -360,4 +360,14 @@ p,.texto,.texto2{
 	}
 
 }
-
+    .quemsomos {
+	  color: rgb(39, 38, 38);
+	  background-color: white;
+	  text-align: justify;
+	  padding: 50px 80px;
+	  margin-top: 100px;
+	  height: 100%;
+	  
+	}
+	  
+	
