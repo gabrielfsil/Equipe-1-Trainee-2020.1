@@ -9,7 +9,7 @@ body {
 }
 
 
-.paralax1, .paralax2, .paralax3{
+.paralax1, .paralax2, .paralax3, .paralax4, .paralax5{  /*adicionado paralax4, paralax5*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -42,8 +42,6 @@ body {
 	font-weight: bold;
 	color: white;
 	margin-left: 30px;
-	padding-right: 40px;
-	border-bottom: white solid;
 }
 
 .TogglerPaginaAtual{
@@ -75,6 +73,7 @@ img.logo{
 	height: 100%;
 	max-width: 400px;
 	max-height: 200px;
+	min-width: 70px; /*bug na tela do ipad, a logo fica mt pequena*/
 
 }
 
@@ -99,8 +98,8 @@ img.logo{
 }
 
 li.nav-item{
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: 8px; /*ambas eram 10px, alteradas para 8 para evitar bug na tela do ipad*/
+	margin-left: 8px;
 	opacity: 1;
 }
 a.nav-link{
@@ -358,6 +357,11 @@ h5.blue{
 	height: 100%;
 }
 
+/*para pagina atrações*/
+.paginaAtracoesFrase{
+	display: none;
+}
+
 @media (max-width: 767px){ 
 	
 	.carousel-inner > .carousel-item > img {
@@ -382,6 +386,10 @@ h5.blue{
 		height: 60px;
 		
 	}
+
+	.TogglerPaginaAtual{
+		display: inline-block;
+	}
 	.navbar-toggler span{
 		width: 30px;
 		height: 30px;
@@ -405,10 +413,6 @@ h5.blue{
 	 display: none;
 	}
 
-	.TogglerPaginaAtual{
-		display: inline-block;
-	}
-
 	.coluna{
 		display: none;
 	}
@@ -417,12 +421,339 @@ h5.blue{
 		margin-top: 0;
 	}
 
+	.FontPequena{  /* class para diminuir o tamanho do titulo quando a tela é pequena, para nao bugar a formatação da navbar*/
+		font-size: 18px;
+	}
+
+
+	/*pagina quem somos*/
+
+	/*Valores*/
+
+	.CardFoto p{  /* alteraçoes nos cards para facilitar visualização no cell*/
+		display: none;
+	}
+
+	.FotoContainer{
+		width: 100% !important;
+	}
+
+	.card-img{
+		width: 100%;
+		height: 200px;
+	}
+
+	/*Missao*/
+
+	.MissaoIcone{
+		width: 50px;
+	}
+
+
+	.SubMissao{
+		width: 100% !important;
+	}
+
+
+	/*historia*/
+
+	.HistTexto h2{
+		font-size: 30px !important;
+	}
+
+	.timeline img{
+		width: 140px !important;
+		height: 1000px !important;
+	}
+
+	.timeline{
+		margin-left: 0 !important;
+	}
+
+	/*para pagina atrações*/
+	.paginaAtracoesFrase{ 
+		padding-bottom: 4%;
+		padding-top: 4%;
+		text-align: left;
+		font-weight: bold;
+		display: inline-block;
+		color:#0c5da6;
+	}
+
+
 }
+
+
+
+
+
+
+/*Página Quem Somos*/
+
+.paralax4{
+	background-image: url(../img/bg7.jpg);
+
+
+	
+}
+
+
+.paralax5{  /* obs: é um paralax*/
+	background-image: url(../img/bg8.jpg);
+
+}
+
+.fotos, .missao{
+	padding: 10px;
+	width: 90%;
+	text-align: center;
+	margin: 0 auto;
+}
+
+
+
+.fotos h1{
+	font-size: 50px;
+	font-weight: bold;
+	padding: 20px;
+	margin: 10px 0;
+	color: white;
+	
+
+}
+
+.fotos{
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-bottom: 40px;
+	padding-top: 5px;
+	background-color: rgba(0, 11, 32, 0.918);
+
+}
+
+
+.missao{
+	background-color:rgba(27,139,165,0.800);
+}
+
+/* classes da cardfoto*/
+
+.FotoContainer{
+	overflow: hidden;
+	text-overflow: hidden;
+	display: inline-block;
+	width: 32.5%;
+	height: 270px;
+	max-width: 400px;
+	background-color: rgba(255, 255, 255, 0.150);
+}
+
+.card-img{
+	width: 100%;
+	height: 270px;
+	
+}
+
+.verde{
+	background-color: rgba(32, 212, 32, 0.700);
+}
+
+.rosa{
+	background-color: rgba(241, 15, 211, 0.7);
+}
+
+.amarelo{
+	color: black;
+	background-color: rgba(255, 255, 0, 0.700);
+}
+
+.amarelo h5{
+	color: black !important;
+}
+
+.azul{
+	 background-color: rgba(66, 122, 226,0.700);
+}
+
+.vermelho{
+	background-color: rgba(255, 0, 0, 0.700);
+}
+
+.preto{
+	background-color: rgba(0, 0, 0,0.7);
+}
+
+
+.CardFoto{
+	width: 100%;
+	border-radius: 0%;
+
+}
+
+
+.card-img-overlay{
+	opacity: 0;
+	
+}
+.CardFoto h5{
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
+.CardFoto:hover .card-img-overlay{
+	
+	opacity: 1;
+	transition: 0.5s;
+
+}
+
+.CardFoto:hover{
+	transform: scale(1.1);
+	transition: 0.5s;
+}
+
+/* classes da missao*/
+
+.missao{
+	text-align: center;
+	padding: 40px;
+	
+}
+
+.missao h1{
+	font-size: 55px;
+	color: white;
+	font-weight: bold;
+	margin: 0 auto;
+	margin-bottom: 3%;
+	border-bottom: solid white;
+	
+}
+
+.SubMissao{
+	width: 32%;
+	color: white;
+	display: inline-block;
+	padding: 4px;
+	vertical-align: top;  /* p/ evitar bug de formatação*/
+
+
+}
+
+
+.MissaoTitulo1, .MissaoTitulo2, .MissaoTitulo3{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+.MissaoTitulo1{
+	color: white;
+}
+
+.MissaoTitulo2{
+	color: red;
+}
+
+.MissaoTitulo3{
+	color: orange;
+}
+
+.MissaoIcone{
+	
+	opacity: 0.8;
+	width: 125px;
+	margin: 5px;
+}
+
+
+/*classes da historia*/
+
+.historia{ /* é um paralax*/
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	background-image: url(../img/old.png);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.TituloHistoria h1{
+	width: 100%;
+	font-size: 50px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+
+
+.TituloHistoria{
+	background-color:  rgba(143, 1, 1, 0.85);
+	margin: 0;
+	padding: 30px;
+	color: white;
+}
+
+.HistTexto{
+	display: block;
+	width: 90%;
+	font-size: 20px;
+	background-color: rgba(143, 1, 1, 0.85);
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px;
+	color: white;
+
+}
+
+.HistTexto h2{
+	display: inline-block;
+	font-size: 50px;
+	font-weight: bold;
+	margin-left: auto;
+	margin-right: 40px;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+
+.HistImg{
+	display: inline-block;
+	width: 40%;
+	margin: 10px auto;
+	border: white solid 3px;
+	min-width: 200px;
+}
+
+.hrHist{
+	 border-top: 2px solid;
+}
+
+
 
 /* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
 
-.card img{
+.atracoes .card img{
 	width: 100%;
+}
+
+.atracoes .cards-cat{
+	color: #fc2c2a;
+	font-weight: bold;
+}
+
+.atracoes .card-title{
+	color:#ffa100;
 }
 .atracoes{
 	/*background-color:  rgba(158, 51, 131, 0.5);*/
@@ -431,24 +762,16 @@ h5.blue{
 	padding-right: 5%;
 	padding-left: 5%;
 	background-color: rgb(255, 220, 238);
+	/*background-color: #fefec9;*/
 
-}
-
-.atracoes h1{
-	color: white;
-	font-size: 50px;
-	font-weight: bold;
-	margin-bottom: 15px;
 }
 
 .atracoes h2{
-	color: rgb(236, 81, 9);
+	/*color: rgb(236, 81, 9);*/
+	color:#fc2c2a;
 	font-size: 30px;
-	text-align: center;
+	text-align: left;
 	margin-top: 1%;
-
-
-
 }
 
 .atracoes-paralax1{
@@ -460,14 +783,17 @@ h5.blue{
 	background-position: center;
 	margin: 0;
 	padding: 0;
-	background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(../img/bg3.jpg);;
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../img/bg3.jpg)
 }
 .atracoes-paralax1 h1{
 	color: white;
 	font-weight: bold;
 	padding-left:3%;
 }
-
+.atracoes .results{
+	font-size: 20px;
+	font-weight: bold;
+}
 
 
 
