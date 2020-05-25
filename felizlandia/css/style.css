@@ -386,3 +386,21 @@ p,.texto,.texto2{
 	background-image: url(../img/bg2.jpg);
 }
 
+.cards-contact {
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+.text-contact {
+	background-color: wheat;
+	opacity: 0.3;
+	height: 200px;
+}
+
+.text-contact p {
+	color: white;
+}
+
+.icon-map {
+	align-items: center;
+}
