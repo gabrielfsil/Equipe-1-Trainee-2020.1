@@ -23,7 +23,14 @@ body {
 
 .paralax1{
 	background-image: url(../img/bg1.gif);
+	height: 960px;
+	top: 888px;
 	 
+}
+
+.paralax1 h1 {
+	padding-top: 200px;
+	padding-left: 30px;
 }
 
 .paralax2{
@@ -359,5 +366,23 @@ p,.texto,.texto2{
 		margin-top: 0;
 	}
 
+}
+
+/* Estilização da página contato.html */
+
+.content {
+    /*padding: 0px 0px 2000px 0px;*/
+    /*padding-top: 80px;
+    padding-right: 180px;
+    padding-bottom: 80px;
+    padding-left: 100px;*/
+
+
+	
+	
+}
+
+.contact {
+	background-image: url(../img/bg2.jpg);
 }
 
