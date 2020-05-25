@@ -480,7 +480,7 @@ h5.blue{
 		color:#0c5da6;
 	}
 
-
+	
 }
 
 
@@ -761,7 +761,7 @@ h5.blue{
 	padding-top:3%;
 	padding-right: 5%;
 	padding-left: 5%;
-	background-color: #eeece1;/*branco gelo*/
+	background-color: rgb(250, 250, 250);/*branco gelo*/
 	/*background-color: #fefec9;*/
 
 }
@@ -777,7 +777,7 @@ h5.blue{
 .atracoes-paralax1{
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-attachment: fixed;
+	background-attachment: local;
 	width: 100%;
 	height: 100%;
 	background-position: center;
