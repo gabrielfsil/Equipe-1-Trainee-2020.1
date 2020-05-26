@@ -80,14 +80,12 @@ img.logo{
 
 .carousel{
 	display: inline-block;
-	padding: 10px;
 	background-color: rgb(39, 38, 38);
-	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 95%; /*de 70% para 95%*/
-	height: 95%;
+	width: 100%; /*de 70% para 95%*/
+	height: 80%;
 	max-width: 2000px;  /* de 1100 para 2000*/
-	max-height: 1800px;	/*de 900 para 1800*/
+	max-height: 1200px;	/*de 900 para 1200*/
 	
 }
 
@@ -131,7 +129,7 @@ li.nav-item:hover{
 	width: 40em;
 	height: 30em;
 	max-width: 2000px; /*de 1100 para 2000px*/
-	max-height: 1800px; /*de 900 para 1800px*/
+	max-height: 1200px; /*de 900 para 1200px*/
   }
 
 .menu{
@@ -144,7 +142,7 @@ li.nav-item:hover{
 .rodape{
 	width: 100%;
 	background-color:rgba(27, 155, 214, 0.95);
-	color: rgba(247, 211, 8, 0.95);
+	color: rgba(247, 211, 8, 0.95); 
 	text-align: center;
 	font-size: 80px;
 	line-height: 100px;
@@ -161,7 +159,6 @@ li.nav-item:hover{
 	/*font-weight: bold;*/
 	margin: 10px auto;
 	text-align: center;
-	padding-top: 10px;
 	margin-top: 0;
 }
 
@@ -512,13 +509,13 @@ h5.blue{
 	padding-right: 15px;
 	padding-bottom: 40px;
 	padding-top: 5px;
-	background-color: rgba(0, 11, 32, 0.918);
+	background-color: rgba(0, 0, 0, 0.8);
 
 }
 
 
 .missao{
-	background-color:rgba(27,139,165,0.800);
+	background-color:rgba(27, 155, 214, 0.95)
 }
 
 /* classes da cardfoto*/
@@ -682,17 +679,19 @@ h5.blue{
 
 
 .TituloHistoria{
-	background-color:  rgba(143, 1, 1, 0.85);
+	width: 90%;
+	background-color:  rgba(25, 67, 160, 0.800);
 	margin: 0;
-	padding: 30px;
-	color: white;
+	padding: 35px;
+	color: rgb(235, 202, 19);
+	margin: 0 auto;
 }
 
 .HistTexto{
 	display: block;
 	width: 90%;
 	font-size: 20px;
-	background-color: rgba(143, 1, 1, 0.85);
+	background-color: rgba(25, 67, 160, 0.800);
 	text-align: center;
 	margin: 0 auto;
 	padding: 20px;
