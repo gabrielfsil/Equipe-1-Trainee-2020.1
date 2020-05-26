@@ -383,14 +383,14 @@ p,.texto,.texto2{
 
 .cards-contact {
 	height: 100%;
-	background-color: rgba(255, 255, 255, 0.75);
+	background-color: rgba(255, 255, 255, 0.92);
 }
 
 .text-contact {
-	background-color: rgba(254,254,201, 0.4);
+	background-color: rgba(254,254,201, 0.67);
 	height: 25%;
 	padding-top: 1%;
-	
+	padding-bottom: 1%;
 }
 
 .text-contact p {
