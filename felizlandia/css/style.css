@@ -86,6 +86,7 @@ img.logo{
 	height: 80%;
 	max-width: 2000px;  /* de 1100 para 2000*/
 	max-height: 1200px;	/*de 900 para 1200*/
+	padding: 0;
 	
 }
 
@@ -136,6 +137,8 @@ li.nav-item:hover{
 	text-align: center;
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 	
 }
 
@@ -160,6 +163,7 @@ li.nav-item:hover{
 	margin: 10px auto;
 	text-align: center;
 	margin-top: 0;
+	padding: 0 !important; /* se nao colocar important bootstrap sobrepoem*/
 }
 
 .texto h1{
@@ -414,7 +418,8 @@ h5.blue{
 	}
 
 	.FontPequena{  /* class para diminuir o tamanho do titulo quando a tela é pequena, para nao bugar a formatação da navbar*/
-		font-size: 18px;
+		font-size: 15px;
+		margin: 1px;
 	}
 
 
@@ -481,7 +486,7 @@ h5.blue{
 
 
 .paralax5{  /* obs: é um paralax*/
-	background-image: url(../img/bg8.jpg);
+	background-color: white;
 
 }
 
@@ -509,13 +514,13 @@ h5.blue{
 	padding-right: 15px;
 	padding-bottom: 40px;
 	padding-top: 5px;
-	background-color: rgba(0, 0, 0, 0.8);
+	background-color: rgba(0, 0, 0);
 
 }
 
 
 .missao{
-	background-color:rgba(27, 155, 214, 0.95)
+	background-color:rgba(27, 155, 214)
 }
 
 /* classes da cardfoto*/
@@ -663,7 +668,7 @@ h5.blue{
 	background-position: center;
 	margin: 0;
 	padding: 0;
-	background-image: url(../img/old.png);
+	background-color: white;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
@@ -680,10 +685,10 @@ h5.blue{
 
 .TituloHistoria{
 	width: 90%;
-	background-color:  rgba(25, 67, 160, 0.800);
+	background-color:  rgba(25, 67, 160);
 	margin: 0;
 	padding: 35px;
-	color: rgb(235, 202, 19);
+	color: white;
 	margin: 0 auto;
 }
 
@@ -691,7 +696,7 @@ h5.blue{
 	display: block;
 	width: 90%;
 	font-size: 20px;
-	background-color: rgba(25, 67, 160, 0.800);
+	background-color: rgba(25, 67, 160);
 	text-align: center;
 	margin: 0 auto;
 	padding: 20px;
