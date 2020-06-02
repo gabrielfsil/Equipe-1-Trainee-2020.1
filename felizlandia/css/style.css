@@ -497,6 +497,10 @@ h5.blue{
 	margin: 0 auto;
 }
 
+.card{
+	border: none; /*modificação na borda dos cards/fotos*/
+}
+
 
 
 .fotos h1{
@@ -504,7 +508,7 @@ h5.blue{
 	font-weight: bold;
 	padding: 20px;
 	margin: 10px 0;
-	color: white;
+	color: rgb(0, 0, 0);
 	
 
 }
@@ -514,7 +518,7 @@ h5.blue{
 	padding-right: 15px;
 	padding-bottom: 40px;
 	padding-top: 5px;
-	background-color: rgba(0, 0, 0);
+	background-color: rgb(208, 242, 255);
 
 }
 
@@ -532,7 +536,6 @@ h5.blue{
 	width: 32.5%;
 	height: 270px;
 	max-width: 400px;
-	background-color: rgba(255, 255, 255, 0.150);
 }
 
 .card-img{
