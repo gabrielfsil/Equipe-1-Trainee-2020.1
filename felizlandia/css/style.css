@@ -49,7 +49,7 @@ body {
 	text-align: center;
 	font-size: 25px;
 	font-weight: bold;
-	color: white;
+	color: white; 
 	margin-left: 10px;
 	margin-right: 15px;
 	padding-right: 10px;
@@ -80,19 +80,18 @@ img.logo{
 
 .carousel{
 	display: inline-block;
-	padding: 10px;
 	background-color: rgb(39, 38, 38);
-	margin-top: 30px;
 	margin-bottom: 30px;
-	width: 70%;
-	height: 90%;
-	max-width: 1100px;
-	max-height: 900px;
+	width: 100%; /*de 70% para 95%*/
+	height: 80%;
+	max-width: 2000px;  /* de 1100 para 2000*/
+	max-height: 1200px;	/*de 900 para 1200*/
+	padding: 0;
 	
 }
 
 .carousel-caption{ 
-	color:yellow; 
+	color:rgb(255, 255, 255);  /*de amarelo para branco*/
 	font-size: 28px;
 	font-weight: bold;
 }
@@ -130,21 +129,23 @@ li.nav-item:hover{
 .carousel-inner > .carousel-item > img {
 	width: 40em;
 	height: 30em;
-	max-width: 1200px;
-	max-height: 900px; 
+	max-width: 2000px; /*de 1100 para 2000px*/
+	max-height: 1200px; /*de 900 para 1200px*/
   }
 
 .menu{
 	text-align: center;
 	width: 100%;
 	height: 100%;
+	margin: 0;
+	padding: 0;
 	
 }
 
 .rodape{
 	width: 100%;
-	background-color: rgba(25, 67, 160, 0.800);
-	color: rgba(247, 211, 8, 0.95);
+	background-color:rgba(27, 155, 214, 0.95);
+	color: rgba(247, 211, 8, 0.95); 
 	text-align: center;
 	font-size: 80px;
 	line-height: 100px;
@@ -155,24 +156,24 @@ li.nav-item:hover{
 .texto{
 	width: 100%;
 	opacity: 1;
-	background-color:  rgba(0, 0, 0, 0.931);
-	color: rgb(26, 142, 209);
+	background-color:  rgba(0, 0, 0, 0.800); /*opacidade de 0.9 para 0.8*/
+	color: rgb(255, 255, 255); /*de azul para branco*/
 	font-size: 30px;
 	/*font-weight: bold;*/
 	margin: 10px auto;
 	text-align: center;
-	padding-top: 10px;
 	margin-top: 0;
+	padding: 0 !important; /* se nao colocar important bootstrap sobrepoem*/
 }
 
 .texto h1{
 	font-weight: bold;
 	font-size: 70px;
-	color: blue;
+	color: rgb(255, 255, 255); /*de azul para branco*/
 }
 
 .texto h2{
-	color: blue;
+	color: rgb(255, 255, 255); /*de azul para branco*/
 	font-size: 50px;
 }
 
@@ -194,7 +195,7 @@ p,.texto,.texto2{
 	width: 100%;
 	opacity: 1;
 	background-color: rgba(25, 67, 160, 0.800);
-	color: white;
+	color: white; 
 	/*font-weight: bold;*/
 	margin: 10px auto;
 	text-align: center;
@@ -216,7 +217,7 @@ p,.texto,.texto2{
 
 .Cartoes{
 	width: 100%;
-	background-color: rgba(247, 211, 8, 0.95);
+	background-color: rgba(27, 155, 214, 0.950);
 	text-align: center;
 	padding-top: 50px;
 	padding-bottom: 50px;
@@ -422,7 +423,8 @@ h5.blue{
 	}
 
 	.FontPequena{  /* class para diminuir o tamanho do titulo quando a tela é pequena, para nao bugar a formatação da navbar*/
-		font-size: 18px;
+		font-size: 15px;
+		margin: 1px;
 	}
 
 
@@ -499,7 +501,7 @@ h5.blue{
 
 
 .paralax5{  /* obs: é um paralax*/
-	background-image: url(../img/bg8.jpg);
+	background-color: white;
 
 }
 
@@ -510,6 +512,10 @@ h5.blue{
 	margin: 0 auto;
 }
 
+.card{
+	border: none; /*modificação na borda dos cards/fotos*/
+}
+
 
 
 .fotos h1{
@@ -517,7 +523,7 @@ h5.blue{
 	font-weight: bold;
 	padding: 20px;
 	margin: 10px 0;
-	color: white;
+	color: rgb(0, 0, 0);
 	
 
 }
@@ -527,13 +533,13 @@ h5.blue{
 	padding-right: 15px;
 	padding-bottom: 40px;
 	padding-top: 5px;
-	background-color: rgba(0, 11, 32, 0.918);
+	background-color: rgb(208, 242, 255);
 
 }
 
 
 .missao{
-	background-color:rgba(27,139,165,0.800);
+	background-color:rgba(27, 155, 214)
 }
 
 /* classes da cardfoto*/
@@ -545,7 +551,6 @@ h5.blue{
 	width: 32.5%;
 	height: 270px;
 	max-width: 400px;
-	background-color: rgba(255, 255, 255, 0.150);
 }
 
 .card-img{
@@ -681,7 +686,7 @@ h5.blue{
 	background-position: center;
 	margin: 0;
 	padding: 0;
-	background-image: url(../img/old.png);
+	background-color: white;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
@@ -697,17 +702,19 @@ h5.blue{
 
 
 .TituloHistoria{
-	background-color:  rgba(143, 1, 1, 0.85);
+	width: 90%;
+	background-color:  rgba(25, 67, 160);
 	margin: 0;
-	padding: 30px;
+	padding: 35px;
 	color: white;
+	margin: 0 auto;
 }
 
 .HistTexto{
 	display: block;
 	width: 90%;
 	font-size: 20px;
-	background-color: rgba(143, 1, 1, 0.85);
+	background-color: rgba(25, 67, 160);
 	text-align: center;
 	margin: 0 auto;
 	padding: 20px;
@@ -738,6 +745,97 @@ h5.blue{
 .hrHist{
 	 border-top: 2px solid;
 }
+
+
+
+
+
+.CardFoto{
+	width: 100%;
+	border-radius: 0%;
+
+}
+
+
+.card-img-overlay{
+	opacity: 0;
+	
+}
+.CardFoto h5{
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
+.CardFoto:hover .card-img-overlay{
+	
+	opacity: 1;
+	transition: 0.5s;
+
+}
+
+.CardFoto:hover{
+	transform: scale(1.1);
+	transition: 0.5s;
+}
+
+/* classes da missao*/
+
+.missao{
+	text-align: center;
+	padding: 40px;
+	
+}
+
+.missao h1{
+	font-size: 55px;
+	color: white;
+	font-weight: bold;
+	margin: 0 auto;
+	margin-bottom: 3%;
+	border-bottom: solid white;
+	
+}
+
+.SubMissao{
+	width: 32%;
+	color: white;
+	display: inline-block;
+	padding: 4px;
+	vertical-align: top;  /* p/ evitar bug de formatação*/
+
+
+}
+
+
+.MissaoTitulo1, .MissaoTitulo2, .MissaoTitulo3{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+.MissaoTitulo1{
+	color: white;
+}
+
+.MissaoTitulo2{
+	color: red;
+}
+
+.MissaoTitulo3{
+	color: orange;
+}
+
+.MissaoIcone{
+	
+	opacity: 0.8;
+	width: 125px;
+	margin: 5px;
+}
+
+
 
 
 
