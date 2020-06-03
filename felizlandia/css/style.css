@@ -859,18 +859,10 @@ h5.blue{
 	color:#ffa100;
 }
 .atracoes{
-	/*background-color:  rgba(158, 51, 131, 0.5);*/
-	/*background-color:  rgb(241, 173, 173,0.5);*/
 	padding-top:3%;
 	padding-right: 5%;
 	padding-left: 5%;
 	background-color: rgb(250, 250, 250);/*branco gelo*/
-	/*background-color: #fefec9;*/
-	margin: 0;
-	padding: 0;
-	background-color: white;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
-
 }
 .atracoes h2{
 	/*color: rgb(236, 81, 9);*/
