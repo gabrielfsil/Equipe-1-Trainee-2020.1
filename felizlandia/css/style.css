@@ -9,7 +9,7 @@ body {
 }
 
 
-.paralax1, .paralax2, .paralax3, .paralax4, .paralax5{  /*adicionado paralax4, paralax5*/
+.paralax1, .paralax2, .paralax3, .paralax4, .paralax5, .paralax-categoria{  /*adicionado paralax4, paralax5*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -262,7 +262,7 @@ h5.blue{
 
 .RedesSociais{
 	width: 100%;
-	background-color: rgb(235, 202, 19);
+	background-color: rgb(249, 193, 32);
 	font-size: 25px;
 	color: rgb(39, 38, 38);
 	font-family: Impact, Charcoal, sans-serif;
@@ -280,7 +280,7 @@ h5.blue{
 
 .subRS a{
 	font-size: 20px;
-	color: rgb(66, 122, 226);
+	color: rgb(25, 67, 160);
 }
 
 .subRS a:hover{
@@ -490,6 +490,11 @@ h5.blue{
 		color:#0c5da6;
 	}
 
+	/*categorias*/
+
+	.list-buttons{
+		width: 85% !important;
+	}
 	
 }
 
@@ -753,97 +758,6 @@ h5.blue{
 
 
 
-
-
-.CardFoto{
-	width: 100%;
-	border-radius: 0%;
-
-}
-
-
-.card-img-overlay{
-	opacity: 0;
-	
-}
-.CardFoto h5{
-	font-size: 30px;
-	font-weight: bold;
-	color: white;
-}
-
-.CardFoto:hover .card-img-overlay{
-	
-	opacity: 1;
-	transition: 0.5s;
-
-}
-
-.CardFoto:hover{
-	transform: scale(1.1);
-	transition: 0.5s;
-}
-
-/* classes da missao*/
-
-.missao{
-	text-align: center;
-	padding: 40px;
-	
-}
-
-.missao h1{
-	font-size: 55px;
-	color: white;
-	font-weight: bold;
-	margin: 0 auto;
-	margin-bottom: 3%;
-	border-bottom: solid white;
-	
-}
-
-.SubMissao{
-	width: 32%;
-	color: white;
-	display: inline-block;
-	padding: 4px;
-	vertical-align: top;  /* p/ evitar bug de formatação*/
-
-
-}
-
-
-.MissaoTitulo1, .MissaoTitulo2, .MissaoTitulo3{
-	font-size: 25px;
-	font-weight: bold;
-	text-align: center;
-	vertical-align: middle;
-	
-}
-
-.MissaoTitulo1{
-	color: white;
-}
-
-.MissaoTitulo2{
-	color: red;
-}
-
-.MissaoTitulo3{
-	color: orange;
-}
-
-.MissaoIcone{
-	
-	opacity: 0.8;
-	width: 125px;
-	margin: 5px;
-}
-
-
-
-
-
 /* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
 
 .atracoes .card img{
@@ -947,3 +861,87 @@ h5.blue{
 }
 
 /* Fim da estilização da página contato.html */
+
+
+/*Inicio da estilização página adminstrativa de categorias*/
+ 
+.paralax-categoria{
+	background-image: url(../img/bg3.jpg);	
+}
+
+
+.principal{
+	width: 100%;
+	text-align: center;
+	
+}
+
+
+.principal h1{
+	color: white;
+	font-size: 50px;
+}
+
+.list-buttons{
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+	padding: 3px;
+	border-radius: 2%;
+}
+
+.principal-button{
+	width: 100%;
+	text-align: center;
+	background: none;
+	height: 50px;
+	display: block;
+	border: none;
+	border-bottom: rgb(214, 214, 214) solid;
+	
+
+
+}
+
+.principal-button.last{
+	border-bottom: none;
+}
+
+.principal-button:hover{
+	background-color: rgba(0, 0, 0, 0.120);
+	padding: 10px;
+
+}
+
+.principal-button a{
+	text-decoration: none;
+}
+
+.principal-button:hover a{
+	text-decoration: none;
+	color: black;
+}
+
+
+/* trocando <br>s por  <divs>*/
+
+.espaço{
+	width: 100%;
+	opacity: 0;
+	height: 200px;
+}
+
+
+.espaço.pequeno{
+	height: 80px;
+}
+
+.espaço.medio{
+	height: 160px;
+}
+
+.espaço.grande{
+	height: 320px;
+}
+
