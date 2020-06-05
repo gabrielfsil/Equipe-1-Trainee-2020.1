@@ -371,137 +371,6 @@ h5.blue{
 	display: none;
 }
 
-
-/*INICIO ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
-.paralax-atracoes{
-	background-image: url(../img/bg3.jpg);	
-}
-.view-adm-atracoes {
-	margin-top: 150px ;
-
-}
-
-
-.view-adm-atracoes h1,h2{
-	color: black;
-	text-align: right;
-	
-}
-.view-adm-atracoes h2{
-	margin-top: 2rem;;
-}
-
-.container .view-adm-box{
-	margin: 0 auto;
-	width: 80%;
-	border-radius: 1rem;
-}
-
-.criar-atracao{
-	padding-top: 150px;
-	padding-right: 5%;
-	padding-left: 5%;
-	padding-bottom: 5%;
-
-
-}
-.criar-atracao h1{
-	color:white;
-	
-}
-.criar-atracao form{
-	color: black;
-	padding: 2rem;
-background-color: rgb(250, 250, 250);/*branco gelo*/	
-border-radius: 2%;
-}
-
-.listar-atracoes{
-	margin-top: 150px ;
-}
-.listar-atracoes h1{
-	color: white;
-}
-
-.principal{
-	width: 100%;
-	text-align: center;
-	
-}
-
-
-.principal h1{
-	color: white;
-	font-size: 50px;
-}
-
-.list-buttons{
-	width: 50%;
-	text-align: center;
-	margin: 0 auto;
-	background-color: white;
-	padding: 3px;
-	border-radius: 2%;
-}
-
-.principal-button{
-	width: 100%;
-	text-align: center;
-	background: none;
-	height: 50px;
-	display: block;
-	border: none;
-	border-bottom: rgb(214, 214, 214) solid;
-	
-
-
-}
-
-.principal-button.last{
-	border-bottom: none;
-}
-
-.principal-button:hover{
-	background-color: rgba(0, 0, 0, 0.120);
-	padding: 10px;
-
-}
-
-.principal-button a{
-	text-decoration: none;
-}
-
-.principal-button:hover a{
-	text-decoration: none;
-	color: black;
-}
-
-
-/* trocando <br>s por  <divs>*/
-
-.espaço{
-	width: 100%;
-	opacity: 0;
-	height: 200px;
-}
-
-
-.espaço.pequeno{
-	height: 80px;
-}
-
-.espaço.medio{
-	height: 160px;
-}
-
-.espaço.grande{
-	height: 320px;
-}
-
-/*FIM ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
-
-
-
 @media (max-width: 767px){ 
 	
 	.carousel-inner > .carousel-item > img {
@@ -624,6 +493,17 @@ border-radius: 2%;
 	/*categorias*/
 
 	.list-buttons{
+		width: 85% !important;
+	}
+
+
+
+	.paralax1{  /* o paralax fica grande dms em celulares*/
+		top: 100px;
+		height: 400px;
+	}
+
+	.Formulario-Categoria{
 		width: 85% !important;
 	}
 	
@@ -986,7 +866,7 @@ border-radius: 2%;
 /* Fim da estilização da página contato.html */
 
 
-/*Inicio da estilização página adminstrativa de categorias*/
+/*Inicio da estilização adm-home*/
  
 .paralax-categoria{
 	background-image: url(../img/bg3.jpg);	
@@ -1046,6 +926,8 @@ border-radius: 2%;
 	color: black;
 }
 
+/*fim da estilização adm-home*/
+
 
 /* trocando <br>s por  <divs>*/
 
@@ -1068,3 +950,100 @@ border-radius: 2%;
 	height: 320px;
 }
 
+
+/*inicio da estilização adm-criar-categoria*/
+
+
+.PrincipalCategoria{
+	 width: 100%;
+	 text-align: center;
+}
+
+.PrincipalCategoria h1{
+	color: white;
+	font-size: 50px;
+}
+
+.Formulario-Categoria{
+	width: 50%;
+	background-color: rgb(251, 251, 251);
+	margin: 40px auto;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.Formulario-Categoria label{
+	color: rgb(15, 15, 15);
+	font-size: 25px;
+
+	margin: 10px;
+}
+
+.Formulario-Categoria input{
+	width: 80%;
+	margin: 15px;
+	font-size: 20px;
+	display: inline-block;
+}
+
+.button-categoria{
+	width: 220px !important;
+	padding: 10px;
+	background-color: rgb(1, 122, 255);
+	border: none;
+	color: white;
+	border-radius: 5%;
+	margin: 10px;
+	text-align: center;
+
+}
+
+.modal-body{
+	text-align: center;
+}
+
+.img-modal{
+	width: 200px;
+	height: 200px;
+}
+
+.listar-categoria{
+	margin-top: 150px;
+}
+
+
+.listar-categoria h1{
+	color: white;
+	display: inline-block;
+}
+
+.lista-box{
+	max-height: 350px;
+	overflow: scroll;
+}
+
+.pagination-listar{
+	display: inline-block;
+}
+
+
+.container.listar-pagination{
+	text-align: right;
+	display: inline-block;
+	width: 49%;
+}
+
+.container.listar-button{
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+
+}
+
+.page-item.active .page-link{
+	background-color: rgb(210,57,73);
+	border: rgb(210,57,73);
+	color: white !important;
+}
+
+/*fim da estilização adm-criar-categoria*/
