@@ -371,6 +371,137 @@ h5.blue{
 	display: none;
 }
 
+
+/*INICIO ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
+.paralax-atracoes{
+	background-image: url(../img/bg3.jpg);	
+}
+.view-adm-atracoes {
+	margin-top: 150px ;
+
+}
+
+
+.view-adm-atracoes h1,h2{
+	color: black;
+	text-align: right;
+	
+}
+.view-adm-atracoes h2{
+	margin-top: 2rem;;
+}
+
+.container .view-adm-box{
+	margin: 0 auto;
+	width: 80%;
+	border-radius: 1rem;
+}
+
+.criar-atracao{
+	padding-top: 150px;
+	padding-right: 5%;
+	padding-left: 5%;
+	padding-bottom: 5%;
+
+
+}
+.criar-atracao h1{
+	color:white;
+	
+}
+.criar-atracao form{
+	color: black;
+	padding: 2rem;
+background-color: rgb(250, 250, 250);/*branco gelo*/	
+border-radius: 2%;
+}
+
+.listar-atracoes{
+	margin-top: 150px ;
+}
+.listar-atracoes h1{
+	color: white;
+}
+
+.principal{
+	width: 100%;
+	text-align: center;
+	
+}
+
+
+.principal h1{
+	color: white;
+	font-size: 50px;
+}
+
+.list-buttons{
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+	padding: 3px;
+	border-radius: 2%;
+}
+
+.principal-button{
+	width: 100%;
+	text-align: center;
+	background: none;
+	height: 50px;
+	display: block;
+	border: none;
+	border-bottom: rgb(214, 214, 214) solid;
+	
+
+
+}
+
+.principal-button.last{
+	border-bottom: none;
+}
+
+.principal-button:hover{
+	background-color: rgba(0, 0, 0, 0.120);
+	padding: 10px;
+
+}
+
+.principal-button a{
+	text-decoration: none;
+}
+
+.principal-button:hover a{
+	text-decoration: none;
+	color: black;
+}
+
+
+/* trocando <br>s por  <divs>*/
+
+.espaço{
+	width: 100%;
+	opacity: 0;
+	height: 200px;
+}
+
+
+.espaço.pequeno{
+	height: 80px;
+}
+
+.espaço.medio{
+	height: 160px;
+}
+
+.espaço.grande{
+	height: 320px;
+}
+
+/*FIM ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
+
+
+
 @media (max-width: 767px){ 
 	
 	.carousel-inner > .carousel-item > img {
