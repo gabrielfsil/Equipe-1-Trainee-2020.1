@@ -270,6 +270,10 @@ h5.blue{
 	margin: 0;
 }
 
+.RedesSociais.adm{
+	background-color: white;
+}
+
 .subRS{ /*redesociais*/
 	padding: 10px;
 	margin-left: 40px;
@@ -281,6 +285,10 @@ h5.blue{
 .subRS a{
 	font-size: 20px;
 	color: rgb(25, 67, 160);
+}
+
+.adm a{
+	color: rgb(210,57,73);
 }
 
 .subRS a:hover{
@@ -296,6 +304,12 @@ h5.blue{
 	width: 100%;
 }
 
+.informaçoes.adm{
+	background-color: rgb(210,57,73);
+	color: black;
+	font-weight: bold;
+}
+
 .barratecnica{
 	margin: 20px;
 	padding: 20px;
@@ -304,6 +318,11 @@ h5.blue{
 	font-weight: bold;
 	color: white;
 	text-align: center;
+	
+}
+.barratecnica.adm {
+	color: black;
+	font-size: 22px;
 	
 }
 
@@ -341,15 +360,25 @@ h5.blue{
 	text-decoration: none;
 }
 
+.barratecnica.adm a{
+	color: white;
+
+}
+
 .barratecnica a:hover{
 	color: rgb(243, 242, 186);
+	transition: 1s;
+}
+
+.barratecnica.adm a:hover{
+	color: rgb(0, 0, 0);
 	transition: 1s;
 }
 
 .icone{
 	width: 30px;
 	height: 30px;
-	margin: 2px;
+	margin: 5px;
 }
 
 .icone:hover{
@@ -506,6 +535,37 @@ h5.blue{
 	.Formulario-Categoria{
 		width: 85% !important;
 	}
+
+	/*evitar bugs com responsividade de pagina listar-categoria*/
+
+	.container.listar-button{
+		width: 150px !important;
+		margin: 10px 0 !important;
+	}
+
+	/*bug de responsividade com o footer*/
+
+	.subRS{
+		margin: 0 !important;
+	}
+
+	.informaçoes{
+		margin: 0 !important;
+	}
+
+	.barratecnica{
+		font-size: 15px !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	
+	
+	.barratecnica img{
+		width: 60px !important;
+		display: block !important;
+		height: 60px !important;
+		margin: 0 auto !important;
+	}	
 	
 }
 
@@ -919,6 +979,7 @@ h5.blue{
 
 .principal-button a{
 	text-decoration: none;
+	color: rgb(210,57,73);
 }
 
 .principal-button:hover a{
