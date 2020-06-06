@@ -315,7 +315,7 @@ h5.blue{
 .informaçoes ul{
 	display: block;
 	list-style: none;
-	margin: 20px, 3% , 3%, 3%; /*setando margem das colunas para forma dinamica feito por bea*/
+	padding:8%; /*setando padding das colunas para forma dinamica feito por bea*/
 
 }
 
