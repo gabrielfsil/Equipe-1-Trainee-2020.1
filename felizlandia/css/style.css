@@ -270,6 +270,10 @@ h5.blue{
 	margin: 0;
 }
 
+.RedesSociais.adm{
+	background-color: white;
+}
+
 .subRS{ /*redesociais*/
 	padding: 10px;
 	margin-left: 40px;
@@ -281,6 +285,10 @@ h5.blue{
 .subRS a{
 	font-size: 20px;
 	color: rgb(25, 67, 160);
+}
+
+.adm a{
+	color: rgb(210,57,73);
 }
 
 .subRS a:hover{
@@ -296,6 +304,12 @@ h5.blue{
 	width: 100%;
 }
 
+.informaçoes.adm{
+	background-color: rgb(210,57,73);
+	color: black;
+	font-weight: bold;
+}
+
 .barratecnica{
 	margin: 20px;
 	padding: 20px;
@@ -304,6 +318,11 @@ h5.blue{
 	font-weight: bold;
 	color: white;
 	text-align: center;
+	
+}
+.barratecnica.adm {
+	color: black;
+	font-size: 22px;
 	
 }
 
@@ -341,15 +360,25 @@ h5.blue{
 	text-decoration: none;
 }
 
+.barratecnica.adm a{
+	color: white;
+
+}
+
 .barratecnica a:hover{
 	color: rgb(243, 242, 186);
+	transition: 1s;
+}
+
+.barratecnica.adm a:hover{
+	color: rgb(0, 0, 0);
 	transition: 1s;
 }
 
 .icone{
 	width: 30px;
 	height: 30px;
-	margin: 2px;
+	margin: 5px;
 }
 
 .icone:hover{
@@ -495,6 +524,48 @@ h5.blue{
 	.list-buttons{
 		width: 85% !important;
 	}
+
+
+
+	.paralax1{  /* o paralax fica grande dms em celulares*/
+		top: 100px;
+		height: 400px;
+	}
+
+	.Formulario-Categoria{
+		width: 85% !important;
+	}
+
+	/*evitar bugs com responsividade de pagina listar-categoria*/
+
+	.container.listar-button{
+		width: 150px !important;
+		margin: 10px 0 !important;
+	}
+
+	/*bug de responsividade com o footer*/
+
+	.subRS{
+		margin: 0 !important;
+	}
+
+	.informaçoes{
+		margin: 0 !important;
+	}
+
+	.barratecnica{
+		font-size: 15px !important;
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+	
+	
+	.barratecnica img{
+		width: 60px !important;
+		display: block !important;
+		height: 60px !important;
+		margin: 0 auto !important;
+	}	
 	
 }
 
@@ -855,7 +926,7 @@ h5.blue{
 /* Fim da estilização da página contato.html */
 
 
-/*Inicio da estilização página adminstrativa de categorias*/
+/*Inicio da estilização adm-home*/
  
 .paralax-categoria{
 	background-image: url(../img/bg3.jpg);	
@@ -908,12 +979,15 @@ h5.blue{
 
 .principal-button a{
 	text-decoration: none;
+	color: rgb(210,57,73);
 }
 
 .principal-button:hover a{
 	text-decoration: none;
 	color: black;
 }
+
+/*fim da estilização adm-home*/
 
 
 /* trocando <br>s por  <divs>*/
@@ -937,3 +1011,100 @@ h5.blue{
 	height: 320px;
 }
 
+
+/*inicio da estilização adm-criar-categoria*/
+
+
+.PrincipalCategoria{
+	 width: 100%;
+	 text-align: center;
+}
+
+.PrincipalCategoria h1{
+	color: white;
+	font-size: 50px;
+}
+
+.Formulario-Categoria{
+	width: 50%;
+	background-color: rgb(251, 251, 251);
+	margin: 40px auto;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.Formulario-Categoria label{
+	color: rgb(15, 15, 15);
+	font-size: 25px;
+
+	margin: 10px;
+}
+
+.Formulario-Categoria input{
+	width: 80%;
+	margin: 15px;
+	font-size: 20px;
+	display: inline-block;
+}
+
+.button-categoria{
+	width: 220px !important;
+	padding: 10px;
+	background-color: rgb(1, 122, 255);
+	border: none;
+	color: white;
+	border-radius: 5%;
+	margin: 10px;
+	text-align: center;
+
+}
+
+.modal-body{
+	text-align: center;
+}
+
+.img-modal{
+	width: 200px;
+	height: 200px;
+}
+
+.listar-categoria{
+	margin-top: 150px;
+}
+
+
+.listar-categoria h1{
+	color: white;
+	display: inline-block;
+}
+
+.lista-box{
+	max-height: 350px;
+	overflow: scroll;
+}
+
+.pagination-listar{
+	display: inline-block;
+}
+
+
+.container.listar-pagination{
+	text-align: right;
+	display: inline-block;
+	width: 49%;
+}
+
+.container.listar-button{
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+
+}
+
+.page-item.active .page-link{
+	background-color: rgb(210,57,73);
+	border: rgb(210,57,73);
+	color: white !important;
+}
+
+/*fim da estilização adm-criar-categoria*/

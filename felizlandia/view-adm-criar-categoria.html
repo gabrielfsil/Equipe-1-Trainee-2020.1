@@ -60,35 +60,51 @@
         </div>
     </nav>
 
-    <div>
 
         <div class="espaço medio"></div>
 
-        <div class="paginaAtual">
-            Administrativo
-        </div>
+        <div class="PrincipalCategoria">
+    
 
-        <div class="espaço pequeno"></div>
-
-        <div class="principal">
-            <h1>O que deseja fazer?</h1>
-            <div class="list-buttons">
-              <button class="principal-button"><a href="#">Gerenciar Atrações</a></button>
-                <button class="principal-button"><a href="#">Gerenciar Categorias</a></button>
-                <button class="principal-button last"><a href="#">Gerenciar Usuários</a></button>
+              
+            <h1>   Criar Categoria</h1>
+            <div class="Formulario-Categoria">
+                <form>
+                <label for="Categoria">Digite o nome da Categoria:</label><br>
+                <input type="text" id="Categoria" name="Categoria"><br>
+                
+                <button type="button" class="bg-danger button-categoria" data-toggle="modal" data-target="#exampleModal">
+                    Criar
+                  </button>
+                
+                
             </div>
+         
+        </div>
+        <div class="espaço grande"></div>
+    
 
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Sua categoria foi criada com Sucesso!</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <img src="img/correto.png" class="img-modal">
+                <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Salvar alterações</button>
+            </div>
+          </div>
         </div>
 
-        <div class="espaço grande"></div>
-
-    </div>
-    
-
-
-    
-
-      
+        </form>
 
 
 
