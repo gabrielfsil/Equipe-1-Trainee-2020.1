@@ -83,7 +83,9 @@
 
 
     <!--IMPORTANDO MODELS-->
-    
+    <?php
+      require 'modals-visualizar-atracao.php';
+    ?>
     <!--FIM IMPORTAÇÃO-->
   <div class="atracoes">
 
