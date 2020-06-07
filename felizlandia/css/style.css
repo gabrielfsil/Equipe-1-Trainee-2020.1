@@ -939,3 +939,74 @@ h5.blue{
 }
 
 /* Fim da estilização da página contato.html */
+
+
+
+
+/* Página de login */
+
+.login {
+	background-image: url(../img/bg3.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+#overlay {
+	position: fixed; /* Colocar no topo da página */
+	display: block; /* estar ativo mostrar o overlay */
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0,0,0,0.65); /* Background preto com opacidade*/
+	z-index: 0; /* altura no componente z: fica abaixo das outras coisas */
+  }
+
+.login-top {
+    height: 250px;
+}
+
+div.center, p.center, img.center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    display: block;
+    text-align: center;
+}
+
+.login-header {
+    margin-top: 30px;
+    padding-top: 30px;
+    height: 120px;
+}
+
+.login-logo {
+    max-width: 120px;
+    width: auto;
+	height: auto;
+	margin-bottom: 20px;
+}
+
+.login-header h2 {
+	font-weight: bold;
+	color: #ffa100;
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+}
+
+.red {
+    color: #B94846;
+}
