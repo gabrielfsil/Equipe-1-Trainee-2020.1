@@ -966,8 +966,22 @@ h5.blue{
 	z-index: 0; /* altura no componente z: fica abaixo das outras coisas */
   }
 
+
 .login-top {
     height: 250px;
+}
+
+.login-header {
+    margin-top: 30px;
+    padding-top: 30px;
+    height: 120px;
+}
+
+.login-logo {
+    max-width: 160px;
+    width: auto;
+	height: auto;
+	margin-bottom: 22px;
 }
 
 div.center, p.center, img.center {
@@ -978,35 +992,70 @@ div.center, p.center, img.center {
     text-align: center;
 }
 
-.login-header {
-    margin-top: 30px;
-    padding-top: 30px;
-    height: 120px;
-}
-
-.login-logo {
-    max-width: 120px;
-    width: auto;
-	height: auto;
-	margin-bottom: 20px;
-}
-
 .login-header h2 {
 	font-weight: bold;
 	color: #ffa100;
 }
 
-.well {
-    min-height: 20px;
+
+
+.login-box {
     padding: 19px;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
     background-color: #f5f5f5;
     border: 1px solid #e3e3e3;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
 }
 
-.red {
-    color: #B94846;
+
+.input-element {
+    display: table;
+	height: 50px;
+	line-height: 1;
+	margin-bottom: 40px;
+}
+
+.input-icon {
+	border-radius: 6px;
+	border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    padding: 14px 16px;
+    background-color: #eeeeee;
+    border: 1px solid #cccccc;
+	width: 1%;
+	vertical-align: middle;
+	display: table-cell;
+	border-right: 0;
+}
+
+.input-element .form-control {
+	border-radius: 6px;
+	height: 54px;
+	border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+i.fas, .fa-lock, .fa-at {
+  /* color: #0c5da6; */
+  color: #b94846;
+  font-size: 18px;
+}
+
+.btn {
+	background-color: #0c5da6;
+}
+
+
+
+@media (max-width: 768px) { 
+	.login-top {
+		margin-bottom: 20px;
+	}
+	/*colocar coisas aqui para o login ficar na tela inteira*/
+}
+
+@media (max-width: 366px) { 
+	.login-top {
+		margin-bottom: 50px;
+	}	
 }
