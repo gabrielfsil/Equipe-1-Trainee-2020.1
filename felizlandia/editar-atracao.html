@@ -75,7 +75,7 @@ background-attachment: fixed;">
   <div class='container' >
     <div class="row mb-4">
             <div class="col d-flex justify-content-center">
-              <h1>Criar atração</h1>
+              <h1>Editar atração</h1>
             </div>
     </div>
     <div class="row">
@@ -83,28 +83,33 @@ background-attachment: fixed;">
            <form class="col-md-6" method="POST" action = '#'><!--FORMULARIO-->
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
-                  <input type="text" name="nome" class="form-control" id="exampleFormControlInput1">
+                  <input type="text" name="nome" value="vem da base de dados" class="form-control" id="exampleFormControlInput1">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3">
+                  vem da base de dados
+                </textarea>
               </div>
               <div class="form-group">
                     <label for="exampleFormControlSelect1">Categoria</label>
                     <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                      <option>vem da base de dados</option>
+                      <option>vem da base de dados</option>
+                      <option>vem da base de dados</option>
+                      <option>vem da base de dados</option>
+                      <option>vem da base de dados</option>
                     </select>
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Valor</label>
-                <input type="text" name="valor" class="form-control" id="exampleFormControlInput1">
+                <input type="text" name="valor" value="vem da base de dados"  class="form-control" id="exampleFormControlInput1">
               </div>
               <div class="form-group">
-                <label for="exampleFormControlFile1">Foto</label>
+                <label for="exampleFormControlFile1" >Foto</label>
+                <div class="imagem-db">
+                  <img src="getImage.php?id=1" width="175" height="200" />
+                </div>
                 <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
@@ -124,9 +129,9 @@ background-attachment: fixed;">
               </div>
               
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="view-adm-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
 
-                <button type="submit" onclick="this.form.reset()" class="btn btn-primary w-50 mt-3 mb-0">Enviar</button>
+                <button type="submit" onclick="this.form.reset()" class="btn btn-primary w-50 mt-3 mb-0">Atualizar</button>
 
               </div>
 

@@ -12,7 +12,6 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
- 
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <!--JAVASCRIPT-->
@@ -35,6 +34,15 @@
 background-repeat: no-repeat;
 background-attachment: fixed;">
 
+<!--PARALAX
+<div class="atracoes-paralax1">
+     <br><br><br>
+     <br><br>
+    
+    </div>
+  
+
+FIM PARALAX-->
 
   <nav id="navbar" class="navbar navbar-expand-md navbar-dark fundofalso sticky" > <!-- bg-transparent-->
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
@@ -71,72 +79,101 @@ background-attachment: fixed;">
      
 <!--CONTEÚDO PRINCIPAL-->
 
-<div class="criar-atracao">
-  <div class='container' >
+<div class="apagar-atracao">
+  <div class="container" >
     <div class="row mb-4">
             <div class="col d-flex justify-content-center">
-              <h1>Criar atração</h1>
+              <h1>Apagar atração</h1>
             </div>
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST" action = '#'><!--FORMULARIO-->
-              <div class="form-group">
-                  <label for="exampleFormControlInput1">Nome</label>
-                  <input type="text" name="nome" class="form-control" id="exampleFormControlInput1">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
-              <div class="form-group">
-                    <label for="exampleFormControlSelect1">Categoria</label>
-                    <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Valor</label>
-                <input type="text" name="valor" class="form-control" id="exampleFormControlInput1">
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Foto</label>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
+           <form class="col-md-6">
+            <fieldset disabled>
 
-               <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
-                  <div class=" image-preview">
-                        <input type="file" name="foto" class="form-control-file" accept="image/*" onchange="loadFile(event)">
-                        <img id="output"/>
-                        <script>
-                          var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                            output.onload = function() {
-                              URL.revokeObjectURL(output.src) // free memory
-                            }
-                          };
-                        </script>                  
-                  </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Nome</label>
+                <input type="text" name="nome" value="vem da base de dados" class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descrição</label>
+              <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3">
+                vem da base de dados
+              </textarea>
+            </div>
+            <div class="form-group">
+                  <label for="exampleFormControlSelect1">Categoria</label>
+                  <select class="form-control" name="categoria" id="exampleFormControlSelect1">
+                    <option>vem da base de dados</option>
+                    <option>vem da base de dados</option>
+                    <option>vem da base de dados</option>
+                    <option>vem da base de dados</option>
+                    <option>vem da base de dados</option>
+                  </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Valor</label>
+              <input type="text" name="valor" value="vem da base de dados"  class="form-control" id="exampleFormControlInput1">
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1" >Foto</label>
+              <div class="imagem-db">
+                <img src="getImage.php?id=1" width="175" height="200" />
               </div>
-              
+              </fieldset>
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="view-adm-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
 
-                <button type="submit" onclick="this.form.reset()" class="btn btn-primary w-50 mt-3 mb-0">Enviar</button>
-
-              </div>
-
+                <button class="btn btn-danger" type="button" id="dropdownMenuButton"data-toggle="modal" data-target="#exampleModal">
+                  Apagar
+                  </button>
+           <!--colocar confirmação-->
+            </div>
             </form>
 
           </div><!--fecha div coluna-->
-      </div><!--fecha div row-->
-  </div><!--fecha div container-->
+       </div>
+  </div>
 
 </div>
             
+          
+          
+         <!--MODAL-->
+             
+  <form>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog  modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo apagar essa atração?</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <img src="img/lixeira.png" class="img-modal">
+              <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+          </div>
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-danger" value ="delete" name="delete">apagar</button>
+          </div>
+        </div>
+      </div>
+    </form>
+            
+      
+  
+
+
+
+ 
+
+  
+
+
+
+
+
 </body>
 </html>

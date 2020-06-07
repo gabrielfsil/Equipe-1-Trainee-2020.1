@@ -9,7 +9,7 @@ body {
 }
 
 
-.paralax1, .paralax2, .paralax3, .paralax4, .paralax5{  /*adicionado paralax4, paralax5*/
+.paralax1, .paralax2, .paralax3, .paralax4, .paralax5, .paralax-categoria, .paralax-atracoes, .paralax-atracoes-home{  /*adicionado paralax4, paralax5*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -42,6 +42,11 @@ body {
 	font-weight: bold;
 	color: white;
 	margin-left: 30px;
+}
+
+.paginaAtual .subtitulo{
+	font-size: 30px;
+	text-align: center;
 }
 
 .TogglerPaginaAtual{
@@ -315,8 +320,7 @@ h5.blue{
 .informaçoes ul{
 	display: block;
 	list-style: none;
-	padding:8%; /*setando padding das colunas para forma dinamica feito por bea*/
-
+	padding: 10%;
 }
 
 .informaçoes li{
@@ -426,9 +430,16 @@ h5.blue{
 /*INICIO ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
 .paralax-atracoes{
 	background-image: url(../img/bg3.jpg);	
+	margin-top: 140px;
 }
+.paralax-atracoes-home{
+	background-image: url(../img/bg3.jpg);	
+	/*margin-top: 120px;*/
+}
+
+
 .view-adm-atracoes {
-	margin-top: 150px ;
+	margin:auto;
 
 }
 
@@ -448,31 +459,101 @@ h5.blue{
 	border-radius: 1rem;
 }
 
-.criar-atracao{
-	padding-top: 150px;
+
+.criar-atracao, .apagar-atracao, .visualizar-atracao{
+	padding-top: 120px;
 	padding-right: 5%;
 	padding-left: 5%;
 	padding-bottom: 5%;
 
 
 }
-.criar-atracao h1{
+.criar-atracao h1, .apagar-atracao h1, .visualizar-atracao h1{
 	color:white;
+	margin-bottom: 1rem;
 	
 }
-.criar-atracao form{
+.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
 	color: black;
 	padding: 2rem;
 background-color: rgb(250, 250, 250);/*branco gelo*/	
 border-radius: 2%;
 }
 
-.listar-atracoes{
-	margin-top: 150px ;
+/*controle do input file image da view adm atracoes*/
+.container{
+    margin-top:20px;
 }
+.image-preview img, input{
+	max-width: 80%;
+}
+
+.imagem-db img{
+	max-width: 80%;
+}
+/*fim controle do input file image da view adm atracoes*/
+
+
 .listar-atracoes h1{
 	color: white;
+	display: inline-block;
 }
+.lista-box{
+	max-height: 350px;
+	overflow: scroll;
+}
+
+.pagination-listar{
+	display: inline-block;
+}
+
+
+.container.listar-pagination{
+	text-align: right;
+	display: inline-block;
+	width: 49%;
+}
+
+.container.listar-button{
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+
+}
+
+.page-item.active .page-link{
+	background-color: rgb(210,57,73);
+	border: rgb(210,57,73);
+	color: white !important;
+}
+
+.modal-body{
+	text-align: center;
+}
+
+.img-modal{
+	width: 200px;
+	height: 200px;
+}
+.voltar{
+	color:white;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.120);
+}
+
+.header-form{
+	margin-left: 25%;
+	font-size: 30px;
+	
+}
+
+.principal .principal-atracoes{
+	font-size: 40px;
+}
+/*FIM ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
+
+
 
 .principal{
 	width: 100%;
@@ -527,18 +608,7 @@ border-radius: 2%;
 	color: black;
 }
 
-/*controle do input file image da view adm atracoes*/
-.container{
-    margin-top:20px;
-}
-.image-preview img, input{
-	max-width: 80%;
-}
 
-.imagem-db img{
-	max-width: 80%;
-}
-/*fim controle do input file image da view adm atracoes*/
 
 /*tirando o sublinhado do link alterado por bea*/
 .principal a{
@@ -554,7 +624,7 @@ border-radius: 2%;
 
 
 .espaço.pequeno{
-	height: 80px;
+	height: 60px;/*mudando de 80 pra 60 alteração feita por bea*/
 }
 
 .espaço.medio{
@@ -566,7 +636,6 @@ border-radius: 2%;
 }
 
 
-/*FIM ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
 
 @media (max-width: 767px){ 
 	
@@ -687,6 +756,30 @@ border-radius: 2%;
 		color:#0c5da6;
 	}
 
+	/*pagina adm atracoes*/
+	.listar-atracoes h1{
+		font-size: 20px;
+	}
+	 .visualizar-atracao h1, .apagar-atracao h1{
+		font-size: 30px;
+		
+	}
+	.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
+		padding:1rem;
+	}
+	.paralax-atracoes-home .principal{
+		padding-top: 10%;
+		font-size: 15px;
+	}
+	.paralax-atracoes-home .principal button{
+		width: 100%;
+	}
+	/*fim pagina adm atracoes*/
+
+	/*aumentando tamanho dos botões em telas de celular feito por bea*/
+	.list-buttons{
+		width: 60%;;
+	}
 	/*para o footer*/
 	.barratecnica , .informaçoes{
 		margin:0;
