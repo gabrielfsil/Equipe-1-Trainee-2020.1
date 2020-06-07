@@ -1045,7 +1045,9 @@ i.fas, .fa-lock, .fa-at {
 	background-color: #0c5da6;
 }
 
-
+.login-logo:hover { 
+	cursor: pointer; 
+}
 
 @media (max-width: 768px) { 
 	.login-top {
