@@ -270,10 +270,6 @@ h5.blue{
 	margin: 0;
 }
 
-.RedesSociais.adm{
-	background-color: white;
-}
-
 .subRS{ /*redesociais*/
 	padding: 10px;
 	margin-left: 40px;
@@ -298,20 +294,22 @@ h5.blue{
 
 .informaçoes{
 	margin: 0;
+	padding: 0;
+	font-size: 15px;
 	background-color: rgb(25, 67, 160);
 	color: white;
-	font-size: 15px;
 	width: 100%;
 }
 
 .informaçoes.adm{
+	margin: 0;
 	background-color: rgb(210,57,73);
 	color: black;
 	font-weight: bold;
 }
 
 .barratecnica{
-	margin: 20px;
+	margin: 0;
 	padding: 20px;
 	width: 100%;
 	font-size: 20px;
@@ -321,6 +319,7 @@ h5.blue{
 	
 }
 .barratecnica.adm {
+	margin: 0;
 	color: black;
 	font-size: 22px;
 	
@@ -543,15 +542,11 @@ h5.blue{
 		margin: 10px 0 !important;
 	}
 
+	
+
 	/*bug de responsividade com o footer*/
 
-	.subRS{
-		margin: 0 !important;
-	}
-
-	.informaçoes{
-		margin: 0 !important;
-	}
+	
 
 	.barratecnica{
 		font-size: 15px !important;
@@ -929,7 +924,11 @@ h5.blue{
 /*Inicio da estilização adm-home*/
  
 .paralax-categoria{
-	background-image: url(../img/bg3.jpg);	
+	background-image: url(../img/bg3.jpg);
+	margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 
@@ -1101,10 +1100,29 @@ h5.blue{
 
 }
 
+.container.listar-button a{
+	text-decoration: none;
+	color: inherit;
+}
+
 .page-item.active .page-link{
 	background-color: rgb(210,57,73);
 	border: rgb(210,57,73);
 	color: white !important;
 }
 
+.voltar-button{
+	padding: 10px;
+	display: block;
+	margin: 0 auto;
+}
+.voltar-button a, .button-categoria a{
+	text-decoration: none;
+	color: inherit;
+}
+
 /*fim da estilização adm-criar-categoria*/
+
+.spacer{
+	flex: 1;
+}
