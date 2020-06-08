@@ -305,6 +305,7 @@ h5.blue{
 }
 
 .informaçoes.adm{
+	margin: 0;
 	background-color: rgb(210,57,73);
 	color: black;
 	font-weight: bold;
@@ -321,6 +322,7 @@ h5.blue{
 	
 }
 .barratecnica.adm {
+	margin: 0;
 	color: black;
 	font-size: 22px;
 	
@@ -542,6 +544,8 @@ h5.blue{
 		width: 150px !important;
 		margin: 10px 0 !important;
 	}
+
+	
 
 	/*bug de responsividade com o footer*/
 
@@ -1101,10 +1105,25 @@ h5.blue{
 
 }
 
+.container.listar-button a{
+	text-decoration: none;
+	color: inherit;
+}
+
 .page-item.active .page-link{
 	background-color: rgb(210,57,73);
 	border: rgb(210,57,73);
 	color: white !important;
+}
+
+.voltar-button{
+	padding: 10px;
+	display: block;
+	margin: 0 auto;
+}
+.voltar-button a, .button-categoria a{
+	text-decoration: none;
+	color: inherit;
 }
 
 /*fim da estilização adm-criar-categoria*/
