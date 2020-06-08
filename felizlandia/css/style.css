@@ -974,3 +974,23 @@ h5.blue{
 	width: 49%;
 
 }
+
+.criar-usuario, .apagar-usuario, .visualizar-usuario{
+	padding-top: 120px;
+	padding-right: 5%;
+	padding-left: 5%;
+	padding-bottom: 5%;
+
+
+}
+.criar-usuario h1, .apagar-usuario h1, .visualizar-usuario h1{
+	color:white;
+	margin-bottom: 1rem;
+	
+}
+.criar-usuario form, .apagar-usuario form, .visualizar-usuario form{
+	color: black;
+	padding: 2rem;
+	background-color: rgb(250, 250, 250);/*branco gelo*/	
+	border-radius: 2%;
+}
