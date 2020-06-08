@@ -468,6 +468,12 @@ h5.blue{
 
 
 }
+input, select, textarea{ /*para deixar inputs do mesmo tamanho*/
+	-ms-box-sizing:border-box;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box; 
+box-sizing:border-box;
+}
 .criar-atracao h1, .apagar-atracao h1, .visualizar-atracao h1{
 	color:white;
 	margin-bottom: 1rem;
@@ -484,7 +490,7 @@ border-radius: 2%;
 .container{
     margin-top:20px;
 }
-.image-preview img, input{
+.image-preview img{
 	max-width: 80%;
 }
 
@@ -763,6 +769,9 @@ border-radius: 2%;
 	 .visualizar-atracao h1, .apagar-atracao h1{
 		font-size: 30px;
 		
+	}
+	.visualizar-atracao .modal-body{
+		text-align: justify;
 	}
 	.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
 		padding:1rem;
