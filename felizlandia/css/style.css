@@ -939,3 +939,38 @@ h5.blue{
 }
 
 /* Fim da estilização da página contato.html */
+
+
+
+/* Estilos das páginas administrativas de usuários */
+
+.list-users {
+	background-size: cover;	
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+	background-position: center;	
+	margin: 0;
+	padding: 0;
+	background-image: url(../img/bg3.jpg);
+	margin-top: 140px;
+}
+
+.user-list h1{
+	color: white;
+	display: inline-block;
+	font-size: 20px;
+}
+
+.lista-box{
+	max-height: 350px;
+	overflow: scroll;
+}
+
+.container.listar-button{
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+
+}
