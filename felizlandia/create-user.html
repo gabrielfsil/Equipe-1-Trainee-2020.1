@@ -96,32 +96,11 @@
               <label for="exampleInputPassword1">Repita a senha</label>
               <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha">
             </div>
-              <div class="form-group">
-                <label for="exampleFormControlFile1">Foto</label>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
-
-               <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
-                  <div class=" image-preview">
-                        <input type="file" name="foto" class="form-control-file" accept="image/*" onchange="loadFile(event)">
-                        <img id="output"/>
-                        <script>
-                          var loadFile = function(event) {
-                            var output = document.getElementById('output');
-                            output.src = URL.createObjectURL(event.target.files[0]);
-                            output.onload = function() {
-                              URL.revokeObjectURL(output.src) // free memory
-                            }
-                          };
-                        </script>                  
-                  </div>
-              </div>
               
-              <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="view-adm-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
-
-                <button type="submit" onclick="this.form.reset()" class="btn btn-primary w-50 mt-3 mb-0">Criar Usuário</button>
-
-              </div>
+            <div class="form-group d-flex justify-content-between">
+              <a class="d-flex justify-content-center" href="list-users.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+              <a class="d-flex justify-content-center" href="" class="w-50 mt-3 mb-0" data-toggle="modal" data-target="#exampleModal"><button type="submit" onclick="this.form.reset()" class="btn btn-primary">Criar Usuário</button></a>
+            </div>
 
             </form>
 
@@ -130,6 +109,30 @@
   </div><!--fecha div container-->
 
 </div>
+
+
+<form action="view-user.html">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Usuário criado com sucesso.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="img/user.png" class="img-modal">
+            <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-info" type="submit" value="delete" name="delete">Ok</button>
+        </div>
+      </div>
+    </div>
+
+  </div>            
+</form>
             
 </body>
 </html>

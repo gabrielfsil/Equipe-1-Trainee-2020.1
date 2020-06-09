@@ -77,44 +77,38 @@
     <div class="row">
 
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6">
+          <form class="col-md-6">
 
             <fieldset disabled>
-                
               <div class="form-group">
                 <label for="exampleFormControlInput1">Nome</label>
-                <input type="text" name="nome" value="vem da base de dados" class="form-control" id="exampleFormControlInput1">
+                <input type="text" name="nome" value="Amendobobo de Oliveira Orninto" class="form-control" id="exampleFormControlInput1">
               </div>
-              <div class="form-group">
+              <div class="form-group mb-4">
                 <label for="exampleFormControlInput1">Email</label>
                 <input type="email" name="nome" value="ornintolangorinco@mail.com" class="form-control" id="exampleFormControlInput1">
-              </div>
-            <div class="form-group">
-              <label for="exampleFormControlFile1" >Foto</label>
-              <div class="imagem-db">
-                <img src="getImage.php?id=1" width="175" height="200" />
-              </div>
-             
-            </div>      
-                     
-              </fieldset>
-              <div class="form-inline">
-                <div class="form-group d-flex justify-content-between">
-                  <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Editar Usuário</button></a>
-                </div>
-                <div class="form-group d-flex justify-content-between">
-                  <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-danger">&#10094;Excluir Usuário</button></a>
-                </div>
-                <div class="form-group d-flex justify-content-between">
-                  <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-warning">&#10094;Modificar Senha</button></a>
-                </div>
-                <div class="form-group d-flex justify-content-between">
-                  <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-info">&#10094;Voltar</button></a>
-                </div>
-            </div> 
-            </form>
+              </div>       
+            </fieldset>
 
-          </div><!--fecha div coluna-->
+            <div class="form-inline">
+              <div class="form-group d-flex justify-content-between my-1">
+                <a class="d-flex justify-content-center" href="edit-user.html"><button type="button" class="btn btn-primary">&#10094;Editar Usuário</button></a>
+              </div>
+              <div class="form-group d-flex justify-content-between my-1 mx-2">
+                <a class="d-flex justify-content-center" href="change-password.html"><button type="button" class="btn btn-warning">&#10094;Modificar Senha</button></a>
+              </div>
+              <div class="form-group d-flex justify-content-between my-1">
+                <a class="d-flex justify-content-center" href="" data-toggle="modal" data-target="#exampleModal"><button type="button" class="btn btn-danger">&#10094;Excluir Usuário</button></a>
+              </div>
+            </div> 
+            <div class="form-group d-flex justify-content-between my-1">
+              <a class="d-flex justify-content-center" href="list-users.html"><button type="button" class="btn btn-info">&#10094;Voltar</button></a>
+            </div>
+          </form>
+
+
+
+        </div><!--fecha div coluna-->
        </div>
   </div>
 
@@ -123,7 +117,28 @@
           
           
         
-            
+<form action="list-users.html">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog  modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Deseja mesmo excluir este usuário?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <img src="img/trash.png" class="img-modal">
+            <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-danger" type="submit" value="delete" name="delete">Confirmar Exclusão</button>
+        </div>
+      </div>
+    </div>
+
+  </div>            
+</form>
       
   
 
