@@ -468,6 +468,15 @@ h5.blue{
 
 
 }
+
+.centraliza-img{
+	text-align: center;
+}
+.centraliza-img img{
+	max-width: 89%;
+	padding-bottom: 1rem;
+}
+
 input, select, textarea{ /*para deixar inputs do mesmo tamanho*/
 	-ms-box-sizing:border-box;
 -moz-box-sizing:border-box;
@@ -533,7 +542,7 @@ border-radius: 2%;
 	color: white !important;
 }
 
-.modal-body{
+.modal-edicao .modal-body, .modal-exclusao .modal-body{
 	text-align: center;
 }
 
@@ -773,6 +782,7 @@ border-radius: 2%;
 	.visualizar-atracao .modal-body{
 		text-align: justify;
 	}
+	
 	.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
 		padding:1rem;
 	}
