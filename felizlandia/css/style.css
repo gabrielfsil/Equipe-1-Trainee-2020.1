@@ -9,7 +9,7 @@ body {
 }
 
 
-.paralax1, .paralax2, .paralax3, .paralax4, .paralax5, .paralax-categoria{  /*adicionado paralax4, paralax5*/
+.paralax1, .paralax2, .paralax3, .paralax4, .paralax5, .paralax-categoria, .paralax-atracoes, .paralax-atracoes-home{  /*adicionado paralax4, paralax5*/
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -23,14 +23,7 @@ body {
 
 .paralax1{
 	background-image: url(../img/bg1.gif);
-	height: 960px;
-	top: 888px;
 	 
-}
-
-.paralax1 h1 {
-	padding-top: 200px;
-	padding-left: 30px;
 }
 
 .paralax2{
@@ -51,6 +44,11 @@ body {
 	margin-left: 30px;
 }
 
+.paginaAtual .subtitulo{
+	font-size: 30px;
+	text-align: center;
+}
+
 .TogglerPaginaAtual{
 	display: none;
 	text-align: center;
@@ -63,7 +61,6 @@ body {
 	padding-left: 10px;
 
 }
-
 
 .fundofalso{
 	/*background-color: rgb(26, 24, 24) !important;*/
@@ -262,7 +259,7 @@ h5.blue{
 
 .RedesSociais{
 	width: 100%;
-	background-color: rgb(249, 193, 32);
+	background-color: rgb(235, 202, 19);
 	font-size: 25px;
 	color: rgb(39, 38, 38);
 	font-family: Impact, Charcoal, sans-serif;
@@ -280,7 +277,15 @@ h5.blue{
 
 .subRS a{
 	font-size: 20px;
-	color: rgb(25, 67, 160);
+	color: rgb(66, 122, 226);
+}
+
+.adm a{
+	color: rgb(210,57,73);
+}
+
+.adm a{
+	color: rgb(210,57,73);
 }
 
 .adm a{
@@ -293,12 +298,25 @@ h5.blue{
 
 
 .informaçoes{
-	margin: 0;
-	padding: 0;
-	font-size: 15px;
+	margin-top: 0;
 	background-color: rgb(25, 67, 160);
 	color: white;
 	width: 100%;
+	padding-top:40px;/*adicionando paddinf top feito por bea*/
+}
+
+.informaçoes.adm{
+	margin: 0;
+	background-color: rgb(210,57,73);
+	color: black;
+	font-weight: bold;
+}
+
+.informaçoes.adm{
+	margin: 0;
+	background-color: rgb(210,57,73);
+	color: black;
+	font-weight: bold;
 }
 
 .informaçoes.adm{
@@ -309,8 +327,8 @@ h5.blue{
 }
 
 .barratecnica{
-	margin: 0;
-	padding: 20px;
+	margin: auto;/*mudando margin e padding para forma dinamica feito por bea*/
+	padding: 1rem;
 	width: 100%;
 	font-size: 20px;
 	font-weight: bold;
@@ -333,19 +351,18 @@ h5.blue{
 }
 
 .informaçoes h1{
-	font-size: 23px;
+	font-size: 20px;/*mudando tamanho da fonte para melhor responsividade do footer, feito por bea*/
 	font-weight: bold;
 }
 
 .informaçoes ul{
 	display: block;
 	list-style: none;
-	margin: 60px;
-
+	padding: 10%;
 }
 
 .informaçoes li{
-	margin: 7px;
+	margin: 2%;/*mudado de tamaho fixo para porcentagem feito or bea*/
 }
 .informaçoes li:hover{
 	color: yellow;
@@ -394,10 +411,304 @@ h5.blue{
 	height: 100%;
 }
 
+
+/* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
 /*para pagina atrações*/
 .paginaAtracoesFrase{
 	display: none;
 }
+
+.atracoes .card img{
+	width: 100%;
+}
+
+.atracoes .cards-cat{
+	color: #fc2c2a;
+	font-weight: bold;
+}
+
+.atracoes .card-title{
+	color:#ffa100;
+}
+.atracoes{
+	/*background-color:  rgba(158, 51, 131, 0.5);*/
+	/*background-color:  rgb(241, 173, 173,0.5);*/
+	padding-top:3%;
+	padding-right: 5%;
+	padding-left: 5%;
+	background-color: rgb(250, 250, 250);/*branco gelo*/
+	/*background-color: #fefec9;*/
+
+}
+ 
+.atracoes h2{
+	/*color: rgb(236, 81, 9);*/
+	color:#fc2c2a;
+	font-size: 30px;
+	text-align: left;
+	margin-top: 1%;
+}
+
+.atracoes-paralax1{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: local;
+	width: 100%;
+	height: 100%;
+	background-position: center;
+	margin: 0;
+	padding: 0;
+	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../img/bg1.gif)
+}
+.atracoes-paralax1 h1{
+	color: white;
+	font-weight: bold;
+	padding-left:3%;
+}
+.atracoes .results{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+
+
+/*FIM DA ESTILLIZAÇÃO PÁGINA DE ATRAÇÕES*/
+
+
+/*INICIO ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
+.paralax-atracoes{
+	background-image: url(../img/bg3.jpg);	
+	margin-top: 140px;
+}
+.paralax-atracoes-home{
+	background-image: url(../img/bg3.jpg);	
+	/*margin-top: 120px;*/
+}
+
+
+.view-adm-atracoes {
+	margin:auto;
+
+}
+
+
+.view-adm-atracoes h1,h2{
+	color: white;
+	text-align: center;
+	
+}
+.view-adm-atracoes h2{
+	margin-top: 2rem;;
+}
+
+.container .view-adm-box{
+	margin: 0 auto;
+	width: 80%;
+	border-radius: 1rem;
+}
+
+
+.criar-atracao, .apagar-atracao, .visualizar-atracao{
+	padding-top: 120px;
+	padding-right: 5%;
+	padding-left: 5%;
+	padding-bottom: 5%;
+
+
+}
+
+.centraliza-img{
+	text-align: center;
+}
+.centraliza-img img{
+	max-width: 89%;
+	padding-bottom: 1rem;
+}
+
+input, select, textarea{ /*para deixar inputs do mesmo tamanho*/
+	-ms-box-sizing:border-box;
+-moz-box-sizing:border-box;
+-webkit-box-sizing:border-box; 
+box-sizing:border-box;
+}
+.criar-atracao h1, .apagar-atracao h1, .visualizar-atracao h1{
+	color:white;
+	margin-bottom: 1rem;
+	
+}
+.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
+	color: black;
+	padding: 2rem;
+background-color: rgb(250, 250, 250);/*branco gelo*/	
+border-radius: 2%;
+}
+
+/*controle do input file image da view adm atracoes*/
+.container{
+    margin-top:20px;
+}
+.image-preview img{
+	max-width: 80%;
+}
+
+.imagem-db img{
+	max-width: 80%;
+}
+/*fim controle do input file image da view adm atracoes*/
+
+
+.listar-atracoes h1{
+	color: white;
+	display: inline-block;
+}
+.lista-box{
+	max-height: 350px;
+	overflow: scroll;
+}
+
+.pagination-listar{
+	display: inline-block;
+}
+
+
+.container.listar-pagination{
+	text-align: right;
+	display: inline-block;
+	width: 49%;
+}
+
+.container.listar-button{
+	text-align: left;
+	display: inline-block;
+	width: 49%;
+
+}
+
+.page-item.active .page-link{
+	background-color: rgb(210,57,73);
+	border: rgb(210,57,73);
+	color: white !important;
+}
+
+.modal-edicao .modal-body, .modal-exclusao .modal-body{
+	text-align: center;
+}
+
+.img-modal{
+	width: 200px;
+	height: 200px;
+}
+.voltar{
+	color:white;
+	font-size: 20px;
+	font-weight: bold;
+	background-color: rgba(0, 0, 0, 0.120);
+}
+
+.header-form{
+	margin-left: 25%;
+	font-size: 30px;
+	
+}
+
+.paralax-categoria{
+	background-image: url(../img/bg3.jpg);
+	margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.principal .principal-atracoes{
+	font-size: 40px;
+}
+/*FIM ESTILIZAÇÃO VIEW ADMINISTRATIVA ATRAÇÕES*/
+
+
+
+.principal{
+	width: 100%;
+	text-align: center;
+	
+}
+
+
+.principal h1{
+	color: white;
+	font-size: 50px;
+}
+
+.list-buttons{
+	width: 50%;
+	text-align: center;
+	margin: 0 auto;
+	background-color: white;
+	padding: 3px;
+	border-radius: 2%;
+}
+
+.principal-button{
+	width: 100%;
+	text-align: center;
+	background: none;
+	height: 50px;
+	display: block;
+	border: none;
+	border-bottom: rgb(214, 214, 214) solid;
+	
+
+
+}
+
+.principal-button.last{
+	border-bottom: none;
+}
+
+.principal-button:hover{
+	background-color: rgba(0, 0, 0, 0.120);
+	padding: 10px;
+
+}
+
+.principal-button a{
+	text-decoration: none;
+	color: rgb(210,57,73);
+}
+
+
+.principal-button:hover a{
+	text-decoration: none;
+	color: black;
+}
+
+
+
+/*tirando o sublinhado do link alterado por bea*/
+.principal a{
+	text-decoration: none;
+}
+/* trocando <br>s por  <divs>*/
+
+.espaço{
+	width: 100%;
+	opacity: 0;
+	height: 200px;
+}
+
+
+.espaço.pequeno{
+	height: 60px;/*mudando de 80 pra 60 alteração feita por bea*/
+}
+
+.espaço.medio{
+	height: 160px;
+}
+
+.espaço.grande{
+	height: 320px;
+}
+
+
 
 @media (max-width: 767px){ 
 	
@@ -518,10 +829,39 @@ h5.blue{
 		color:#0c5da6;
 	}
 
-	/*categorias*/
+	/*pagina adm atracoes*/
+	.listar-atracoes h1{
+		font-size: 20px;
+	}
+	 .visualizar-atracao h1, .apagar-atracao h1{
+		font-size: 30px;
+		
+	}
+	.visualizar-atracao .modal-body{
+		text-align: justify;
+	}
+	
+	.criar-atracao form, .apagar-atracao form, .visualizar-atracao form{
+		padding:1rem;
+	}
+	.paralax-atracoes-home .principal{
+		padding-top: 10%;
+		font-size: 15px;
+	}
+	.paralax-atracoes-home .principal button{
+		width: 100%;
+	}
+	/*fim pagina adm atracoes*/
 
+	/*aumentando tamanho dos botões em telas de celular feito por bea*/
 	.list-buttons{
-		width: 85% !important;
+		width: 60%;;
+	}
+	/*para o footer*/
+	.barratecnica , .informaçoes{
+		margin:0;
+		text-align: center;
+		font-size: 15px;
 	}
 
 
@@ -562,6 +902,18 @@ h5.blue{
 		margin: 0 auto !important;
 	}	
 	
+	.more-info {
+		font-size: 15px;
+		justify-content:center;
+	}
+
+	.RedesSociais{
+		justify-content: center;
+		font-size: 20px;
+		margin:0;
+	}
+		/*fim footer*/
+
 }
 
 
@@ -641,7 +993,6 @@ h5.blue{
 .verde{
 	background-color: rgba(32, 212, 32, 0.700);
 }
-
 
 .rosa{
 	background-color: rgba(241, 15, 211, 0.7);
@@ -764,8 +1115,12 @@ h5.blue{
 	width: 100%;
 	height: 100%;
 	background-position: center;
-}
+	margin: 0;
+	padding: 0;
+	background-color: white;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 
+}
 
 .TituloHistoria h1{
 	width: 100%;
@@ -824,124 +1179,76 @@ h5.blue{
 
 
 
-/* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
 
-.atracoes .card img{
+
+.CardFoto{
 	width: 100%;
+	border-radius: 0%;
+
 }
 
-.atracoes .cards-cat{
-	color: #fc2c2a;
-	font-weight: bold;
-}
 
-.atracoes .card-title{
-	color:#ffa100;
+.card-img-overlay{
+	opacity: 0;
+	
 }
-.atracoes{
-	padding-top:3%;
-	padding-right: 5%;
-	padding-left: 5%;
-	background-color: rgb(250, 250, 250);/*branco gelo*/
-}
-.atracoes h2{
-	/*color: rgb(236, 81, 9);*/
-	color:#fc2c2a;
+.CardFoto h5{
 	font-size: 30px;
-	text-align: left;
-	margin-top: 1%;
-}
-
-.atracoes-paralax1{
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: local;
-	width: 100%;
-	height: 100%;
-	background-position: center;
-	margin: 0;
-	padding: 0;
-	background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url(../img/bg1.gif)
-}
-.atracoes-paralax1 h1{
+	font-weight: bold;
 	color: white;
-	font-weight: bold;
-	padding-left:3%;
-}
-.atracoes .results{
-	font-size: 20px;
-	font-weight: bold;
 }
 
-
-
-/*FIM DA ESTILLIZAÇÃO PÁGINA DE ATRAÇÕES*/
-
-
-
-/* Estilização da página contato.html */
-
-.contact {
-	background-image: url(../img/bg5.jpg);
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	background-color: white;
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+.CardFoto:hover .card-img-overlay{
+	
+	opacity: 1;
+	transition: 0.5s;
 
 }
 
-.cards-contact {
-	height: 100%;
-	background-color: rgba(255, 255, 255, 0.92);
+.CardFoto:hover{
+	transform: scale(1.1);
+	transition: 0.5s;
 }
 
-.text-contact {
-	background-color: rgba(254,254,201, 0.67);
-	height: 25%;
-	padding-top: 1%;
-	padding-bottom: 1%;
-}
+/* classes da missao*/
 
-.text-contact p {
-	color: #08346e; /*#ffffff*/
+.missao{
 	text-align: center;
-	font-size: 20px;
-	font-weight: bolder;
-}
-
-.text-bold {
-	font-weight: bolder;
-}
-
-.card-text {
-	text-align: justify;
-}
-
-/* Fim da estilização da página contato.html */
-
-
-/*Inicio da estilização adm-home*/
- 
-.paralax-categoria{
-	background-image: url(../img/bg3.jpg);
-	margin: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-
-.principal{
-	width: 100%;
-	text-align: center;
+	padding: 40px;
 	
 }
 
-
-.principal h1{
+.missao h1{
+	font-size: 55px;
 	color: white;
-	font-size: 50px;
+	font-weight: bold;
+	margin: 0 auto;
+	margin-bottom: 3%;
+	border-bottom: solid white;
+	
+}
+
+.SubMissao{
+	width: 32%;
+	color: white;
+	display: inline-block;
+	padding: 4px;
+	vertical-align: top;  /* p/ evitar bug de formatação*/
+
+
+}
+
+
+.MissaoTitulo1, .MissaoTitulo2, .MissaoTitulo3{
+	font-size: 25px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: middle;
+	
+}
+
+.MissaoTitulo1{
+	color: white;
 }
 
 .list-buttons{
@@ -975,15 +1282,12 @@ h5.blue{
 	padding: 10px;
 
 }
-
-.principal-button a{
-	text-decoration: none;
-	color: rgb(210,57,73);
+.MissaoTitulo2{
+	color: red;
 }
 
-.principal-button:hover a{
-	text-decoration: none;
-	color: black;
+.MissaoTitulo3{
+	color: orange;
 }
 
 /*fim da estilização adm-home*/
@@ -991,24 +1295,16 @@ h5.blue{
 
 /* trocando <br>s por  <divs>*/
 
-.espaço{
-	width: 100%;
-	opacity: 0;
-	height: 200px;
+
+.MissaoIcone{
+	
+	opacity: 0.8;
+	width: 125px;
+	margin: 5px;
 }
 
 
-.espaço.pequeno{
-	height: 80px;
-}
 
-.espaço.medio{
-	height: 160px;
-}
-
-.espaço.grande{
-	height: 320px;
-}
 
 
 /*inicio da estilização adm-criar-categoria*/

@@ -28,15 +28,17 @@
 
 
   <div class="atracoes-paralax1">
- 
-    <div class="espaço"></div>
+  <br><br><br><br>
+   <br><br><br>
+   <br><br><br>
 
     <h1 class="pl-5 paginaAtual">
       Conheça nossas atrações!
     </h1>
     
     
-    <div class="espaço pequeno"></div>
+   <br><br><br>
+   <br><br><br>
   
   </div>
 
@@ -80,6 +82,11 @@
 <!--CONTEÚDO PRINCIPAL-->
 
 
+    <!--IMPORTANDO MODELS-->
+    <?php
+      require 'modals-visualizar-atracao.php';
+    ?>
+    <!--FIM IMPORTAÇÃO-->
   <div class="atracoes">
 
     <div class="paginaAtracoesFrase"><h1>Conheça nossas atrações</h1></div>
@@ -129,11 +136,12 @@
                     <li class="list-group-item"><span class="cards-cat">Categoria:</span> Radical</li>
                   </ul>
                  <!-- Botão para acionar modal -->
-                 <!-- Large modal -->
-                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#atracao1">
+                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#atracao1"><!--nome da atracao pode ser composto com php-->
                     Ver atração
                   </button>
-                 
+                  <!--<div class="card-body">
+                    <a href="#" class="card-link">Veja detalhes sobre a atração</a>
+                  </div>-->
                 </div>
               </div>
               <div class="col-md-6 d-flex sm-ml-4">
@@ -149,9 +157,10 @@
                     <li class="list-group-item"><span class="cards-cat">Categoria: </span> Radical</li>
                   </ul>
                    <!-- Botão para acionar modal -->
-                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#atracao2">
-                     Ver atração</button>
-                  </div>
+                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#atracao2"><!--nome da atracao pode ser composto com php-->
+                    Ver atração
+                  </button>
+                </div>
               </div>
               <div class="col-md-6 d-flex sm-ml-4">
                 <div class="card flex-fill" style="margin-bottom: 2rem;">
@@ -251,219 +260,186 @@
         </ul>
       </nav>
 
-    </div>    
-        
-       
-   <!--IMPORTANDO MODELS-->
-   <!-- Modals -->
-   <div class="visualizar-atracao">
-    <div class="modal fade bd-example-modal-lg" id="atracao1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="TituloModalCentralizado">FelizLândia Mount</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="centraliza-img">
-              <img src="img/atracoes-img/atracoes-card1.jpg"alt="Imagem de capa do card">
+
+</div>
+            
+
+
+
+<div class="RedesSociais">
+  <div class="subRS">Gostou? <br>Recomende-nos!</div>
+
+  <div class="subRS">
+    Entre em contato! <br>
+
+    <a><img  class="icone" src="img\insta.png"></a>
+    <a><img  class="icone" src="img\facebook.png"></a>
+    <a><img  class="icone" src="img\twitter.png"></a>
+    <a><img  class="icone" src="img\youtube.png"></a>
+    <a><img  class="icone" src="img\whats.png"></a>
     
-            </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Descrição:</strong>  A segunda montanha russa mais alta do parque, com 32m de altura conta com 5 loopings e chega
-              a quase 100km/h. A idade mínima para esta atração é 12 anos. São dois assentos por fileira. 
-              A atração funciona de 00:00hs às 00:00hs
+ 
+ 
+ 
+ 
+ 
+</div>
+  <div class="subRS">Visite nossa página!<br> <a>PaginamtLegalSite.com.br</a></div>
+
+
+
+</div>
+          
+  
+<div class="informaçoes">
+  <div class="d-flex justify-content-center" style="padding: 0;">
+    <div class="coluna">
+      <ul>
+        <li><h1>Tickets & Add-Ons</h1></li> 
+        <li>Tickets</li>
+        <li>Ingressos</li>
+        <li>Descontos</li>
+        <li>Promoções</li>
+      </ul>
+   
+      <ul>
+        <li><h1>Segurança</h1></li> 
+        <li>Equipamentos</li>
+        <li>Idade</li>
+        <li>Regras</li>
+        <li>Proibições</li>
+        <li>Equipamentos</li>
+        <li>Idade</li>
+        <li>Regras</li>
+        <li>Proibições</li>
+      </ul>
+   
+      <ul>
+        <li><h1>Segurança</h1></li> 
+        <li>Equipamentos</li>
+        <li>Idade</li>
+        <li>Regras</li>
+        <li>Proibições</li>
+        <li>Equipamentos</li>
+        <li>Idade</li>
+        <li>Regras</li>
+        <li>Proibições</li>
+      </ul>
     
-            </li>
-            <li class="list-group-item"><strong>Categoria</strong> Radical</li>
-            <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-          </ul>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-          </div>
-        </div>
-      </div>
     </div>
-    </div>
-    
-    <div class="visualizar-atracao">
-      <div class="modal fade bd-example-modal-lg" id="atracao2" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="TituloModalCentralizado">Barco Viking</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="centraliza-img">
-                <img src="img/atracoes-img/atracoes-card2.jpg"alt="Imagem de capa do card">
-      
-              </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Descrição:</strong> Esta atração simula um barco em alto mar, podendo chegar a 10 metros
-                com movimentos velozes de um lado para o outro A idade mínima para esta atração é 12 anos. 
-                São quatro assentos por fileira. 
-               
-              <li class="list-group-item"><strong>Categoria</strong> Radical</li>
-              <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-            </ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-      
-  
-  
-      <div class="visualizar-atracao">
-        <div class="modal fade bd-example-modal-lg" id="atracao3" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalCentralizado">Carrossel</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="centraliza-img">
-                  <img src="img/atracoes-img/atracoes-card3.jpg"alt="Imagem de capa do card">
-        
-                </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Descrição:</strong> Diversão suave e relaxante para as crianças, elas podem ouvir diferentes
-                  musicas enquanto usam o brinquedo
-                </p> A idade mínima para esta atração é 3 anos e máxima 10 anos. 
-               A atração funciona de 00:00hs às 00:00hs
-                 
-                <li class="list-group-item"><strong>Categoria</strong> Infantill</li>
-                <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-              </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        
-        
-      <div class="visualizar-atracao">
-        <div class="modal fade bd-example-modal-lg" id="atracao4" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="TituloModalCentralizado">Laser Tag</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div class="centraliza-img">
-                  <img src="img/atracoes-img/atracoes-card4.jpg"alt="Imagem de capa do card">
-                </div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Descrição:</strong>
-                  Um jogo de esconde esconde mais divertido para aproveitar com os amigos
-                          e treinar sua mira com as armas de laser. A idade mínima para esta atração é 10 anos.
-              A atração funciona de 00:00hs às 00:00hs
-            </li>
-                 
-                <li class="list-group-item"><strong>Categoria</strong> Aventura</li>
-                <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-              </ul>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-        <div class="visualizar-atracao">
-          <div class="modal fade bd-example-modal-lg" id="atracao5" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="TituloModalCentralizado">Show de Mágica</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="centraliza-img">
-                    <img src="img/atracoes-img/atracoes-card4.jpg"alt="Imagem de capa do card">
-                  </div>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item"><strong>Descrição:</strong>
-                    Temos apresentações com os melhores
-                          mágicos da cidade com diversos números para todos os públicos.
-                           A idade mínima para esta atração é 4 anos. 
-              A atração funciona de 00:00hs às 00:00hs
-                   
-                  <li class="list-group-item"><strong>Categoria</strong> Família</li>
-                  <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-                </ul>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          </div>
-  
-  
-  
-          <div class="visualizar-atracao">
-            <div class="modal fade bd-example-modal-lg" id="atracao6" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="TituloModalCentralizado">Kamikaze</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="centraliza-img">
-                      <img  src="img/atracoes-img/atracoes-card6.jpg"alt="Imagem de capa do card">
-                    </div>
-                  <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><strong>Descrição:</strong>
-                      Para sentir frio na barriga como nunca antes é o brinquedo mais
-                      recomendado, funciona como um pêndulo, mas diferente do Barco Viking ele dá voltas de 
-                      360º deixando você de cabeça para baixo por alguns segundos. 
-                      A idade mínima para esta atração é 12 anos. 
-                       A atração funciona de 00:00hs às 00:00hs
-                </li>
-                     
-                    <li class="list-group-item"><strong>Categoria</strong> Radical</li>
-                    <li class="list-group-item"><strong>Valor:</strong> R$00,00</li>
-                  </ul>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-
-
-
+   
+   <div class="coluna">
+    <ul>
+      <li><h1>O parque</h1></li> 
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Idade</li>
+    </ul>
+    <ul>
+      <li><h1>Tickets & Add-Ons</h1></li> 
+      <li>Tickets</li>
+      <li>Ingressos</li>
+      <li>Descontos</li>
+      <li>Promoções</li>
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+    </ul>
+   
+    <ul>
+      <li><h1>Segurança</h1></li> 
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+    </ul>
+   </div>
+   
+   <div class="coluna">
+    <ul>
+      <li><h1>O parque</h1></li> 
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Idade</li>
+    </ul>
+   
+    <ul>
+      <li><h1>Segurança</h1></li> 
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+      <li>Idade</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+    </ul>
+   </div>
+   
+   
+   <div class="coluna">
+    <ul>
+      <li><h1>O parque</h1></li> 
+      <li>Equipamentos</li>
+      <li>Idade</li>
+      <li>Idade</li>
+    </ul>
+   
+    <ul>
+      <li><h1>Segurança</h1></li> 
+      <li>Equipamentos</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+    </ul>
    
     
-   <!--END MODALS-->
-    <!--FIM IMPORTAÇÃO-->
+    <ul>
+      <li><h1>Segurança</h1></li> 
+      <li>Equipamentos</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+      <li>Regras</li>
+      <li>Proibições</li>
+    </ul>
+   </div>
+   
+  </div>
+ 
+  <div class="barratecnica">
+ 
+    <img src="img\mappointer.png">
+ 
+    <span class="more-info">2349 Rua Josezinho das nuvens, 203 | (36) 2534-2300 | parquemtlegal@email.com.br <br>
+    Copyright © 2020-2020 Felizlândia mt Todos direitos reservados <br>
+     <a href="#">Trabalhos</a> |  <a href="#">Politica</a> |  <a href="#">P&R</a> |  <a href="#">Contato</a> | 
+      <a href="#">Serviços</a> 
+    </span>
+ 
+  </div>
+ 
+  <br><br><br><br>
+  <br><br><br><br>
+ </div>   
+            
+      
+  
+
+
+
+ 
+
+  
+
+
+
+
+
 </body>
 </html>
