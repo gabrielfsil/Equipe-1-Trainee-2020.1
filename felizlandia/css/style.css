@@ -418,6 +418,10 @@ h5.blue{
 	display: none;
 }
 
+.atracoes .modal-body{
+	height: auto;
+	text-align: justify;
+}
 .atracoes .card img{
 	width: 100%;
 }
