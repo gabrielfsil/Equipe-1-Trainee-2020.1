@@ -1556,9 +1556,9 @@ i.fas, .fa-lock, .fa-at {
   font-size: 18px;
 }
 
-.btn {
+/* .btn {
 	background-color: #0c5da6;
-}
+} */
 
 .login-logo:hover { 
 	cursor: pointer; 
