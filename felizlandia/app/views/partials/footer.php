@@ -28,3 +28,6 @@
     <div class="espaço pequeno"></div>
   </div>
 </footer>
+
+</body>
+</html>
