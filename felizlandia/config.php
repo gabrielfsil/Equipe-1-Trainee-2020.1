@@ -2,10 +2,10 @@
 
 return [
     'database' => [
-        'name' => '',
-        'username' => '',
+        'name' => 'felizlandia',
+        'username' => 'root',
         'password' => '',
-        'connection' => '',
+        'connection' => 'mysql:host=localhost:3306',
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]

@@ -10,22 +10,41 @@ class QueryBuilder
     protected $pdo;
 
 
-    public function __construct()
+    public function __construct($pdo)
     {
-    
+        $this->pdo = $pdo;
     }
 
 
-    public function selectAll()
+    public function selectAll($table)
     {
+        
+        $statement = $this->pdo->prepare("SELECT * FROM {$table}");
+
+        $statement->execute();
+
+        return $statement->fetchAll(PDO::FETCH_CLASS, "App\Core\CategoryObject");
       
     }
 
-    public function insert()
+    public function insert($table, $parameters)
     {
-      
+        $sql = sprintf(
+            'insert into %s (%s) values (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
+
+        try {
+            $statement = $this->pdo->prepare($sql);
+
+            $statement->execute($parameters);
+        } catch (\Exception $e) {
+            //
+        }
+    }
          
-    }
     public function edit()
     {
       
@@ -36,9 +55,81 @@ class QueryBuilder
       
          
     }
-    public function read()
+
+    public function read(){
+
+
+    }
+
+
+
+
+    // funcoes categorias!
+
+    public function readCategoria($table, $ID)
     {
-      
+        $sql = sprintf("SELECT * FROM %s WHERE ID = '%s' ", 
+        $table,  
+        $ID
+       );
+
+       try{
+
+           $statement = $this->pdo->prepare($sql);
+
+           $statement->execute();
+
+           $categoria = $statement->fetchAll(PDO::FETCH_CLASS,"App\Core\CategoryObject"); 
+
+
+           return $categoria;
+
+       } catch (Exception $e) {
+           die($e->getMessage());
+       }
+
          
     }
+
+    public function deleteCategoria($table, $ID)
+    {
+        $sql = sprintf("DELETE FROM %s WHERE ID = '%s' ", 
+        $table,  
+        $ID
+        
+       );
+
+
+       try{
+
+           $statement = $this->pdo->prepare($sql);
+
+           $statement->execute();
+
+
+       } catch (Exception $e) {
+           die($e->getMessage());
+       }
+
+         
+    }
+
+
+    public function editCategoria($table, $parameters, $ID){
+
+        $sql = "UPDATE $table SET categoria = '$parameters' WHERE ID = $ID";
+    
+       // die(var_dump($sql));
+    
+        try{    
+    
+            $statement = $this->pdo->prepare($sql);
+    
+            $statement->execute();
+    
+    
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+       }
 }

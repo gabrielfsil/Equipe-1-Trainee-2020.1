@@ -8,13 +8,13 @@
                 <a class="nav-link" href="#">Atraçoes</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Categorias</a>
+                <a class="nav-link" href="/adm/lista-categorias">Categorias</a>
             </li>
       </ul>
     </div>
     <div class="mx-auto order-0">
-      <a class="navbar-brand mx-auto" href="#"><img src="img/logo.png" class="logo"></a>
-      <span class="TogglerPaginaAtual">Atrações</span>
+      <a class="navbar-brand mx-auto" href="#"><img src="../../../public/img/logo.png" class="logo"></a>
+      <span class="TogglerPaginaAtual">ADM</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           <span class="navbar-toggler-icon"></span>
         </button>
