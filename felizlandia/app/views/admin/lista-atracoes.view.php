@@ -88,8 +88,10 @@
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <form>
-                <a class="dropdown-item" href="visualizar-atracao.html">Visualizar</a>
+                <form method="POST" action="/atracoes/visualizacao">
+                <input type="hidden" name="id" value="<?=$atracao->id?>">         
+
+                <button class="dropdown-item" type="submit">Visualizar</button>
 
                 </form>  
                 <form method="POST" action="/atracoes/edicao">        

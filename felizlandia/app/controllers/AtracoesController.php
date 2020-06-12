@@ -61,4 +61,14 @@ class AtracoesController
     
     ], $_POST['id']);
     }
+
+     
+    public function visualizar_atracao(){
+
+        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        return view('/admin/visualizar-atracao', [//retorna vetor de usuarios
+            'atracao_visualizar' => $atracao
+            ]);    
+    }
+
 }

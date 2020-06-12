@@ -7,5 +7,7 @@
  $router->post('atracoes/criar', 'AtracoesController@store');
  $router->post('atracoes/edicao', 'AtracoesController@editar_atracao');
  $router->post('atracoes/editar', 'AtracoesController@store_edicao');
+ $router->post('atracoes/visualizacao', 'AtracoesController@visualizar_atracao');
+
  //FIM ROTAS PARA ATRAÇÕES//
 ?>
