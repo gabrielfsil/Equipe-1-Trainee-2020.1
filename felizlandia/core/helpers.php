@@ -12,7 +12,7 @@ function view($name, $data = [])
 
     return require "app/views/{$name}.view.php";
 }
-
+ 
 /**
  * Redirect to a new page.
  *

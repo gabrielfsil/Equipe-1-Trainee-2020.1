@@ -2,10 +2,10 @@
 
 return [
     'database' => [
-        'name' => '',
-        'username' => '',
+        'name' => 'felizlandia-atracoes',
+        'username' => 'root',
         'password' => '',
-        'connection' => '',
+        'connection' => 'mysql:host=127.0.0.1',
         'options' => [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]
