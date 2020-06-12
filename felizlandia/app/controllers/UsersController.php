@@ -6,6 +6,12 @@ use App\Core\App;
 
 class UsersController
 {
+
+    public function home()
+    {
+        return view('admin/list-users');
+    }
+
     /**
      * Show all users.
      */
