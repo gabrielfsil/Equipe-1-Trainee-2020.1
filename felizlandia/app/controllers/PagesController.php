@@ -17,7 +17,7 @@ class PagesController
 
     public function Lcategorias()
     {
-        $categorias = App::get('database')->SelectAll("categorias");
+        $categorias = App::get('database')->selectAllCategoria("categorias");
         return viewAdm('lista-categoria', ['categorias' => $categorias]);
     }
 

@@ -16,7 +16,7 @@ class QueryBuilder
     }
 
 
-    public function selectAll($table)
+    public function selectAllCategoria($table)
     {
         
         $statement = $this->pdo->prepare("SELECT * FROM {$table}");
