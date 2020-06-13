@@ -10,7 +10,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <img src="public/img/trash.png" class="img-modal">
+            <img src="/public/img/trash.png" class="img-modal">
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-danger" type="submit" value="delete" name="delete">Confirmar Exclusão</button>
