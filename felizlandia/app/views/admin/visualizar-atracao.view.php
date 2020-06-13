@@ -123,7 +123,7 @@ FIM PARALAX-->
             <div class="form-group">
               <label for="exampleFormControlFile1" >Foto</label>
               <div class="imagem-db">
-                <img src="../../../public/img/teste/<?= $atracao->foto ?>"  />
+                <img src="../../../public/img/atracoes-img/<?= $atracao->foto ?>"  />
               </div>
              
             </div>      

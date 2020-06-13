@@ -117,8 +117,9 @@ FIM PARALAX-->
             <div class="form-group">
               <label for="exampleFormControlFile1" >Foto</label>
               <div class="imagem-db">
-                <img src="../../../public/img/teste/<?= $atracao->foto ?>"  />
-              </div>
+              <img 
+                src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
+                />              </div>
              
             </div>    
             </fieldset>
@@ -126,7 +127,7 @@ FIM PARALAX-->
             <?php endforeach ;?>
 
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
 
 
                 <button class="btn btn-danger" type="button" id="dropdownMenuButton"data-toggle="modal" data-target="#exampleModal">
@@ -164,6 +165,8 @@ FIM PARALAX-->
           </div>
           <div class="modal-footer">
           <input type="hidden" name="id" value=<?= $atracao->id ?> >
+          <input type="hidden" name="foto_salva" value=<?= $atracao->foto ?> >
+
 
               <button type="submit" class="btn btn-danger" value ="delete" name="delete">apagar</button>
           </div>

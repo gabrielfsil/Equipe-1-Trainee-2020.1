@@ -79,7 +79,7 @@ background-attachment: fixed;">
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST" action = '/atracoes/editar'><!--FORMULARIO-->
+           <form class="col-md-6" method="POST"  enctype="multipart/form-data"  action = '/atracoes/editar'><!--FORMULARIO-->
               <?php foreach ($atracao_edit as $atracao) : ?>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
@@ -114,7 +114,9 @@ background-attachment: fixed;">
                 <label for="exampleFormControlFile1" >Foto</label>
                 <div class="imagem-db">
 
-                <img src="../../../public/img/teste/<?= $atracao->foto ?>"/>
+                <img 
+                src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
+                />
                 </div>
                 <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
 
