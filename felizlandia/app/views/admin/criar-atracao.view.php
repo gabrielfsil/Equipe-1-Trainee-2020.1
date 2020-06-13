@@ -80,7 +80,7 @@ background-attachment: fixed;">
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST" action = '/atracoes/criar'  ><!--FORMULARIO-->
+           <form class="col-md-6" method="POST" enctype="multipart/form-data" action = '/atracoes/criar'  ><!--FORMULARIO-->
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
                   <input type="text" name="nome" class="form-control" id="exampleFormControlInput1">

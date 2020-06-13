@@ -12,12 +12,10 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="../../../public/css/style.css">
 
-  <!--JAVASCRIPT-->
-  <script type="text/javascript" src="js/script.js"></script>
-
-
+<!--JAVASCRIPT-->
+<script type="text/javascript" src="../../../public/js/script.js"></script>
 
 
 
@@ -30,7 +28,7 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet"> -->
 
 </head><!--"background-color:  rgb(241, 173, 173);"-->
-<body style="background-image: url(img/bg3.jpg);background-size: cover;
+<body style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;">
 
@@ -88,23 +86,24 @@ FIM PARALAX-->
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6">
-            <fieldset disabled>
+           <form class="col-md-6" >
+               <?php foreach ($atracao_exclusao as $atracao) : ?>
+                <fieldset disabled>
 
               <div class="form-group">
                 <label for="exampleFormControlInput1">Nome</label>
-                <input type="text" name="nome" value="vem da base de dados" class="form-control" id="exampleFormControlInput1">
+                <input type="text" name="nome" value="<?= $atracao->nome ?>" class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descrição</label>
               <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3">
-                vem da base de dados
+              <?= $atracao->descricao ?>
               </textarea>
             </div>
             <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoria</label>
                   <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                    <option>vem da base de dados</option>
+                    <option><?= $atracao->categoria?></option>
                     <option>vem da base de dados</option>
                     <option>vem da base de dados</option>
                     <option>vem da base de dados</option>
@@ -113,22 +112,30 @@ FIM PARALAX-->
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">Valor</label>
-              <input type="text" name="valor" value="vem da base de dados"  class="form-control" id="exampleFormControlInput1">
+              <input type="text" name="valor" value="<?= $atracao->valor ?>"  class="form-control" id="exampleFormControlInput1">
             </div>
             <div class="form-group">
               <label for="exampleFormControlFile1" >Foto</label>
               <div class="imagem-db">
-                <img src="getImage.php?id=1" width="175" height="200" />
+                <img src="../../../public/img/teste/<?= $atracao->foto ?>"  />
               </div>
-              </fieldset>
+             
+            </div>    
+            </fieldset>
+  
+            <?php endforeach ;?>
+
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="lista-atracoes.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+
 
                 <button class="btn btn-danger" type="button" id="dropdownMenuButton"data-toggle="modal" data-target="#exampleModal">
                   Apagar
                   </button>
            <!--colocar confirmação-->
+           
             </div>
+            
             </form>
 
           </div><!--fecha div coluna-->
@@ -141,8 +148,8 @@ FIM PARALAX-->
           
          <!--MODAL-->
              
-  <form>
-    <div class="modal modal-exclusao fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <form method="POST" action="/atracoes/excluir">
+  <div class="modal modal-exclusao fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
@@ -156,6 +163,8 @@ FIM PARALAX-->
               <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
           </div>
           <div class="modal-footer">
+          <input type="hidden" name="id" value=<?= $atracao->id ?> >
+
               <button type="submit" class="btn btn-danger" value ="delete" name="delete">apagar</button>
           </div>
         </div>

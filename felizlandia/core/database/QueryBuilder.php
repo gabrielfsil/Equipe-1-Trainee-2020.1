@@ -28,7 +28,6 @@ class QueryBuilder
 
     public function insert($table, $parameters)//tabela e vetor de parametros
     {
-        
         $sql = sprintf('insert into %s (%s) values(%s)', $table, implode(", ", array_keys($parameters)),
         "'" . implode("', '", array_values($parameters)) . "'");
 
@@ -36,6 +35,7 @@ class QueryBuilder
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->execute();
+            return 1;
  
         }catch(Exception $e){
 
@@ -46,14 +46,22 @@ class QueryBuilder
     public function edit($table,$parameters,$id)
     {  
         //tentando monstar uma query poque essa tem erro de sintaxe
+        $tamanho = count(array_keys($parameters));
         $sql = "update {$table} set " ;
-       foreach( $parameters as $key => $value) {
-           if($value != ''){
-        $sql = $sql . "`" . $key . "`" . '=' . "'" . $value . "'". ' ';
-           }
 
-       }
-       $sql = $sql . "where `id`='{$id}'";
+        for ($i = 0; $i <=($tamanho-1); $i++) 
+        {
+           $sql = $sql . (array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]). "'" ;
+           if($i!= $tamanho -1){
+            $sql = $sql . ", ";
+           }
+        }
+        /*   foreach( $parameters as $key => $value) {
+                if($value != ''){
+             $sql = $sql . "`" . $key . "`" . '=' . "'" . $value . "'". ' ';
+                }*/
+       $sql = $sql . " where id='{$id}'";
+
 
       // $sql = sprintf('update %s set (%s) values(%s) where id = (%s)', $table, implode(", ", array_keys($parameters)),
        // "'" . implode("', '", array_values($parameters)), $id  . "");
@@ -68,10 +76,20 @@ class QueryBuilder
         }
          
     }
-    public function delete()
+    public function delete($table,$id)
     {
       
-         
+         $sql = "delete from {$table} where id = " .$id;
+         try{
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+            return 1;
+ 
+        }catch(Exception $e){
+
+           $e->getMessage();
+     }
     }
     public function read($table, $id)
     {

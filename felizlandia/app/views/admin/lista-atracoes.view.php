@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -76,7 +74,8 @@
     <div class="container ">
             <!--COLUNA ONDE LISTAMOS Atracoes--> 
             <a href="view-adm-home.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
-          <p><h1>Foram encontradas X atrações</h1> </p> 
+
+            <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
       <ul class="list-group lista-box">
 
       <?php foreach ($atracoes as $atracao) : ?>
@@ -99,9 +98,9 @@
                   <button class="dropdown-item" type="submit">Editar</button>
                 </form>
 
-                <form>
-                <a class="dropdown-item" href="apagar-atracao.html">Apagar</a> <!--  o data targe e togle sao para ativar o modal-->
-
+                <form method="POST" action="/atracoes/exclusao">        
+                <input type="hidden" name="id" value="<?=$atracao->id?>">         
+                  <button class="dropdown-item" type="submit">Apagar</button>
                 </form>
                 </div>
             </div>
