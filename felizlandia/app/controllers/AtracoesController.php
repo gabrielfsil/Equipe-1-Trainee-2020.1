@@ -25,7 +25,10 @@ class AtracoesController
     }
 
     public function criar_atracao(){
-        return view('/admin/criar-atracao');
+        $acao = ['nome' => 'none'];
+        return view('/admin/criar-atracao',[
+            'acao'=> $acao,
+            ]);
     }
 
     
@@ -33,11 +36,7 @@ class AtracoesController
 
         // verifica se foi enviado um arquivo.. fonte:https://php.eduardokraus.com/upload-de-imagens-com-php
         if ( isset( $_FILES[ 'foto' ][ 'name' ] ) && $_FILES[ 'foto' ][ 'error' ] == 0 ) {
-            echo 'Você enviou o arquivo: <strong>' . $_FILES[ 'foto' ][ 'name' ] . '</strong><br />';
-            echo 'Este arquivo é do tipo: <strong > ' . $_FILES[ 'foto' ][ 'type' ] . ' </strong ><br />';
-            echo 'Temporáriamente foi salvo em: <strong>' . $_FILES[ 'foto' ][ 'tmp_name' ] . '</strong><br />';
-            echo 'Seu tamanho é: <strong>' . $_FILES[ 'arquivo' ][ 'foto' ] . '</strong> Bytes<br /><br />';
-        
+           
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
@@ -70,8 +69,13 @@ class AtracoesController
         
                 // tenta mover o arquivo para o destino
                 if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-                    echo 'Arquivo salvo com sucesso em : <strong>' . $destino . '</strong><br />';
-                    echo ' < img src = "' . $destino . '" />';
+                    $acao = [
+                        'nome' => 'sucesso',
+                    ];
+  
+                    return view('/admin/criar-atracao', [//retorna vetor de usuarios
+                      'acao' => $acao,
+                      ]);  
                 }
                 else
                     echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
@@ -89,7 +93,7 @@ class AtracoesController
             // move_uploaded_file($arquivo_tmp, $destino);
                 
 
-            redirect('atracoes/criacao');
+           // redirect('atracoes/criacao');
             //header('Location: /atracoes/criacao');//arrumar pra um redirect melhor
     }
             
@@ -104,11 +108,6 @@ class AtracoesController
     public function store_edicao(){
 
         if ( isset( $_FILES[ 'foto' ][ 'name' ] ) && $_FILES[ 'foto' ][ 'error' ] == 0 ) {
-            echo 'Você enviou o arquivo: <strong>' . $_FILES[ 'foto' ][ 'name' ] . '</strong><br />';
-            echo 'Este arquivo é do tipo: <strong > ' . $_FILES[ 'foto' ][ 'type' ] . ' </strong ><br />';
-            echo 'Temporáriamente foi salvo em: <strong>' . $_FILES[ 'foto' ][ 'tmp_name' ] . '</strong><br />';
-            echo 'Seu tamanho é: <strong>' . $_FILES[ 'foto' ][ 'size' ] . '</strong> Bytes<br /><br />';
-        
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
@@ -125,6 +124,8 @@ class AtracoesController
                 // Cria um nome único para esta imagem
                 // Evita que duplique as imagens no servidor.
                 // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+                $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_salva'];
+
                 $novoNome = uniqid ( time () ) . '.' . $extensao;
         
                   App::get('database')->edit('atracoes',
@@ -140,8 +141,20 @@ class AtracoesController
         
                 // tenta mover o arquivo para o destino
                 if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-                    echo 'Arquivo salvo com sucesso em : <strong>' . $destino . '</strong><br />';
-                    echo ' < img src = "' . $destino . '" />';
+               
+                  $acao = [
+                      'nome' => 'sucesso',
+                  ];
+                  $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+
+                  unlink($destino_antigo);
+
+                  return view('/admin/editar-atracao', [//retorna vetor de usuarios
+                    'atracao_edit' => $atracao,
+                    'acao' => $acao,
+                    ]);  
+
+                    
                 }
                 else
                     echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';

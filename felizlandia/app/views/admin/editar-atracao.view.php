@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pt-br">
 <head>
@@ -79,7 +78,7 @@ background-attachment: fixed;">
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST"  enctype="multipart/form-data"  action = '/atracoes/editar'><!--FORMULARIO-->
+           <form class="col-md-6" method="POST"  enctype="multipart/form-data" action = '/atracoes/editar'><!--FORMULARIO-->
               <?php foreach ($atracao_edit as $atracao) : ?>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
@@ -139,16 +138,17 @@ background-attachment: fixed;">
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
                 <input type="hidden" name="id" value=<?= $atracao->id ?> >
+                <input type="hidden" name="foto_salva" value=<?= $atracao->foto ?> >
 
                 <button type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary w-50 mt-3 mb-0">Editar</button>
 
               </div>
                <!-- Modal -->
-              <div class="modal modal-edicao fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal modal-edicao fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog  modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Sua atração foi editada com Sucesso!</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Sua atração foi editada com sucesso!</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -158,13 +158,19 @@ background-attachment: fixed;">
                         <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar alterações</button>
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
                     </div>
                   </div>
                 </div>
               <?php endforeach ;?>
             </form>
-
+            <?php if($acao['nome']=="sucesso"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalSucesso").modal();
+                        });
+                    </script>
+                <?php } ?>
           </div><!--fecha div coluna-->
       </div><!--fecha div row-->
   </div><!--fecha div container-->

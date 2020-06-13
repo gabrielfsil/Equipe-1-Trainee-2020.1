@@ -83,11 +83,15 @@ background-attachment: fixed;">
            <form class="col-md-6" method="POST" enctype="multipart/form-data" action = '/atracoes/criar'  ><!--FORMULARIO-->
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
-                  <input type="text" name="nome" class="form-control" id="exampleFormControlInput1">
+                  <input type="text" 
+                  pattern="[a-zA-Z0-9]+"
+                  title="O nome da atração não deve conter caracteres especiais como '*, \, /' "
+                  name="nome" 
+                  required="required" class="form-control" id="exampleFormControlInput1">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control" required="required" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
               <div class="form-group">
                     <label for="exampleFormControlSelect1">Categoria</label>
@@ -101,7 +105,7 @@ background-attachment: fixed;">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Valor</label>
-                <input type="text" name="valor" class="form-control" id="exampleFormControlInput1">
+                <input type="text" name="valor" required="required" class="form-control" id="exampleFormControlInput1">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Foto</label>
@@ -109,7 +113,7 @@ background-attachment: fixed;">
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
                   <div class=" image-preview">
-                        <input type="file" name="foto" class="form-control-file" accept="image/*" onchange="loadFile(event)">
+                        <input type="file" name="foto" required="required"  class="form-control-file" accept="image/*" onchange="loadFile(event)">
                         <img id="output"/>
                         <script>
                           var loadFile = function(event) {
@@ -131,8 +135,36 @@ background-attachment: fixed;">
               </div>
 
             </form>
+            <!--FUNÇÃO PRA CHAMAR MODAL -->
+         
 
           </div><!--fecha div coluna-->
+          <?php if($acao['nome']=="sucesso"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalSucesso").modal();
+                        });
+                    </script>
+                <?php } ?>
+                <!-- Modal -->
+                <div class="modal modal-edicao fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog  modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Sua atração foi criada com sucesso!</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="img/correto.png" class="img-modal">
+                        <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                    </div>
+                  </div>
+                </div>
       </div><!--fecha div row-->
   </div><!--fecha div container-->
 

@@ -35,7 +35,6 @@ class QueryBuilder
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->execute();
-            return 1;
  
         }catch(Exception $e){
 
@@ -56,15 +55,9 @@ class QueryBuilder
             $sql = $sql . ", ";
            }
         }
-        /*   foreach( $parameters as $key => $value) {
-                if($value != ''){
-             $sql = $sql . "`" . $key . "`" . '=' . "'" . $value . "'". ' ';
-                }*/
+        
        $sql = $sql . " where id='{$id}'";
 
-
-      // $sql = sprintf('update %s set (%s) values(%s) where id = (%s)', $table, implode(", ", array_keys($parameters)),
-       // "'" . implode("', '", array_values($parameters)), $id  . "");
         try{
             $stmt = $this->pdo->prepare($sql);
 
