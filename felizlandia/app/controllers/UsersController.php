@@ -6,26 +6,20 @@ use App\Core\App;
 
 class UsersController
 {
-
-    public function home()
-    {
-        return view('admin/list-users');
-    }
-
     /**
      * Show all users.
      */
-    public function index()
+    public function list()
     {
         $users = App::get('database')->selectAll('users');
 
-        return view('users', compact('users'));
+        return view('admin/list-users', compact('users'));
     }
 
     /**
      * Store a new user in the database.
      */
-    public function store()
+    public function create()
     {
         App::get('database')->insert('users', [
             'name' => $_POST['name']
@@ -33,4 +27,22 @@ class UsersController
 
         return redirect('users');
     }
+
+    public function delete()
+    {
+        return view('admin/list-users');
+    }
+
+
+    public function edit()
+    {
+        return view('admin/list-users');
+    }
+
+
+    public function changePassword()
+    {
+        return view('admin/list-users');
+    }
+
 }
