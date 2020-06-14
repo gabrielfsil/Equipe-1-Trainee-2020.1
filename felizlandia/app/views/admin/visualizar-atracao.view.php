@@ -44,9 +44,7 @@ FIM PARALAX-->
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descrição</label>
-              <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3">
-              <?= $atracao->descricao ?>
-              </textarea>
+              <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"><?= $atracao->descricao ?></textarea>
             </div>
             <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoria</label>

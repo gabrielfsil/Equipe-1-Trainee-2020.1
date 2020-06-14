@@ -20,14 +20,19 @@ background-position: center;
             <a href="view-adm-home.vieww.php"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
             <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
-      <ul class="list-group lista-box">
+      <ul 
+      <?php if($num_atracoes['num']>1)
+      echo 'class="list-group lista-box" style="overflow:auto;"'; 
+      else echo 'class="list-group"';
+      ?>
+      >
 
       <?php foreach ($atracoes as $atracao) : ?>
 
         <li class="list-group-item ">
           <div class="row justify-content-between">
                 <p><?= $atracao->nome; ?></p>
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
