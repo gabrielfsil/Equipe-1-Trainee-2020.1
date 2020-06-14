@@ -26,8 +26,17 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function insert($table, $parameters)//tabela e vetor de parametros
+    public function insert($table, $parameters,$campo, $conteudo)//tabela e vetor de parametros
     {
+       //verifica se ja existe uma ocorrencia na base de dados
+        $buscar = $this->pdo->prepare("select * from {$table} where {$campo} = '{$conteudo}'");
+        $buscar->execute();
+        $result= $buscar->fetchAll(PDO::FETCH_CLASS);
+
+        if(count($result)!=0){
+            return "erro";
+        }
+
         $sql = sprintf('insert into %s (%s) values(%s)', $table, implode(", ", array_keys($parameters)),
         "'" . implode("', '", array_values($parameters)) . "'");
 

@@ -26,7 +26,7 @@ background-position: center;
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
                   <input type="text" 
-                  title="O nome da atração não deve conter caracteres especiais como '*, \, /' "
+                  placeholder="não deve conter caracteres especiais como '*, \, /' "
                   name="nome" 
                   required="required" class="form-control" id="exampleFormControlInput1">
               </div>
@@ -89,6 +89,13 @@ background-position: center;
                 <?php } ?>
 
           <?php if($acao['nome']=="erro de imagem"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalErro").modal();
+                        });
+                    </script>
+         <?php } ?>
+         <?php if($acao['nome']=="erro duplicata"){ ?>
                     <script>
                         $(document).ready(function(){
                             $("#modalErro").modal();

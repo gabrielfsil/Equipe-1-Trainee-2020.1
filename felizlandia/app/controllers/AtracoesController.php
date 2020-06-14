@@ -60,7 +60,7 @@ class AtracoesController
     
     public function store(){
 
-
+ 
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
@@ -83,20 +83,28 @@ class AtracoesController
                 // Concatena a pasta com o nome
                 $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
                 // tenta mover o arquivo para o destino
+                $erro = "";
                 if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
 
-                    App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
+                   $erro = $erro . App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
                     ['nome' => $this->protecao ($_POST['nome']),
                     'descricao' => $this->protecao($_POST['descricao']),
                     'categoria' => $_POST['categoria'],
                     'valor' => $_POST['valor'],
                     'foto' => $novoNome,
                 
-                    ]);
+                ],'nome', $_POST['nome']);
                     
-                    $acao = [
-                        'nome' => 'sucesso',
-                    ];
+                    if($erro==""){
+                        $acao = [
+                            'nome' => 'sucesso',
+                        ];
+                    }else{
+                        $acao = [
+                            'nome' => 'erro duplicata',
+                            'mensagem' => 'Já existe uma atração com esse nome',
+                        ];
+                    }
   
                     return view('/admin/criar-atracao', [//retorna vetor de usuarios
                       'acao' => $acao,
