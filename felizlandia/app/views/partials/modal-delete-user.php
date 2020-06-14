@@ -1,5 +1,5 @@
 
-<form action="list-users.html">
+<form action="user-list">
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog  modal-dialog-centered">
       <div class="modal-content">
@@ -13,7 +13,11 @@
             <img src="/public/img/trash.png" class="img-modal">
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-danger" type="submit" value="delete" name="delete">Confirmar Exclusão</button>
+            <form method="POST" action = '/delete'>
+              <input name="delete" type="hidden" value="<?= $user->id ?>">
+              <button type="submit" class="btn btn-danger ">Confirmar Exclusão</button>
+            </form>
+            <!--<button type="submit" class="btn btn-danger" type="submit" value="delete" name="delete">Confirmar Exclusão</button>-->
         </div>
       </div>
     </div>

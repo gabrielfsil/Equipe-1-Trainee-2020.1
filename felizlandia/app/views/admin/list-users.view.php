@@ -12,26 +12,25 @@
       <?php foreach ($users as $user) : ?>
         <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $user->name; ?></p>
-                <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Opções
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <form method="POST" action="user-acess">
-                  <input type="hidden" name="id" value="<?= $user->id ?>">         
-                  <button class="dropdown-item" type="submit">Visualizar</button>
-                </form> 
-                <form method="POST" action="user-edit">        
-                  <input type="hidden" name="id" value="<?=$user->id?>">         
-                  <button class="dropdown-item" type="submit">Editar</button>
-                </form>
-                <form method="POST" action="">      
-                  <input type="hidden" name="id" value="<?=$user->id?>">         
-                  <button class="dropdown-item" type="submit" data-toggle="modal" data-target="#exampleModal<?= $user->id ?>">Remover</button>
-                </form>
-                  <!--<a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">Remover</a>-->
-                </div>
+            <p><?= $user->name; ?></p>
+            <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Opções
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <form method="POST" action="user-acess">
+                <input type="hidden" name="id" value="<?= $user->id ?>">         
+                <button class="dropdown-item" type="submit">Visualizar</button>
+              </form> 
+              <form method="POST" action="user-edit">        
+                <input type="hidden" name="id" value="<?=$user->id?>">         
+                <button class="dropdown-item" type="submit">Editar</button>
+              </form>
+              <!--<form method="POST" action="">-->
+                <a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">Remover</a>
+              <!--</form>-->
+                <!--<a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">Remover</a>-->
             </div>
+          </div>
         </li> 
       <?php endforeach; ?>
     </ul>
