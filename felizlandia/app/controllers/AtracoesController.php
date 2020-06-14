@@ -60,8 +60,7 @@ class AtracoesController
     
     public function store(){
 
-        // verifica se foi enviado um arquivo.. fonte:https://php.eduardokraus.com/upload-de-imagens-com-php
-           
+
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
@@ -80,20 +79,21 @@ class AtracoesController
                 // Evita nomes com acentos, espaços e caracteres não alfanuméricos
                 $novoNome = uniqid ( time () ) . '.' . $extensao;
         
-                App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
-                ['nome' => $_POST['nome'],
-                 'descricao' => $this->protecao($_POST['descricao']),
-                 'categoria' => $_POST['categoria'],
-                 'valor' => $_POST['valor'],
-                  'foto' => $novoNome,
-            
-                 ]);
-           
+              
                 // Concatena a pasta com o nome
                 $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
-        
                 // tenta mover o arquivo para o destino
                 if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+
+                    App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
+                    ['nome' => $this->protecao ($_POST['nome']),
+                    'descricao' => $this->protecao($_POST['descricao']),
+                    'categoria' => $_POST['categoria'],
+                    'valor' => $_POST['valor'],
+                    'foto' => $novoNome,
+                
+                    ]);
+                    
                     $acao = [
                         'nome' => 'sucesso',
                     ];
@@ -103,7 +103,16 @@ class AtracoesController
                       ]);  
                 }
                 else
-                    echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
+                {
+                    $acao = [
+                        'nome' => 'erro de imagem',
+                        'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
+                    ];
+                    
+                    return view('/admin/criar-atracao', [//retorna vetor de usuarios
+                        'acao' => $acao,
+                        ]);     
+                }
             }
             else
                {
@@ -157,23 +166,23 @@ class AtracoesController
                 $novoNome = uniqid ( time () ) . '.' . $extensao;
 
 
-                unlink($destino_antigo);
-
-                  App::get('database')->edit('atracoes',
-                    ['nome' => $_POST['nome'],
-                    'descricao' => $this->protecao($_POST['descricao']),
-                    'categoria' => $_POST['categoria'],
-                    'valor' => $_POST['valor'],
-                    'foto' => $novoNome,
-                    
-                    ], $_POST['id']);
-
+               
               
                     // Concatena a pasta com o nome
                     $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
-            
+
                     // tenta mover o arquivo para o destino
                     if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+                        unlink($destino_antigo);
+
+                        App::get('database')->edit('atracoes',
+                          ['nome' => $this->protecao ($_POST['nome']),
+                          'descricao' => $this->protecao($_POST['descricao']),
+                          'categoria' => $_POST['categoria'],
+                          'valor' => $_POST['valor'],
+                          'foto' => $novoNome,
+                          
+                          ], $_POST['id']);
                 
                     //$atracao_edit = App::get('database')->read('atracoes', $_POST['id']);  
 
@@ -191,8 +200,18 @@ class AtracoesController
                         
                     }
                     else
-                        echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
-       
+                     {
+                        $acao = [
+                            'nome' => 'erro de imagem',
+                            'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
+                        ];
+                        
+                        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+                        return view('/admin/editar-atracao', [
+                            'atracao_edit' => $atracao,
+                            'acao' => $acao,
+                            ]);    
+                    }
 
             }else{
 

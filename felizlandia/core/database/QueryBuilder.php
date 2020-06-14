@@ -38,7 +38,7 @@ class QueryBuilder
  
         }catch(Exception $e){
 
-           $e->getMessage();
+           die("erro");
      }
          
     }
