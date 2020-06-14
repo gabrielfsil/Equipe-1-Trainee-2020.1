@@ -84,7 +84,6 @@ background-attachment: fixed;">
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
                   <input type="text" 
-                  pattern="[a-zA-Z0-9]+"
                   title="O nome da atração não deve conter caracteres especiais como '*, \, /' "
                   name="nome" 
                   required="required" class="form-control" id="exampleFormControlInput1">
@@ -135,10 +134,10 @@ background-attachment: fixed;">
               </div>
 
             </form>
-            <!--FUNÇÃO PRA CHAMAR MODAL -->
          
 
           </div><!--fecha div coluna-->
+          <!--FUNCOES PRA CHAMAR MODALS-->
           <?php if($acao['nome']=="sucesso"){ ?>
                     <script>
                         $(document).ready(function(){
@@ -146,25 +145,59 @@ background-attachment: fixed;">
                         });
                     </script>
                 <?php } ?>
-                <!-- Modal -->
-                <div class="modal modal-edicao fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog  modal-dialog-centered">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Sua atração foi criada com sucesso!</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <img src="img/correto.png" class="img-modal">
-                        <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
-                    </div>
-                  </div>
+
+          <?php if($acao['nome']=="erro de imagem"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalErro").modal();
+                        });
+                    </script>
+         <?php } ?>
+
+                <!-- Modals -->
+                <!--SUCESSO-->
+           <div class="modal modal-edicao fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog  modal-dialog-centered">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Sua atração foi criada com sucesso!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <img src="../../../public/img/correto.png" class="img-modal">
+                              <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                          </div>
+                          <div class="modal-footer">
+                              <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                          </div>
+                      </div>
                 </div>
+           </div>
+
+               <!-- ERRO -->
+               <div class="modal modal-edicao fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  <?= $acao['mensagem'] ?>
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <img src="../../../public/img/erro.png" class="img-modal">
+                                  <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                              </div>
+                          </div>
+                    </div>
+              </div>
       </div><!--fecha div row-->
   </div><!--fecha div container-->
 

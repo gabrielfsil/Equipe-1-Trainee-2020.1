@@ -44,20 +44,24 @@ class QueryBuilder
     }
     public function edit($table,$parameters,$id)
     {  
-        //tentando monstar uma query poque essa tem erro de sintaxe
-        $tamanho = count(array_keys($parameters));
+     
+        $tamanho = count(array_keys($parameters))-1;
+        $cont = 0;
         $sql = "update {$table} set " ;
-
-        for ($i = 0; $i <=($tamanho-1); $i++) 
+        for ($i = 0; $i <=($tamanho); $i++) 
         {
-           $sql = $sql . (array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]). "'" ;
-           if($i!= $tamanho -1){
-            $sql = $sql . ", ";
-           }
-        }
+            if(!((array_values($parameters)[$i]) == ""))
+            {
+                $cont++;
+               if($cont>1)
+                $sql = $sql . ',';
+                
+                $sql = $sql . (array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]). "'" ;
+            
+            } 
+        }      
         
        $sql = $sql . " where id='{$id}'";
-
         try{
             $stmt = $this->pdo->prepare($sql);
 

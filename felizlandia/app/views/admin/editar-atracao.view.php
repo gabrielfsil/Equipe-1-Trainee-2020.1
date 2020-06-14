@@ -112,7 +112,7 @@ background-attachment: fixed;">
               <div class="form-group">
                 <label for="exampleFormControlFile1" >Foto</label>
                 <div class="imagem-db">
-
+                <input type="hidden" name="foto_antiga" value = "<?= $atracao->foto ?>">
                 <img 
                 src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
                 />
@@ -138,8 +138,6 @@ background-attachment: fixed;">
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
                 <input type="hidden" name="id" value=<?= $atracao->id ?> >
-                <input type="hidden" name="foto_salva" value=<?= $atracao->foto ?> >
-
                 <button type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary w-50 mt-3 mb-0">Editar</button>
 
               </div>
@@ -154,7 +152,7 @@ background-attachment: fixed;">
                       </button>
                     </div>
                     <div class="modal-body">
-                        <img src="img/correto.png" class="img-modal">
+                        <img src="../../../public/img/correto.png" class="img-modal">
                         <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
                     </div>
                     <div class="modal-footer">
@@ -162,6 +160,7 @@ background-attachment: fixed;">
                     </div>
                   </div>
                 </div>
+            </div>
               <?php endforeach ;?>
             </form>
             <?php if($acao['nome']=="sucesso"){ ?>
@@ -171,6 +170,37 @@ background-attachment: fixed;">
                         });
                     </script>
                 <?php } ?>
+
+            <?php if($acao['nome']=="erro de imagem"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalErro").modal();
+                        });
+                    </script>
+           <?php } ?>
+            <!-- ERRO -->
+            <div class="modal modal-edicao fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  <?= $acao['mensagem'] ?>
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <img src="../../../public/img/erro.png" class="img-modal">
+                                  <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                              </div>
+                          </div>
+                    </div>
+              </div>
+                
           </div><!--fecha div coluna-->
       </div><!--fecha div row-->
   </div><!--fecha div container-->

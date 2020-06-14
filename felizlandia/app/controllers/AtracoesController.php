@@ -24,6 +24,32 @@ class AtracoesController
             ]);        
     }
 
+
+    public function protecao($string){//função para segurança
+        $string = str_replace(" or ", "", $string);
+        $string = str_replace("select ", "", $string);
+        $string = str_replace("delete ", "", $string);
+        $string = str_replace("create ", "", $string);
+        $string = str_replace("drop ", "", $string);
+        $string = str_replace("update ", "", $string);
+        $string = str_replace("drop table", "", $string);
+        $string = str_replace("show table", "", $string);
+        $string = str_replace("from ", "", $string);
+        $string = str_replace("applet", "", $string);
+        $string = str_replace("object", "", $string);
+        $string = str_replace("'", "", $string);
+        $string = str_replace("#", "", $string);
+        $string = str_replace("=", "", $string);
+        $string = str_replace("--", "", $string);
+        $string = str_replace("-", "", $string);
+        $string = str_replace(";", "", $string);
+        $string = str_replace("*", "", $string);
+        $string = str_replace("/", "", $string);
+        $string = strip_tags($string);
+        return $string;
+    }
+    
+
     public function criar_atracao(){
         $acao = ['nome' => 'none'];
         return view('/admin/criar-atracao',[
@@ -35,7 +61,6 @@ class AtracoesController
     public function store(){
 
         // verifica se foi enviado um arquivo.. fonte:https://php.eduardokraus.com/upload-de-imagens-com-php
-        if ( isset( $_FILES[ 'foto' ][ 'name' ] ) && $_FILES[ 'foto' ][ 'error' ] == 0 ) {
            
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
@@ -57,7 +82,7 @@ class AtracoesController
         
                 App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
                 ['nome' => $_POST['nome'],
-                 'descricao' => $_POST['descricao'],
+                 'descricao' => $this->protecao($_POST['descricao']),
                  'categoria' => $_POST['categoria'],
                  'valor' => $_POST['valor'],
                   'foto' => $novoNome,
@@ -81,92 +106,129 @@ class AtracoesController
                     echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
             }
             else
-                echo 'Você poderá enviar apenas arquivos "*.jpg;*.jpeg;*.gif;*.png"<br />';
-        }
-        else
-            echo 'Você não enviou nenhum arquivo!';
-        
-            
+               {
+                $acao = [
+                    'nome' => 'erro de imagem',
+                    'mensagem' => 'Este arquivo não é uma imagem, selecione novamente'
+                ];
 
-            //  $destino =  $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_FILES['foto']['name'];
-            // $arquivo_tmp = $_FILES['foto']['tmp_name'];
-            // move_uploaded_file($arquivo_tmp, $destino);
-                
-
-           // redirect('atracoes/criacao');
-            //header('Location: /atracoes/criacao');//arrumar pra um redirect melhor
+                return view('/admin/criar-atracao', [
+                  'acao' => $acao,
+                  ]);  
+               }
     }
             
     public function editar_atracao(){
 
+        $acao = [
+            "nome" => "none"
+        ];
         $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+
         return view('/admin/editar-atracao', [//retorna vetor de usuarios
-            'atracao_edit' => $atracao
+            'atracao_edit' => $atracao,
+            'acao' => $acao,
             ]);    
     }
 
     public function store_edicao(){
 
-        if ( isset( $_FILES[ 'foto' ][ 'name' ] ) && $_FILES[ 'foto' ][ 'error' ] == 0 ) {
+
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
-            $nome = $_FILES[ 'foto' ][ 'name' ];
+            $nome_arquivo = $_FILES[ 'foto' ][ 'name' ];
         
             // Pega a extensão
-            $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
+            $extensao = pathinfo ( $nome_arquivo, PATHINFO_EXTENSION );
         
             // Converte a extensão para minúsculo
             $extensao = strtolower ( $extensao );
         
-            // Somente imagens, .jpg;.jpeg;.gif;.png
+            if($nome_arquivo != ""){
+                // Somente imagens, .jpg;.jpeg;.gif;.png
             // Aqui eu enfileiro as extensões permitidas e separo por ';'
             // Isso serve apenas para eu poder pesquisar dentro desta String
-            if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+            if (strstr ( '.jpg;.jpeg;.gif;.png', $extensao )) {
                 // Cria um nome único para esta imagem
                 // Evita que duplique as imagens no servidor.
                 // Evita nomes com acentos, espaços e caracteres não alfanuméricos
-                $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_salva'];
+
+                $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
 
                 $novoNome = uniqid ( time () ) . '.' . $extensao;
-        
+
+
+                unlink($destino_antigo);
+
                   App::get('database')->edit('atracoes',
                     ['nome' => $_POST['nome'],
-                    'descricao' => $_POST['descricao'],
+                    'descricao' => $this->protecao($_POST['descricao']),
                     'categoria' => $_POST['categoria'],
                     'valor' => $_POST['valor'],
                     'foto' => $novoNome,
                     
                     ], $_POST['id']);
-                // Concatena a pasta com o nome
-                $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
-        
-                // tenta mover o arquivo para o destino
-                if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
-               
-                  $acao = [
-                      'nome' => 'sucesso',
-                  ];
-                  $atracao = App::get('database')->read('atracoes', $_POST['id']);  
 
-                  unlink($destino_antigo);
+              
+                    // Concatena a pasta com o nome
+                    $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
+            
+                    // tenta mover o arquivo para o destino
+                    if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+                
+                    //$atracao_edit = App::get('database')->read('atracoes', $_POST['id']);  
 
-                  return view('/admin/editar-atracao', [//retorna vetor de usuarios
+                    $acao = [
+                        'nome' => 'sucesso',
+                    ];
+                    $atracao = App::get('database')->read('atracoes', $_POST['id']); 
+                  
+                          
+                   
+                    return view('/admin/editar-atracao', [
+                        'atracao_edit' => $atracao,
+                        'acao' => $acao,
+                        ]);    
+                        
+                    }
+                    else
+                        echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
+       
+
+            }else{
+
+                $acao = [
+                    'nome' => 'erro de imagem',
+                    'mensagem' => 'Este arquivo não é uma imagem, selecione novamente'
+                ];
+                
+                $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+                return view('/admin/editar-atracao', [
                     'atracao_edit' => $atracao,
                     'acao' => $acao,
-                    ]);  
-
+                    ]);     
+               }
+            }//caso nenhum arquivo seja upado
+            else{
+                App::get('database')->edit('atracoes',
+                    ['nome' => $_POST['nome'],
+                    'descricao' => $this->protecao($_POST['descricao']),
+                    'categoria' => $_POST['categoria'],
+                    'valor' => $_POST['valor'],
+                    'foto' => $_FILES["foto"]['name'],
                     
-                }
-                else
-                    echo 'Erro ao salvar o arquivo. Aparentemente você não tem permissão de escrita.<br />';
+                    ], $_POST['id']);
+                    $acao = [
+                        'nome' => 'sucesso',
+                    ];
+                          
+                    $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+                    return view('/admin/editar-atracao', [
+                        'atracao_edit' => $atracao,
+                        'acao' => $acao,
+                        ]);    
+
             }
-            else
-                echo 'Você poderá enviar apenas arquivos "*.jpg;*.jpeg;*.gif;*.png"<br />';
-        }
-        else
-            echo 'Você não enviou nenhum arquivo!';
-        
-            
-  
+       
     }
 
      
@@ -189,7 +251,7 @@ class AtracoesController
 
       App::get('database')->delete('atracoes', $_POST['id']);  
       
-      $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_salva'];
+      $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
       unlink($destino);
 
       redirect('atracoes/adm');
