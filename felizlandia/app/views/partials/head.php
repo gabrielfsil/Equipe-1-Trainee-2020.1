@@ -23,4 +23,4 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet"> -->
 
 </head>
-<body>
+<body class="admin">
