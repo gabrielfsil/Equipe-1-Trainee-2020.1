@@ -1,10 +1,13 @@
  <?php
 
-$router->get('admin/list-user', 'UsersController@list');
-$router->get('admin/acess-user', 'UsersController@acess');
-$router->get('admin/delete-user', 'UsersController@delete');
-$router->post('admin/create-user', 'UsersController@create');
-$router->post('admin/edit-user', 'UsersController@edit');
-$router->post('admin/change-pwd-user', 'UsersController@changePassword');
+$router->get('admin/user-list', 'UsersController@list');
+$router->get('admin/user-create' ,'UsersController@create');
+$router->post('admin/user-store', 'UsersController@store');
+$router->post('admin/user-acess', 'UsersController@acess');
+$router->post('admin/user-delete', 'UsersController@delete');
+$router->post('admin/user-edit', 'UsersController@edit');
+$router->post('admin/user-store-edit', 'UsersController@storeEdit');
+$router->post('admin/user-change-password', 'UsersController@changePassword');
+$router->post('admin/user-store-password', 'UsersController@storeChangePassword');
 
 ?> 
