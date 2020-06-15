@@ -28,7 +28,10 @@
             <div class="form-inline">
               <div class="form-inline">
                 <div class="form-group d-flex justify-content-between my-1 mr-2">
-                  <a class="d-flex justify-content-center" href="user-edit"><button type="button" class="btn btn-info">&#10094;Editar Usuário</button></a>
+                  <form method="POST" action="user-edit">        
+                    <input type="hidden" name="id" value="<?= $user->id ?>">                          
+                    <a class="d-flex justify-content-center" href="user-edit"><button type="button" type="submit" class="btn btn-info">&#10094;Editar Usuário</button></a>
+                  </form>
                 </div>
                 <div class="form-group d-flex justify-content-between my-1 mr-2">
                   <a class="d-flex justify-content-center" href="user-change-password"><button type="button" class="btn btn-warning">&#10094;Modificar Senha</button></a>
@@ -36,7 +39,7 @@
               </div> 
               <div class="form-inline">
                 <div class="form-group d-flex justify-content-between my-1 mr-2">
-                  <a class="d-flex justify-content-center" href="" data-toggle="modal" data-target="#exampleModal"><button type="button" class="btn btn-danger">&#10094;Excluir Usuário</button></a>
+                  <a class="d-flex justify-content-center" href="" data-toggle="modal" data-target="#exampleModal<?=$user->id?>"><button type="button" class="btn btn-danger">&#10094;Excluir Usuário</button></a>
                 </div>
               
                 <div class="form-group d-flex justify-content-between my-1">
