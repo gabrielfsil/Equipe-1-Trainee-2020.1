@@ -46,24 +46,21 @@ class QueryBuilder
         $size = count(array_keys($parameters));
         $sql = "update {$table} set" ;
         for ($i = 0; $i < ($size); $i++) 
-        {
+        {   
+            $sql = $sql . ' ' .(array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]) . "'";
+            if($i < $size-1)
+                $sql = $sql . ', ';
 
-                
-                $sql = $sql . ' ' .(array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]) . "'";
-                if($i < $size-1)
-                {
-                    $sql = $sql . ', ';
-                }
         }     
         
         $sql = $sql . " where id='{$id}'";
         
-       try{
+        try {
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->execute();
  
-        }catch(Exception $e){
+        } catch(Exception $e){
 
            $e->getMessage();
         }   
@@ -78,7 +75,7 @@ class QueryBuilder
            $stmt->execute();
            return 1;
 
-       }catch(Exception $e){
+        } catch(Exception $e){
 
           $e->getMessage();
        }
