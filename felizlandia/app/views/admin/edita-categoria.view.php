@@ -20,8 +20,9 @@
                   
                   
               </div>
-              <a href="/adm/lisa-categorias"><button type="submit" class="btn btn-primary voltar-button"> < Voltar </button></a>
-          
+              <a href="/adm/lista-categorias"> <button type="button" class="bg-primary button-categoria ">
+                    < Voltar 
+                  </button></a>
           </div>
           <div class="espaço grande"></div>
       
