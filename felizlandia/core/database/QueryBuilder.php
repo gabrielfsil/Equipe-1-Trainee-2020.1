@@ -25,6 +25,7 @@ class QueryBuilder
 
     public function insert($table, $parameters)
     {
+        echo $parameters;
         $sql = sprintf(
             'insert into %s (%s) values (%s)',
             $table,
@@ -40,19 +41,63 @@ class QueryBuilder
             //
         }
     }
-    public function edit()
+    public function edit($table,$parameters,$id)
     {
-      
-         
+        $tamanho = count(array_keys($parameters))-1;
+        $cont = 0;
+        $sql = "update {$table} set " ;
+        for ($i = 0; $i <=($tamanho); $i++) 
+        {
+            if(!((array_values($parameters)[$i]) == ""))
+            {
+                $cont++;
+               if($cont>1)
+                $sql = $sql . ',';
+                
+                $sql = $sql . (array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]). "'" ;
+            
+            } 
+        }      
+        
+       $sql = $sql . " where id='{$id}'";
+        try{
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+ 
+        }catch(Exception $e){
+
+           $e->getMessage();
+        }   
     }
-    public function delete()
+
+    public function delete($table,$id)
     {
-      
-         
+        $sql = "delete from {$table} where id = " .$id;
+        try{
+           $stmt = $this->pdo->prepare($sql);
+
+           $stmt->execute();
+           return 1;
+
+       }catch(Exception $e){
+
+          $e->getMessage();
+       }
     }
-    public function read()
+
+    public function read($table, $id)
     {
-      
-         
+        $sql = "select * from " . $table . " where id =" . $id;
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+  
+        } catch(Exception $e) {
+  
+            $e->getMessage();
+        }     
     }
 }
