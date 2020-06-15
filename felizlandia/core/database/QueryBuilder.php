@@ -38,30 +38,22 @@ class QueryBuilder
 
             $statement->execute($parameters);
         } catch (\Exception $e) {
-            //
+            $e->getMessage();
         }
     }
     public function edit($table, $parameters, $id)
     {
-        $tamanho = count(array_keys($parameters));
-        //$cont = 0;
+        $size = count(array_keys($parameters));
         $sql = "update {$table} set" ;
-        for ($i = 0; $i < ($tamanho); $i++) 
+        for ($i = 0; $i < ($size); $i++) 
         {
-            //if(!((array_values($parameters)[$i]) == ""))
-            //{
-                //$cont++;
-               //if($cont>1)
-                //$sql = $sql . ',';
+
                 
                 $sql = $sql . ' ' .(array_keys($parameters)[$i] ).'='. "'". (array_values($parameters)[$i]) . "'";
-                if($i < $tamanho-1)
+                if($i < $size-1)
                 {
                     $sql = $sql . ', ';
                 }
-                
-            
-            //} 
         }     
         
         $sql = $sql . " where id='{$id}'";
