@@ -74,14 +74,29 @@ class UsersController
     public function storeChangePassword()
     {
         $user = App::get('database')->read('person', $_POST['id']);
-        $userPwdOld = $user[0]['password'];
+        $userPwdOld = $user[0]->password;
+        $error = False;
+        $message = "Senha modificada com sucesso.";
+        //var_dump($userPwdOld);
 
-        if($userPwdOld == $_POST['passwordOld'] && $_POST['password'] == $_POST['passwordRepeat'])
-            App::get('database')->edit('person', ['password' => $_POST['password']], $_POST['id']);
+        if($userPwdOld == $_POST['oldPassword'] && $_POST['newPassword'] == $_POST['newPasswordRepeat'])
+            App::get('database')->edit('person', ['password' => $_POST['newPassword']], $_POST['id']);
+        else 
+        {
+            $error = True;
+            if($userPwdOld != $_POST['oldPassword'])
+                $message = "A senha digitada não corresponde a atual.";
+            else
+                $message = "A nova senha não corresponde ao campo repetido.";
+        }
 
-        
+        $act = [
+            'error' => $error,
+            'message' => $message];
 
-        //return view('admin/display-user', ['user' => $user[0]]); 
-        return view('admin/change-password', ['user' => $user[0]]);
+        //var_dump($user[0]);
+        //var_dump($act);
+        return view('admin/change-password', ['user' => $user[0],
+                                              'act' => $act]);
     }
 }
