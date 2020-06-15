@@ -19,18 +19,14 @@
                 <input type="hidden" name="id" value="<?= $user->id ?>">      
                 <button class="dropdown-item" type="submit">Visualizar</button>
               </form>
-              <form method="POST" action="user-edit">        
-                <input type="hidden" name="id" value="<?= $user->id ?>">         
+              <form method="POST" action="user-edit">
+                <input type="hidden" name="id" value="<?= $user->id ?>">
                 <button class="dropdown-item" type="submit">Editar</button>
               </form>
-              <!--<form method="POST" action="">-->
               
-              <button class="dropdown-item" type="submit" data-toggle="modal" data-target="#exampleModal<?=$user->id?>">Remover</button>
               <!-- gambs para resolver como passar o id do user para o modal -->
-              
-              
-              <!--</form>-->
-                <!--<a class="dropdown-item" href="" data-toggle="modal" data-target="#exampleModal">Remover</a>-->
+              <button class="dropdown-item" type="submit" data-toggle="modal" data-target="#exampleModal<?=$user->id?>">Remover</button>
+
             </div>
           </div>
         </li>

@@ -640,8 +640,8 @@ border-radius: 2%;
 }
 
 .img-modal{
-	width: 200px;
-	height: 200px;
+	width: 180px;
+	height: 180px;
 }
 .voltar{
 	color:white;
@@ -1641,11 +1641,6 @@ i.fas, .fa-lock, .fa-at {
 
 .modal-body{
 	text-align: center;
-}
-
-.img-modal{
-	width: 200px;
-	height: 200px;
 }
 
 /* Modifica design scrollbar */

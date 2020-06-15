@@ -36,8 +36,8 @@ class UsersController
             'name' => $_POST['userName'],
             'email' => $_POST['userEmail'],
             'password' => $_POST['userPassword']]);
-        //return redirect('admin/user-list');
-        return view('/admin/create-user');
+        
+        return redirect('admin/user-list');
     }
 
     public function delete()
@@ -56,22 +56,32 @@ class UsersController
     public function storeEdit()
     {
         App::get('database')->edit('person',
-                          ['nome' => $_POST['name'],
+                          ['name' => $_POST['name'],
                           'email' => $_POST['email']], $_POST['id']);
 
-        $atracao = App::get('database')->read('atracoes', $_POST['id']);                         
+        $user = App::get('database')->read('person', $_POST['id']);
         
-        return view('admin/edit-user', 
-        ['user' => $user]);
+        return view('admin/display-user', ['user' => $user[0]]); 
     }
 
     public function changePassword()
     {
-        return view('admin/change-password');
+        $user = App::get('database')->read('person', $_POST['id']);
+
+        return view('admin/change-password', ['user' => $user[0]]);
     }
     
     public function storeChangePassword()
     {
-        return view('admin/change-password');
+        $user = App::get('database')->read('person', $_POST['id']);
+        $userPwdOld = $user[0]['password'];
+
+        if($userPwdOld == $_POST['passwordOld'] && $_POST['password'] == $_POST['passwordRepeat'])
+            App::get('database')->edit('person', ['password' => $_POST['password']], $_POST['id']);
+
+        
+
+        //return view('admin/display-user', ['user' => $user[0]]); 
+        return view('admin/change-password', ['user' => $user[0]]);
     }
 }
