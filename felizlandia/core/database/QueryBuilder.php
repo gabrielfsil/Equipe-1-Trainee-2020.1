@@ -26,17 +26,24 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function insert($table, $parameters,$campo, $conteudo)//tabela e vetor de parametros
-    {
-       //verifica se ja existe uma ocorrencia na base de dados
-        $buscar = $this->pdo->prepare("select * from {$table} where {$campo} = '{$conteudo}'");
+    public function checkExistence($table, $parameters=[]){
+        //verifica se ja existe uma ocorrencia na base de dados
+
+        $sql = "select * from {$table} where {$parameters['campo']} = '{$parameters['conteudo']}'";
+        if(array_key_exists('id',$parameters))
+        {
+            $sql = $sql . " and id <> '{$parameters['id']}'";
+        }
+        $buscar = $this->pdo->prepare($sql);
         $buscar->execute();
         $result= $buscar->fetchAll(PDO::FETCH_CLASS);
 
         if(count($result)!=0){
             return "erro";
         }
-
+    }
+    public function insert($table, $parameters)//tabela e vetor de parametros
+    {
         $sql = sprintf('insert into %s (%s) values(%s)', $table, implode(", ", array_keys($parameters)),
         "'" . implode("', '", array_values($parameters)) . "'");
 
@@ -46,8 +53,7 @@ class QueryBuilder
             $stmt->execute();
  
         }catch(Exception $e){
-
-           die("erro");
+            $e->getMessage();
      }
          
     }
@@ -90,13 +96,13 @@ class QueryBuilder
             $stmt = $this->pdo->prepare($sql);
 
             $stmt->execute();
-            return 1;
  
         }catch(Exception $e){
 
            $e->getMessage();
      }
     }
+    
     public function read($table, $id)
     {
       $sql = "select * from " . $table . " where id =" . $id;

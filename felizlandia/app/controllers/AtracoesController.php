@@ -60,7 +60,6 @@ class AtracoesController
     
     public function store(){
 
- 
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
@@ -84,43 +83,45 @@ class AtracoesController
                 $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
                 // tenta mover o arquivo para o destino
                 $erro = "";
-                if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+                $erro = $erro . App::get('database')->checkExistence('atracoes',[
+                    'campo' =>'nome',
+                    'conteudo'=> $_POST['nome'] 
+                ]);
+                if($erro==""){
+                        
+                        if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
 
-                   $erro = $erro . App::get('database')->insert('atracoes',//se tudo tiver ok fazer a inserção
-                    ['nome' => $this->protecao ($_POST['nome']),
-                    'descricao' => $this->protecao($_POST['descricao']),
-                    'categoria' => $_POST['categoria'],
-                    'valor' => $_POST['valor'],
-                    'foto' => $novoNome,
-                
-                ],'nome', $_POST['nome']);
-                    
-                    if($erro==""){
-                        $acao = [
-                            'nome' => 'sucesso',
-                        ];
-                    }else{
-                        $acao = [
-                            'nome' => 'erro duplicata',
-                            'mensagem' => 'Já existe uma atração com esse nome',
-                        ];
-                    }
-  
-                    return view('/admin/criar-atracao', [//retorna vetor de usuarios
-                      'acao' => $acao,
-                      ]);  
-                }
-                else
-                {
+                        
+                            App::get('database')->insert('atracoes',
+                            ['nome' => $this->protecao ($_POST['nome']),
+                            'descricao' => $this->protecao($_POST['descricao']),
+                            'categoria' => $_POST['categoria'],
+                            'valor' => $_POST['valor'],
+                            'foto' => $novoNome,]);
+
+                            $acao = [
+                                'nome' => 'sucesso',
+                            ];    
+                        
+                           
+                        }
+                        else
+                        {
+                            $acao = [
+                                'nome' => 'erro de imagem',
+                                'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
+                            ];
+                            
+                            
+                        }
+
+                }else{
                     $acao = [
-                        'nome' => 'erro de imagem',
-                        'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
+                        'nome' => 'erro duplicata',
+                        'mensagem' => 'Já existe uma atração com esse nome',
                     ];
-                    
-                    return view('/admin/criar-atracao', [//retorna vetor de usuarios
-                        'acao' => $acao,
-                        ]);     
                 }
+
             }
             else
                {
@@ -129,10 +130,11 @@ class AtracoesController
                     'mensagem' => 'Este arquivo não é uma imagem, selecione novamente'
                 ];
 
-                return view('/admin/criar-atracao', [
-                  'acao' => $acao,
-                  ]);  
+                
                }
+               return view('/admin/criar-atracao', [//retorna vetor de usuarios
+                'acao' => $acao,
+                ]);  
     }
             
     public function editar_atracao(){
@@ -151,113 +153,109 @@ class AtracoesController
     public function store_edicao(){
 
 
-            $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
-            $nome_arquivo = $_FILES[ 'foto' ][ 'name' ];
-        
-            // Pega a extensão
-            $extensao = pathinfo ( $nome_arquivo, PATHINFO_EXTENSION );
-        
-            // Converte a extensão para minúsculo
-            $extensao = strtolower ( $extensao );
-        
+        $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
+        $nome_arquivo = $_FILES[ 'foto' ][ 'name' ];
+    
+        // Pega a extensão
+        $extensao = pathinfo ( $nome_arquivo, PATHINFO_EXTENSION );
+    
+        // Converte a extensão para minúsculo
+        $extensao = strtolower ( $extensao );
+
+        $erro = "";
+        $erro = $erro . App::get('database')->checkExistence('atracoes',
+        [
+            'campo' =>'nome',
+            'conteudo'=> $_POST['nome'],
+            'id' => $_POST['id']
+            ]);
+
+        if($erro == ""){
             if($nome_arquivo != ""){
-                // Somente imagens, .jpg;.jpeg;.gif;.png
+                    // Somente imagens, .jpg;.jpeg;.gif;.png
             // Aqui eu enfileiro as extensões permitidas e separo por ';'
             // Isso serve apenas para eu poder pesquisar dentro desta String
-            if (strstr ( '.jpg;.jpeg;.gif;.png', $extensao )) {
-                // Cria um nome único para esta imagem
-                // Evita que duplique as imagens no servidor.
-                // Evita nomes com acentos, espaços e caracteres não alfanuméricos
+                if (strstr ( '.jpg;.jpeg;.gif;.png', $extensao )) {
+                    // Cria um nome único para esta imagem
+                    // Evita que duplique as imagens no servidor.
+                    // Evita nomes com acentos, espaços e caracteres não alfanuméricos
 
-                $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
+                    $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
 
-                $novoNome = uniqid ( time () ) . '.' . $extensao;
+                    $novoNome = uniqid ( time () ) . '.' . $extensao;
 
-
-               
-              
-                    // Concatena a pasta com o nome
+                
+                        // Concatena a pasta com o nome
                     $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $novoNome;
 
-                    // tenta mover o arquivo para o destino
+                        // tenta mover o arquivo para o destino
                     if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
+                            
                         unlink($destino_antigo);
 
                         App::get('database')->edit('atracoes',
-                          ['nome' => $this->protecao ($_POST['nome']),
-                          'descricao' => $this->protecao($_POST['descricao']),
-                          'categoria' => $_POST['categoria'],
-                          'valor' => $_POST['valor'],
-                          'foto' => $novoNome,
-                          
-                          ], $_POST['id']);
-                
-                    //$atracao_edit = App::get('database')->read('atracoes', $_POST['id']);  
+                            ['nome' => $this->protecao ($_POST['nome']),
+                            'descricao' => $this->protecao($_POST['descricao']),
+                            'categoria' => $_POST['categoria'],
+                            'valor' => $_POST['valor'],
+                            'foto' => $novoNome,
+                            
+                            ], $_POST['id']);
+                    
+
+                        $acao = [
+                                'nome' => 'sucesso',
+                            ];
+                            
+                    }else {
+                            $acao = [
+                                'nome' => 'erro de imagem',
+                                'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
+                            ];
+                        
+                    }
+
+                }else{
 
                     $acao = [
-                        'nome' => 'sucesso',
-                    ];
-                    $atracao = App::get('database')->read('atracoes', $_POST['id']); 
-                  
-                          
-                   
-                    return view('/admin/editar-atracao', [
-                        'atracao_edit' => $atracao,
-                        'acao' => $acao,
-                        ]);    
-                        
-                    }
-                    else
-                     {
-                        $acao = [
-                            'nome' => 'erro de imagem',
-                            'mensagem' => 'Erro ao salvar o arquivo, tente novamente'
-                        ];
-                        
-                        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
-                        return view('/admin/editar-atracao', [
-                            'atracao_edit' => $atracao,
-                            'acao' => $acao,
-                            ]);    
-                    }
+                        'nome' => 'erro de imagem',
+                        'mensagem' => 'Este arquivo não é uma imagem, selecione novamente'
+                    ];    
+                
+                }
 
             }else{
+                App::get('database')->edit('atracoes',
+                ['nome' => $this->protecao ($_POST['nome']),
+                'descricao' => $this->protecao($_POST['descricao']),
+                'categoria' => $_POST['categoria'],
+                'valor' => $_POST['valor'],
+                
+                ], $_POST['id']);
+    
 
                 $acao = [
-                    'nome' => 'erro de imagem',
-                    'mensagem' => 'Este arquivo não é uma imagem, selecione novamente'
+                    'nome' => 'sucesso',
                 ];
-                
-                $atracao = App::get('database')->read('atracoes', $_POST['id']);  
-                return view('/admin/editar-atracao', [
+            }
+                        
+        }else{
+            $acao = [
+                'nome' => 'erro duplicata',
+                'mensagem' => 'Já existe uma atração com esse nome',
+            ];
+        }
+    
+        
+        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        return view('/admin/editar-atracao', [
                     'atracao_edit' => $atracao,
                     'acao' => $acao,
-                    ]);     
-               }
-            }//caso nenhum arquivo seja upado
-            else{
-                App::get('database')->edit('atracoes',
-                    ['nome' => $_POST['nome'],
-                    'descricao' => $this->protecao($_POST['descricao']),
-                    'categoria' => $_POST['categoria'],
-                    'valor' => $_POST['valor'],
-                    'foto' => $_FILES["foto"]['name'],
-                    
-                    ], $_POST['id']);
-                    $acao = [
-                        'nome' => 'sucesso',
-                    ];
-                          
-                    $atracao = App::get('database')->read('atracoes', $_POST['id']);  
-                    return view('/admin/editar-atracao', [
-                        'atracao_edit' => $atracao,
-                        'acao' => $acao,
-                        ]);    
+                    ]);    
 
-            }
-       
-    }
-
+        
+   
+}
      
     public function visualizar_atracao(){
 

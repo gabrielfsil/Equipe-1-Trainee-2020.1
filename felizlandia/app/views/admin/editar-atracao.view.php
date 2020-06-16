@@ -29,19 +29,20 @@ background-position: center;
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
                   <input type="text"
+                  required="required"
                    name="nome" value="<?= $atracao->nome ?>"
                     class="form-control" id="exampleFormControlInput1">
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" 
+                <textarea class="form-control" required="required"
                 name="descricao" id="exampleFormControlTextarea1" rows="3">
                   <?= $atracao->descricao ?>
                 </textarea>
               </div>
               <div class="form-group form-atracoes">
                     <label for="exampleFormControlSelect1">Categoria:  </label>
-                    <select class="form-control" name="categoria" id="exampleFormControlSelect1">
+                    <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1">
                       <option><?= $atracao->categoria ?></option>
                       <option>vem da base de dados</option>
                       <option>vem da base de dados</option>
@@ -51,7 +52,7 @@ background-position: center;
               </div>
               <div class="form-group">
                 <label for="exampleFormControlInput1">Valor</label>
-                <input type="text" name="valor" 
+                <input type="text" name="valor" required="required"
                 value="<?= $atracao->valor ?>"  
                 class="form-control" id="exampleFormControlInput1">
               </div>
@@ -124,6 +125,13 @@ background-position: center;
                         });
                     </script>
            <?php } ?>
+           <?php if($acao['nome']=="erro duplicata"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalErro").modal();
+                        });
+                    </script>
+         <?php } ?>
             <!-- ERRO -->
             <div class="modal modal-edicao fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog  modal-dialog-centered">
