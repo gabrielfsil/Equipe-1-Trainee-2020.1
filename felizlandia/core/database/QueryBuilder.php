@@ -23,7 +23,7 @@ class QueryBuilder
 
         $statement->execute();
 
-        return $statement->fetchAll(PDO::FETCH_CLASS, "App\Core\CategoryObject");
+        return $statement->fetchAll(PDO::FETCH_CLASS);
       
     }
 
@@ -79,7 +79,7 @@ class QueryBuilder
 
            $statement->execute();
 
-           $categoria = $statement->fetchAll(PDO::FETCH_CLASS,"App\Core\CategoryObject"); 
+           $categoria = $statement->fetchAll(PDO::FETCH_CLASS); 
 
 
            return $categoria;
