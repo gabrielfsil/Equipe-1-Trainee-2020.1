@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\App;
 
-class AtracoesController
+class AtracoesController 
 
 {
     public function home(){
@@ -13,7 +13,7 @@ class AtracoesController
         return view('/site/atracoes');
     }
 
-    public function atracoes_adm(){
+    public function list(){
         $atracoes = App::get('database')->selectAll('atracoes');//pega todos ususarios da base de dados
         $num_atracoes = [
             "num" => count($atracoes)
@@ -50,7 +50,7 @@ class AtracoesController
     }
     
 
-    public function criar_atracao(){
+    public function create(){
         $acao = ['nome' => 'none'];
         return view('/admin/criar-atracao',[
             'acao'=> $acao,
@@ -137,12 +137,12 @@ class AtracoesController
                 ]);  
     }
             
-    public function editar_atracao(){
+    public function edit(){
 
         $acao = [
             "nome" => "none"
         ];
-        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
 
         return view('/admin/editar-atracao', [//retorna vetor de usuarios
             'atracao_edit' => $atracao,
@@ -150,7 +150,7 @@ class AtracoesController
             ]);    
     }
 
-    public function store_edicao(){
+    public function store_edit(){
 
 
         $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
@@ -257,29 +257,29 @@ class AtracoesController
    
 }
      
-    public function visualizar_atracao(){
+    public function view(){
 
-        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         return view('/admin/visualizar-atracao', [//retorna vetor de usuarios
             'atracao_visualizar' => $atracao
             ]);    
     }
 
-    public function excluir_atracao(){
+    public function delete(){
 
-        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         return view('/admin/apagar-atracao', [//retorna vetor de usuarios
             'atracao_exclusao' => $atracao
             ]);    
     }
-    public function store_exclusao(){
+    public function store_delete(){
 
       App::get('database')->delete('atracoes', $_POST['id']);  
       
       $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
       unlink($destino);
 
-      redirect('atracoes/adm');
+      redirect('admin/list-atracoes');
     
     }
 

@@ -28,11 +28,15 @@ class QueryBuilder
 
     public function checkExistence($table, $parameters=[]){
         //verifica se ja existe uma ocorrencia na base de dados
-
+        //serve para criação e edição, se for criação não passamos id
+        //se for edição passamos o id no vetor de parametros
         $sql = "select * from {$table} where {$parameters['campo']} = '{$parameters['conteudo']}'";
-        if(array_key_exists('id',$parameters))
+        if(array_key_exists('id',$parameters))//aqui verifica se foi passado um id ou não pra não dar erro de sintaxe
         {
             $sql = $sql . " and id <> '{$parameters['id']}'";
+            //como ao editar a pessoa pode não modificar os campos e enviá-los como antes
+            //então ela vai colocar um valor que já existe, por isso testamos se o id
+            //é de quem pertence esse valor ou não
         }
         $buscar = $this->pdo->prepare($sql);
         $buscar->execute();

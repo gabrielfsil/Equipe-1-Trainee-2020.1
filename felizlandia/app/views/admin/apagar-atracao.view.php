@@ -72,7 +72,7 @@ FIM PARALAX-->
             <?php endforeach ;?>
 
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
 
 
                 <button class="btn btn-danger" type="button" id="dropdownMenuButton"data-toggle="modal" data-target="#exampleModal">
@@ -95,7 +95,7 @@ FIM PARALAX-->
           
          <!--MODAL-->
              
-  <form method="POST" action="/atracoes/excluir">
+  <form method="POST" action="/admin/delete-atracao">
   <div class="modal modal-exclusao fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog  modal-dialog-centered">
         <div class="modal-content">

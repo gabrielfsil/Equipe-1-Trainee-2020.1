@@ -22,7 +22,7 @@ background-position: center;
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST" enctype="multipart/form-data" action = '/atracoes/criar'  ><!--FORMULARIO-->
+           <form class="col-md-6" method="POST" enctype="multipart/form-data" action = '/admin/create-atracao'  ><!--FORMULARIO-->
               <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
                   <input type="text" 
@@ -69,7 +69,7 @@ background-position: center;
               </div>
               
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
 
                 <button type="submit"  class="btn btn-primary w-50 mt-3 mb-0">Enviar</button>
 

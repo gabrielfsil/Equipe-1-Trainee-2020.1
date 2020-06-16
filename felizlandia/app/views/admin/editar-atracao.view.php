@@ -24,7 +24,7 @@ background-position: center;
     </div>
     <div class="row">
         <div class="col d-flex justify-content-center">
-           <form class="col-md-6" method="POST"  enctype="multipart/form-data" action = '/atracoes/editar'><!--FORMULARIO-->
+           <form class="col-md-6" method="POST"  enctype="multipart/form-data" action = '/admin/edit-atracao'><!--FORMULARIO-->
               <?php foreach ($atracao_edit as $atracao) : ?>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nome</label>
@@ -83,7 +83,7 @@ background-position: center;
               </div>
               
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
                 <input type="hidden" name="id" value=<?= $atracao->id ?> >
                 <button type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary w-50 mt-3 mb-0">Editar</button>
 

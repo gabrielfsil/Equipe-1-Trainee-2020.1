@@ -71,7 +71,7 @@ FIM PARALAX-->
 
               </fieldset>
               <div class="form-group d-flex justify-content-between">
-                <a class="d-flex justify-content-center" href="/atracoes/adm"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
+                <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
   
               </div> 
             </form>

@@ -36,21 +36,21 @@ background-position: center;
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <form method="POST" action="/atracoes/visualizacao">
-                <input type="hidden" name="id" value="<?=$atracao->id?>">         
+                <a class="dropdown-item" href="/admin/acess-atracao?id=<?=$atracao->id?>">Visualizar</a>
+                <a class="dropdown-item" href="/admin/edit-atracao?id=<?=$atracao->id?>">Editar</a>
+                <a class="dropdown-item" href="/admin/delete-atracao?id=<?=$atracao->id?>">Apagar</a>
+
+                <!--ALTERNATIVO
+                  <form method="POST" action="/atracoes/visualizacao">
+                <input type="hidden" name="id" value="">         
 
                 <button class="dropdown-item" type="submit">Visualizar</button>
 
-                </form>  
-                <form method="POST" action="/atracoes/edicao">        
-                <input type="hidden" name="id" value="<?=$atracao->id?>">         
-                  <button class="dropdown-item" type="submit">Editar</button>
-                </form>
+                </form>  -->
+                
 
-                <form method="POST" action="/atracoes/exclusao">        
-                <input type="hidden" name="id" value="<?=$atracao->id?>">         
-                  <button class="dropdown-item" type="submit">Apagar</button>
-                </form>
+               
+               
                 </div>
             </div>
         </li> 
@@ -59,7 +59,7 @@ background-position: center;
       </ul>
 
       <div class="listar-button mt-2">
-        <a href="/atracoes/criacao"> <button class="btn btn-danger button-listar">Adicionar +</button></a>
+        <a href="/admin/create-atracao"> <button class="btn btn-danger button-listar">Adicionar +</button></a>
        </div>
        
     
