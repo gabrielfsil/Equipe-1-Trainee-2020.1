@@ -7,13 +7,13 @@ use App\Core\App;
 class AtracoesController 
 
 {
-    public function home(){
+   /* public function home(){
 
     
         return view('/site/atracoes');
-    }
+    }*/
 
-    public function list(){
+   /* public function list(){
         $atracoes = App::get('database')->selectAll('atracoes');//pega todos ususarios da base de dados
         $num_atracoes = [
             "num" => count($atracoes)
@@ -22,7 +22,7 @@ class AtracoesController
             'atracoes' => $atracoes,
              'num_atracoes' => $num_atracoes,
             ]);        
-    }
+    }*/
 
 
     public function protecao($string){//função para segurança
@@ -50,12 +50,12 @@ class AtracoesController
     }
     
 
-    public function create(){
+   /* public function create(){
         $acao = ['nome' => 'none'];
         return view('/admin/criar-atracao',[
             'acao'=> $acao,
             ]);
-    }
+    }*/
 
     
     public function store(){
@@ -137,7 +137,7 @@ class AtracoesController
                 ]);  
     }
             
-    public function edit(){
+   /* public function edit(){
 
         $acao = [
             "nome" => "none"
@@ -148,7 +148,7 @@ class AtracoesController
             'atracao_edit' => $atracao,
             'acao' => $acao,
             ]);    
-    }
+    }*/
 
     public function store_edit(){
 
@@ -257,21 +257,21 @@ class AtracoesController
    
 }
      
-    public function view(){
+    /*public function view(){
 
         $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         return view('/admin/visualizar-atracao', [//retorna vetor de usuarios
             'atracao_visualizar' => $atracao
             ]);    
-    }
+    }*/
 
-    public function delete(){
+    /*public function delete(){
 
         $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         return view('/admin/apagar-atracao', [//retorna vetor de usuarios
             'atracao_exclusao' => $atracao
             ]);    
-    }
+    }*/
     public function store_delete(){
 
       App::get('database')->delete('atracoes', $_POST['id']);  
