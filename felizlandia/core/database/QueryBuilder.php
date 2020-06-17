@@ -8,39 +8,53 @@ class QueryBuilder
 {
     protected $pdo;
 
+
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
-    }
-
+    }    
 
     public function selectAll($table)
     {
-        $statement = $this->pdo->prepare("select * from {$table}");
+        $stmt = $this->pdo->prepare("select * from {$table}");
 
-        $statement->execute();
+        $stmt->execute();
 
-        return $statement->fetchAll(PDO::FETCH_CLASS);      
+        return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
-    public function insert($table, $parameters)
+    public function read($table, $id)
     {
-        echo $parameters;
-        $sql = sprintf(
-            'insert into %s (%s) values (%s)',
-            $table,
-            implode(', ', array_keys($parameters)),
-            ':' . implode(', :', array_keys($parameters))
-        );
+        $sql = "select * from " . $table . " where id =" . $id;
 
-        try {
-            $statement = $this->pdo->prepare($sql);
+        try{
+            $stmt = $this->pdo->prepare($sql);
 
-            $statement->execute($parameters);
-        } catch (\Exception $e) {
-            $e->getMessage();
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        }catch(Exception $e){
+
+        $e->getMessage();
         }
     }
+
+    public function insert($table, $parameters)//tabela e vetor de parametros
+    {
+        $sql = sprintf('insert into %s (%s) values(%s)', $table, implode(", ", array_keys($parameters)),
+        "'" . implode("', '", array_values($parameters)) . "'");
+
+        try{
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+ 
+        }catch(Exception $e){
+            $e->getMessage();
+        }
+         
+    }
+
     public function edit($table, $parameters, $id)
     {
         $size = count(array_keys($parameters));
@@ -55,6 +69,7 @@ class QueryBuilder
         
         $sql = $sql . " where id='{$id}'";
         
+        
         try {
             $stmt = $this->pdo->prepare($sql);
 
@@ -68,31 +83,36 @@ class QueryBuilder
 
     public function delete($table,$id)
     {
-        $sql = "delete from {$table} where id = " .$id;
+        $sql = "delete from {$table} where id = " . $id;
         try{
-           $stmt = $this->pdo->prepare($sql);
+            $stmt = $this->pdo->prepare($sql);
 
-           $stmt->execute();
-           return 1;
+            $stmt->execute();
+ 
+        }catch(Exception $e){
 
-        } catch(Exception $e){
-
-          $e->getMessage();
-       }
+           $e->getMessage();
+        }
     }
 
-    public function read($table, $id)
-    {
-        $sql = "select * from " . $table . " where id =" . $id;
-
-        try {
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_CLASS);
-  
-        } catch(Exception $e) {
-  
-            $e->getMessage();
-        }     
+    public function checkExistence($table, $parameters=[]){
+        //verifica se ja existe uma ocorrencia na base de dados
+        //serve para criação e edição, se for criação não passamos id
+        //se for edição passamos o id no vetor de parametros
+        $sql = "select * from {$table} where {$parameters['campo']} = '{$parameters['conteudo']}'";
+        if(array_key_exists('id',$parameters))//aqui verifica se foi passado um id ou não pra não dar erro de sintaxe
+        {
+            $sql = $sql . " and id <> '{$parameters['id']}'";
+            //como ao editar a pessoa pode não modificar os campos e enviá-los como antes
+            //então ela vai colocar um valor que já existe, por isso testamos se o id
+            //é de quem pertence esse valor ou não
+        }
+        $buscar = $this->pdo->prepare($sql);
+        $buscar->execute();
+        $result= $buscar->fetchAll(PDO::FETCH_CLASS);
+    
+        if(count($result)!=0){
+            return "erro";
+        }
     }
 }

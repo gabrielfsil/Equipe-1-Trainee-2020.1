@@ -24,9 +24,7 @@ class UsersController
 
     public function storeEdit()
     {
-        App::get('database')->edit('person',
-                          ['name' => $_POST['name'],
-                          'email' => $_POST['email']], $_POST['id']);
+        App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], $_POST['id']);
 
         $user = App::get('database')->read('person', $_POST['id']);
         
