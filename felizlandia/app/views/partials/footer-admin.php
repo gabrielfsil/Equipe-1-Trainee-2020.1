@@ -7,7 +7,6 @@
         Copyright © 2020-2020 Felizlândia mt Todos direitos reservados <br>
         <a href="index.html">Home</a> |  <a href="quem-somos.html">Quem somos</a> |  <a href="atracoes.html">Atrações</a> |  <a href="contato.html">Contato</a>
       </div>
-      <div class="espaço medio"></div>
     </div>
   </footer>
 </div>

@@ -42,18 +42,18 @@ class PagesController
      */
     public function HomeAdm()
     {
-        return viewAdm('adm-home');
+        return view('admin/adm-home');
     }
 
     public function Lcategorias()
     {
-        $categorias = App::get('database')->selectAll("categorias");
-        return viewAdm('lista-categoria', ['categorias' => $categorias]);
+        $categorias = App::get('database')->selectAll("category");
+        return view('admin/lista-categoria', ['categorias' => $categorias]);
     }
 
     public function Acategoria(){
 
-        return viewAdm('adicionar-categoria');
+        return view('admin/create-categoria');
     }
     
     //CONTROLLERS ATRAÇÕES//
