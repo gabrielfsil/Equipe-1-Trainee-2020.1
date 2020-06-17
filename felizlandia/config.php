@@ -2,7 +2,7 @@
 
 return [
     'database' => [
-        'name' => 'felizlandia_park_db',
+        'name' => 'felizlandia_park',
         'username' => 'root',
         'password' => '',
         'connection' => 'mysql:host=localhost:3306',
