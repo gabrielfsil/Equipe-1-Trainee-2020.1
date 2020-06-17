@@ -13,13 +13,8 @@
       </ul>
     </div>
     <div class="mx-auto order-0">
-<<<<<<< HEAD
       <a class="navbar-brand mx-auto" href="#"><img src="../../../public/img/logo.png" class="logo"></a>
       <span class="TogglerPaginaAtual">ADM</span>
-=======
-      <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
-      <span class="TogglerPaginaAtual">Atrações</span>
->>>>>>> master
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           <span class="navbar-toggler-icon"></span>
         </button>

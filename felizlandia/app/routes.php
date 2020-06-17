@@ -13,8 +13,8 @@ $router->post('admin/user-store-password', 'UsersController@storeChangePassword'
 
   //ROTAS PARA CAREGORIAS//
 $router->get('admin/home' ,"PagesController@HomeAdm");
-$router->get('admin/lista-categorias' ,"PagesController@Lcategorias");
-$router->get('admin/adicionar-categoria' ,"PagesController@Acategoria");
+$router->get('admin/list-categorias' ,"PagesController@Lcategorias");
+$router->get('admin/create-categoria' ,"PagesController@Acategoria");
 
 
 //posts categorias

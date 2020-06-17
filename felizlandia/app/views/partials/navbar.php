@@ -14,11 +14,7 @@
     </div>
     <div class="mx-auto order-0">
 
-<<<<<<< HEAD
       <a class="navbar-brand mx-auto" href="#"><img src="../../../public/img/logo.png" class="logo"></a>
-=======
-      <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
->>>>>>> master
       <span class="TogglerPaginaAtual">Contato</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           
