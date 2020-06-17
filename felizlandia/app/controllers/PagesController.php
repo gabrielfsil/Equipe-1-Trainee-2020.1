@@ -53,7 +53,7 @@ class PagesController
 
     public function Acategoria(){
 
-        return view('admin/create-categoria');
+        return view('admin/adicionar-categoria');
     }
     
     //CONTROLLERS ATRAÇÕES//
