@@ -14,7 +14,7 @@ class CategoryController{
     }
 
     public function access(){
-        $categoria = App::get('database')->read('category', $_POST['view']);
+        $categoria = App::get('database')->read('category', 'id', $_POST['view']);
 
        
         $results = $categoria[0];
@@ -25,7 +25,7 @@ class CategoryController{
 
     public function delete(){
 
-        App::get('database')->delete('category', $_POST['delete']);
+        App::get('database')->delete('category', 'id', $_POST['delete']);
 
         return redirect('admin/list-categorias');
 
@@ -34,7 +34,7 @@ class CategoryController{
 
     public function GotoEdit(){
 
-        $categoria = App::get('database')->read('category', $_POST['GotoEdit']);
+        $categoria = App::get('database')->read('category', 'id', $_POST['GotoEdit']);
 
         $results = $categoria[0];
 
@@ -45,7 +45,7 @@ class CategoryController{
 
     public function edit(){
 
-        App::get('database')->edit('category', [ 'name' => $_POST['edit'] ] , $_POST['ID']); /* modificar para edit dps*/
+        App::get('database')->edit('category', [ 'name' => $_POST['edit'] ], 'id' , $_POST['ID']); /* modificar para edit dps*/
 
         return redirect('admin/list-categorias');
     }

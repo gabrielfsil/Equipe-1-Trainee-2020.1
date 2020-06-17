@@ -18,29 +18,29 @@ class UsersController
 
     public function delete()
     {
-        $user = App::get('database')->delete('person', $_POST['id']);
+        $user = App::get('database')->delete('person', 'id', $_POST['id']);
         return redirect('admin/user-list');
     }
 
     public function storeEdit()
     {
-        App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], $_POST['id']);
+        App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], 'id',$_POST['id']);
 
-        $user = App::get('database')->read('person', $_POST['id']);
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
         
         return view('admin/display-user', ['user' => $user[0]]); 
     }
     
     public function storeChangePassword()
     {
-        $user = App::get('database')->read('person', $_POST['id']);
+        $user = App::get('database')->read('person', 'id',$_POST['id']);
         $userPwdOld = $user[0]->password;
         $error = False;
         $message = "Senha modificada com sucesso.";
         //var_dump($userPwdOld);
 
         if($userPwdOld == $_POST['oldPassword'] && $_POST['newPassword'] == $_POST['newPasswordRepeat'])
-            App::get('database')->edit('person', ['password' => $_POST['newPassword']], $_POST['id']);
+            App::get('database')->edit('person', ['password' => $_POST['newPassword']], 'id', $_POST['id']);
         else 
         {
             $error = True;

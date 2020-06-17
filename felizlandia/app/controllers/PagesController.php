@@ -61,13 +61,16 @@ class PagesController
     public function listUsers()
     {
         $users = App::get('database')->selectAll('person');
+        $num_users = [
+            "num" => count($users)
+        ];
 
-        return view('admin/list-users', ['users' => $users]); // array chave valor
+        return view('admin/list-users', ['users' => $users, "num_users" => $num_users]); // array chave valor
     }
 
     public function acessUser()
     {
-        $user = App::get('database')->read('person', $_POST['id']);
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
         return view('admin/display-user', ['user' => $user[0]]);
     }
 
@@ -78,13 +81,13 @@ class PagesController
 
     public function editUser()
     {
-        $user = App::get('database')->read('person', $_POST['id']);
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
         return view('admin/edit-user', ['user' => $user[0]]);
     }
 
     public function changeUserPassword()
     {
-        $user = App::get('database')->read('person', $_POST['id']);
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
 
         return view('admin/change-password', ['user' => $user[0]]);
     }
@@ -100,7 +103,10 @@ class PagesController
     public function Lcategorias()
     {
         $categorias = App::get('database')->selectAll("category");
-        return view('admin/lista-categoria', ['categorias' => $categorias]);
+        $num_categorias = [
+            "num" => count($categorias)
+        ];
+        return view('admin/lista-categoria', ['categorias' => $categorias, 'num_categorias' => $num_categorias]);
     }
 
     public function Acategoria(){
