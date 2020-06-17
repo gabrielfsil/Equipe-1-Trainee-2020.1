@@ -25,7 +25,7 @@
           <a class="nav-link" href="/admin/user-list">Usuários</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Logout</a>
+          <a class="nav-link" href="/">Logout</a>
         </li>
       </ul>
     </div>

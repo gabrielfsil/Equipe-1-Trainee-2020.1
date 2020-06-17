@@ -11,7 +11,7 @@
           <img src="<?= $act['error'] ? '/public/img/password-error.png' : '/public/img/password.png'; ?>" class="img-modal">
         </div>
         <div class="modal-footer">
-            <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+            <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Ok</button>
         </div>
       </div>
     </div>
