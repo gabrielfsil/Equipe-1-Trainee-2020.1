@@ -10,22 +10,22 @@ class CategoryController{
 
         App::get('database')->insert('category', ['name' => $_POST['newCategoria']]);
 
-         return redirect('adm/list-categorias');
+         return redirect('admin/list-categorias');
     }
 
     public function access(){
-        $categoria = App::get('database')->read('category', ['id' => $_POST['view']]);
+        $categoria = App::get('database')->read('category', $_POST['view']);
 
        
         $results = $categoria[0];
 
-        return view('admin/access-categoria', ['results' => $results]);
+        return view('admin/visualizar-categoria', ['results' => $results]);
 
     }
 
     public function delete(){
 
-        App::get('database')->delete('categorys', ['id' => $_POST['delete']]);
+        App::get('database')->delete('category', $_POST['delete']);
 
         return redirect('admin/list-categorias');
 
@@ -34,11 +34,11 @@ class CategoryController{
 
     public function GotoEdit(){
 
-        $categoria = App::get('database')->read('category', ['id' => $_POST['GotoEdit']]);
+        $categoria = App::get('database')->read('category', $_POST['GotoEdit']);
 
         $results = $categoria[0];
 
-        return view('admin/edit-categoria', ['results' => $results]);
+        return view('admin/edita-categoria', ['results' => $results]);
 
 
     }

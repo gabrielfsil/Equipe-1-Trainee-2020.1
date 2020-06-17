@@ -12,9 +12,9 @@
             <div class="Formulario-Categoria">
                 <form>
                 <label for="Categoria">Sua Categoria: </label><br>
-                <input type="text" id="Categoria" name="Categoria" value="<?= $results->categoria ?>" disabled><br>
+                <input type="text" id="Categoria" name="Categoria" value="<?= $results->name ?>" disabled><br>
                 
-                <a href="/adm/lista-categorias"> <button type="button" class="bg-primary button-categoria ">
+                <a href="/admin/list-categorias"> <button type="button" class="bg-primary button-categoria ">
                     < Voltar 
                   </button></a>
                 

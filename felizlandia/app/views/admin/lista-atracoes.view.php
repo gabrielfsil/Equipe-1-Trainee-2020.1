@@ -17,7 +17,7 @@ background-position: center;
 <div class= "listar-atracoes  pb-2">
     <div class="container ">
             <!--COLUNA ONDE LISTAMOS Atracoes--> 
-            <a href="view-adm-home.vieww.php"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
+            <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
             <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
       <ul 
