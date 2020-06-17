@@ -106,7 +106,7 @@ FIM PARALAX-->
               <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
           </div>
           <div class="modal-footer">
-          <input type="hidden" name="id" value=<?= $atracao->id ?> >
+          <input type="hidden" name="id" value=<?= $atracao->id_atracao ?> >
           <input type="hidden" name="foto_antiga" value="<?= $atracao->foto ?>"/>
 
 

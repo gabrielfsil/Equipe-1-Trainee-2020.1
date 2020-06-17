@@ -1,5 +1,14 @@
  <?php
 
+//ROTAS PUBLICAS//
+
+$router->get('', 'PagesController@home');
+$router->get('atracoes', 'PagesController@atracoes');
+
+
+
+
+//FIM ROTAS PUBLICAS//
 $router->get('admin/user-list', 'PagesController@listUsers');
 $router->post('admin/user-acess', 'PagesController@acessUser');
 $router->post('admin/user-create' ,'PagesController@createUser');
@@ -26,7 +35,6 @@ $router->post('edit', "CategoryController@edit"); //edição em si
  //FIM ROTAS PARA CAREGORIAS//
 
  //ROTAS PARA ATRAÇÕES//
- $router->get('atracoes', 'PagesController@atracoes');
  $router->get('admin/list-atracoes', 'PagesController@atracoes_admin');
  $router->get('admin/create-atracao', 'PagesController@atracoes_create');
  $router->get('admin/acess-atracao', 'PagesController@atracoes_view');

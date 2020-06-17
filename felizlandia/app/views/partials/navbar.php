@@ -15,7 +15,7 @@
     <div class="mx-auto order-0">
 
       <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
-      <span class="TogglerPaginaAtual">Contato</span>
+      <span class="TogglerPaginaAtual"><?= $pagina_atual['nome']?></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           
           <span class="navbar-toggler-icon"></span>

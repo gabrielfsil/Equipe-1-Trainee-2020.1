@@ -89,7 +89,7 @@ class AtracoesController
                 $erro = $erro . App::get('database')->checkExistence('atracoes',[
                     'campo' =>'nome',
                     'conteudo'=> $_POST['nome'] 
-                ]);
+                ], 'id_atracao');
                 if($erro==""){
                         
                         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
@@ -177,7 +177,7 @@ class AtracoesController
             'campo' =>'nome',
             'conteudo'=> $_POST['nome'],
             'id' => $_POST['id']
-        ]);
+        ],'id_atracao');
 
         if($erro == ""){
             if($nome_arquivo != ""){
@@ -209,7 +209,7 @@ class AtracoesController
                             'valor' => $_POST['valor'],
                             'foto' => $novoNome,
                             
-                            ], $_POST['id']);
+                            ], 'id_atracao', $_POST['id']);
                     
 
                         $acao = [
@@ -240,7 +240,7 @@ class AtracoesController
                 'categoria_id' => $_POST['categoria'],
                 'valor' => $_POST['valor'],
                 
-                ], $_POST['id']);
+                ], 'id_atracao', $_POST['id']);
     
 
                 $acao = [
@@ -255,13 +255,13 @@ class AtracoesController
             ];
         }
     
-        $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        $atracao = App::get('database')->read('atracoes', 'id_atracao', $_POST['id']);  
         $categorias = App::get('database')->selectAll('category');
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria_atual = App::get('database')->read('category',$id); 
+        $categoria_atual = App::get('database')->read('category', 'id',$id); 
         return view('/admin/editar-atracao', [
                     'atracao_edit' => $atracao,
                     'acao' => $acao,
@@ -290,7 +290,7 @@ class AtracoesController
     }*/
     public function store_delete(){
 
-      App::get('database')->delete('atracoes', $_POST['id']);  
+      App::get('database')->delete('atracoes', 'id_atracao', $_POST['id']);  
       
       $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
      //die( var_dump($destino));

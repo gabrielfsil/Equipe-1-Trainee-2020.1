@@ -6,6 +6,58 @@ use App\Core\App;
 
 class PagesController
 {
+    public function home()
+    {
+        $top_atracoes =  App::get('database')->selectFromManyTables(['metodo'=> 'top', 'quantidade' =>'4'],
+            ['table1' => 'atracoes',
+            'table2' => 'category' ], ['nome' => 'nome',
+                'descricao' => 'descricao', 
+                'valor' => 'valor', 
+                'foto' => 'foto', 
+                'id_atracao' => 'id_atracao',
+                'categoria_id' => 'categoria_id',
+                'name' => 'name'], 'category.id','categoria_id'
+                );
+        $pagina_atual = ['nome' =>"Home" ];
+        return view('site/index', [
+            'pagina_atual' => $pagina_atual,
+            'top_atracoes' => $top_atracoes,
+
+        ]);
+
+
+    }
+    public function atracoes(){
+
+        $atracoes =  App::get('database')->selectFromManyTables(['metodo'=>'all'],
+            ['table1' => 'atracoes',
+            'table2' => 'category' ], ['nome' => 'nome',
+                'descricao' => 'descricao', 
+                'valor' => 'valor', 
+                'foto' => 'foto', 
+                'id_atracao' => 'id_atracao',
+                'categoria_id' => 'categoria_id',
+                'name' => 'name'], 'category.id','categoria_id'
+                );
+        //SELECT nome, descricao, valor, foto, categoria_id, name FROM atracoes, category WHERE category.id = categoria_id
+
+       /*$atracoes = App::get('database')->selectAll('atracoes'); 
+        $categorias =  App::get('database')->selectCombineRows(); */
+        $num_atracoes = [
+            "num" => count($atracoes)
+        ];
+        $pagina_atual = ['nome' =>"Atrações" ];
+        return view('/site/atracoes',[
+            'atracoes' => $atracoes,
+           // 'categorias' => $categorias,
+            'num_atracoes' => $num_atracoes,
+            'pagina_atual' => $pagina_atual,
+            
+        ]);
+    }
+
+  
+
     public function listUsers()
     {
         $users = App::get('database')->selectAll('person');
@@ -57,11 +109,7 @@ class PagesController
     }
     
     //CONTROLLERS ATRAÇÕES// 
-    public function atracoes(){
-
     
-        return view('/site/atracoes');
-    }
 
     public function atracoes_admin(){
         $atracoes = App::get('database')->selectAll('atracoes');
@@ -91,12 +139,12 @@ class PagesController
             "nome" => "none"
         ];
         $categorias = App::get('database')->selectAll('category');
-        $atracao = App::get('database')->read('atracoes', $_GET['id']); 
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']); 
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id); 
+        $categoria = App::get('database')->read('category','id',$id); 
 
         return view('/admin/editar-atracao', [
             'atracao_edit' => $atracao,
@@ -107,12 +155,12 @@ class PagesController
             ]); 
     }
     public function atracoes_view(){
-        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id);
+        $categoria = App::get('database')->read('category','id',$id);
 
         return view('/admin/visualizar-atracao', [
             'atracao_visualizar' => $atracao,
@@ -121,12 +169,12 @@ class PagesController
             ]);
     }
     public function atracoes_delete(){
-        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id);;  
+        $categoria = App::get('database')->read('category','id',$id);;  
         return view('/admin/apagar-atracao', [
             'atracao_exclusao' => $atracao,
             'categoria_apagar' => $categoria,

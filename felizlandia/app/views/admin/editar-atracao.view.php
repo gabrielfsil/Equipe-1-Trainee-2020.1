@@ -86,7 +86,7 @@ background-position: center;
               
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
-                <input type="hidden" name="id" value=<?= $atracao->id ?> >
+                <input type="hidden" name="id" value=<?= $atracao->id_atracao ?> >
                 <button type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary w-50 mt-3 mb-0">Editar</button>
 
               </div>

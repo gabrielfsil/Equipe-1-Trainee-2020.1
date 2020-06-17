@@ -36,9 +36,9 @@ background-position: center;
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/admin/acess-atracao?id=<?=$atracao->id?>">Visualizar</a>
-                <a class="dropdown-item" href="/admin/edit-atracao?id=<?=$atracao->id?>">Editar</a>
-                <a class="dropdown-item" href="/admin/delete-atracao?id=<?=$atracao->id?>">Apagar</a>
+                <a class="dropdown-item" href="/admin/acess-atracao?id=<?=$atracao->id_atracao?>">Visualizar</a>
+                <a class="dropdown-item" href="/admin/edit-atracao?id=<?=$atracao->id_atracao?>">Editar</a>
+                <a class="dropdown-item" href="/admin/delete-atracao?id=<?=$atracao->id_atracao?>">Apagar</a>
 
                 <!--ALTERNATIVO
                   <form method="POST" action="/atracoes/visualizacao">
