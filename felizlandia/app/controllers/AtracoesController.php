@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Core\App;
 
-class AtracoesController 
+class AtracoesController  
 
 {
    /* public function home(){
@@ -68,11 +68,14 @@ class AtracoesController
         
             // Converte a extensão para minúsculo
             $extensao = strtolower ( $extensao );
+
+                         
         
             // Somente imagens, .jpg;.jpeg;.gif;.png
             // Aqui eu enfileiro as extensões permitidas e separo por ';'
             // Isso serve apenas para eu poder pesquisar dentro desta String
             if ( strstr ( '.jpg;.jpeg;.gif;.png', $extensao ) ) {
+
                 // Cria um nome único para esta imagem
                 // Evita que duplique as imagens no servidor.
                 // Evita nomes com acentos, espaços e caracteres não alfanuméricos
@@ -91,11 +94,11 @@ class AtracoesController
                         
                         if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
 
-                        
+                          
                             App::get('database')->insert('atracoes',
                             ['nome' => $this->protecao ($_POST['nome']),
                             'descricao' => $this->protecao($_POST['descricao']),
-                            'categoria' => $_POST['categoria'],
+                            'categoria_id' => $_POST['categoria'],
                             'valor' => $_POST['valor'],
                             'foto' => $novoNome,]);
 
@@ -132,9 +135,14 @@ class AtracoesController
 
                 
                }
-               return view('/admin/criar-atracao', [//retorna vetor de usuarios
-                'acao' => $acao,
-                ]);  
+               $categorias = App::get('database')->selectAll('category');
+       
+               return view('/admin/criar-atracao',[
+                   'acao'=> $acao,
+                   'categorias' => $categorias,
+       
+                   ]);
+             
     }
             
    /* public function edit(){
@@ -152,6 +160,7 @@ class AtracoesController
 
     public function store_edit(){
 
+        
 
         $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
         $nome_arquivo = $_FILES[ 'foto' ][ 'name' ];
@@ -168,7 +177,7 @@ class AtracoesController
             'campo' =>'nome',
             'conteudo'=> $_POST['nome'],
             'id' => $_POST['id']
-            ]);
+        ]);
 
         if($erro == ""){
             if($nome_arquivo != ""){
@@ -196,7 +205,7 @@ class AtracoesController
                         App::get('database')->edit('atracoes',
                             ['nome' => $this->protecao ($_POST['nome']),
                             'descricao' => $this->protecao($_POST['descricao']),
-                            'categoria' => $_POST['categoria'],
+                            'categoria_id' => $_POST['categoria'],
                             'valor' => $_POST['valor'],
                             'foto' => $novoNome,
                             
@@ -228,7 +237,7 @@ class AtracoesController
                 App::get('database')->edit('atracoes',
                 ['nome' => $this->protecao ($_POST['nome']),
                 'descricao' => $this->protecao($_POST['descricao']),
-                'categoria' => $_POST['categoria'],
+                'categoria_id' => $_POST['categoria'],
                 'valor' => $_POST['valor'],
                 
                 ], $_POST['id']);
@@ -246,11 +255,18 @@ class AtracoesController
             ];
         }
     
-        
         $atracao = App::get('database')->read('atracoes', $_POST['id']);  
+        $categorias = App::get('database')->selectAll('category');
+        $id = "";
+        foreach ($atracao as $x){
+            $id = $x->categoria_id;
+        }
+        $categoria_atual = App::get('database')->read('category',$id); 
         return view('/admin/editar-atracao', [
                     'atracao_edit' => $atracao,
                     'acao' => $acao,
+                    'categorias' => $categorias,
+                    'categoria_atual' => $categoria_atual,
                     ]);    
 
         
@@ -277,6 +293,7 @@ class AtracoesController
       App::get('database')->delete('atracoes', $_POST['id']);  
       
       $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
+     //die( var_dump($destino));
       unlink($destino);
 
       redirect('admin/list-atracoes');

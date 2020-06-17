@@ -1,7 +1,7 @@
 <?php require "app\\views\\partials\\head.php"; ?>
 <?php require "app\\views\\partials\\navbar-admin.php"; ?>
 
-<body 
+<body class="paralax-categoria"
 style=
 "background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
@@ -35,19 +35,21 @@ background-position: center;
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" required="required"
-                name="descricao" id="exampleFormControlTextarea1" rows="3">
-                  <?= $atracao->descricao ?>
-                </textarea>
+                <textarea class="form-control" required="required" name="descricao" id="exampleFormControlTextarea1" rows="3"><?= $atracao->descricao ?></textarea>
+
               </div>
               <div class="form-group form-atracoes">
                     <label for="exampleFormControlSelect1">Categoria:  </label>
                     <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1">
-                      <option><?= $atracao->categoria ?></option>
-                      <option>vem da base de dados</option>
-                      <option>vem da base de dados</option>
-                      <option>vem da base de dados</option>
-                      <option>vem da base de dados</option>
+                    <?php foreach( $categoria_atual as $categoria) : ?>
+                      <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+                        <?php foreach( $categorias as $categoria_select) : ?>
+                        <?php if( $categoria_select->name!= $categoria->name) 
+                        echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
+                        ?>
+                        <?php endforeach ;?>
+                    <?php endforeach ;?>                       
+                    
                     </select>
               </div>
               <div class="form-group">
