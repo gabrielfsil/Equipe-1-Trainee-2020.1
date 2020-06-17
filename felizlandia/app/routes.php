@@ -12,9 +12,9 @@ $router->post('admin/user-store-edit', 'UsersController@storeEdit');
 $router->post('admin/user-store-password', 'UsersController@storeChangePassword');
 
   //ROTAS PARA CAREGORIAS//
-$router->get('adm/home' ,"PagesController@HomeAdm");
-$router->get('adm/lista-categorias' ,"PagesController@Lcategorias");
-$router->get('adm/adicionar-categoria' ,"PagesController@Acategoria");
+$router->get('admin/home' ,"PagesController@HomeAdm");
+$router->get('admin/lista-categorias' ,"PagesController@Lcategorias");
+$router->get('admin/adicionar-categoria' ,"PagesController@Acategoria");
 
 
 //posts categorias
