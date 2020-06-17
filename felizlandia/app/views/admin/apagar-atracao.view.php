@@ -1,7 +1,7 @@
 <?php require "app\\views\\partials\\head.php"; ?>
 <?php require "app\\views\\partials\\navbar-admin.php"; ?>
 
-<body style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+<body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -41,18 +41,14 @@ FIM PARALAX-->
             </div>
             <div class="form-group">
               <label for="exampleFormControlTextarea1">Descrição</label>
-              <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3">
-              <?= $atracao->descricao ?>
-              </textarea>
+              <textarea class="form-control" name="descricao" id="exampleFormControlTextarea1" rows="3"><?= $atracao->descricao ?></textarea>
             </div>
             <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoria</label>
                   <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                    <option><?= $atracao->categoria?></option>
-                    <option>vem da base de dados</option>
-                    <option>vem da base de dados</option>
-                    <option>vem da base de dados</option>
-                    <option>vem da base de dados</option>
+                  <?php foreach( $categoria_apagar as $categoria) : ?>
+                      <option><?= $categoria->name ?></option>
+                    <?php endforeach ;?>                  
                   </select>
             </div>
             <div class="form-group">

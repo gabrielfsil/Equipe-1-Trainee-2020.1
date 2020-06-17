@@ -11,8 +11,8 @@
             
               <div class="Formulario-Categoria">
                   <form method="POST" action = 'edit'>
-                  <label for="Categoria">O nome atual de sua categoria é: <?= $results->categoria ?></label><br>
-                  <input type="text" id="Categoria" name="edit" value="<?= $results->categoria ?>"><br>
+                  <label for="Categoria">O nome atual de sua categoria é: <?= $results->name ?></label><br>
+                  <input type="text" id="Categoria" name="edit" value="<?= $results->name ?>"><br>
                   
                   <button type="button" class="bg-danger button-categoria" data-toggle="modal" data-target="#exampleModal">
                       Editar
@@ -20,7 +20,7 @@
                   
                   
               </div>
-              <a href="/adm/lista-categorias"> <button type="button" class="bg-primary button-categoria ">
+              <a href="/admin/list-categorias"> <button type="button" class="bg-primary button-categoria ">
                     < Voltar 
                   </button></a>
           </div>
@@ -42,7 +42,7 @@
                   <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
               </div>
               <div class="modal-footer">
-                  <input type="hidden"  value="<?=$results->ID ?>" name="ID">
+                  <input type="hidden"  value="<?=$results->id ?>" name="ID">
                   <button type="submit" class="btn btn-primary">Salvar alterações</button>
               </div>
             </div>

@@ -2,7 +2,7 @@
 
 <?php require "app\\views\\partials\\navbar-admin.php"; ?>
 
-<body style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+<body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -17,7 +17,7 @@ background-position: center;
 <div class= "listar-atracoes  pb-2">
     <div class="container ">
             <!--COLUNA ONDE LISTAMOS Atracoes--> 
-            <a href="view-adm-home.vieww.php"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
+            <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
             <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
       <ul 

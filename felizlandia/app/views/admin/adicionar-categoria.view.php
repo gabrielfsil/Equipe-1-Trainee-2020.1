@@ -19,7 +19,7 @@
                 
                 
             </div>
-            <a href="/adm/lista-categorias"><button type="button" class="bg-primary button-categoria ">
+            <a href="/admin/list-categorias"><button type="button" class="bg-primary button-categoria ">
               < Voltar 
              </button></a>
         

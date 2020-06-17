@@ -11,11 +11,11 @@
 
       <?php foreach ($categorias as $x) : ?>
 
-        <?php $meuID = $x->ID?>
+        <?php $meuID = $x->id?>
 
       <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $x->categoria?></p>
+                <p><?= $x->name?></p>
                 <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
@@ -82,7 +82,7 @@
 
     <div class="container">
     <div class="container listar-button">
-    <a href="/adm/adicionar-categoria"><button class="btn btn-danger button-listar">Adicionar +</button></a>
+    <a href="/admin/create-categoria"><button class="btn btn-danger button-listar">Adicionar +</button></a>
     </div>
 
     <div class="container listar-pagination">
@@ -103,7 +103,7 @@
         </nav>
   
     </div>   
-    <a href="/adm/home"><button type="submit" class="btn btn-primary voltar-button"> < Voltar</button></a>
+    <a href="/admin/home"><button type="submit" class="btn btn-primary voltar-button"> < Voltar</button></a>
   </div>      
       
 

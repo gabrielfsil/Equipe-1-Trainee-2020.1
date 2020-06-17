@@ -5,7 +5,7 @@
 
 <div class= "user-list pb-2">
   <div class="container takeoff-scroll">
-    <a href="view-adm-home.html"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
+    <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
     <p><h1>Usuários</h1> </p> 
     <ul class="list-group lista-box">
       <?php foreach ($users as $user) : ?>

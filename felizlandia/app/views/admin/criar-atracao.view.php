@@ -32,16 +32,21 @@ background-position: center;
               </div>
               <div class="form-group">
                 <label for="exampleFormControlTextarea1">Descrição</label>
-                <textarea class="form-control" required="required" name="descricao" id="exampleFormControlTextarea1" rows="3"></textarea>
+                <textarea class="form-control"
+                 required="required" 
+                 name="descricao" 
+                 id="exampleFormControlTextarea1" 
+                 rows="3"
+                 style="white-space: nowrap;"
+               ></textarea>
               </div>
               <div class="form-group">
                     <label for="exampleFormControlSelect1">Categoria</label>
                     <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
+                     <?php foreach( $categorias as $categoria) : ?>
+                      <option value ="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+
+                    <?php endforeach ;?>
                     </select>
               </div>
               <div class="form-group">
