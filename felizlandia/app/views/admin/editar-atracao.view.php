@@ -40,25 +40,25 @@ background-position: center;
               </div>
               <div class="form-group form-atracoes">
                     <label for="exampleFormControlSelect1">Categoria:  </label>
-                    <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1"> 
-                    <?php if($categoria_atual != NULL) { ?>
-                    <?php foreach( $categoria_atual as $categoria) : ?>
-                      <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+                    <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1">
+                    <?php if($categoria_atual != "sem categoria") : ?>
+                      <?php foreach( $categoria_atual as $categoria) : ?>
+                        <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+                          <?php foreach( $categorias as $categoria_select) : ?>
+                          <?php if( $categoria_select->name!= $categoria->name) 
+                          echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
+                          ?>
+                          <?php endforeach ;?>
+                      <?php endforeach ;?> 
+                      <!--SE NAO-->
+                      <?php else :?>
+                      <option value=""><?= $categoria_atual ?></option>
                         <?php foreach( $categorias as $categoria_select) : ?>
                         <?php if( $categoria_select->name!= $categoria->name) 
                         echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
                         ?>
                         <?php endforeach ;?>
-                    <?php endforeach ;?>      
-                       <!-- para caso a categoria seja nula-->
-                       <?php } if($categoria_atual == NULL){ ?>
-                          <option><?="Não possui categoria" ?></option>
-                        <?php foreach( $categorias as $categoria_select) : ?>
-                        <?php if( $categoria_select->name!= $categoria->name) 
-                        echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
-                        ?>
-                        <?php endforeach ;?>
-                        <?php } ?>                
+                        <?php endif ;?>
                     
                     </select>
               </div>
@@ -120,7 +120,7 @@ background-position: center;
                   </div>
                 </div>
             </div>
-              <?php endforeach ;?>
+           <?php endforeach ;?>
             </form>
             <?php if($acao['nome']=="sucesso"){ ?>
                     <script>

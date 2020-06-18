@@ -49,9 +49,13 @@ FIM PARALAX-->
             <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoria</label>
                   <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                  <?php foreach( $categoria_visualizar as $categoria) : ?>
+                  <?php if($categoria_visualizar != "sem categoria") :?>
+                    <?php foreach( $categoria_visualizar as $categoria) : ?>
                       <option><?= $categoria->name ?></option>
-                    <?php endforeach ;?>                  
+                    <?php endforeach ;?>  
+                  <?php else : ?>   
+                    <option><?= $categoria_visualizar ?></option>
+                  <?php endif ;?>
                     </select>
             </div>
             <div class="form-group">

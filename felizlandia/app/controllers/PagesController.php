@@ -109,7 +109,7 @@ class PagesController
             "num" => count($categorias)
         ];
         return view('admin/lista-categoria',
-         ['categorias' => $categorias, 'num_categorias' => $num_categorias, 'acao' => $acao],);
+         ['categorias' => $categorias, 'num_categorias' => $num_categorias]);
     }
 
     public function Acategoria(){
@@ -153,8 +153,13 @@ class PagesController
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category','id',$id); 
 
+        if($id != NULL){
+        $categoria = App::get('database')->read('category','id',$id); 
+        }
+        else{
+            $categoria = "sem categoria";
+        }
         return view('/admin/editar-atracao', [
             'atracao_edit' => $atracao,
             'acao' => $acao,
@@ -169,8 +174,12 @@ class PagesController
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category','id',$id);
-
+        if($id != NULL){
+            $categoria = App::get('database')->read('category','id',$id); 
+            }
+            else{
+                $categoria = "sem categoria";
+            }
         return view('/admin/visualizar-atracao', [
             'atracao_visualizar' => $atracao,
             'categoria_visualizar' => $categoria,
@@ -183,8 +192,12 @@ class PagesController
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category','id',$id);;  
-        return view('/admin/apagar-atracao', [
+        if($id != NULL){
+            $categoria = App::get('database')->read('category','id',$id); 
+            }
+            else{
+                $categoria = "sem categoria";
+            }        return view('/admin/apagar-atracao', [
             'atracao_exclusao' => $atracao,
             'categoria_apagar' => $categoria,
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 03:33 AM
+-- Generation Time: Jun 18, 2020 at 07:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -52,10 +52,11 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(3, 'Infantil'),
 (4, 'Família'),
 (5, 'Show'),
-(6, 'Radical');
+(6, 'Radical'),
+(7, 'Aventura'),
+(9, 'Infantil');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,7 @@ CREATE TABLE `person` (
 --
 ALTER TABLE `atracoes`
   ADD PRIMARY KEY (`id_atracao`),
-  ADD KEY `categoria_id` (`categoria_id`);
+  ADD KEY `atracoes_ibfk_1` (`categoria_id`);
 
 --
 -- Indexes for table `category`
@@ -101,13 +102,13 @@ ALTER TABLE `person`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -117,7 +118,7 @@ ALTER TABLE `person`
 -- Constraints for table `atracoes`
 --
 ALTER TABLE `atracoes`
-  ADD CONSTRAINT `atracoes_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `category` (`id`);
+  ADD CONSTRAINT `atracoes_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `category` (`id`) ON DELETE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
