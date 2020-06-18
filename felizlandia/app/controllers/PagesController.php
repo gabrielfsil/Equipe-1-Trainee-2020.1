@@ -56,9 +56,35 @@ class PagesController
 
     public function makeLogon()
     {
-        $user = App::get('database')->selectAll("category");
+        $user = App::get('database')->search("person", ['email' => $_POST['email']]);
+        $error = False;
 
-        return view('admin/change-password', ['user' => $user[0]]);
+        if(count(array_keys($user)) == 0)
+        {
+            $error = True;
+            $message = "Não há usuário cadastrado com este e-mail.";
+
+        }
+        else
+        {
+            $userPwdOld = $user[0]->password;
+            if($userPwdOld == $_POST['password'])
+            {
+                return redirect('admin/home');
+            }
+            else
+            {
+                $error = True;
+                $message = "Senha não corresponde a cadastrada.";
+            }
+
+        }
+
+        $act = [
+            'error' => $error,
+            'message' => $message];
+
+        return view('site/login', ['act' => $act]);
     }
 
 

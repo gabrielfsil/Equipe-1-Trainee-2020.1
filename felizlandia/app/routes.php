@@ -6,16 +6,16 @@ $router->get('', 'PagesController@home');
 
 /* Rotas de login */
 $router->get('login', 'PagesController@login');
-$router->get('login-access', 'PagesController@makeLogon');
+$router->post('login-access', 'PagesController@makeLogon');
 
 /* Rotas de usuários */
 $router->get('admin/user-list', 'PagesController@listUsers');
 $router->post('admin/user-acess', 'PagesController@acessUser');
 $router->post('admin/user-create' ,'PagesController@createUser');
-$router->post('admin/user-edit', 'PagesController@editUser');
-$router->post('admin/user-change-password', 'PagesController@changeUserPassword');
-$router->post('admin/user-store', 'UsersController@store');
 $router->post('admin/user-delete', 'UsersController@delete');
+$router->post('admin/user-edit', 'PagesController@editUser');
+$router->post('admin/user-store', 'UsersController@store');
+$router->post('admin/user-change-password', 'PagesController@changeUserPassword');
 $router->post('admin/user-store-edit', 'UsersController@storeEdit');
 $router->post('admin/user-store-password', 'UsersController@storeChangePassword');
 
