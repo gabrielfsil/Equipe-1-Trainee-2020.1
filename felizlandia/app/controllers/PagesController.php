@@ -103,10 +103,13 @@ class PagesController
     public function Lcategorias()
     {
         $categorias = App::get('database')->selectAll("category");
+        $acao = ['nome' => 'nenhuma'];
+
         $num_categorias = [
             "num" => count($categorias)
         ];
-        return view('admin/lista-categoria', ['categorias' => $categorias, 'num_categorias' => $num_categorias]);
+        return view('admin/lista-categoria',
+         ['categorias' => $categorias, 'num_categorias' => $num_categorias, 'acao' => $acao],);
     }
 
     public function Acategoria(){

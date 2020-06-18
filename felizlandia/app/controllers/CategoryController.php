@@ -25,7 +25,30 @@ class CategoryController{
 
     public function delete(){
 
+        $categorias = App::get('database')->selectAll("category");
+        $num_categorias = [
+            "num" => count($categorias)
+        ];
+      
+        $erro = "";
+        $erro = $erro . App::get('database')->checkExistence('atracoes',[
+            'campo' =>'categoria_id',
+            'conteudo'=> $_POST['delete'] ,
+            'none' => 'chave só pra preencher parametro não será usada pois não precisamos de id'
+        ], 'none');        
+
+
+        if($erro!=""){
+            $acao = [
+                'nome' => 'categoria em uso',
+                'mensagem' => 'Essa categoria está em uso, delete ou edite as atrações que a usam antes de apagar'
+            ];
+            return view('admin/lista-categoria',
+            ['categorias' => $categorias, 'num_categorias' => $num_categorias, 'acao' => $acao],);
+   
+        }
         App::get('database')->delete('category', 'id', $_POST['delete']);
+        $acao = ['nome' => 'nenhuma'];
 
         return redirect('admin/list-categorias');
 
@@ -44,6 +67,7 @@ class CategoryController{
     }
 
     public function edit(){
+        
 
         App::get('database')->edit('category', [ 'name' => $_POST['edit'] ], 'id' , $_POST['ID']); /* modificar para edit dps*/
 
