@@ -55,7 +55,7 @@ background-position: center;
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Foto</label>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
+                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho mínimo 900x640</p>
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
                   <div class=" image-preview">

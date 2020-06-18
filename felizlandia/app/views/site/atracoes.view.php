@@ -60,12 +60,12 @@
       <span class="mt-4 d-flex results justify-content-left">Foram encontradas <?= $num_atracoes['num'] ?> atrações </span>
       <a class="d-flex mb-3" href="#paginacao">Ir para o fim da página</a>
        
-      <div class="row mt-3 justify-content-around">
+      <div class="row mt-3 justify-content-between">
           <?php foreach ($atracoes as $atracao) : ?>
 
               <div class="col-md-4">
                 <div class="card flex-fill" style="margin-bottom: 2rem;">
-                  <img class="card-img-top" src="../../../public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
+                  <img class="card-img-top"  height="300px" src="../../../public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
                   <div class="card-body">
                     <h5 class="card-title"><?= $atracao->nome ?></h5>
                   </div>

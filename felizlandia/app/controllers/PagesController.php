@@ -28,6 +28,8 @@ class PagesController
 
     }
     public function atracoes(){
+        $categorias = App::get('database')->selectAll("category");
+
 
         $atracoes =  App::get('database')->selectFromManyTables(['metodo'=>'all'],
             ['table1' => 'atracoes',
@@ -49,7 +51,7 @@ class PagesController
         $pagina_atual = ['nome' =>"Atrações" ];
         return view('/site/atracoes',[
             'atracoes' => $atracoes,
-           // 'categorias' => $categorias,
+            'categorias' => $categorias,
             'num_atracoes' => $num_atracoes,
             'pagina_atual' => $pagina_atual,
             

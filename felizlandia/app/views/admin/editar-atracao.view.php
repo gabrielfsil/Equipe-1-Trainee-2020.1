@@ -62,6 +62,8 @@ background-position: center;
                     
                     </select>
               </div>
+              <p style="font-size: 12px;color:red">Atrações sem categoria não aparecem na página pública</p>
+
               <div class="form-group">
                 <label for="exampleFormControlInput1">Valor</label>
                 <input type="text" name="valor" required="required"
@@ -76,7 +78,7 @@ background-position: center;
                 src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
                 />
                 </div>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
+                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho mínimo 900x640</p>
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
                   <div class=" image-preview">

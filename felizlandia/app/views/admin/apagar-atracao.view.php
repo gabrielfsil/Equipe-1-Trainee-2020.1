@@ -55,6 +55,8 @@ FIM PARALAX-->
                   <?php endif ;?>           
                   </select>
             </div>
+            <p style="font-size: 12px;color:red">Atrações sem categoria não aparecem na página pública</p>
+
             <div class="form-group">
               <label for="exampleFormControlInput1">Valor</label>
               <input type="text" name="valor" value="<?= $atracao->valor ?>"  class="form-control" id="exampleFormControlInput1">
