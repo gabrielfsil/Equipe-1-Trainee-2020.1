@@ -6,6 +6,7 @@ use App\Core\App;
 
 class PagesController
 {
+    /* Página referentes as funcionalidades administrativas de usuários */
     public function listUsers()
     {
         $users = App::get('database')->selectAll('person');
@@ -36,6 +37,21 @@ class PagesController
 
         return view('admin/change-password', ['user' => $user[0]]);
     }
+
+    /* Páginas referentes ao login de usuário */
+
+    public function login()
+    {
+        return view('site/login');
+    }
+
+    public function makeLogon()
+    {
+        $user = App::get('database')->selectAll("category");
+
+        return view('admin/change-password', ['user' => $user[0]]);
+    }
+
 
     /**
      * Show the home page.
