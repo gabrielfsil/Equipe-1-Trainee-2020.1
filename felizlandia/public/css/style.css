@@ -459,7 +459,10 @@ h5.blue{
 .paginaAtracoesFrase{
 	display: none;
 }
-
+.atracoes .card-body{
+	padding: 0;
+	padding-top: 1rem;
+}
 .atracoes .modal-body{
 	height: auto;
 	text-align: justify;
@@ -467,10 +470,13 @@ h5.blue{
 .atracoes .card img{
 	width: 100%;
 }
-
+.atracoes .card img{
+	height: 260px;
+}
 .atracoes .cards-cat{
 	color: #fc2c2a;
 	font-weight: bold;
+	margin-top:0;
 }
 
 .atracoes .card-title{
@@ -753,7 +759,11 @@ border-radius: 2%;
 	height: 320px;
 }
 
-
+@media (max-width:768px){
+	.atracoes .card img{
+		height: 180px;
+	}
+}
 
 @media (max-width: 767px){ 
 	
@@ -873,7 +883,7 @@ border-radius: 2%;
 		display: inline-block;
 		color:#0c5da6;
 	}
-
+	
 	/*pagina adm atracoes*/
 	.listar-atracoes h1{
 		font-size: 20px;

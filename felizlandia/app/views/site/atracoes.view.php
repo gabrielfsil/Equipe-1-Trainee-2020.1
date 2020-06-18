@@ -65,13 +65,13 @@
 
               <div class="col-md-4">
                 <div class="card flex-fill" style="margin-bottom: 2rem;">
-                  <img class="card-img-top"  height="300px" src="../../../public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
-                  <div class="card-body">
+                  <img class="card-img-top"  src="../../../public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
+                  <div class="card-body" style="text-align:center;">
                     <h5 class="card-title"><?= $atracao->nome ?></h5>
                   </div>
                   <ul class="list-group list-group-flush">
 
-                    <li class="list-group-item"><span class="cards-cat">Categoria:</span>  <?= $atracao->name?></li>
+                    <li class="list-group-item" style="text-align:center;"><span class="cards-cat" >Categoria:</span><p><?= $atracao->name?></p></li>
 
                   </ul>
                  <!-- Botão para acionar modal -->
