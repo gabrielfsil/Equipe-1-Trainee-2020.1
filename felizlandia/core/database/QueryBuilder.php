@@ -23,6 +23,30 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+    public function search($table, $parameters)
+    {
+        $size = count(array_keys($parameters));
+        $sql = "select * from {$table} where ";
+        for ($i = 0; $i < ($size); $i++) 
+        {   
+            $sql = $sql . (array_keys($parameters)[$i] ). '=' . "'" . (array_values($parameters)[$i]) . "'";
+            if($i < $size-1)
+                $sql = $sql . ' and ';
+        }     
+
+        try {
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+ 
+        } catch(Exception $e){
+
+           $e->getMessage();
+        }
+    }
+
     public function read($table, $id)
     {
         $sql = "select * from " . $table . " where id =" . $id;
