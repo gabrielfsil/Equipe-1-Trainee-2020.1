@@ -47,7 +47,7 @@ $router->post('edit', "CategoryController@edit"); //edição em si
 
   //rotas para paginas não administrativas//
 
- $router->get('home', 'PagesController@home');
+ $router->get('', 'PagesController@home');
  $router->get('quem_somos', 'PagesController@quem_somos');
  $router->get('atracoes', 'PagesController@atracoes');
  $router->get('contato', 'PagesController@contato');
