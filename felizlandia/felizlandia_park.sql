@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 07:01 AM
+-- Generation Time: Jun 18, 2020 at 05:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -35,6 +35,14 @@ CREATE TABLE `atracoes` (
   `foto` varchar(300) NOT NULL,
   `categoria_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `atracoes`
+--
+
+INSERT INTO `atracoes` (`id_atracao`, `nome`, `valor`, `descricao`, `foto`, `categoria_id`) VALUES
+(1, 'Carrossel', '23.00', 'colocar depois', '15924951915eeb8c5767e38.jpg', 9),
+(2, 'Laser Tag', '35.00', 'colocar depois', '15924954515eeb8d5b56c67.jpg', 7);
 
 -- --------------------------------------------------------
 
@@ -97,6 +105,12 @@ ALTER TABLE `person`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `atracoes`
+--
+ALTER TABLE `atracoes`
+  MODIFY `id_atracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
