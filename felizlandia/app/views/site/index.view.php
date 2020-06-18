@@ -68,7 +68,7 @@
           <a class="nav-link" href="contato.html">Contato</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="login">Login</a>
         </li>
       </ul>
     </div>

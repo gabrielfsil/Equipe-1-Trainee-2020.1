@@ -1,5 +1,10 @@
  <?php
 
+/* Rotas para as páginas públicas */
+$router->get('', 'PagesController@home');
+
+
+
 $router->get('admin/user-list', 'PagesController@listUsers');
 $router->post('admin/user-acess', 'PagesController@acessUser');
 $router->post('admin/user-create' ,'PagesController@createUser');
