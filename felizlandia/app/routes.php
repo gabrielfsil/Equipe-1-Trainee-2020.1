@@ -1,5 +1,9 @@
  <?php
 
+
+/* Rotas para as páginas públicas */
+$router->get('', 'PagesController@home');
+
 /* Rotas de login */
 $router->get('login', 'PagesController@login');
 $router->get('login-access', 'PagesController@makeLogon');

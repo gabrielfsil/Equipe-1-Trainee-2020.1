@@ -6,7 +6,16 @@ use App\Core\App;
 
 class PagesController
 {
+    /* Páginas públicas */
+
+    public function home()
+    {
+        return view('site/index');
+    }
+
+
     /* Página referentes as funcionalidades administrativas de usuários */
+
     public function listUsers()
     {
         $users = App::get('database')->selectAll('person');
