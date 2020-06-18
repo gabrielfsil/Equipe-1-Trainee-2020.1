@@ -41,4 +41,27 @@ $router->post('edit', "CategoryController@edit"); //edição em si
  $router->post('admin/delete-atracao', 'AtracoesController@store_delete');
 
  //FIM ROTAS PARA ATRAÇÕES//
+
+
+
+
+  //rotas para paginas não administrativas//
+
+ $router->get('home', 'PagesController@home');
+ $router->get('quem_somos', 'PagesController@quem_somos');
+ $router->get('atracoes', 'PagesController@atracoes');
+ $router->get('contato', 'PagesController@contato');
+ $router->get('login', 'PagesController@login');
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

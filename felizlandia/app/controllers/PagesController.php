@@ -57,11 +57,6 @@ class PagesController
     }
     
     //CONTROLLERS ATRAÇÕES// 
-    public function atracoes(){
-
-    
-        return view('/site/atracoes');
-    }
 
     public function atracoes_admin(){
         $atracoes = App::get('database')->selectAll('atracoes');
@@ -134,5 +129,42 @@ class PagesController
             ]); 
     }
     //FIM CONTROLLERS ATRAÇÕES//
+
+
+
+    //CONTROLLER PAGINAS NAO ADMINISTRATIVAS//
+
+
+    public function home(){
+        $titulo = 'Home'; //nome da pagina
+        return view('/site/index', ['titulo' => $titulo]);
+
+
+    }
+    public function quem_somos(){
+        $titulo = 'Quem Somos'; //nome da pagina
+        return view('/site/quem-somos', ['titulo' => $titulo]);
+
+
+    }
+
+
+    public function atracoes(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Atrações';
+        return view('/site/atracoes', ['titulo' => $titulo]);
+    }
+
+    public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Contato';
+        return view('/site/contato', ['titulo' => $titulo]);
+    }
+
+    public function login(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Login';
+        return view('/site/login', ['titulo' => $titulo]);
+    }
+
+
+   
 
 }
