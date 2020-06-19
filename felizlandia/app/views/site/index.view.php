@@ -41,8 +41,8 @@
             <div class="carousel-item">
               <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5><?= $atracao->nome?></h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h5></h5>
+                <p><?= $atracao->nome?></p>
              </div>
             </div>
             <?php endforeach ;?>
@@ -76,62 +76,6 @@
     
 </div>
 <div class="paralax3">
-<div class="rodape">Veja nossas atrações!</div>
-
-
-<div class="Cartoes">
-  <div class="card-columns">
-
-    <div class="card bg-info text-white">
-       <img src="../../../public/img/bg4.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <h5 class="card-title blue">Card 2</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.<br> <a href="#" class="cardlink blue">Leia mais...</a></p>
-          <footer class="blockquote-footer text-white">
-            <small>
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-    </div>
-
-
-
-    <div class="card">
-      <img src="../../../public/img/bg2.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <blockquote class="blockquote mb-0">
-          <h5 class="card-title">Card 2</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.<br> <a href="#" class="cardlink">Leia mais...</a></p>
-          <footer class="blockquote-footer text-white">
-            <small>
-              Someone famous in <cite title="Source Title">Source Title</cite>
-            </small>
-          </footer>
-        </blockquote>
-      </div>
-    </div>
-
-    <div class="card bg-warning text-white">
-      <img src="../../../public/img/bg4.jpg" class="card-img-top" alt="...">
-     <div class="card-body">
-       <blockquote class="blockquote mb-0">
-         <h5 class="card-title">Card 2</h5>
-         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat.<br> <a href="#" class="cardlink">Leia mais...</a></p>
-         <footer class="blockquote-footer text-white">
-           <small>
-             Someone famous in <cite title="Source Title">Source Title</cite>
-           </small>
-         </footer>
-       </blockquote>
-     </div>
- 
-    </div>
-    </div>
-
-  </div>
 
   <div class="espaço"></div>
 

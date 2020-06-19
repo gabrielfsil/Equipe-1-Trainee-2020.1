@@ -190,7 +190,6 @@ class AtracoesController
                     // Evita nomes com acentos, espaços e caracteres não alfanuméricos
 
                     $destino_antigo = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
-
                     $novoNome = uniqid ( time () ) . '.' . $extensao;
 
                 
@@ -200,7 +199,10 @@ class AtracoesController
                         // tenta mover o arquivo para o destino
                     if ( @move_uploaded_file ( $arquivo_tmp, $destino ) ) {
                             
-                        unlink($destino_antigo);
+                        if(file_exists($destino_antigo))
+                        {
+                            unlink($destino_antigo);
+                         }
 
                         App::get('database')->edit('atracoes',
                             ['nome' => $this->protecao ($_POST['nome']),
@@ -294,7 +296,10 @@ class AtracoesController
       
       $destino = $_SERVER['DOCUMENT_ROOT'] . "/public/img/atracoes-img/" . $_POST['foto_antiga'];
      //die( var_dump($destino));
-      unlink($destino);
+      if(file_exists($destino))
+     {
+        unlink($destino);
+    }
 
       redirect('admin/list-atracoes');
     

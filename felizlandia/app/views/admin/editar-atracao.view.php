@@ -1,5 +1,5 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
 <body class="paralax-categoria"
 style=
@@ -175,4 +175,4 @@ background-position: center;
 
 </div>
             
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>

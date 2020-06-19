@@ -1,5 +1,5 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
 <body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
@@ -92,7 +92,7 @@ FIM PARALAX-->
 
 </div>
             
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>
      
           
          <!--MODAL-->

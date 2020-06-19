@@ -60,7 +60,7 @@
       <span class="mt-4 d-flex results justify-content-left">Foram encontradas <?= $num_atracoes['num'] ?> atrações </span>
       <a class="d-flex mb-3" href="#paginacao">Ir para o fim da página</a>
        
-      <div class="row mt-3 justify-content-between">
+      <div class="row mt-3 justify-content-start">
           <?php foreach ($atracoes as $atracao) : ?>
 
               <div class="col-md-4">

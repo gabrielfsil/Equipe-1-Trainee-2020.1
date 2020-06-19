@@ -763,6 +763,12 @@ border-radius: 2%;
 	.atracoes .card img{
 		height: 180px;
 	}
+	.carousel-inner > .carousel-item > img {
+		width: 40em;
+		height: 18em;
+		max-width: 2000px; /*de 1100 para 2000px*/
+		max-height: 1200px; /*de 900 para 1200px*/
+	  }
 }
 
 @media (max-width: 767px){ 
@@ -969,7 +975,7 @@ border-radius: 2%;
 	}
 		/*fim footer*/
 
-}
+}/*fim media query*/
 
 
 
