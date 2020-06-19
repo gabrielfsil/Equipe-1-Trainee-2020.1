@@ -1,4 +1,4 @@
-<?php require"app\\views\\partials\\head.php" ;?>
+<?php require"app/views/partials/head.php" ;?>
 
 <body>
 
@@ -19,7 +19,7 @@
   </div>
 
 
-  <?php require"app\\views\\partials\\navbar.php" ;?>
+  <?php require"app/views/partials/navbar.php" ;?>
 
      
 <!--CONTEÚDO PRINCIPAL-->
@@ -166,4 +166,4 @@
   
 
 
-<?php require"app\\views\\partials\\footer.php" ;?>
+<?php require"app/views/partials/footer.php" ;?>
