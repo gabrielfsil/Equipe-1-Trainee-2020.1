@@ -1,5 +1,5 @@
-<?php require "app\\views\\partials\\head-adm.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head-adm.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
 
 <div class= "listar-categoria  pb-4">
@@ -121,6 +121,6 @@
 
 
 
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>
 
 
