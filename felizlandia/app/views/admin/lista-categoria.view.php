@@ -1,8 +1,8 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 <body class="paralax-categoria">
 
-<div class= "listar-categoria  pb-4">
+<div class= "listar-categoria listas-gerais pb-4">
     <div class="container">
             <!--COLUNA ONDE LISTAMOS Categorias--> 
       <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
@@ -124,6 +124,6 @@
 
 
 
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>
 
 

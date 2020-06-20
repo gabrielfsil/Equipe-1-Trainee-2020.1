@@ -16,10 +16,11 @@ class CategoryController{
     public function access(){
         $categoria = App::get('database')->read('category', 'id', $_POST['view']);
 
-       
+        $pagina_atual = ['nome' =>"Categorias" ];
+
         $results = $categoria[0];
 
-        return view('admin/visualizar-categoria', ['results' => $results]);
+        return view('admin/visualizar-categoria', ['results' => $results, 'pagina_atual'=> $pagina_atual]);
 
     }
 

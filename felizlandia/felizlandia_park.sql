@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2020 at 05:55 PM
+-- Generation Time: Jun 20, 2020 at 02:53 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -41,8 +41,14 @@ CREATE TABLE `atracoes` (
 --
 
 INSERT INTO `atracoes` (`id_atracao`, `nome`, `valor`, `descricao`, `foto`, `categoria_id`) VALUES
-(1, 'Carrossel', '23.00', 'colocar depois', '15924951915eeb8c5767e38.jpg', 9),
-(2, 'Laser Tag', '35.00', 'colocar depois', '15924954515eeb8d5b56c67.jpg', 7);
+(1, 'Carrossel', '23.00', 'colocar depois', '15924971055eeb93d13b6db.jpeg', 9),
+(3, 'Roda Gigante', '20.00', 'colocar depois', '15924974555eeb952f6feb3.jpg', 11),
+(4, 'Felizlândia Mount', '30.00', 'colocar depois', '15924969535eeb933971a4f.jpg', 6),
+(7, 'Laser Tag', '12.00', 'aaa', '15925268375eec07f564eda.jpg', 7),
+(9, 'Kamikaze', '12.00', 'aaa', '15926104655eed4ea1b64c9.jpg', 6),
+(10, 'Show de Mágica', '12.00', 'aaa', '15925991215eed22511fb27.jpg', 5),
+(11, 'Barco Viking', '13.00', 'dfsd', '15926112345eed51a2753f2.jpg', 7),
+(12, 'High Water', '12.00', 'aaa', '15926117475eed53a3c568a.jpg', 6);
 
 -- --------------------------------------------------------
 
@@ -60,11 +66,12 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`) VALUES
-(4, 'Família'),
 (5, 'Show'),
 (6, 'Radical'),
 (7, 'Aventura'),
-(9, 'Infantil');
+(9, 'Infantil'),
+(10, 'Família'),
+(11, 'Tradicional');
 
 -- --------------------------------------------------------
 
@@ -78,6 +85,13 @@ CREATE TABLE `person` (
   `email` varchar(350) NOT NULL,
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `person`
+--
+
+INSERT INTO `person` (`id`, `name`, `email`, `password`) VALUES
+(2, ' teste', 'teste1@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -110,19 +124,19 @@ ALTER TABLE `person`
 -- AUTO_INCREMENT for table `atracoes`
 --
 ALTER TABLE `atracoes`
-  MODIFY `id_atracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_atracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `person`
 --
 ALTER TABLE `person`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

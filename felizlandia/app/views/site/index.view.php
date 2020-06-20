@@ -32,12 +32,11 @@
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="../../../public/img/gif.gif" class="d-block w-100" alt="...">
+              <img src="../../../public/img/montanha.gif" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-              <h2>Veja algumas atrações</h2>
               </div>
             </div>
-            <?php foreach ($top_atracoes as $atracao) : ?>
+            <?php foreach ($ultimas_atracoes as $atracao) : ?>
             <div class="carousel-item">
               <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
@@ -76,6 +75,23 @@
     
 </div>
 <div class="paralax3">
+<div class="rodape" style="font-weight:bold;">Veja nossas <a href="/atracoes" style="color:orange;text-decoration:none;">atrações</a>!</div>
+<div class="Cartoes">
+  <div class="card-columns atracoes" style="background-color:transparent;margin-top:0;">
+    <?php foreach ($mais_atracoes as $atracao) : ?>
+      <div class="card bg-white text-black">
+       <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p><h5 class="card-title blue"><?= $atracao->nome ?></h5></p>
+        
+        </blockquote>
+      </div>
+    </div>
+    <?php endforeach ; ?>
+  </div>
+</div>
+
 
   <div class="espaço"></div>
 

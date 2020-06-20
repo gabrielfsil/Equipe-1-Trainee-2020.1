@@ -3,7 +3,7 @@
 
  
 
-<div class= "user-list pb-2">
+<div class= "user-list pb-2 listas-gerais">
   <div class="container takeoff-scroll">
     <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
     <p><h1>Foram encontrados <?= $num_users['num'] ?> usuários</h1> </p> 

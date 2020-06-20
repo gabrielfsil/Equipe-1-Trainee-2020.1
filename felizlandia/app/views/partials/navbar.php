@@ -2,13 +2,13 @@
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="quem-somos.html">Quem somos</a>
+                <a class="nav-link" href="/quem-somos">Quem somos</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="atracoes.html">Atrações</a>
+                <a class="nav-link" href="/atracoes">Atrações</a>
             </li>
       </ul>
     </div>
@@ -25,10 +25,10 @@
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="contato.html">Contato</a>
+          <a class="nav-link" href="/contato">Contato</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="login.html">Login</a>
+          <a class="nav-link" href="/login">Login</a>
         </li>
       </ul>
     </div>

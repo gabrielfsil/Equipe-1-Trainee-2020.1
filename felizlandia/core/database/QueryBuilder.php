@@ -126,6 +126,10 @@ class QueryBuilder
 
         if($action['metodo'] != 'all')
         {
+            
+            if($action['metodo']=='last'){
+                    $sql = $sql . " ORDER BY {$action['orderbyfield']} {$action['direction']}";
+            }
             $sql = $sql . " limit {$action['quantidade']}";
         }
 

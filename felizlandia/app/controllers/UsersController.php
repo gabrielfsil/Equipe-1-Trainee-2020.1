@@ -56,7 +56,9 @@ class UsersController
 
         //var_dump($user[0]);
         //var_dump($act);
+        $pagina_atual = ['nome' =>"Usuários" ];
+
         return view('admin/change-password', ['user' => $user[0],
-                                              'act' => $act]);
+                                              'act' => $act, 'pagina_atual'=> $pagina_atual]);
     }
 }

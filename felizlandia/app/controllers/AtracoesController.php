@@ -136,10 +136,12 @@ class AtracoesController
                 
                }
                $categorias = App::get('database')->selectAll('category');
-       
+               $pagina_atual = ['nome' =>"Atrações" ];
+
                return view('/admin/criar-atracao',[
                    'acao'=> $acao,
                    'categorias' => $categorias,
+                   'pagina_atual' => $pagina_atual
        
                    ]);
              
@@ -264,11 +266,14 @@ class AtracoesController
             $id = $x->categoria_id;
         }
         $categoria_atual = App::get('database')->read('category', 'id',$id); 
+        $pagina_atual = ['nome' =>"Atrações" ];
+
         return view('/admin/editar-atracao', [
                     'atracao_edit' => $atracao,
                     'acao' => $acao,
                     'categorias' => $categorias,
                     'categoria_atual' => $categoria_atual,
+                    'pagina_atual' => $pagina_atual
                     ]);    
 
         
