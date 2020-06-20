@@ -19,3 +19,27 @@ function myFunction() {
     }
 
 }
+
+function opaco() {
+  var navbar = document.getElementById("navbar");
+ if (window.pageYOffset<160)
+ {
+  if(navbar.style.backgroundColor !== "rgb(25, 67, 160)")
+  {
+   navbar.style.backgroundColor = "rgb(25, 67, 160)";
+ 
+ 
+  }
+  else
+  {
+ 
+   navbar.style.backgroundColor = "rgba(25, 67, 160, 0.2)";
+ 
+  }
+ }
+
+
+ 
+
+
+}

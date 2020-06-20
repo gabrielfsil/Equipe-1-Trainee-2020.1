@@ -16,7 +16,7 @@
       <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
       <span class="TogglerPaginaAtual"><?= $pagina_atual['nome']?></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" onclick="opaco()"></span>
         </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
