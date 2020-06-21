@@ -13,6 +13,142 @@ class PagesController
         return view('site/index');
     }
 
+    /* Páginas referentes ao login de usuário */
+
+    public function login()
+    {
+        return view('site/login');
+    }
+
+    public function loginAlert()
+    {
+        return view('site/login-alert');
+    }
+
+    public function logout()
+    {
+        sessionEnd();
+        home();
+    }
+
+    public function makeLogon()
+    {
+        $user = App::get('database')->search("person", ['email' => $_POST['email']]);
+        $error = False;
+
+        if(count(array_keys($user)) == 0)
+        {
+            $error = True;
+            $message = "Não há usuário cadastrado com este e-mail.";
+
+        }
+        else
+        {
+            $userPwdOld = $user[0]->password;
+            if($userPwdOld == $_POST['password'])
+            {
+                sessionStart($user);
+                return redirect('admin/home');
+            }
+            else
+            {
+                $error = True;
+                $message = "Senha não corresponde a cadastrada.";
+            }
+
+        }
+
+        $act = [
+            'error' => $error,
+            'message' => $message];
+
+        return view('site/login', ['act' => $act]);
+    }
+
+    public function sessionStart($user)
+    {
+        if($_SESSION['logged']){
+        header ("Location: /admin/home");
+        }
+        else {
+        //Caso o login dê errado, devolvo o usuário para a página de login
+        header ("Location: login.php"); // coloca uma pagina a mais para falar para o usuario que ele nao tem permissao
+        }
+
+        $_SESSION['logged'] = True;
+
+
+        // seta tempo de expiração da sessão em 60 MINUTOS
+        session_cache_expire(60);
+
+        session_name('AdminSession');
+
+        if (isset($_POST['userid']) && isset($_POST['password'])) {
+            $userid = $_POST['userid'];
+            $password = md5($_POST['password']);
+        
+            if ($userid == 'myusername' && $password == md5('mypassword')) {
+              $_SESSION['logged_in'] = true;
+              header('location: admin.php');
+              exit;
+            }
+        }
+
+        // cria sessão de usuário no servidor
+        session_start();
+
+        // armazena dados das sessão do usuário
+        $_SESSION["name"] = $user->name;
+        $_SESSION["email"] = $user->email;
+    }
+
+    public function sessionEnd()
+    {
+        // remove as variáveis/dados da sessão do usuário
+        session_unset();
+
+        // finaliza sessão do usuário
+        session_destroy();
+        return redirect('/');
+    }
+
+    // protect admin pages
+    public function verifyLogin()
+    {
+        // Verificar se a sessão não foi roubada
+        // colocar senha com md5()?
+        // not the most secure hash! $_SESSION['checksum'] = md5($_SESSION['username'].$salt);
+        // $_SERVER['HTTP_USER_AGENT']
+        // $_SESSION['hash']      = md5($YOUR_SALT.$username.$_SERVER['HTTP_USER_AGENT']); // user's name hashed to avoid manipulation
+        // $_SESSION['checksum'] = md5($_SESSION['username'].$salt); 
+        // if (md5($_SESSION['username'].$salt) != $_SESSION['checksum'])
+        //{
+        //    handleSessionError();
+        //}
+        if(logging_in()) {
+            $_SESSION['user'] = 'someuser';
+            $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+        }
+        
+        // The Check on subsequent load
+        if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
+            die('Session MAY have been hijacked');
+        }
+
+
+        //Verifico se o usuário está logado no sistema
+        if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
+            header("Location: login.php");
+        }
+        else {
+            echo "<h1>Seja bem-vindo, ".$_SESSION["user"]."</h1>";
+        }
+    }
+
+    public function handleSessionError()
+    {
+
+    }
 
     /* Página referentes as funcionalidades administrativas de usuários */
 
@@ -46,47 +182,6 @@ class PagesController
 
         return view('admin/change-password', ['user' => $user[0]]);
     }
-
-    /* Páginas referentes ao login de usuário */
-
-    public function login()
-    {
-        return view('site/login');
-    }
-
-    public function makeLogon()
-    {
-        $user = App::get('database')->search("person", ['email' => $_POST['email']]);
-        $error = False;
-
-        if(count(array_keys($user)) == 0)
-        {
-            $error = True;
-            $message = "Não há usuário cadastrado com este e-mail.";
-
-        }
-        else
-        {
-            $userPwdOld = $user[0]->password;
-            if($userPwdOld == $_POST['password'])
-            {
-                return redirect('admin/home');
-            }
-            else
-            {
-                $error = True;
-                $message = "Senha não corresponde a cadastrada.";
-            }
-
-        }
-
-        $act = [
-            'error' => $error,
-            'message' => $message];
-
-        return view('site/login', ['act' => $act]);
-    }
-
 
     /**
      * Show the home page.
