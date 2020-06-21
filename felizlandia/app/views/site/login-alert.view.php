@@ -16,24 +16,16 @@
         <div class="row">
             <div class="col-md-auto center login-box">
                 <div class="alert alert-danger">
-                    Por favor, para acessar o sistema administrativo você precisa estar logado.
-                    Clique no botão abaixo para ser redirecionado para a página de login.
+                    <p>Por favor, para acessar o sistema administrativo você precisa estar logado.</p>
+                    <p>Clique no botão abaixo para ser redirecionado para a página de login.</p>
                 </div>
-                <form class="form-horizontal" method="GET" action="login">
-                    <div class="form-group center col-md-5">
-                        <button type="submit" class="btn btn-primary">Entrar</button>
-                    </div>
-                </form>
+                <div class="form-group center col-md-5">
+                    <a href="login"><button type="submit" class="btn btn-primary">Entrar</button></a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-
-
- <!-- icones fontawesome -->
- <script src="https://kit.fontawesome.com/8a90f3aa8c.js" crossorigin="anonymous"></script>
- 
- <?php require('app/views/partials/modal-password.php'); ?>
 </body>
 </html>
