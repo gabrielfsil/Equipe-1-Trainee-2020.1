@@ -33,10 +33,9 @@
                 </form>
             </div>
             <script>
-            var act = "<?php echo $act; ?>";
-            
-            if(typeof act !== 'undefined' && act)
-                $(document).ready(function(){$("#modal-password").modal();});
+                var act = "<?php echo $act; ?>";
+                if(typeof act !== 'undefined' && act)
+                    $(document).ready(function(){$("#modal-password").modal();});
             </script>
         </div>
     </div>
@@ -47,6 +46,6 @@
  <!-- icones fontawesome -->
  <script src="https://kit.fontawesome.com/8a90f3aa8c.js" crossorigin="anonymous"></script>
  
- <?php require('app/views/partials/modal-password.php'); ?>
+ <?php if(isset($act)) require('app/views/partials/modal-password.php'); ?>
 </body>
 </html>
