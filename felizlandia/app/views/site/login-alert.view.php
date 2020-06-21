@@ -20,7 +20,7 @@
                     <p>Clique no botão abaixo para ser redirecionado para a página de login.</p>
                 </div>
                 <div class="form-group center col-md-5">
-                    <a href="login"><button type="submit" class="btn btn-primary">Entrar</button></a>
+                    <a href="login"><button type="submit" class="btn btn-primary">Login</button></a>
                 </div>
             </div>
         </div>
