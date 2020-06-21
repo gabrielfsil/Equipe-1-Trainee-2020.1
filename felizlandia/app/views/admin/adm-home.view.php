@@ -2,10 +2,9 @@
 <?php require "app/views/partials/navbar-admin.php"; ?>
 
 
-<div>
-    <div class="espaço pequeno"></div>
+<div >
 
-        <div class="paginaAtual">
+        <div class="paginaAtual mt-5">
             Administrativo
         </div>
 

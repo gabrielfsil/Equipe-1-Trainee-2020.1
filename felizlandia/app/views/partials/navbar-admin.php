@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-md navbar-dark fundofalso sticky" > <!-- bg-transparent-->
+<nav id="navbar" class="navbar navbar-expand-md navbar-dark fundofalso sticky nav-admin" > <!-- bg-transparent-->
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
       <ul class="navbar-nav mr-auto ">
             <li class="nav-item active">
@@ -16,7 +16,7 @@
       <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
       <span class="TogglerPaginaAtual"><?= $pagina_atual['nome']?></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          <span class="navbar-toggler-icon" onclick="opaco()"></span>
+          <span class="navbar-toggler-icon"></span>
         </button>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
@@ -30,3 +30,6 @@
       </ul>
     </div>
 </nav>
+<script>
+  opaco();
+  </script>

@@ -94,7 +94,7 @@
         <nav class="pagination-listar ">
            <ul class="pagination">
             <li class="page-item disabled">
-               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"> << </a>
+               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"><</a>
             </li>
             <li class="page-item active"><a class="page-link text-dark" href="#">1</a></li>
              <li class="page-item" aria-current="page">
@@ -102,7 +102,7 @@
             </li>
              <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
              <li class="page-item">
-               <a class="page-link text-dark" href="#">>></a>
+               <a class="page-link text-dark" href="#">></a>
              </li>
            </ul>
         </nav>
