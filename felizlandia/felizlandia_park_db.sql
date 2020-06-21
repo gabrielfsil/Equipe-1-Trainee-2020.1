@@ -101,6 +101,9 @@ ALTER TABLE `category`
 ALTER TABLE `person`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `person`
+  ADD UNIQUE (`email`);
+
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
