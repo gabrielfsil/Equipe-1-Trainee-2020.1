@@ -22,13 +22,19 @@ class PagesController
 
     public function loginAlert()
     {
+        var_dump("\nSessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
         return view('site/login-alert');
     }
 
     public function logout()
     {
-        sessionEnd();
-        home();
+        session_start();
+        var_dump("VAI SAIR!!!!");
+        var_dump("\nSessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
+        $this->sessionEnd();
+        var_dump("SAAAAAAAAAAAAIUUUUUUUUUU!!!");
+        
+        //return redirect('');
     }
 
     public function makeLogon()
@@ -44,11 +50,23 @@ class PagesController
         }
         else
         {
-            $userPwdOld = $user[0]->password;
+            $user = $user[0];
+            $userPwdOld = $user->password;
             if($userPwdOld == $_POST['password'])
             {
-                sessionStart($user);
-                return redirect('admin/home');
+                var_dump("consegue!!!!!!!!!!!!!!");
+                $this->sessionStart($user);
+                var_dump("Sessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
+                var_dump("\nusuario " . $user->name . " " . $user->email);
+                $message = "Seja Bem Vindo - Login feito com sucesso.";
+                //return redirect('admin/home');
+                if($_SESSION['logged'])   //isset($_SESSION['logged']) && 
+                {
+                    var_dump(" FINAL VERDADE!!!!!!!!!!!!!!");
+                    redirect("admin/home");
+        
+                    
+                }
             }
             else
             {
@@ -67,49 +85,97 @@ class PagesController
 
     public function sessionStart($user)
     {
-        if($_SESSION['logged']){
-        header ("Location: /admin/home");
-        }
-        else {
-        //Caso o login dê errado, devolvo o usuário para a página de login
-        header ("Location: login.php"); // coloca uma pagina a mais para falar para o usuario que ele nao tem permissao
-        }
+        var_dump("Sessao start consegue!!!!!!!!!!!!!!");
+        
+        //$_SESSION['logged'] = True;
+        
 
-        $_SESSION['logged'] = True;
+        //else 
+        //{
+            //Caso o login dê errado, devolvo o usuário para a página de login
+          //  header ("Location: login.php"); // coloca uma pagina a mais para falar para o usuario que ele nao tem permissao
+        //}
 
+
+        // if($_SESSION['logged'])
+        // {
+        //     var_dump("CRIA 1!!!!!!!!!!!!!!");
+        //     redirect("admin/homeeeee");
+        // }
 
         // seta tempo de expiração da sessão em 60 MINUTOS
-        session_cache_expire(60);
-
-        session_name('AdminSession');
-
-        if (isset($_POST['userid']) && isset($_POST['password'])) {
-            $userid = $_POST['userid'];
-            $password = md5($_POST['password']);
         
-            if ($userid == 'myusername' && $password == md5('mypassword')) {
-              $_SESSION['logged_in'] = true;
-              header('location: admin.php');
-              exit;
-            }
-        }
+
+        //session_name('AdminSession');
+
+        //if (isset($_POST['userid']) && isset($_POST['password'])) {
+            //$userid = $_POST['userid'];
+            //$password = md5($_POST['password']); 
+        
+            //if ($userid == 'myusername' && $password == md5('mypassword')) {
+                //$_SESSION['logged_in'] = true;
+                //header('location: admin.php');
+                //exit;
+            //}
+        //}
+
+
+        // nomeia sessão de usuário
+        //session_name("AdminSession");
+
+        // Seta tempo de expiração da sessão
+        session_cache_expire(30);
 
         // cria sessão de usuário no servidor
         session_start();
+        
+        $_SESSION['logged'] = True;
+        
+
+        echo "IsSet1: " . isset($_SESSION["logged"]) . "; IsMobile1: " . $_SESSION["logged"] . "; type: " . gettype($_SESSION["logged"]) . ";<br>";
+
+        if($_SESSION['logged'])
+        {
+            var_dump("CRIA 2!!!!!!!!!!!!!!");
+            //redirect("admin/home1");
+        }
+
+        //$_SESSION['logged'] = True;
+
+
+        if($_SESSION['logged'])
+        {
+            var_dump("CRIA 3!!!!!!!!!!!!!!");
+            //redirect("admin/homev");
+        }
 
         // armazena dados das sessão do usuário
         $_SESSION["name"] = $user->name;
         $_SESSION["email"] = $user->email;
+
+        if (!$_SESSION['logged']) //!isset($_SESSION['logged']) || 
+        {
+            redirect('login-alert' . $_SESSION["name"]);
+        }
+
+        if($_SESSION['logged'])   //isset($_SESSION['logged']) && 
+        {
+            var_dump("VERDADE!!!!!!!!!!!!!!");
+            redirect("admin/home");
+
+            
+        }
+
     }
 
     public function sessionEnd()
     {
+        var_dump("session endddd ;.....");
         // remove as variáveis/dados da sessão do usuário
         session_unset();
 
         // finaliza sessão do usuário
         session_destroy();
-        return redirect('/');
     }
 
     // protect admin pages
@@ -125,61 +191,71 @@ class PagesController
         //{
         //    handleSessionError();
         //}
-        if(logging_in()) {
-            $_SESSION['user'] = 'someuser';
-            $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-        }
+        //if(logging_in()) {
+        //    $_SESSION['user'] = 'someuser';
+        //    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+        //}
         
         // The Check on subsequent load
-        if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
-            die('Session MAY have been hijacked');
-        }
+        //if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
+        //    die('Session MAY have been hijacked');
+        //}
+        session_start();
 
+        echo "IsSet: " . isset($_SESSION["logged"]) . "; IsMobile: " . $_SESSION["logged"] . "; type: " . gettype($_SESSION["logged"]) . ";<br>";
+
+        var_dump("Sessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
 
         //Verifico se o usuário está logado no sistema
-        if (!isset($_SESSION["logado"]) || $_SESSION["logado"] != TRUE) {
-            header("Location: login.php");
+        if (!$_SESSION['logged']) //!isset($_SESSION['logged']) || 
+        {
+            redirect('login-alert' . $_SESSION['name']);
+            echo "nao esta logado";
         }
-        else {
-            echo "<h1>Seja bem-vindo, ".$_SESSION["user"]."</h1>";
+        else
+        {
+            echo "logado nessa treta!";
         }
-    }
-
-    public function handleSessionError()
-    {
-
     }
 
     /* Página referentes as funcionalidades administrativas de usuários */
 
     public function listUsers()
     {
+        $this->verifyLogin();
+        
         $users = App::get('database')->selectAll('person');
-
         return view('admin/list-users', ['users' => $users]); // array chave valor
     }
 
     public function acessUser()
     {
+        $this->verifyLogin();
+
         $user = App::get('database')->read('person', $_POST['id']);
         return view('admin/display-user', ['user' => $user[0]]);
     }
 
-    public function createUser(){
+    public function createUser()
+    {
+        $this->verifyLogin();
 
         return view('admin/create-user');
     }
 
     public function editUser()
     {
+        $this->verifyLogin();
+
         $user = App::get('database')->read('person', $_POST['id']);
         return view('admin/edit-user', ['user' => $user[0]]);
     }
 
     public function changeUserPassword()
     {
-        $user = App::get('database')->read('person', $_POST['id']);
+        $this->verifyLogin();
 
+        $user = App::get('database')->read('person', $_POST['id']);
         return view('admin/change-password', ['user' => $user[0]]);
     }
 
@@ -188,28 +264,48 @@ class PagesController
      */
     public function HomeAdm()
     {
+        session_start();
+        $this->verifyLogin();
+
+        var_dump("Logado???? ");
+        if(isset($_SESSION['logged']))   //isset($_SESSION['logged']) && 
+        {
+            var_dump("VERDADE!!!!!!!!!!!!!!   ");
+            var_dump($_SESSION['name']);
+            //redirect("admin/home");
+
+            
+        }
         return view('admin/adm-home');
     }
 
     public function Lcategorias()
     {
+        $this->verifyLogin();
+
         $categorias = App::get('database')->selectAll("category");
         return view('admin/lista-categoria', ['categorias' => $categorias]);
     }
 
-    public function Acategoria(){
+    public function Acategoria()
+    {
+        $this->verifyLogin();
 
         return view('admin/adicionar-categoria');
     }
     
     //CONTROLLERS ATRAÇÕES// 
-    public function atracoes(){
-
+    public function atracoes()
+    {
+        $this->verifyLogin();
     
         return view('/site/atracoes');
     }
 
-    public function atracoes_admin(){
+    public function atracoes_admin()
+    {
+        $this->verifyLogin();
+
         $atracoes = App::get('database')->selectAll('atracoes');
         $num_atracoes = [
             "num" => count($atracoes)
@@ -221,7 +317,10 @@ class PagesController
     }
 
     
-    public function atracoes_create(){
+    public function atracoes_create()
+    {
+        $this->verifyLogin();
+
         $acao = ['nome' => 'none'];
         $categorias = App::get('database')->selectAll('category');
 
@@ -232,7 +331,10 @@ class PagesController
             ]);
     }
 
-    public function atracoes_edit(){
+    public function atracoes_edit()
+    {
+        $this->verifyLogin();
+
         $acao = [
             "nome" => "none"
         ];
@@ -252,7 +354,11 @@ class PagesController
 
             ]); 
     }
-    public function atracoes_view(){
+    
+    public function atracoes_view()
+    {
+        $this->verifyLogin();
+
         $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
@@ -266,7 +372,11 @@ class PagesController
 
             ]);
     }
-    public function atracoes_delete(){
+
+    public function atracoes_delete()
+    {
+        $this->verifyLogin();
+
         $atracao = App::get('database')->read('atracoes', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
