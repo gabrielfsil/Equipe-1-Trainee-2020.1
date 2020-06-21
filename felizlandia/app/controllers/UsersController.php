@@ -8,12 +8,41 @@ class UsersController
 {
     public function store()
     {
+        $user = App::get('database')->search("person", ['email' => $_POST['userEmail']]);
+
+        if(count(array_keys($user)) > 0)
+        {
+            $act = [
+                'error' => True,
+                'message' => "Já existe usuário com este e-mail."];
+
+            return view('admin/create-user', ['act' => $act]);
+        }
+        if(strlen($_POST['userPassword']) < 8)
+        {
+            $act = [
+                'error' => True,
+                'message' => "A senha precisa ter no mínimo 8 caracteres."];
+
+            return view('admin/create-user', ['act' => $act]);
+        }
+        if($_POST['userPassword'] != $_POST['userPasswordRepeat'])
+        {
+            $act = [
+                'error' => True,
+                'message' => "As senhas digitadas não são iguais."];
+
+            return view('admin/create-user', ['act' => $act]);
+        }
+
         App::get('database')->insert('person', [
             'name' => $_POST['userName'],
             'email' => $_POST['userEmail'],
             'password' => $_POST['userPassword']]);
-        
-        return redirect('admin/user-list');
+            
+        $act = [
+            'error' => False,
+            'message' => "Usuário criado com sucesso."];
     }
 
     public function delete()
@@ -24,6 +53,17 @@ class UsersController
 
     public function storeEdit()
     {
+        $user = App::get('database')->search("person", ['email' => $_POST['email']]);
+
+        if(count(array_keys($user)) > 0)
+        {
+            $act = [
+                'error' => True,
+                'message' => "Já existe usuário com este e-mail."];
+
+            return view('admin/edit-user', ['act' => $act]);
+        }
+
         App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], $_POST['id']);
 
         $user = App::get('database')->read('person', $_POST['id']);

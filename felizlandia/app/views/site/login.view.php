@@ -32,15 +32,16 @@
                     </div>
                 </form>
             </div>
-            <script>
-                var act = "<?php echo $act; ?>";
-                if(typeof act !== 'undefined' && act)
-                    $(document).ready(function(){$("#modal-password").modal();});
-            </script>
+
         </div>
     </div>
 </div>
 
+<script>
+    var act = "<?php echo $act; ?>";
+    if(typeof act !== 'undefined' && act)
+    $(document).ready(function(){$("#modal-password").modal();});
+</script>
 
 
  <!-- icones fontawesome -->
