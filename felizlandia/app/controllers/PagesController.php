@@ -14,7 +14,7 @@ class PagesController
     }
 
     /* Páginas referentes ao login de usuário */
-
+    
     public function login()
     {
         return view('site/login');
@@ -22,19 +22,15 @@ class PagesController
 
     public function loginAlert()
     {
-        var_dump("\nSessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
         return view('site/login-alert');
     }
 
     public function logout()
     {
         session_start();
-        var_dump("VAI SAIR!!!!");
-        var_dump("\nSessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
         $this->sessionEnd();
-        var_dump("SAAAAAAAAAAAAIUUUUUUUUUU!!!");
         
-        //return redirect('');
+        return redirect('');
     }
 
     public function makeLogon()
@@ -59,13 +55,11 @@ class PagesController
                 var_dump("Sessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
                 var_dump("\nusuario " . $user->name . " " . $user->email);
                 $message = "Seja Bem Vindo - Login feito com sucesso.";
-                //return redirect('admin/home');
-                if($_SESSION['logged'])   //isset($_SESSION['logged']) && 
+
+                // se usuário estiver logado corretamente, ele redireciona para home admin
+                if(isset($_SESSION['logged']) && $_SESSION['logged'])
                 {
-                    var_dump(" FINAL VERDADE!!!!!!!!!!!!!!");
-                    redirect("admin/home");
-        
-                    
+                    return redirect('admin/home');
                 }
             }
             else
@@ -85,92 +79,26 @@ class PagesController
 
     public function sessionStart($user)
     {
-        var_dump("Sessao start consegue!!!!!!!!!!!!!!");
-        
-        //$_SESSION['logged'] = True;
-        
-
-        //else 
-        //{
-            //Caso o login dê errado, devolvo o usuário para a página de login
-          //  header ("Location: login.php"); // coloca uma pagina a mais para falar para o usuario que ele nao tem permissao
-        //}
-
-
-        // if($_SESSION['logged'])
-        // {
-        //     var_dump("CRIA 1!!!!!!!!!!!!!!");
-        //     redirect("admin/homeeeee");
-        // }
-
-        // seta tempo de expiração da sessão em 60 MINUTOS
-        
-
-        //session_name('AdminSession');
-
-        //if (isset($_POST['userid']) && isset($_POST['password'])) {
-            //$userid = $_POST['userid'];
-            //$password = md5($_POST['password']); 
-        
-            //if ($userid == 'myusername' && $password == md5('mypassword')) {
-                //$_SESSION['logged_in'] = true;
-                //header('location: admin.php');
-                //exit;
-            //}
-        //}
-
-
-        // nomeia sessão de usuário
-        //session_name("AdminSession");
-
-        // Seta tempo de expiração da sessão
-        session_cache_expire(30);
+        // seta tempo de expiração da sessão em 3horas = 180 minutos
+        session_cache_expire(180);
 
         // cria sessão de usuário no servidor
         session_start();
         
+        // seta verdadeiro  para o login na sessão do usuario 
         $_SESSION['logged'] = True;
         
-
-        echo "IsSet1: " . isset($_SESSION["logged"]) . "; IsMobile1: " . $_SESSION["logged"] . "; type: " . gettype($_SESSION["logged"]) . ";<br>";
-
-        if($_SESSION['logged'])
-        {
-            var_dump("CRIA 2!!!!!!!!!!!!!!");
-            //redirect("admin/home1");
-        }
-
-        //$_SESSION['logged'] = True;
-
-
-        if($_SESSION['logged'])
-        {
-            var_dump("CRIA 3!!!!!!!!!!!!!!");
-            //redirect("admin/homev");
-        }
-
-        // armazena dados das sessão do usuário
+        // armazena dados da sessão atual de usuário
         $_SESSION["name"] = $user->name;
         $_SESSION["email"] = $user->email;
-
-        if (!$_SESSION['logged']) //!isset($_SESSION['logged']) || 
-        {
-            redirect('login-alert' . $_SESSION["name"]);
-        }
-
-        if($_SESSION['logged'])   //isset($_SESSION['logged']) && 
-        {
-            var_dump("VERDADE!!!!!!!!!!!!!!");
-            redirect("admin/home");
-
-            
-        }
-
+        $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
+        // evita manipulação/ataque, dar mais segurança
+        $_SESSION['hash'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
     }
 
+    // Finaliza sessão
     public function sessionEnd()
     {
-        var_dump("session endddd ;.....");
         // remove as variáveis/dados da sessão do usuário
         session_unset();
 
@@ -178,46 +106,21 @@ class PagesController
         session_destroy();
     }
 
-    // protect admin pages
+    // protege páginas administrativas
     public function verifyLogin()
     {
-        // Verificar se a sessão não foi roubada
-        // colocar senha com md5()?
-        // not the most secure hash! $_SESSION['checksum'] = md5($_SESSION['username'].$salt);
-        // $_SERVER['HTTP_USER_AGENT']
-        // $_SESSION['hash']      = md5($YOUR_SALT.$username.$_SERVER['HTTP_USER_AGENT']); // user's name hashed to avoid manipulation
-        // $_SESSION['checksum'] = md5($_SESSION['username'].$salt); 
-        // if (md5($_SESSION['username'].$salt) != $_SESSION['checksum'])
-        //{
-        //    handleSessionError();
-        //}
-        //if(logging_in()) {
-        //    $_SESSION['user'] = 'someuser';
-        //    $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
-        //}
-        
-        // The Check on subsequent load
-        //if($_SESSION['ip'] != $_SERVER['REMOTE_ADDR']) {
-        //    die('Session MAY have been hijacked');
-        //}
+        $checksum = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+
         session_start();
 
-        echo "IsSet: " . isset($_SESSION["logged"]) . "; IsMobile: " . $_SESSION["logged"] . "; type: " . gettype($_SESSION["logged"]) . ";<br>";
-
-        var_dump("Sessao " . $_SESSION["name"] . " " . $_SESSION["email"] . " " . $_SESSION['logged']);
-
-        //Verifico se o usuário está logado no sistema
-        if (!$_SESSION['logged']) //!isset($_SESSION['logged']) || 
+        //Verifico se o usuário não está logado no sistema
+        if (!isset($_SESSION['logged']) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
         {
             redirect('login-alert' . $_SESSION['name']);
-            echo "nao esta logado";
-        }
-        else
-        {
-            echo "logado nessa treta!";
         }
     }
 
+    
     /* Página referentes as funcionalidades administrativas de usuários */
 
     public function listUsers()
@@ -267,15 +170,6 @@ class PagesController
         session_start();
         $this->verifyLogin();
 
-        var_dump("Logado???? ");
-        if(isset($_SESSION['logged']))   //isset($_SESSION['logged']) && 
-        {
-            var_dump("VERDADE!!!!!!!!!!!!!!   ");
-            var_dump($_SESSION['name']);
-            //redirect("admin/home");
-
-            
-        }
         return view('admin/adm-home');
     }
 
@@ -354,7 +248,7 @@ class PagesController
 
             ]); 
     }
-    
+
     public function atracoes_view()
     {
         $this->verifyLogin();
