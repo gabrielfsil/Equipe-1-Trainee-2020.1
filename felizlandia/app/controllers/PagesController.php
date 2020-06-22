@@ -106,8 +106,6 @@ class PagesController
     {
         $checksum = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
 
-        session_start();
-
         //Verifico se o usuário não está logado no sistema
         if (!isset($_SESSION['logged']) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
         {
