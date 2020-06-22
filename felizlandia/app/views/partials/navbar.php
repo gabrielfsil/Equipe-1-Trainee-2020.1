@@ -24,7 +24,7 @@
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
+        <li class="  active">
           <a class="nav-link" href="/contato">Contato</a>
         </li>
         <li class="nav-item active">
