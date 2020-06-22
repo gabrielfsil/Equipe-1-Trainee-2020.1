@@ -105,11 +105,16 @@ class PagesController
     public function verifyLogin()
     {
         $checksum = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+    
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        }
 
         //Verifico se o usuário não está logado no sistema
         if (!isset($_SESSION['logged']) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
         {
-            redirect('login-alert' . $_SESSION['name']);
+            redirect('login-alert');
         }
     }
 
