@@ -1,8 +1,8 @@
-<?php require('app/views/partials/head-adm.php'); ?>
+<?php require('app/views/partials/head.php'); ?>
 
 <?php require('app/views/partials/navbar-admin.php'); ?>
 
-
+<body class="paralax-categoria">
 <div class="container container-admin-user" >   
     <div class="row mb-4">
       <div class="col d-flex justify-content-center">

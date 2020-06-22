@@ -8,11 +8,6 @@ class PagesController
 {
     /* Páginas públicas */
 
-    public function home()
-    {
-        return view('site/index');
-    }
-
     /* Páginas referentes ao login de usuário */
     
     public function login()
@@ -123,43 +118,133 @@ class PagesController
     
     /* Página referentes as funcionalidades administrativas de usuários */
 
+    public function home()
+    {
+        $titulo = 'Home'; //nome da pagina
+
+        $ultimas_atracoes =  App::get('database')->selectFromManyTables(
+            ['metodo'=> 'last', 'quantidade' =>'3',  'orderbyfield' => 'id_atracao',
+        'direction' => 'desc'],
+            ['table1' => 'atracoes',
+            'table2' => 'category' ], ['nome' => 'nome',
+                'descricao' => 'descricao', 
+                'valor' => 'valor', 
+                'foto' => 'foto', 
+                'id_atracao' => 'id_atracao',
+                'categoria_id' => 'categoria_id',
+                'name' => 'name',
+            ], 'category.id','categoria_id'
+                );
+
+            $mais_atracoes =  App::get('database')->selectFromManyTables(
+                    ['metodo'=> 'last', 'quantidade' =>' 3',  'orderbyfield' => 'id_atracao',
+                'direction' => 'asc'],
+                    ['table1' => 'atracoes',
+                    'table2' => 'category' ], ['nome' => 'nome',
+                        'descricao' => 'descricao', 
+                        'valor' => 'valor', 
+                        'foto' => 'foto', 
+                        'id_atracao' => 'id_atracao',
+                        'categoria_id' => 'categoria_id',
+                        'name' => 'name',
+                    ], 'category.id','categoria_id'
+                        );
+        
+
+               
+        $pagina_atual = ['nome' =>"Home" ];
+        return view('site/index', [
+            'pagina_atual' => $pagina_atual,
+            'ultimas_atracoes' => $ultimas_atracoes,
+            'mais_atracoes' => $mais_atracoes,
+            'titulo' => $titulo,
+
+        ]);
+
+
+    }
+    
+    public function atracoes(){
+        $categorias = App::get('database')->selectAll("category");
+
+
+        $atracoes =  App::get('database')->selectFromManyTables(['metodo'=>'all'],
+            ['table1' => 'atracoes',
+            'table2' => 'category' ], ['nome' => 'nome',
+                'descricao' => 'descricao', 
+                'valor' => 'valor', 
+                'foto' => 'foto', 
+                'id_atracao' => 'id_atracao',
+                'categoria_id' => 'categoria_id',
+                'name' => 'name'], 'category.id','categoria_id'
+                );
+        //SELECT nome, descricao, valor, foto, categoria_id, name FROM atracoes, category WHERE category.id = categoria_id
+
+       /*$atracoes = App::get('database')->selectAll('atracoes'); 
+        $categorias =  App::get('database')->selectCombineRows(); */
+        $num_atracoes = [
+            "num" => count($atracoes)
+        ];
+        $pagina_atual = ['nome' =>"Atrações" ];
+        $titulo = 'Atrações';
+
+        return view('/site/atracoes',[
+            'atracoes' => $atracoes,
+            'categorias' => $categorias,
+            'num_atracoes' => $num_atracoes,
+            'pagina_atual' => $pagina_atual,
+            'titulo' => $titulo,
+            
+        ]);
+    }
+
     public function listUsers()
     {
         $this->verifyLogin();
         
         $users = App::get('database')->selectAll('person');
-        return view('admin/list-users', ['users' => $users]); // array chave valor
+        $num_users = [
+            "num" => count($users)
+        ];
+        $pagina_atual = ['nome' =>"Usuários" ];
+
+        return view('admin/list-users', ['users' => $users, "num_users" => $num_users, 'pagina_atual' => $pagina_atual,
+        ]); // array chave valor
     }
 
     public function acessUser()
     {
         $this->verifyLogin();
 
-        $user = App::get('database')->read('person', $_POST['id']);
-        return view('admin/display-user', ['user' => $user[0]]);
+        $pagina_atual = ['nome' =>"Usuários" ];
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
+        return view('admin/display-user', ['user' => $user[0], 'pagina_atual' => $pagina_atual]);
     }
 
     public function createUser()
     {
         $this->verifyLogin();
 
-        return view('admin/create-user');
+        $pagina_atual = ['nome' =>"Usuários" ];
+        return view('admin/create-user',[ 'pagina_atual' => $pagina_atual]);
     }
 
     public function editUser()
     {
         $this->verifyLogin();
 
-        $user = App::get('database')->read('person', $_POST['id']);
-        return view('admin/edit-user', ['user' => $user[0]]);
+        $pagina_atual = ['nome' =>"Usuários" ];
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
+        return view('admin/edit-user', ['user' => $user[0],  'pagina_atual' => $pagina_atual]);
     }
 
     public function changeUserPassword()
     {
         $this->verifyLogin();
 
-        $user = App::get('database')->read('person', $_POST['id']);
-        return view('admin/change-password', ['user' => $user[0]]);
+        $pagina_atual = ['nome' =>"Usuários" ];
+        $user = App::get('database')->read('person', 'id', $_POST['id']);
+        return view('admin/change-password', ['user' => $user[0], 'pagina_atual' => $pagina_atual]);
     }
 
     /**
@@ -178,35 +263,44 @@ class PagesController
         $this->verifyLogin();
 
         $categorias = App::get('database')->selectAll("category");
-        return view('admin/lista-categoria', ['categorias' => $categorias]);
+        $acao = ['nome' => 'nenhuma'];
+        $pagina_atual = ['nome' =>"Categorias" ];
+
+        $num_categorias = [
+            "num" => count($categorias)
+        ];
+        return view('admin/lista-categoria',
+         ['categorias' => $categorias, 'num_categorias' => $num_categorias,
+         'pagina_atual' => $pagina_atual]
+        );
     }
 
     public function Acategoria()
     {
         $this->verifyLogin();
 
-        return view('admin/adicionar-categoria');
+        $pagina_atual = ['nome' =>"Categorias" ];
+
+        return view('admin/adicionar-categoria',[ 'pagina_atual' => $pagina_atual]);
     }
     
     //CONTROLLERS ATRAÇÕES// 
-    public function atracoes()
-    {
-        $this->verifyLogin();
     
-        return view('/site/atracoes');
-    }
 
     public function atracoes_admin()
     {
         $this->verifyLogin();
 
         $atracoes = App::get('database')->selectAll('atracoes');
+        $pagina_atual = ['nome' =>"Atrações" ];
+
         $num_atracoes = [
             "num" => count($atracoes)
         ];
         return view('/admin/lista-atracoes', [
             'atracoes' => $atracoes,
              'num_atracoes' => $num_atracoes,
+             'pagina_atual' => $pagina_atual,
             ]);      
     }
 
@@ -217,10 +311,12 @@ class PagesController
 
         $acao = ['nome' => 'none'];
         $categorias = App::get('database')->selectAll('category');
+        $pagina_atual = ['nome' =>"Atrações" ];
 
         return view('/admin/criar-atracao',[
             'acao'=> $acao,
             'categorias' => $categorias,
+            'pagina_atual' => $pagina_atual
 
             ]);
     }
@@ -233,56 +329,92 @@ class PagesController
             "nome" => "none"
         ];
         $categorias = App::get('database')->selectAll('category');
-        $atracao = App::get('database')->read('atracoes', $_GET['id']); 
+        $pagina_atual = ['nome' =>"Atrações" ];
+
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']); 
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id); 
 
+        if($id != NULL){
+        $categoria = App::get('database')->read('category','id',$id); 
+        }
+        else{
+            $categoria = "sem categoria";
+        }
         return view('/admin/editar-atracao', [
             'atracao_edit' => $atracao,
             'acao' => $acao,
             'categorias' => $categorias,
             'categoria_atual' => $categoria,
+            'pagina_atual' => $pagina_atual
 
             ]); 
     }
-
     public function atracoes_view()
     {
         $this->verifyLogin();
-
-        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
+        
+        $pagina_atual = ['nome' =>"Atrações" ];
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id);
-
+        if($id != NULL){
+            $categoria = App::get('database')->read('category','id',$id); 
+            }
+            else{
+                $categoria = "sem categoria";
+            }
         return view('/admin/visualizar-atracao', [
             'atracao_visualizar' => $atracao,
             'categoria_visualizar' => $categoria,
+            'pagina_atual' => $pagina_atual
 
             ]);
     }
-
     public function atracoes_delete()
     {
         $this->verifyLogin();
+        
+        $pagina_atual = ['nome' =>"Atrações" ];
 
-        $atracao = App::get('database')->read('atracoes', $_GET['id']);  
+        $atracao = App::get('database')->read('atracoes','id_atracao', $_GET['id']);  
         $id = "";
         foreach ($atracao as $x){
             $id = $x->categoria_id;
         }
-        $categoria = App::get('database')->read('category',$id);;  
-        return view('/admin/apagar-atracao', [
+        if($id != NULL){
+            $categoria = App::get('database')->read('category','id',$id); 
+            }
+            else{
+                $categoria = "sem categoria";
+            }        return view('/admin/apagar-atracao', [
             'atracao_exclusao' => $atracao,
             'categoria_apagar' => $categoria,
+            'pagina_atual' => $pagina_atual
 
             ]); 
     }
     //FIM CONTROLLERS ATRAÇÕES//
 
+
+
+    //CONTROLLER PAGINAS NAO ADMINISTRATIVAS//
+
+
+    
+    public function quem_somos(){
+        $titulo = 'Quem Somos'; //nome da pagina
+        return view('/site/quem-somos', ['titulo' => $titulo]);
+
+
+    }
+
+    public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Contato';
+        return view('/site/contato', ['titulo' => $titulo]);
+    }
 }

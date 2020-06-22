@@ -1,12 +1,17 @@
-<?php require "app\\views\\partials\\head-adm.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
+<body class="paralax-categoria">
 
-
-<div class= "listar-categoria  pb-4">
+<div class= "listar-categoria listas-gerais pb-4">
     <div class="container">
             <!--COLUNA ONDE LISTAMOS Categorias--> 
-      <h1>Foram encontradas X Categorias</h1> 
-      <ul class="list-group lista-box">
+      <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
+
+      <p><h1>Foram encontradas <?= $num_categorias['num'] ?>  categorias</h1> </p> 
+      <ul  <?php if($num_categorias['num']>1)
+      echo 'class="list-group lista-box" style="overflow:auto;"'; 
+      else echo 'class="list-group"';
+      ?>>
 
 
       <?php foreach ($categorias as $x) : ?>
@@ -89,7 +94,7 @@
         <nav class="pagination-listar ">
            <ul class="pagination">
             <li class="page-item disabled">
-               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"> << </a>
+               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"><</a>
             </li>
             <li class="page-item active"><a class="page-link text-dark" href="#">1</a></li>
              <li class="page-item" aria-current="page">
@@ -97,18 +102,16 @@
             </li>
              <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
              <li class="page-item">
-               <a class="page-link text-dark" href="#">>></a>
+               <a class="page-link text-dark" href="#">></a>
              </li>
            </ul>
         </nav>
   
     </div>   
-    <a href="/admin/home"><button type="submit" class="btn btn-primary voltar-button"> < Voltar</button></a>
   </div>      
       
 
-  
-  
+
   
   
 
@@ -121,6 +124,6 @@
 
 
 
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>
 
 

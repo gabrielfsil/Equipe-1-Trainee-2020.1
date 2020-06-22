@@ -1,5 +1,5 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
 <body class="paralax-categoria"
 style=
@@ -41,15 +41,33 @@ background-position: center;
               <div class="form-group form-atracoes">
                     <label for="exampleFormControlSelect1">Categoria:  </label>
                     <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1">
+<<<<<<< HEAD
+                    <?php if($categoria_atual != "sem categoria") : ?>
+                      <?php foreach( $categoria_atual as $categoria) : ?>
+                        <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+                          <?php foreach( $categorias as $categoria_select) : ?>
+                          <?php if( $categoria_select->name!= $categoria->name) 
+                          echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
+                          ?>
+                          <?php endforeach ;?>
+                      <?php endforeach ;?> 
+                      <!--SE NAO-->
+                      <?php else :?>
+                      <option value=""><?= $categoria_atual ?></option>
+=======
 
                     <?php if($categoria_atual != NULL) { ?>
                     <?php foreach( $categoria_atual as $categoria) : ?>
                       <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+>>>>>>> master
                         <?php foreach( $categorias as $categoria_select) : ?>
                         <?php if( $categoria_select->name!= $categoria->name) 
                         echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
                         ?>
                         <?php endforeach ;?>
+<<<<<<< HEAD
+                        <?php endif ;?>
+=======
                     <?php endforeach ;?> 
 
                           <!-- para caso a categoria seja nula-->
@@ -63,9 +81,12 @@ background-position: center;
                         <?php } ?>
 
 
+>>>>>>> master
                     
                     </select>
               </div>
+              <p style="font-size: 12px;color:red">Atrações sem categoria não aparecem na página pública</p>
+
               <div class="form-group">
                 <label for="exampleFormControlInput1">Valor</label>
                 <input type="text" name="valor" required="required"
@@ -80,7 +101,7 @@ background-position: center;
                 src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
                 />
                 </div>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
+                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho mínimo 900x640</p>
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
                   <div class=" image-preview">
@@ -100,7 +121,7 @@ background-position: center;
               
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="/admin/list-atracoes"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
-                <input type="hidden" name="id" value=<?= $atracao->id ?> >
+                <input type="hidden" name="id" value=<?= $atracao->id_atracao ?> >
                 <button type="submit" data-toggle="modal" data-target="#exampleModal"  class="btn btn-primary w-50 mt-3 mb-0">Editar</button>
 
               </div>
@@ -124,7 +145,7 @@ background-position: center;
                   </div>
                 </div>
             </div>
-              <?php endforeach ;?>
+           <?php endforeach ;?>
             </form>
             <?php if($acao['nome']=="sucesso"){ ?>
                     <script>
@@ -177,4 +198,4 @@ background-position: center;
 
 </div>
             
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>

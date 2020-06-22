@@ -1,13 +1,18 @@
 <?php require('app/views/partials/head-adm.php'); ?>
 <?php require('app/views/partials/navbar-admin.php'); ?>
 
+ 
 
-
-<div class= "user-list pb-2">
+<div class= "user-list pb-2 listas-gerais">
   <div class="container takeoff-scroll">
     <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
-    <p><h1>Usuários</h1> </p> 
-    <ul class="list-group lista-box">
+    <p><h1>Foram encontrados <?= $num_users['num'] ?> usuários</h1> </p> 
+    <ul 
+    <?php if($num_users['num']>1)
+      echo 'class="list-group lista-box" style="overflow:auto;"'; 
+      else echo 'class="list-group"';
+      ?>
+    >
       <?php foreach ($users as $user) : ?>
         <li class="list-group-item ">
           <div class="row justify-content-between">

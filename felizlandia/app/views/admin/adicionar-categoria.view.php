@@ -1,9 +1,8 @@
-<?php require "app\\views\\partials\\head-adm.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head-adm.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
-<div class="espaço medio"></div>
 
-        <div class="PrincipalCategoria">
+        <div class="PrincipalCategoria admin-gerais">
     
 
               
@@ -20,7 +19,7 @@
                 
             </div>
             <a href="/admin/list-categorias"><button type="button" class="bg-primary button-categoria ">
-              < Voltar 
+            &#10094;Voltar 
              </button></a>
         
         </div>
@@ -58,4 +57,4 @@
 
 
 
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>

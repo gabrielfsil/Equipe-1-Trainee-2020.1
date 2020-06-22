@@ -3,6 +3,9 @@
 
 /* Rotas para as páginas públicas */
 $router->get('', 'PagesController@home');
+$router->get('quem_somos', 'PagesController@quem_somos');
+$router->get('atracoes', 'PagesController@atracoes');
+$router->get('contato', 'PagesController@contato');
 
 /* Rotas de login */
 $router->get('login', 'PagesController@login');
@@ -37,7 +40,6 @@ $router->post('edit', "CategoryController@edit"); //edição em si
  //FIM ROTAS PARA CAREGORIAS//
 
  //ROTAS PARA ATRAÇÕES//
- $router->get('atracoes', 'PagesController@atracoes');
  $router->get('admin/list-atracoes', 'PagesController@atracoes_admin');
  $router->get('admin/create-atracao', 'PagesController@atracoes_create');
  $router->get('admin/acess-atracao', 'PagesController@atracoes_view');

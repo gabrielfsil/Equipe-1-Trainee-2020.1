@@ -1,6 +1,6 @@
-<?php require "app\\views\\partials\\head.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
 
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 
 <body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
@@ -36,9 +36,9 @@ background-position: center;
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/admin/acess-atracao?id=<?=$atracao->id?>">Visualizar</a>
-                <a class="dropdown-item" href="/admin/edit-atracao?id=<?=$atracao->id?>">Editar</a>
-                <a class="dropdown-item" href="/admin/delete-atracao?id=<?=$atracao->id?>">Apagar</a>
+                <a class="dropdown-item" href="/admin/acess-atracao?id=<?=$atracao->id_atracao?>">Visualizar</a>
+                <a class="dropdown-item" href="/admin/edit-atracao?id=<?=$atracao->id_atracao?>">Editar</a>
+                <a class="dropdown-item" href="/admin/delete-atracao?id=<?=$atracao->id_atracao?>">Apagar</a>
 
                 <!--ALTERNATIVO
                   <form method="POST" action="/atracoes/visualizacao">
@@ -67,6 +67,11 @@ background-position: center;
     </div>
     
 </div>
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<<<<<<< HEAD
+<div class="espaço"></div>
+
+=======
+>>>>>>> master
+<?php require "app/views/partials/footer-admin.php"; ?>
 
  

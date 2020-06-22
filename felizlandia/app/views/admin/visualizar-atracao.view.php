@@ -1,5 +1,5 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
 <body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -49,11 +49,17 @@ FIM PARALAX-->
             <div class="form-group">
                   <label for="exampleFormControlSelect1">Categoria</label>
                   <select class="form-control" name="categoria" id="exampleFormControlSelect1">
-                  <?php foreach( $categoria_visualizar as $categoria) : ?>
+                  <?php if($categoria_visualizar != "sem categoria") :?>
+                    <?php foreach( $categoria_visualizar as $categoria) : ?>
                       <option><?= $categoria->name ?></option>
-                    <?php endforeach ;?>                  
+                    <?php endforeach ;?>  
+                  <?php else : ?>   
+                    <option><?= $categoria_visualizar ?></option>
+                  <?php endif ;?>
                     </select>
             </div>
+            <p style="font-size: 12px;color:red">Atrações sem categoria não aparecem na página pública</p>
+
             <div class="form-group">
               <label for="exampleFormControlInput1">Valor</label>
               <input type="text" name="valor" value="<?= $atracao->valor ?>"  class="form-control" id="exampleFormControlInput1">
@@ -82,4 +88,4 @@ FIM PARALAX-->
             
           
           
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>

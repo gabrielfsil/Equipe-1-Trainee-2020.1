@@ -110,24 +110,22 @@ img.logo{
 }
 
 li.nav-item{
-	margin-right: 8px; /*ambas eram 10px, alteradas para 8 para evitar bug na tela do ipad*/
-	margin-left: 8px;
+	margin: 1px;
 	opacity: 1;
 }
+
 a.nav-link{
 	color: white;
-	font-weight: bold;
 	/*font-style: normal;*/
 	opacity: 1;
-	font-size: 20px;
+	font-size: 17px;
 	
 }
 
 
 
 li.nav-item:hover{
-	background-color: grey;
-	transform: scale(1.3);
+	transform: scale(1.2);
 	opacity: 1;
 	transition: 0.7s;
 }
@@ -285,7 +283,7 @@ h5.blue{
 
 .subRS a{
 	font-size: 20px;
-	color: rgb(66, 122, 226);
+	color: rgb(38, 68, 159);
 }
 
 .adm a{
@@ -459,7 +457,10 @@ h5.blue{
 .paginaAtracoesFrase{
 	display: none;
 }
-
+.atracoes .card-body{
+	padding: 0;
+	padding-top: 1rem;
+}
 .atracoes .modal-body{
 	height: auto;
 	text-align: justify;
@@ -467,14 +468,19 @@ h5.blue{
 .atracoes .card img{
 	width: 100%;
 }
-
+.atracoes .card img{
+	height: 260px;
+}
 .atracoes .cards-cat{
 	color: #fc2c2a;
 	font-weight: bold;
+	margin-top:0;
 }
 
 .atracoes .card-title{
 	color:#ffa100;
+	font-weight: bold;
+
 }
 .atracoes{
 	/*background-color:  rgba(158, 51, 131, 0.5);*/
@@ -680,7 +686,7 @@ border-radius: 2%;
 
 .principal h1{
 	color: white;
-	font-size: 50px;
+	font-size: 45px;
 }
 
 .list-buttons{
@@ -753,7 +759,17 @@ border-radius: 2%;
 	height: 320px;
 }
 
-
+@media (max-width:768px){
+	.atracoes .card img{
+		height: 180px;
+	}
+	.carousel-inner > .carousel-item > img {
+		width: 40em;
+		height: 18em;
+		max-width: 2000px; /*de 1100 para 2000px*/
+		max-height: 1200px; /*de 900 para 1200px*/
+	  }
+}
 
 @media (max-width: 767px){ 
 	
@@ -791,9 +807,7 @@ border-radius: 2%;
 	}
 
 	li.nav-item:hover{
-		pad: 10px;
-		background-color: grey;
-		transform: scale(1.1);
+		transform: scale(1.05);
 		opacity: 1;
 		transition: 0.7s;
 	}
@@ -873,10 +887,11 @@ border-radius: 2%;
 		display: inline-block;
 		color:#0c5da6;
 	}
-
+	
 	/*pagina adm atracoes*/
-	.listar-atracoes h1{
+	.listar-atracoes h1, .listas-gerais h1{
 		font-size: 20px;
+		margin-top: 120;
 	}
 	 .visualizar-atracao h1, .apagar-atracao h1{
 		font-size: 30px;
@@ -900,7 +915,7 @@ border-radius: 2%;
 
 	/*aumentando tamanho dos botões em telas de celular feito por bea*/
 	.list-buttons{
-		width: 60%;;
+		width: 85% !important;
 	}
 	/*para o footer*/
 	.barratecnica , .informaçoes{
@@ -959,7 +974,7 @@ border-radius: 2%;
 	}
 		/*fim footer*/
 
-}
+}/*fim media query*/
 
 
 
@@ -1362,7 +1377,6 @@ border-radius: 2%;
 
 .PrincipalCategoria h1{
 	color: white;
-	font-size: 50px;
 }
 
 .Formulario-Categoria{
@@ -1598,7 +1612,7 @@ i.fas, .fa-lock, .fa-at {
 	padding: 0;
 	width: 100%;
 	height: 100%;	
-	margin-top: 120px;
+	margin-top: 150px;
 }
 
 .user-list h1{

@@ -1,7 +1,7 @@
-<?php require('app/views/partials/head-adm.php'); ?>
+<?php require('app/views/partials/head.php'); ?>
 
 <?php require('app/views/partials/navbar-admin.php'); ?>
-
+<body class="paralax-categoria">
 <div class="adm-users"> <!-- body class="adm-users" -->
 
 

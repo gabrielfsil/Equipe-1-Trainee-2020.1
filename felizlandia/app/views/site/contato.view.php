@@ -1,66 +1,9 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php require"app/views/partials/head.php" ;?>
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <title>FelizLândia</title>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-  
-  <script type="text/javascript" src="js/script.js"></script>
-
-  <!--icon para aparecer na aba do navegador-->
-  <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
-
-  <!-- modifica a fonte do site -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-  <!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet"> -->
-
-</head>
 <body>
 
-  <nav id="navbar" class="navbar navbar-expand-md navbar-dark fundofalso sticky" > <!-- bg-transparent-->
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <ul class="navbar-nav mr-auto ">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="quem-somos.html">Quem somos</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="atracoes.html">Atrações</a>
-            </li>
-      </ul>
-    </div>
-    <div class="mx-auto order-0">
+<?php require"app/views/partials/navbar.php" ;?>
 
-      <a class="navbar-brand mx-auto" href="#"><img src="img/logo.png" class="logo"></a>
-      <span class="TogglerPaginaAtual">Contato</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          
-          <span class="navbar-toggler-icon"></span>
-          
-        </button>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="contato.html">Contato</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="login.html">Login</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
      
   <!-- Página -->
   <div id="content" class="content">
@@ -115,7 +58,7 @@
         </div>
         <div class="col-sm-6 my-3">
           <div class="card px-3 py-3 cards-contact">
-            <a target="_blank" href="https://www.google.com/maps/dir/-18.7403631,-44.9132725/Pra%C3%A7a+do+Santu%C3%A1rio,+Felixl%C3%A2ndia+-+MG,+35794-000/@-18.7494791,-44.912314,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0xa806e2f0b62321:0xf718d2d6a8928e58!2m2!1d-44.8992619!2d-18.7569585!3e0"><img class="card-img-top" src="img/felixlandia-map.png" alt="Mapa da Praça do Santuario ao Felizlândia Park"></a>
+            <a target="_blank" href="https://www.google.com/maps/dir/-18.7403631,-44.9132725/Pra%C3%A7a+do+Santu%C3%A1rio,+Felixl%C3%A2ndia+-+MG,+35794-000/@-18.7494791,-44.912314,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0xa806e2f0b62321:0xf718d2d6a8928e58!2m2!1d-44.8992619!2d-18.7569585!3e0"><img class="card-img-top" src="../../../public/img//felixlandia-map.png" alt="Mapa da Praça do Santuario ao Felizlândia Park"></a>
             <div class="card-body">
               <div class="card-text">
               <p>Venha nos conhecer. Nos encontramos na cidade de Felixlândia, 
@@ -130,12 +73,10 @@
         </div>
       </div>
     </div>
-    
+    <div class="espaço pequeno"></div>
   </div>
 
 
 
   
-
-</body>
-</html>
+  <?php require "app/views/partials/footer.php"; ?>

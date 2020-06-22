@@ -1,6 +1,10 @@
-<?php require "app\\views\\partials\\head.php"; ?>
-<?php require "app\\views\\partials\\navbar-admin.php"; ?>
+<?php require "app/views/partials/head.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
+<<<<<<< HEAD
+<body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+=======
 <body style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+>>>>>>> master
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
@@ -55,7 +59,7 @@ background-position: center;
               </div>
               <div class="form-group">
                 <label for="exampleFormControlFile1">Foto</label>
-                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho 800x640</p>
+                <p style="font-size: 12px;color:red">Para melhor exibição escolha uma imagem com tamanho mínimo 900x640</p>
 
                <!-- <input type="file" name="foto" class="form-control-file" id="exampleFormControlFile1">-->
                   <div class=" image-preview">
@@ -156,4 +160,4 @@ background-position: center;
   </div><!--fecha div container-->
 
 </div>
-<?php require "app\\views\\partials\\footer-admin.php"; ?>
+<?php require "app/views/partials/footer-admin.php"; ?>

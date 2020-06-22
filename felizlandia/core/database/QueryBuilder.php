@@ -47,9 +47,9 @@ class QueryBuilder
         }
     }
 
-    public function read($table, $id)
+    public function read($table, $id_name, $id)
     {
-        $sql = "select * from " . $table . " where id =" . $id;
+        $sql = "select * from " . $table . " where {$id_name} =" . $id;
 
         try{
             $stmt = $this->pdo->prepare($sql);
@@ -79,7 +79,7 @@ class QueryBuilder
          
     }
 
-    public function edit($table, $parameters, $id)
+    public function edit($table, $parameters,$id_name, $id)
     {
         $size = count(array_keys($parameters));
         $sql = "update {$table} set" ;
@@ -91,7 +91,7 @@ class QueryBuilder
 
         }     
         
-        $sql = $sql . " where id='{$id}'";
+        $sql = $sql . " where {$id_name} ='{$id}'";
         
         
         try {
@@ -105,9 +105,9 @@ class QueryBuilder
         }   
     }
 
-    public function delete($table,$id)
+    public function delete($table,$id_name,$id)//passar nome do id e o conteudo
     {
-        $sql = "delete from {$table} where id = " . $id;
+        $sql = "delete from {$table} where {$id_name} = " . $id;
         try{
             $stmt = $this->pdo->prepare($sql);
 
@@ -119,14 +119,14 @@ class QueryBuilder
         }
     }
 
-    public function checkExistence($table, $parameters=[]){
+    public function checkExistence($table, $parameters=[], $id_name){
         //verifica se ja existe uma ocorrencia na base de dados
         //serve para criação e edição, se for criação não passamos id
         //se for edição passamos o id no vetor de parametros
         $sql = "select * from {$table} where {$parameters['campo']} = '{$parameters['conteudo']}'";
         if(array_key_exists('id',$parameters))//aqui verifica se foi passado um id ou não pra não dar erro de sintaxe
         {
-            $sql = $sql . " and id <> '{$parameters['id']}'";
+            $sql = $sql . " and {$id_name} <> '{$parameters['id']}'";
             //como ao editar a pessoa pode não modificar os campos e enviá-los como antes
             //então ela vai colocar um valor que já existe, por isso testamos se o id
             //é de quem pertence esse valor ou não
@@ -138,5 +138,37 @@ class QueryBuilder
         if(count($result)!=0){
             return "erro";
         }
+    }
+
+    public function selectFromManyTables($action=[], $tables=[],$parameters, $id1, $id2)
+    {
+       $sql = sprintf('select %s ', implode(", ", array_keys($parameters)));
+        
+        $sql = $sql . sprintf('from %s ', implode(", ", array_values($tables)));
+
+        $sql = $sql . "where {$id1} = {$id2}";
+
+        if($action['metodo'] != 'all')
+        {
+            
+            if($action['metodo']=='last'){
+                    $sql = $sql . " ORDER BY {$action['orderbyfield']} {$action['direction']}";
+            }
+            $sql = $sql . " limit {$action['quantidade']}";
+        }
+
+       // die(var_dump($sql));
+        try{
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+
+        }catch(Exception $e){
+
+        $e->getMessage();
+        }
+
+        
     }
 }
