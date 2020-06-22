@@ -5,7 +5,7 @@
                 <a class="nav-link" href="/">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/quem-somos">Quem somos</a>
+                <a class="nav-link" href="/quem_somos">Quem somos</a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="/atracoes">Atrações</a>
@@ -15,7 +15,7 @@
     <div class="mx-auto order-0">
 
       <a class="navbar-brand mx-auto" href="#"><img src="/public/img/logo.png" class="logo"></a>
-      <span class="TogglerPaginaAtual"><?= $pagina_atual['nome']?></span>
+      <span class="TogglerPaginaAtual"><?=$titulo?></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
           
           <span class="navbar-toggler-icon"></span>

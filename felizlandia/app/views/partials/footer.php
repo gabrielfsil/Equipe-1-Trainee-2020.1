@@ -22,7 +22,7 @@
 
       2349 Rua Josezinho das nuvens, 203 | (36) 2534-2300 | parquemtlegal@email.com.br <br>
       Copyright © 2020-2020 Felizlândia mt Todos direitos reservados <br>
-        <a href="index.html">Home</a> |  <a href="quem-somos.html">Quem somos</a> |  <a href="atracoes.html">Atrações</a> |  <a href="contato.html">Contato</a>
+        <a href="/">Home</a> |  <a href="/quem_somos">Quem somos</a> |  <a href="/atracoes">Atrações</a> |  <a href="/contato">Contato</a>
     </div>
 
     <div class="espaço pequeno"></div>

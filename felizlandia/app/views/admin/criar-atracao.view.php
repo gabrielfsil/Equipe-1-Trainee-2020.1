@@ -1,6 +1,10 @@
 <?php require "app/views/partials/head.php"; ?>
 <?php require "app/views/partials/navbar-admin.php"; ?>
+<<<<<<< HEAD
 <body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+=======
+<body style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+>>>>>>> master
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;

@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 <?php require "app/views/partials/head.php"; ?>
 <?php require "app/views/partials/navbar-admin.php"; ?>
 <body class="paralax-categoria">
+=======
+<?php require "app/views/partials/head-adm.php"; ?>
+<?php require "app/views/partials/navbar-admin.php"; ?>
+>>>>>>> master
 
 <div class= "listar-categoria listas-gerais pb-4">
     <div class="container">

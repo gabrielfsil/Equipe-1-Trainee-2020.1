@@ -8,6 +8,8 @@ class PagesController
 {
     public function home()
     {
+        $titulo = 'Home'; //nome da pagina
+
         $ultimas_atracoes =  App::get('database')->selectFromManyTables(
             ['metodo'=> 'last', 'quantidade' =>'3',  'orderbyfield' => 'id_atracao',
         'direction' => 'desc'],
@@ -43,6 +45,7 @@ class PagesController
             'pagina_atual' => $pagina_atual,
             'ultimas_atracoes' => $ultimas_atracoes,
             'mais_atracoes' => $mais_atracoes,
+            'titulo' => $titulo,
 
         ]);
 
@@ -70,24 +73,18 @@ class PagesController
             "num" => count($atracoes)
         ];
         $pagina_atual = ['nome' =>"Atrações" ];
+        $titulo = 'Atrações';
+
         return view('/site/atracoes',[
             'atracoes' => $atracoes,
             'categorias' => $categorias,
             'num_atracoes' => $num_atracoes,
             'pagina_atual' => $pagina_atual,
+            'titulo' => $titulo,
             
         ]);
     }
 
-  
-    public function contato(){
-        return view('/site/contato');
-    }
-
-    public function quemsomos(){
-        return view('/site/quem-somos');
-
-    }
     public function listUsers()
     {
         $users = App::get('database')->selectAll('person');
@@ -259,5 +256,31 @@ class PagesController
             ]); 
     }
     //FIM CONTROLLERS ATRAÇÕES//
+
+
+
+    //CONTROLLER PAGINAS NAO ADMINISTRATIVAS//
+
+
+    
+    public function quem_somos(){
+        $titulo = 'Quem Somos'; //nome da pagina
+        return view('/site/quem-somos', ['titulo' => $titulo]);
+
+
+    }
+
+    public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Contato';
+        return view('/site/contato', ['titulo' => $titulo]);
+    }
+
+    public function login(){ //função movida para melhor organização //vai precisar de inputs mais tarde
+        $titulo = 'Login';
+        return view('/site/login', ['titulo' => $titulo]);
+    }
+
+
+   
 
 }

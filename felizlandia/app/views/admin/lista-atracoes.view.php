@@ -67,8 +67,11 @@ background-position: center;
     </div>
     
 </div>
+<<<<<<< HEAD
 <div class="espaço"></div>
 
+=======
+>>>>>>> master
 <?php require "app/views/partials/footer-admin.php"; ?>
 
  

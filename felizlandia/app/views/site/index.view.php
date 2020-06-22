@@ -1,6 +1,8 @@
-<?php require"app\\views\\partials\\head.php" ;?>
+<?php require "app/views/partials/head.php" ;?>
 
 <body>
+
+<?php require "app/views/partials/navbar.php"; ?>
 
   <div class="paralax1">
     
@@ -14,9 +16,6 @@
     <div class="espaço grande"></div>
 
   </div>
-
-  <?php require"app\\views\\partials\\navbar.php" ;?>
-
 
   <div class="paralax2">
     
@@ -109,4 +108,4 @@
 <div class="espaço"></div>
 </div>
 
-<?php require"app\\views\\partials\\footer.php" ;?>
+<?php require "app/views/partials/footer.php"; ?>

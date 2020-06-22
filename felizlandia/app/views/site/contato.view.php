@@ -73,12 +73,10 @@
         </div>
       </div>
     </div>
-    
+    <div class="espaço pequeno"></div>
   </div>
 
 
 
   
-
-</body>
-</html>
+  <?php require "app/views/partials/footer.php"; ?>

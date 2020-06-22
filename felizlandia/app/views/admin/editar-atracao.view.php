@@ -41,6 +41,7 @@ background-position: center;
               <div class="form-group form-atracoes">
                     <label for="exampleFormControlSelect1">Categoria:  </label>
                     <select class="form-control" required="required" name="categoria" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                     <?php if($categoria_atual != "sem categoria") : ?>
                       <?php foreach( $categoria_atual as $categoria) : ?>
                         <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
@@ -53,12 +54,34 @@ background-position: center;
                       <!--SE NAO-->
                       <?php else :?>
                       <option value=""><?= $categoria_atual ?></option>
+=======
+
+                    <?php if($categoria_atual != NULL) { ?>
+                    <?php foreach( $categoria_atual as $categoria) : ?>
+                      <option value="<?= $categoria->id ?>"><?= $categoria->name ?></option>
+>>>>>>> master
                         <?php foreach( $categorias as $categoria_select) : ?>
                         <?php if( $categoria_select->name!= $categoria->name) 
                         echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
                         ?>
                         <?php endforeach ;?>
+<<<<<<< HEAD
                         <?php endif ;?>
+=======
+                    <?php endforeach ;?> 
+
+                          <!-- para caso a categoria seja nula-->
+                        <?php } if($categoria_atual == NULL){ ?>
+                          <option><?="Não possui categoria" ?></option>
+                        <?php foreach( $categorias as $categoria_select) : ?>
+                        <?php if( $categoria_select->name!= $categoria->name) 
+                        echo "<option value=". $categoria_select->id .">$categoria_select->name </option>"
+                        ?>
+                        <?php endforeach ;?>
+                        <?php } ?>
+
+
+>>>>>>> master
                     
                     </select>
               </div>

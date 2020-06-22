@@ -1,25 +1,19 @@
-<?php require"app/views/partials/head.php" ;?>
+<?php require "app/views/partials/head.php" ;?>
 
 <body>
-
+<?php require "app/views/partials/navbar.php"; ?>
 
   <div class="atracoes-paralax1">
-  <br><br><br><br>
-   <br><br><br>
-   <br><br><br>
+  <div class="espaço"></div>
 
     <h1 class="paginaAtual">
       Conheça nossas atrações!
     </h1>
     
     
-   <br><br><br>
-   <br><br><br>
+    <div class="espaço pequeno"></div>
   
   </div>
-
-
-  <?php require"app/views/partials/navbar.php" ;?>
 
      
 <!--CONTEÚDO PRINCIPAL-->
