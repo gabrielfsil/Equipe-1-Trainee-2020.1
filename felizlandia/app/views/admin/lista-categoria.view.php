@@ -84,31 +84,14 @@
     </div>
 </div>
 
+<div class="container">
+  <div class="container listar-button">
+    <a href="/admin/create-categoria"><button class="btn btn-primary button-listar">Adicionar +</button></a>
+  </div>
 
-    <div class="container">
-    <div class="container listar-button">
-    <a href="/admin/create-categoria"><button class="btn btn-danger button-listar">Adicionar +</button></a>
-    </div>
 
-    <div class="container listar-pagination">
-        <nav class="pagination-listar ">
-           <ul class="pagination">
-            <li class="page-item disabled">
-               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"><</a>
-            </li>
-            <li class="page-item active"><a class="page-link text-dark" href="#">1</a></li>
-             <li class="page-item" aria-current="page">
-               <a class="page-link text-dark" href="#">2</a>
-            </li>
-             <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-             <li class="page-item">
-               <a class="page-link text-dark" href="#">></a>
-             </li>
-           </ul>
-        </nav>
-  
-    </div>   
-  </div>      
+<?php require "app/views/partials/pagination-admin.php"; ?>
+</div>
       
 
 

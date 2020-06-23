@@ -1682,7 +1682,11 @@ i.fas, .fa-lock, .fa-at {
 
 
 
-
 .spacer{
 	flex: 1;
+}
+
+.ativado{
+	background-color: rgb(1, 122, 255);
+	color: white;
 }

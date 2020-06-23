@@ -40,11 +40,15 @@
       <?php endforeach; ?>
     </ul>
 
-    <div class="listar-button mt-2">
-      <a href="user-create"><button class="btn btn-primary button-listar">Adicionar Usuário +</button></a>
-      </div>
+
+<div class="container">
+    <div class="container listar-button">
+    <a href="user-create"><button class="btn btn-primary button-listar">Adicionar +</button></a>
+  </div>
+
+      <?php require "app/views/partials/pagination-admin.php"; ?>
   
-                
+</div>                
   </div>
 </div>
 

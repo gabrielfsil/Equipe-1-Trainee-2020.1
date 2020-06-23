@@ -12,7 +12,7 @@
                 <form method="POST" action = '/AddCategoria'>
                 <input type="text" name="newCategoria"><br>
                 
-                <button type="button" class="bg-danger button-categoria" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="bg-primary button-categoria" data-toggle="modal" data-target="#exampleModal">
                     Criar
                   </button>
                 

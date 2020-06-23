@@ -81,27 +81,8 @@
              
          </div>
         
-      <nav aria-label="Páginas de resultado de pesquisa de atrações" id="paginacao">
-        <ul class="pagination" style="justify-content: center;">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Anterior">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Anterior</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Próximo">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Próximo</span>
-            </a>
-          </li>
-          <li class="ml-1 pt-2"><a href="#atracoes-topo">Voltar ao topo</a></li>
-        </ul>
-      </nav>
-   
+         <?php require "app/views/partials/pagination.php" ;?>
+    
    <!--IMPORTANDO MODELS-->
    <!-- Modals -->
   <?php foreach ($atracoes as $atracao) : ?>
@@ -125,10 +106,15 @@
           </li>
           <li class="list-group-item"><strong>Categoria</strong> <?= $atracao->name?></li>
           <li class="list-group-item"><strong>Valor:</strong>
-           <?php 
-           $formatter = new \NumberFormatter('pt_BR',  NumberFormatter::CURRENCY);
+           <?php
+           /*$formatter = new \NumberFormatter('pt_BR',  NumberFormatter::CURRENCY);
                echo  $formatter->formatCurrency($atracao->valor
                , 'BRL');
+               
+               nao tem esse comando/biblioteca?
+               
+               */
+               echo "R$ ".$atracao->valor;
      
            ?>
            
@@ -160,4 +146,4 @@
   
 
 
-<?php require"app/views/partials/footer.php" ;?>
+<?php require "app/views/partials/footer.php" ;?>

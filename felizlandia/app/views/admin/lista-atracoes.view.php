@@ -58,15 +58,25 @@ background-position: center;
         
       </ul>
 
-      <div class="listar-button mt-2">
-        <a href="/admin/create-atracao"> <button class="btn btn-danger button-listar">Adicionar +</button></a>
-       </div>
-       
+    <div class="container">
+      <div class="container listar-button">
+        <a href="/admin/create-atracao"><button class="btn btn-primary button-listar">Adicionar +</button></a>
+      </div>
+
+      
+     
+
+      <?php require "app/views/partials/pagination-admin.php"; ?>
+    </div>
     
                    
     </div>
     
+    
 </div>
+
+
+
 <div class="espaço"></div>
 
 <?php require "app/views/partials/footer-admin.php"; ?>
