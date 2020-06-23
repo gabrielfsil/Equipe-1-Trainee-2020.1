@@ -46,7 +46,7 @@
               </div>
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
+                  <input class="form-check-input" type="checkbox" id="gridCheck" name="sendCopy" value='1'>
                   <label class="form-check-label" for="gridCheck"><!--CHECAR AQUI DEPOIS-->
                     Envie-me uma cópia deste e-maiil
                   </label>

@@ -18,10 +18,22 @@ class ContatoController{
         $email = $_POST['email'];
         $mensagem = $_POST['mensagem'];
         $assunto = $_POST['assunto'];
+        
+        if (isset($_POST['sendCopy']))
+        {   
+            $sendCopy = $_POST['sendCopy'];
+        } else {
+            $sendCopy = 0;
+
+        }
+    
 
         //Create a new PHPMailer instance
         $mail = new PHPMailer;
 
+        $mail->CharSet = 'UTF-8';
+
+        //o codigo abaixo arruma bug de openssl na ultima versão do PHP
         $mail->SMTPOptions = array(
             'ssl' => array(
             'verify_peer' => false,
@@ -60,6 +72,9 @@ class ContatoController{
         //Password to use for SMTP authentication
         $mail->Password = 'CODEbdv2906';
 
+        $mailCopy = $mail;//para copia do email
+
+
         //Set who the message is to be sent from
         $mail->setFrom($email, $nome);
 
@@ -71,13 +86,15 @@ class ContatoController{
 
         //Set the subject line
         $mail->Subject = $assunto;
-        $mail->Body  = "<html><body>===================================";
-        $mail->Body  = $mail->Body  . "<p>FALE CONOSCO - FELIZLÂNDIA PARK</p>";
-        $mail->Body  = $mail->Body  . "<br>===================================" . "<br>";
-        $mail->Body  = $mail->Body  . "<ul><li><strong>Nome:</strong> " . $nome . "</li>";
-        $mail->Body  = $mail->Body  . "<li><strong>Email:</strong> " . $email."</li>";
-        $mail->Body  = $mail->Body  . "<li><strong>Mensagem:</strong>: " . $mensagem ."</li></ul>";
-        $mail->Body  = $mail->Body . "<br>===================================";
+        $mail->Body  = "<html><body style='font-family: Arial, Helvetica, sans-serif;text-align:center;'><hr style='width:50%;'>";
+        $mail->Body  = $mail->Body  . "<p style='color:#0c5da6;font-weight:bold'>FALE CONOSCO - FELIZLÂNDIA PARK</p>";
+        $mail->Body  = $mail->Body  . " <hr style='width:50%;'> <br>";
+        $mail->Body  = $mail->Body  . "<ul style='list-style-type: none;text-align:center;'><li><strong style='color:#fc2c2a;'>Nome:</strong> " . $nome . "</li>";
+        $mail->Body  = $mail->Body  . "<li><strong style='color:#fc2c2a;'>Email:</strong> " . $email."</li>";
+        $mail->Body  = $mail->Body  . "<li><strong style='color:#fc2c2a;'>Mensagem:</strong> " . $mensagem ."</li></ul>";
+        $mail->Body  = $mail->Body . "<br><hr style='width:50%;'>";
+        $mail->Body  = $mail->Body . "<br><p>2349 Rua Josezinho das nuvens, 203 | (36) 2534-2300 | felizlandiapark.com.br</p>";
+
 
         $mail->isHTML(true);
         //Read an HTML message body from an external file, convert referenced images to embedded,
@@ -97,6 +114,26 @@ class ContatoController{
         } else {
             $acao = ['nome' => 'sucesso', 'mensagem' => "Sua mensagem foi enviada com sucesso, agradecemos seu contato!"];
 
+            if($sendCopy)
+            {
+                $mailCopy->setFrom('felizlandia.code@gmail.com', 'Felizlândia Park');
+
+                //Set an alternative reply-to address
+                $mail->addReplyTo('felizlandia.code@gmail.com', 'Felizlândia Park');
+
+                //Set who the message is to be sent to
+                $mailCopy->addAddress($email, $nome);
+
+                  //Set the subject line
+                $mailCopy->Subject = "Cópia da sua mensagem ao Felizlândia Park";
+
+                $mailCopy->Body = $mail->Body;
+
+                $mailCopy->isHTML(true);
+
+                $mailCopy->send();
+          
+            }
             //echo 'Message sent!';
             //Section 2: IMAP
             //Uncomment these to save your message in the 'Sent Mail' folder.
