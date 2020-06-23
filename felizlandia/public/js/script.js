@@ -25,10 +25,13 @@ function myFunction()
 }
 
 function opaco() {
+  console.log(screen.width);
   var navbar = document.getElementById("navbar");
-    if(screen.width<767 &&(navbar.classList.contains('nav-admin')))
+    if(screen.width<767 && (navbar.classList.contains('nav-admin')))
  
    {
+    console.log("chamou2");
+
     navbar.style.backgroundColor = "rgb(25, 67, 160)";
    }
  

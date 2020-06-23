@@ -413,6 +413,7 @@ class PagesController
 
     public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
         $titulo = 'Contato';
-        return view('/site/contato', ['titulo' => $titulo]);
+        $acao = ['nome' => 'none'];
+        return view('/site/contato', ['titulo' => $titulo, 'acao' => $acao]);
     }
 }
