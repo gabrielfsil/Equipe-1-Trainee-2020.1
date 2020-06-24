@@ -43,8 +43,39 @@
 
 </div>
 
+<?php if(isset($act) && $act!='undefined'){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modal").modal();
+                        });
+                    </script>
+         <?php } ?>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog  modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><?= $act['message'] ?></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <img src="<?= $act['error'] ? '/public/img/password-error.png' : '/public/img/user.png'; ?>" class="img-modal">
+      </div>
+      <div class="modal-footer">
+          <?= $act['error'] ? '<a>' : '<a href="user-list">' ?>
+            <button type="submit" <?php if($act['error']) echo 'data-dismiss="modal" aria-label="Close"' ?> class="btn btn-info" name="id" value="">Ok</button>
+          </a>
+      </div>
+    </div>
+  </div>
+
+
+
+
+         <!--MODAL SUCESSO-->
+<div class="modal fade" id="sucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,6 +96,8 @@
       </div>
     </div>
   </div>
+
+  
 
 </div>            
             

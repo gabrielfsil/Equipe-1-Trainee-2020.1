@@ -759,10 +759,25 @@ border-radius: 2%;
 	height: 320px;
 }
 
-@media (max-width:768px){
+@media (min-width:320px) and (max-width:767px)
+{
+	.atracoes .card img{
+		height: 280px;
+	}
+}
+
+@media (min-width:769px) and (max-width:1065px)
+{
+	.atracoes .card img{
+		height: 200px;
+	}
+}
+
+@media (width:768px){
 	.atracoes .card img{
 		height: 180px;
 	}
+	
 	.carousel-inner > .carousel-item > img {
 		width: 40em;
 		height: 18em;
@@ -973,6 +988,7 @@ border-radius: 2%;
 		margin:0;
 	}
 		/*fim footer*/
+		
 
 }/*fim media query*/
 

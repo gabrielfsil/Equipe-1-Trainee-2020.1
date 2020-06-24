@@ -30,7 +30,7 @@
               </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Repita a senha</label>
-                <input name="userPasswordRepeat" type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" required>
+                <input name="userPasswordRepeat" type="password" class="form-control" id="exampleInputPassword2" placeholder="Senha" required>
               </div>  
               <div class="form-group d-flex justify-content-between">
                 <a class="d-flex justify-content-center" href="user-list"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
@@ -46,11 +46,18 @@
 
 </div>
 
-<script>
-    var act = "<?php echo $act; ?>";
+<!--<script>
+    var act = "<php echo $act; ?>";
     if(typeof act !== 'undefined' && act)
       $(document).ready(function(){$("#modal").modal();});
-</script>
+</script>-->
+<?php if(isset($act) && $act!='undefined'){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modal").modal();
+                        });
+                    </script>
+         <?php } ?>
 
 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-centered">

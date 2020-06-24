@@ -49,12 +49,19 @@
       </div><!--fecha div coluna-->
         
       <!-- Script que chama modal-->
-      <script>
-        var act = "<?php echo $act; ?>";
+      <?php if(isset($act) && $act!='undefined'){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modal-password").modal();
+                        });
+                    </script>
+         <?php } ?>
+      <!--<script>
+        var act = "<php echo $act; ?>";
         console.log(act);
         if(typeof act !== 'undefined' && act)
           $(document).ready(function(){$("#modal-password").modal();});
-      </script>
+      </script>-->
       
     </div><!--fecha div row-->
   </div><!--fecha div container-->

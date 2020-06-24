@@ -83,7 +83,6 @@
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><h5 class="card-title blue"><?= $atracao->nome ?></h5></p>
-          <p><?= $atracao->descricao ?></p>
         
         </blockquote>
       </div>
