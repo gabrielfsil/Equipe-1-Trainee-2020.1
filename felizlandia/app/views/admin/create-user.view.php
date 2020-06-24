@@ -1,7 +1,7 @@
-<?php require('app/views/partials/head-adm.php'); ?>
+<?php require('app/views/partials/head.php'); ?>
 
 <?php require('app/views/partials/navbar-admin.php'); ?>
-
+<body class="paralax-categoria">
 <div class="adm-users"> <!-- body class="adm-users" -->
 
 
@@ -36,7 +36,7 @@
                 <a class="d-flex justify-content-center" href="user-list"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>          
                 <!--<a class="d-flex justify-content-center" href="" class="w-50 mt-3 mb-0" data-toggle="modal" data-target="#exampleModal">
                 <a type="submit" data-toggle="modal" data-target="#exampleModal">-->
-                <button type="submit" class="btn btn-primary">Criar Usuário</button>
+                <button type="submit" class="btn btn-primary w-50 mt-3 mb-0 ">Criar Usuário</button>
                 <!--</a>-->
               </div>
             </form>
