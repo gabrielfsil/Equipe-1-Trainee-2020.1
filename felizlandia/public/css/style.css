@@ -762,7 +762,7 @@ border-radius: 2%;
 @media (min-width:320px) and (max-width:767px)
 {
 	.atracoes .card img{
-		height: 280px;
+		height: 250px;
 	}
 }
 
