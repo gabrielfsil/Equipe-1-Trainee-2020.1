@@ -612,10 +612,6 @@ border-radius: 2%;
 	color: white;
 	display: inline-block;
 }
-.lista-box{
-	max-height: 350px;
-	overflow: scroll;
-}
 
 .pagination-listar{
 	display: inline-block;
@@ -769,6 +765,8 @@ border-radius: 2%;
 		max-width: 2000px; /*de 1100 para 2000px*/
 		max-height: 1200px; /*de 900 para 1200px*/
 	  }
+
+	  
 }
 
 @media (max-width: 767px){ 
@@ -973,6 +971,12 @@ border-radius: 2%;
 		margin:0;
 	}
 		/*fim footer*/
+
+		/*resolvendo bug de responsividasde lista*/
+
+		.texto-lista{
+			max-width: 40% !important;
+		}	
 
 }/*fim media query*/
 
@@ -1427,12 +1431,6 @@ border-radius: 2%;
 	display: inline-block;
 }
 
-.lista-box{
-	max-height: 350px;
-	overflow: scroll;
-	overflow-x: hidden;
-}
-
 .pagination-listar{
 	display: inline-block;
 }
@@ -1690,3 +1688,14 @@ i.fas, .fa-lock, .fa-at {
 	background-color: rgb(1, 122, 255);
 	color: white;
 }
+
+
+
+.texto-lista{
+	max-width: 70%;
+}	
+
+button.dropdown-toggle{
+	max-height: 45px !important;
+}
+

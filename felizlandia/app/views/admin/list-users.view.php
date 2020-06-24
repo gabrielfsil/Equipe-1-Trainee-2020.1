@@ -16,7 +16,7 @@
       <?php foreach ($users as $user) : ?>
         <li class="list-group-item ">
           <div class="row justify-content-between">
-            <p><?= $user->name; ?></p>
+            <p class="texto-lista"><?= $user->name; ?></p>
             <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Opções
             </button>

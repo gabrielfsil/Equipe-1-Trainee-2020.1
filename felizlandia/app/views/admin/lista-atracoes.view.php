@@ -31,8 +31,8 @@ background-position: center;
 
         <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $atracao->nome; ?></p>
-                <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="texto-lista"><?= $atracao->nome; ?></p>
+                <button class="btn btn-danger dropdown-toggle bug-solver-button " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

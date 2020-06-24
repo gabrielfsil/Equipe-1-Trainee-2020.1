@@ -20,7 +20,7 @@
 
       <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $x->name?></p>
+                <p class="texto-lista"><?= $x->name?></p>
                 <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
