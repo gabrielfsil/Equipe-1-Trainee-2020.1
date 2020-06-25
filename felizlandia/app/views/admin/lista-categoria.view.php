@@ -7,7 +7,7 @@
             <!--COLUNA ONDE LISTAMOS Categorias--> 
       <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
-      <p><h1>Foram encontradas <?= $num_categorias['num'] ?>  categorias</h1> </p> 
+      <p><h1>Mostrando  <?= $num_categorias['num'] ?> de <?= $total_rows ?>  categorias</h1> </p> 
       <ul  <?php if($num_categorias['num']>1)
       echo 'class="list-group lista-box" style="overflow:auto;"'; 
       else echo 'class="list-group"';

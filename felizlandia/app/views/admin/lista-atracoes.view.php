@@ -19,7 +19,7 @@ background-position: center;
             <!--COLUNA ONDE LISTAMOS Atracoes--> 
             <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
-            <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
+            <p><h1>Mostrando <?= $num_atracoes['num'] ?> de <?= $total_rows ?>  atrações</h1> </p> 
       <ul 
       <?php if($num_atracoes['num']>1)
       echo 'class="list-group lista-box" style="overflow:auto;"'; 

@@ -51,7 +51,7 @@
       </div>
     </div>
        
-      <span class="mt-4 d-flex results justify-content-left">Foram encontradas <?= $num_atracoes['num'] ?> atrações </span>
+      <span class="mt-4 d-flex results justify-content-left">Mostrando <?= $num_atracoes['num'] ?> de <?=$total_rows ?> atrações </span>
       <a class="d-flex mb-3" href="#paginacao">Ir para o fim da página</a>
        
       <div class="row mt-3 justify-content-start">

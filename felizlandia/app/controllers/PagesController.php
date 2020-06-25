@@ -173,29 +173,7 @@ class PagesController
     }
     
     public function atracoes(){
-        $categorias =  App::get('database')->selectFromManyTables(   
-            [
-                    'metodo'=> 'all', 
-                    'quantidade' => 6, //passível de mudança
-                ],
-                [
-                    'table1' => 'atracoes',
-                    'table2' => 'category' 
-                ], 
-                [
-                    'nome' => 'nome',
-                    'descricao' => 'descricao', 
-                    'valor' => 'valor', 
-                    'foto' => 'foto', 
-                    'id_atracao' => 'id_atracao',
-                    'categoria_id' => 'categoria_id',
-                    'name' => 'name'
-                ], 
-
-                'category.id',
-
-                'categoria_id'
-            );
+        $categorias =  App::get('database')->selectAll('category');
 
         $total_rows = App::get('database')->getTotalRows('atracoes');
         $rows_page = 6;
@@ -263,6 +241,7 @@ class PagesController
             'link_per_page' => $link_per_page, 
             'page' => $page, 
             'total_links' => $total_links,
+            'total_rows' => $total_rows,
             
         ]);
     }
@@ -314,7 +293,9 @@ class PagesController
             'pagina_atual' => $pagina_atual,
             'link_per_page' => $link_per_page, 
             'page' => $page, 
-            'total_links' => $total_links
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
+
         ]); // array chave valor
     }
 
@@ -419,7 +400,8 @@ class PagesController
             'pagina_atual' => $pagina_atual,
             'link_per_page' => $link_per_page, 
             'page' => $page, 
-            'total_links' => $total_links
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
          ]
         );
 
@@ -484,7 +466,8 @@ class PagesController
             'pagina_atual' => $pagina_atual,
             'link_per_page' => $link_per_page, 
             'page' => $page, 
-            'total_links' => $total_links
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
             ]);      
     }
 
