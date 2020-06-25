@@ -91,6 +91,9 @@ class ContatoController{
         $mail->Body  = $mail->Body  . " <hr style='width:50%;'> <br>";
         $mail->Body  = $mail->Body  . "<ul style='list-style-type: none;text-align:center;'><li><strong style='color:#fc2c2a;'>Nome:</strong> " . $nome . "</li>";
         $mail->Body  = $mail->Body  . "<li><strong style='color:#fc2c2a;'>Email:</strong> " . $email."</li>";
+        if($sendCopy){
+            $mail->Body  = $mail->Body  . "<li><strong style='color:#fc2c2a;'>Assunto:</strong> " . $assunto ."</li>";
+           }
         $mail->Body  = $mail->Body  . "<li><strong style='color:#fc2c2a;'>Mensagem:</strong> " . $mensagem ."</li></ul>";
         $mail->Body  = $mail->Body . "<br><hr style='width:50%;'>";
         $mail->Body  = $mail->Body . "<br><p>2349 Rua Josezinho das nuvens, 203 | (36) 2534-2300 | felizlandiapark.com.br</p>";

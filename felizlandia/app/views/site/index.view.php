@@ -26,8 +26,11 @@
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <?php $cont = 0; ?>
+            <?php foreach ($ultimas_atracoes as $atracao) : ?>
+            <?php $cont++; ?>
+            <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>"></li>
+            <?php endforeach ?>
           </ol>
           <div class="carousel-inner">
             <div class="carousel-item active">
