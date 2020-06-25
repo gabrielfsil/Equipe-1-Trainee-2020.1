@@ -12,6 +12,11 @@ class PagesController
     
     public function login()
     {
+        session_start();
+        if(isset($_SESSION) && $_SESSION['logged'])
+        {
+            return redirect('admin/home');
+        }
         return view('site/login');
     }
 
@@ -109,9 +114,9 @@ class PagesController
         session_start();
 
         //Verifico se o usuário não está logado no sistema
-        if (!isset($_SESSION['logged']) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
+        if (!isset($_SESSION) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
         {
-            redirect('login-alert' . $_SESSION['name']);
+            redirect('login-alert');
         }
     }
 
