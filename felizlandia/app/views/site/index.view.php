@@ -25,21 +25,28 @@
       <div class="menu">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
             <?php $cont = 0; ?>
             <?php foreach ($ultimas_atracoes as $atracao) : ?>
+            <?php if($cont==0) : ?>
+              <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>" class="active"></li>
+            <?php else :?>
+              <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>"></li>
+            <?php endif ?>
             <?php $cont++; ?>
-            <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>"></li>
             <?php endforeach ?>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../../../public/img/montanha.gif" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-            </div>
+            <?php $cont =0 ;?>
             <?php foreach ($ultimas_atracoes as $atracao) : ?>
-            <div class="carousel-item">
+              <?php 
+                if($cont==0){
+                  echo '<div class="carousel-item active">';
+
+              }else{
+                echo '<div class="carousel-item">';
+              }
+              $cont++;
+              ?>
               <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>

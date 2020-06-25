@@ -1,6 +1,6 @@
 <?php require "app/views/partials/head.php"; ?>
 <?php require "app/views/partials/navbar-admin.php"; ?>
-<body class="paralax-categoria">
+<body class="paralax-categoria ">
 
 <div class= "listar-categoria listas-gerais pb-4">
     <div class="container">

@@ -3,6 +3,9 @@ body {
 	/*font-family: 'Balsamiq Sans', cursive;*/
 }
 
+.modal-open {overflow-y: auto;box-sizing: unset;}
+
+
 .navbar {
 	background-color: rgba(25, 67, 160, 0.2); /* cor azul aleatória */
 	/*background-color: rgba(12, 93, 166, 0.2);*/ /* cor que está no trello #0c5da6  */
@@ -79,6 +82,7 @@ body {
 	top: 0%;
 	z-index: 100;
 }
+
 
 
 img.logo{
@@ -786,7 +790,9 @@ border-radius: 2%;
 	  }
 }
 
+
 @media (max-width: 767px){ 
+	
 	
 	.carousel-inner > .carousel-item > img {
 		width: 15em;
@@ -1432,6 +1438,7 @@ border-radius: 2%;
 .modal-body{
 	height: 200px;
 }
+
 
 .listar-categoria{
 	margin-top: 150px;
