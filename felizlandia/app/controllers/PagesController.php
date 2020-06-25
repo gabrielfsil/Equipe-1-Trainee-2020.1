@@ -93,7 +93,7 @@ class PagesController
         $_SESSION["email"] = $user->email;
         $_SESSION['ip'] = $_SERVER['REMOTE_ADDR'];
         // evita manipulação/ataque, dar mais segurança
-        $_SESSION['hash'] = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+        $_SESSION['hash'] = md5($_SERVER['REMOTE_ADDR']); //$_SERVER['HTTP_USER_AGENT'] . 
     }
 
     // Finaliza sessão
@@ -109,7 +109,7 @@ class PagesController
     // protege páginas administrativas
     public function verifyLogin()
     {
-        $checksum = md5($_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR']);
+        $checksum = md5($_SERVER['REMOTE_ADDR']);  //$_SERVER['HTTP_USER_AGENT'] .
     
         if(!isset($_SESSION)) 
         { 
