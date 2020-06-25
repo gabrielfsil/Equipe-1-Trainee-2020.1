@@ -206,6 +206,46 @@ class PagesController
         ]);
     }
 
+
+    public function searchAtracao()
+    {
+        $atracoes = App::get('database')->search("atracoes", ['nome' => $_POST['search']]);
+        $categorias = App::get('database')->selectAll("category");
+
+        /*
+        $atracoes =  App::get('database')->selectFromManyTables(['metodo'=>'all'],
+            ['table1' => 'atracoes',
+            'table2' => 'category' ], ['nome' => 'nome',
+                'descricao' => 'descricao', 
+                'valor' => 'valor', 
+                'foto' => 'foto', 
+                'id_atracao' => 'id_atracao',
+                'categoria_id' => 'categoria_id',
+                'name' => 'name'], 'category.id','categoria_id'
+                );
+        */
+        //SELECT nome, descricao, valor, foto, categoria_id, name FROM atracoes, category WHERE category.id = categoria_id
+
+       /*$atracoes = App::get('database')->selectAll('atracoes'); 
+        $categorias =  App::get('database')->selectCombineRows(); */
+        $num_atracoes = [
+            "num" => count($atracoes)
+        ];
+        $pagina_atual = ['nome' =>"Atrações" ];
+        $titulo = 'Atrações';
+
+        return view('/site/atracoes',[
+            'atracoes' => $atracoes,
+            'categorias' => $categorias,
+            'num_atracoes' => $num_atracoes,
+            'pagina_atual' => $pagina_atual,
+            'titulo' => $titulo,
+            
+        ]);
+    }
+
+
+
     public function listUsers()
     {
         $this->verifyLogin();
