@@ -28,19 +28,21 @@
 
     </h2>
  
-    
+    <form method="GET" action="search">
     <div class="input-group d-flex justify-content-left mb-3">
-      <input type="text" class="form-control col-sm-6" aria-label="Input dropdown com botão dropdown segmentado">
+    
+      <input name="conteudo" value="<?= $_GET['conteudo'] ?>" type="text" class="form-control col-sm-6" aria-label="Input dropdown com botão dropdown segmentado" placeholder="Busque por nome da atração ou categoria">
       <div class="input-group-append">
   
-      <button type="button" class="btn btn-outline-secondary" style="background-color:#ffa100;color:white;border-style: none;">Buscar</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button type="submit" class="btn btn-outline-secondary" style="background-color:#ffa100;color:white;border-style: none;">Buscar</button>
+    
+        <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Dropdown</span>
         </button>
 
         <div class="dropdown-menu">
         <?php foreach( $categorias as $categoria) : ?>
-          <a class="dropdown-item"  value ="<?= $categoria->id ?>"><?= $categoria->name ?></a>
+          <button class="dropdown-item" type="submit" name="categoria" value="<?= $categoria->id ?>"><?= $categoria->name   ?></button>
 
                     <?php endforeach ;?>
       
@@ -50,6 +52,7 @@
         </div>
       </div>
     </div>
+    </form>
        
       <span class="mt-4 d-flex results justify-content-left">Foram encontradas <?= $num_atracoes['num'] ?> atrações </span>
       <a class="d-flex mb-3" href="#paginacao">Ir para o fim da página</a>
@@ -59,7 +62,7 @@
 
               <div class="col-md-4">
                 <div class="card flex-fill" style="margin-bottom: 2rem;">
-                  <img class="card-img-top"  src="../../../public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
+                  <img class="card-img-top"  src="/public/img/atracoes-img/<?= $atracao->foto ?> "alt="Imagem de capa do card">
                   <div class="card-body" style="text-align:center;">
                     <h5 class="card-title"><?= $atracao->nome ?></h5>
                   </div>
