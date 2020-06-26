@@ -23,6 +23,43 @@ class QueryBuilder
         return $stmt->fetchAll(PDO::FETCH_CLASS);
     }
 
+
+    public function advancedSearchAtracaoCategoria($conteudo, $categoria = "")
+    {
+        $conteudo = explode(' ', $conteudo);
+        $size = count($conteudo);
+
+        $sql = "select * from atracoes, category where " ;
+        
+        if($categoria !== "")
+            $sql = $sql . "category.id=" . $categoria . " and ";
+
+        $sql = $sql . "category.id=categoria_id and (";
+
+        for ($i = 0; $i < ($size); $i++) 
+        {   
+            $sql = $sql . "atracoes.nome LIKE '%" . $conteudo[$i] . "%'";
+            $sql = $sql . " or category.name LIKE '%" . $conteudo[$i] . "%'";
+            if($i < $size-1)
+                $sql = $sql . ' or ';
+        }
+        $sql = $sql . ') group by id_atracao';
+
+        //echo $sql;
+        //die(var_dump($sql));
+        try {
+            $stmt = $this->pdo->prepare($sql);
+
+            $stmt->execute();
+
+            return $stmt->fetchAll(PDO::FETCH_CLASS);
+ 
+        } catch(Exception $e){
+
+           $e->getMessage();
+        }
+    }
+
     public function search($table, $parameters)
     {
         $size = count(array_keys($parameters));
@@ -142,7 +179,7 @@ class QueryBuilder
 
     public function selectFromManyTables($action=[], $tables=[],$parameters, $id1, $id2)
     {
-       $sql = sprintf('select %s ', implode(", ", array_keys($parameters)));
+        $sql = sprintf('select %s ', implode(", ", array_keys($parameters)));
         
         $sql = $sql . sprintf('from %s ', implode(", ", array_values($tables)));
 
