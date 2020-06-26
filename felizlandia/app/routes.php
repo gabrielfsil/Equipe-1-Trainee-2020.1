@@ -7,6 +7,9 @@ $router->get('quem_somos', 'PagesController@quem_somos');
 $router->get('atracoes', 'PagesController@atracoes');
 $router->get('contato', 'PagesController@contato');
 
+/* Rotas da pesquisa */
+$router->get('search', 'PagesController@searchAtracao');
+
 /* Rotas de login */
 $router->get('login', 'PagesController@login');
 $router->get('logout', 'PagesController@logout');
