@@ -1677,7 +1677,7 @@ i.fas, .fa-lock, .fa-at {
 	text-align: center;
 }
 
-/* Modifica design scrollbar */
+/* Modifica design scrollbar das listas da página administrativa */
 
 .lista-box::-webkit-scrollbar {
     width: 12px;
@@ -1697,6 +1697,25 @@ i.fas, .fa-lock, .fa-at {
 	
 }
 
+/* Modifica design scrollbar da busca por atrações de um categoria 'x' */
+
+.lista-categoria::-webkit-scrollbar {
+    width: 12px;
+}
+
+.lista-categoria::-webkit-scrollbar-track {
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,1); 
+    border-radius: 10px;
+}
+
+.lista-categoria::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color:rgba(0,0,0,0.5);
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.7);
+	
+}
 
 
 

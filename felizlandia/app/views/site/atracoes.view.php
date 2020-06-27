@@ -39,7 +39,7 @@
           <span class="sr-only">Dropdown</span>
         </button>
 
-        <div class="dropdown-menu" style="max-height:150px;overflow:auto;">
+        <div class="dropdown-menu lista-categoria" style="max-height:150px;overflow:auto;">
         <?php foreach( $categorias as $categoria) : ?>
           <button class="dropdown-item" type="submit" name="categoria" value="<?= $categoria->id ?>"><?= $categoria->name   ?></button>
 
