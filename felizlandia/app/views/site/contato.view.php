@@ -26,28 +26,28 @@
               <p>Envie suas dúvidas, comentários e sugestões para nossa equipe.</p>
               <p>Conte conosco para ter uma diversão cheia de adrenalina!</p>
             </div>
-            <form>
+            <form method="POST" action="/send-message"> 
               <div class="form-group">
                 <label for="inputName">Nome</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Informe seu nome">
+                <input type="text" class="form-control" id="inputName" name="nome" placeholder="Informe seu nome">
               </div>
               <div class="form-group">
                 <label for="inputEmail">Endereço de e-mail</label>
-                <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
+                <input type="email" class="form-control" id="inputEmail" name="email" aria-describedby="emailHelp" placeholder="Digite seu e-mail">
                 <small id="emailHelp" class="form-text text-muted">Não compartilhamos seu e-mail com ninguém.</small>
               </div>
               <div class="form-group">
                 <label for="inputSubject">Assunto</label>
-                <input type="text" class="form-control" id="inputSubject" placeholder="Digite o assunto do contato">
+                <input type="text" class="form-control" id="inputSubject" name="assunto" placeholder="Digite o assunto do contato">
               </div>
               <div class="form-group">
                 <label for="textMessage">Mensagem</label>
-                <textarea class="form-control" id="textMessage" rows="3" placeholder="Escreva aqui o que quer nos dizer"></textarea>
+                <textarea class="form-control" id="textMessage" name="mensagem" rows="3" placeholder="Escreva aqui o que quer nos dizer"></textarea>
               </div>
               <div class="form-group">
                 <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck">
-                  <label class="form-check-label" for="gridCheck">
+                  <input class="form-check-input" type="checkbox" id="gridCheck" name="sendCopy" value='1'>
+                  <label class="form-check-label" for="gridCheck"><!--CHECAR AQUI DEPOIS-->
                     Envie-me uma cópia deste e-maiil
                   </label>
                 </div>
@@ -75,7 +75,62 @@
     </div>
     <div class="espaço pequeno"></div>
   </div>
-
+  <?php if($acao['nome']=="sucesso"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalSucesso").modal();
+                        });
+                    </script>
+                <?php } ?>
+                <?php if($acao['nome']=="erro de envio"){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modalErro").modal();
+                        });
+                    </script>
+                <?php } ?>
+                <!-- Modal -->
+              <div class="modal modal-edicao fade" id="modalSucesso" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog  modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel"><?= $acao['mensagem'] ?></h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="../../../public/img/correto.png" class="img-modal">
+                        <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- ERRO -->
+            <div class="modal modal-edicao fade" id="modalErro" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog  modal-dialog-centered">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">
+                                  <?= $acao['mensagem'] ?>
+                                </h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <img src="../../../public/img/errado.png" class="img-modal">
+                                  <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+                              </div>
+                              <div class="modal-footer">
+                                  <button type="button" data-dismiss="modal" aria-label="Close" class="btn btn-primary">Voltar</button>
+                              </div>
+                          </div>
+                    </div>
+              </div>
 
 
   

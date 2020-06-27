@@ -3,6 +3,9 @@ body {
 	/*font-family: 'Balsamiq Sans', cursive;*/
 }
 
+.modal-open {overflow-y: auto;box-sizing: unset;}
+
+
 .navbar {
 	background-color: rgba(25, 67, 160, 0.2); /* cor azul aleatória */
 	/*background-color: rgba(12, 93, 166, 0.2);*/ /* cor que está no trello #0c5da6  */
@@ -79,6 +82,7 @@ body {
 	top: 0%;
 	z-index: 100;
 }
+
 
 
 img.logo{
@@ -759,10 +763,25 @@ border-radius: 2%;
 	height: 320px;
 }
 
-@media (max-width:768px){
+@media (min-width:320px) and (max-width:767px)
+{
+	.atracoes .card img{
+		height: 250px;
+	}
+}
+
+@media (min-width:769px) and (max-width:1065px)
+{
+	.atracoes .card img{
+		height: 200px;
+	}
+}
+
+@media (width:768px){
 	.atracoes .card img{
 		height: 180px;
 	}
+	
 	.carousel-inner > .carousel-item > img {
 		width: 40em;
 		height: 18em;
@@ -771,7 +790,9 @@ border-radius: 2%;
 	  }
 }
 
+
 @media (max-width: 767px){ 
+	
 	
 	.carousel-inner > .carousel-item > img {
 		width: 15em;
@@ -973,6 +994,7 @@ border-radius: 2%;
 		margin:0;
 	}
 		/*fim footer*/
+		
 
 }/*fim media query*/
 
@@ -1416,6 +1438,7 @@ border-radius: 2%;
 .modal-body{
 	height: 200px;
 }
+
 
 .listar-categoria{
 	margin-top: 150px;

@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Controllers\\AtracoesController' => $baseDir . '/app/controllers/AtracoesController.php',
     'App\\Controllers\\CategoryController' => $baseDir . '/app/controllers/CategoryController.php',
+    'App\\Controllers\\ContatoController' => $baseDir . '/app/controllers/ContatoController.php',
     'App\\Controllers\\PagesController' => $baseDir . '/app/controllers/PagesController.php',
     'App\\Controllers\\UsersController' => $baseDir . '/app/controllers/UsersController.php',
     'App\\Core\\App' => $baseDir . '/core/App.php',
@@ -18,4 +19,9 @@ return array(
     'ComposerAutoloaderInit5038c690ad386a71950e76f828b96588' => $vendorDir . '/composer/autoload_real.php',
     'Composer\\Autoload\\ClassLoader' => $vendorDir . '/composer/ClassLoader.php',
     'Composer\\Autoload\\ComposerStaticInit5038c690ad386a71950e76f828b96588' => $vendorDir . '/composer/autoload_static.php',
+    'PHPMailer\\PHPMailer\\Exception' => $baseDir . '/app/controllers/PHPMailer-6.0/src/Exception.php',
+    'PHPMailer\\PHPMailer\\OAuth' => $baseDir . '/app/controllers/PHPMailer-6.0/src/OAuth.php',
+    'PHPMailer\\PHPMailer\\PHPMailer' => $baseDir . '/app/controllers/PHPMailer-6.0/src/PHPMailer.php',
+    'PHPMailer\\PHPMailer\\POP3' => $baseDir . '/app/controllers/PHPMailer-6.0/src/POP3.php',
+    'PHPMailer\\PHPMailer\\SMTP' => $baseDir . '/app/controllers/PHPMailer-6.0/src/SMTP.php',
 );
