@@ -61,10 +61,10 @@
 
         <p>
           <h1>Crazy Fun!</h1>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-           accusantium doloremque laudantium, totam rem aperiam, eaque <br>
-           ipsa quae ab illo inventore veritatis et quasi architecto beatae 
-           vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas <br>
+            Veja as atrações em alta de nosso parque, 
+            Com preços acessíveis e diversão garantida!<br>
+           Você poderá aproveitar desde aventuras radicais a inesquecíveis momentos para toda a família! <br>
+           
           </p>
 
     </div>
@@ -99,9 +99,11 @@
   <p>
   <h1>Saiba onde nos encontrar!</h1>
   <img src="../../../public/img/mapa.png">
-  Ut enim ad minima veniam, quis nostrum exercitationem 
-  ullam corporis suscipit laboriosam, nisi ut aliquid consequatur? <br>
-  Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
+  Se perdeu? Está em dúvida de como transitar pelo parque? <br>
+  Veja nosso mapa detalhado
+  que está localizados em todos os portões de entrada e em nossa área principal.  <br>
+  Para mais informações sobre nossa localização veja nossa página de contato! <br>
+  
   </p>
 </div>
 
