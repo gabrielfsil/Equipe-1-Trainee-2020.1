@@ -34,11 +34,11 @@
       <div class="input-group-append">
   
       <button type="button" class="btn btn-outline-secondary" style="background-color:#ffa100;color:white;border-style: none;">Buscar</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-flip="false" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Dropdown</span>
         </button>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" style="max-height:150px;overflow:auto;">
         <?php foreach( $categorias as $categoria) : ?>
           <a class="dropdown-item"  value ="<?= $categoria->id ?>"><?= $categoria->name ?></a>
 

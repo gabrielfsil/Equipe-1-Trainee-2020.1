@@ -31,6 +31,4 @@
       </ul>
     </div>
 </nav>
-<script>
-  opaco();
-  </script>
+<script>opaco();</script>

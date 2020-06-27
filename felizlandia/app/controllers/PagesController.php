@@ -12,6 +12,11 @@ class PagesController
     
     public function login()
     {
+        session_start();
+        if(isset($_SESSION) && $_SESSION['logged'])
+        {
+            return redirect('admin/home');
+        }
         return view('site/login');
     }
 
@@ -112,7 +117,7 @@ class PagesController
         }
 
         //Verifico se o usuário não está logado no sistema
-        if (!isset($_SESSION['logged']) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
+        if (!isset($_SESSION) || !$_SESSION['logged'] || $checksum != $_SESSION['hash'])
         {
             redirect('login-alert');
         }
@@ -582,7 +587,8 @@ class PagesController
 
     public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
         $titulo = 'Contato';
-        return view('/site/contato', ['titulo' => $titulo]);
+        $acao = ['nome' => 'none'];
+        return view('/site/contato', ['titulo' => $titulo, 'acao' => $acao]);
     }
 }
 

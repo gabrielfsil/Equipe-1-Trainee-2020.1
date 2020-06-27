@@ -37,35 +37,41 @@
             <a class="d-flex justify-content-center" href="user-list"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
           </div>
         </form>
-      </div><!--fecha div coluna-->
+      </div><!--fecha div coluna-->          
     </div><!--fecha div row-->
   </div><!--fecha div container-->
 
-</div>
+  <?php if(isset($act) && $act!='undefined'){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modal").modal();
+                        });
+                    </script>
+         <?php } ?>
 
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--MODAL-->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Usuário atualizado com suecesso.</h5>
+        <h5 class="modal-title" id="exampleModalLabel"><?= $act['message'] ?></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-          <img src="/public/img/user.png" class="img-modal">
-          <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
+      <img src="<?= $act['error'] ? '/public/img/password-error.png' : '/public/img/user.png'; ?>" class="img-modal">
       </div>
       <div class="modal-footer">
-        <form method="POST" action="user-acess">
-          <input type="hidden" name="id" value="<?= $user->id ?>">
-          <button type="submit" class="btn btn-info" type="submit" value="delete" name="delete">Ok</button>
-        </form>
+          <?= $act['error'] ? '<a>' : '<a href="user-list">' ?>
+            <button type="submit" <?php if($act['error']) echo 'data-dismiss="modal" aria-label="Close"' ?> class="btn btn-info" name="id" value="">Ok</button>
+          </a>
       </div>
     </div>
   </div>
+</div>  
+                  
+</div><!--fecha conatiner admin user-->
 
-</div>            
-            
+
 <?php require('app/views/partials/footer-admin.php'); ?>

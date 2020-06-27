@@ -36,12 +36,18 @@
         </div>
     </div>
 </div>
-
-<script>
-    var act = "<?php echo $act; ?>";
+<?php if(isset($act) && $act!='undefined'){ ?>
+                    <script>
+                        $(document).ready(function(){
+                            $("#modal-password").modal();
+                        });
+                    </script>
+         <?php } ?>
+<!--<script>
+    var act = "<php echo $act; ?>";
     if(typeof act !== 'undefined' && act)
     $(document).ready(function(){$("#modal-password").modal();});
-</script>
+</script>-->.
 
 
  <!-- icones fontawesome -->
