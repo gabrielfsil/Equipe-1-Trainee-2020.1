@@ -13,7 +13,7 @@ class PagesController
     public function login()
     {
         session_start();
-        if(isset($_SESSION) && $_SESSION['logged'])
+        if(isset($_SESSION) && isset($_SESSION['logged']))
         {
             return redirect('admin/home');
         }
