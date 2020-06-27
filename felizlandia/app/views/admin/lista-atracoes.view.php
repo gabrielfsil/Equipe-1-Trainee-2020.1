@@ -19,7 +19,7 @@ background-position: center;
             <!--COLUNA ONDE LISTAMOS Atracoes--> 
             <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
-            <p><h1>Foram encontradas <?= $num_atracoes['num'] ?>  atrações</h1> </p> 
+            <p><h1>Mostrando <?= $num_atracoes['num'] ?> de <?= $total_rows ?>  atrações</h1> </p> 
       <ul 
       <?php if($num_atracoes['num']>1)
       echo 'class="list-group lista-box" style="overflow:auto;"'; 
@@ -31,8 +31,8 @@ background-position: center;
 
         <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $atracao->nome; ?></p>
-                <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <p class="texto-lista"><?= $atracao->nome; ?></p>
+                <button class="btn btn-danger dropdown-toggle bug-solver-button " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -58,15 +58,25 @@ background-position: center;
         
       </ul>
 
-      <div class="listar-button mt-2">
-        <a href="/admin/create-atracao"> <button class="btn btn-danger button-listar">Adicionar +</button></a>
-       </div>
-       
+    <div class="container">
+      <div class="container listar-button">
+        <a href="/admin/create-atracao"><button class="btn btn-primary button-listar">Adicionar +</button></a>
+      </div>
+
+      
+     
+
+      <?php require "app/views/partials/pagination-admin.php"; ?>
+    </div>
     
                    
     </div>
     
+    
 </div>
+
+
+
 <div class="espaço"></div>
 
 <?php require "app/views/partials/footer-admin.php"; ?>

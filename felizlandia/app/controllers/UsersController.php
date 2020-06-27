@@ -43,6 +43,9 @@ class UsersController
         $act = [
             'error' => False,
             'message' => "Usuário criado com sucesso."];
+
+        return view('admin/create-user', ['act' => $act]); 
+
     }
 
     public function delete()
@@ -60,15 +63,21 @@ class UsersController
             $act = [
                 'error' => True,
                 'message' => "Já existe usuário com este e-mail."];
+                $user = App::get('database')->read('person', 'id', $_POST['id']);
 
-            return view('admin/edit-user', ['act' => $act]);
+
+            return view('admin/edit-user', ['user' => $user[0],'act' => $act]);
         }
 
         App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], 'id', $_POST['id']);
 
         $user = App::get('database')->read('person', 'id', $_POST['id']);
+
+        $act = [
+            'error' => False,
+            'message' => "Usuário atualizado com sucesso."];
         
-        return view('admin/display-user', ['user' => $user[0]]); 
+        return view('admin/edit-user', ['user' => $user[0], 'act' => $act]); 
     }
     
     public function storeChangePassword()

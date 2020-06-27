@@ -185,16 +185,26 @@ class QueryBuilder
 
         $sql = $sql . "where {$id1} = {$id2}";
 
+
+        if(!(isset($action['comeco']))){  //caso nao tenha necessidade de um começo
+            $action['comeco'] = '';
+        }
+        else{
+            $action['comeco'] = $action['comeco'].',';
+        }
+
+
+        
         if($action['metodo'] != 'all')
         {
             
             if($action['metodo']=='last'){
                     $sql = $sql . " ORDER BY {$action['orderbyfield']} {$action['direction']}";
             }
-            $sql = $sql . " limit {$action['quantidade']}";
+            $sql = $sql . " limit {$action['comeco']} {$action['quantidade']}";
         }
 
-       // die(var_dump($sql));
+        //die(var_dump($sql));
         try{
             $stmt = $this->pdo->prepare($sql);
 
@@ -207,5 +217,44 @@ class QueryBuilder
         }
 
         
+    }
+
+
+
+
+    // pagination
+
+    public function getTotalRows($table){
+        $sql = "SELECT COUNT(*) FROM $table;";
+        try{
+    
+            $statement = $this->pdo->prepare($sql);
+    
+            $statement->execute();
+    
+            $result = $statement->fetchColumn();
+            return $result;
+    
+    
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+       }
+    
+    
+       public function Select_Set_Amount($table,$id, $start, $rows){
+        $sql = "SELECT * FROM  $table order by $id DESC LIMIT $start, $rows";
+        try{
+    
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_CLASS);
+            return $result;
+    
+    
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+
     }
 }

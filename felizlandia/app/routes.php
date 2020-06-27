@@ -57,4 +57,7 @@ $router->post('edit', "CategoryController@edit"); //edição em si
  $router->post('admin/delete-atracao', 'AtracoesController@store_delete');
 
  //FIM ROTAS PARA ATRAÇÕES//
+
+ //rota enviar mensagem na pagia contato
+ $router->post('send-message', 'ContatoController@sendMail')
 ?>

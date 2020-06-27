@@ -1,13 +1,13 @@
 <?php require "app/views/partials/head.php"; ?>
 <?php require "app/views/partials/navbar-admin.php"; ?>
-<body class="paralax-categoria">
+<body class="paralax-categoria ">
 
 <div class= "listar-categoria listas-gerais pb-4">
     <div class="container">
             <!--COLUNA ONDE LISTAMOS Categorias--> 
       <a href="/admin/home"><button type="button" class="btn btn-primary">&#10094;Voltar</button></a>
 
-      <p><h1>Foram encontradas <?= $num_categorias['num'] ?>  categorias</h1> </p> 
+      <p><h1>Mostrando  <?= $num_categorias['num'] ?> de <?= $total_rows ?>  categorias</h1> </p> 
       <ul  <?php if($num_categorias['num']>1)
       echo 'class="list-group lista-box" style="overflow:auto;"'; 
       else echo 'class="list-group"';
@@ -20,7 +20,7 @@
 
       <li class="list-group-item ">
           <div class="row justify-content-between">
-                <p><?= $x->name?></p>
+                <p class="texto-lista"><?= $x->name?></p>
                 <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Opções
                 </button>
@@ -84,31 +84,14 @@
     </div>
 </div>
 
+<div class="container">
+  <div class="container listar-button">
+    <a href="/admin/create-categoria"><button class="btn btn-primary button-listar">Adicionar +</button></a>
+  </div>
 
-    <div class="container">
-    <div class="container listar-button">
-    <a href="/admin/create-categoria"><button class="btn btn-danger button-listar">Adicionar +</button></a>
-    </div>
 
-    <div class="container listar-pagination">
-        <nav class="pagination-listar ">
-           <ul class="pagination">
-            <li class="page-item disabled">
-               <a class="page-link text-dark" href="#" tabindex="-1" aria-disabled="true"><</a>
-            </li>
-            <li class="page-item active"><a class="page-link text-dark" href="#">1</a></li>
-             <li class="page-item" aria-current="page">
-               <a class="page-link text-dark" href="#">2</a>
-            </li>
-             <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
-             <li class="page-item">
-               <a class="page-link text-dark" href="#">></a>
-             </li>
-           </ul>
-        </nav>
-  
-    </div>   
-  </div>      
+<?php require "app/views/partials/pagination-admin.php"; ?>
+</div>
       
 
 

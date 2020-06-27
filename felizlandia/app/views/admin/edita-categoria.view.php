@@ -13,7 +13,7 @@
                   <label for="Categoria">O nome atual de sua categoria é: <?= $results->name ?></label><br>
                   <input type="text" id="Categoria" name="edit" value="<?= $results->name ?>"><br>
                   
-                  <button type="button" class="bg-danger button-categoria" data-toggle="modal" data-target="#exampleModal">
+                  <button type="button" class="bg-primary button-categoria" data-toggle="modal" data-target="#exampleModal">
                       Editar
                     </button>
                   

@@ -145,7 +145,7 @@ class PagesController
                 );
 
             $mais_atracoes =  App::get('database')->selectFromManyTables(
-                    ['metodo'=> 'last', 'quantidade' =>' 3',  'orderbyfield' => 'id_atracao',
+                    ['metodo'=> 'last',  'quantidade' =>'3',  'orderbyfield' => 'id_atracao',
                 'direction' => 'asc'],
                     ['table1' => 'atracoes',
                     'table2' => 'category' ], ['nome' => 'nome',
@@ -170,13 +170,51 @@ class PagesController
         ]);
 
 
+
+        
+
+
+
     }
     
     public function atracoes(){
-        $categorias = App::get('database')->selectAll("category");
+        $categorias =  App::get('database')->selectAll('category');
+
+        $total_rows = App::get('database')->getTotalRows('atracoes');
+        $rows_page = 6;
+        $link_per_page = 3;
+        $page = '';
+        $total_links = ceil($total_rows/$rows_page);
+
+      
+       
+        if(isset($_GET['pagination'])){
+
+            $page = $_GET["pagination"];
+
+            if($page >= $total_links){
+                $page =  $total_links;
+            }
+            
+            if($page <= 0 ){
+                $page = 1;
+            }
+
+        }
+        else{
+            $page = 1;
+        }
+
+        $startPoint = ($page-1)*$rows_page;
 
 
-        $atracoes =  App::get('database')->selectFromManyTables(['metodo'=>'all'],
+
+        //$atracoes = App::get('database')->Select_Set_Amount('atracoes','id_atracao',$startPoint,$rows_page);
+
+
+        $atracoes =  App::get('database')->selectFromManyTables(   
+            ['metodo'=> 'last', 'comeco' => $startPoint, 'quantidade' => $rows_page,  'orderbyfield' => 'id_atracao',
+        'direction' => 'desc'],
             ['table1' => 'atracoes',
             'table2' => 'category' ], ['nome' => 'nome',
                 'descricao' => 'descricao', 
@@ -186,6 +224,9 @@ class PagesController
                 'categoria_id' => 'categoria_id',
                 'name' => 'name'], 'category.id','categoria_id'
                 );
+
+
+
         //SELECT nome, descricao, valor, foto, categoria_id, name FROM atracoes, category WHERE category.id = categoria_id
 
        /*$atracoes = App::get('database')->selectAll('atracoes'); 
@@ -202,6 +243,10 @@ class PagesController
             'num_atracoes' => $num_atracoes,
             'pagina_atual' => $pagina_atual,
             'titulo' => $titulo,
+            'link_per_page' => $link_per_page, 
+            'page' => $page, 
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
             
         ]);
     }
@@ -242,15 +287,54 @@ class PagesController
     public function listUsers()
     {
         $this->verifyLogin();
-        
-        $users = App::get('database')->selectAll('person');
+
+        $total_rows = App::get('database')->getTotalRows('person');
+        $rows_page = 6;
+        $link_per_page = 3;
+        $page = '';
+        $total_links = ceil($total_rows/$rows_page);
+
+      
+       
+        if(isset($_GET['pagination'])){
+
+            $page = $_GET["pagination"];
+
+            if($page >= $total_links){
+                $page =  $total_links;
+            }
+            
+            if($page <= 0 ){
+                $page = 1;
+            }
+
+        }
+        else{
+            $page = 1;
+        }
+
+        $startPoint = ($page-1)*$rows_page;
+
+
+
+        $users = App::get('database')->Select_Set_Amount('person','id',$startPoint,$rows_page);
+
         $num_users = [
             "num" => count($users)
         ];
         $pagina_atual = ['nome' =>"Usuários" ];
 
-        return view('admin/list-users', ['users' => $users, "num_users" => $num_users, 'pagina_atual' => $pagina_atual,
-        ]);
+        return view('admin/list-users', 
+        [
+            'users' => $users, 
+            "num_users" => $num_users, 
+            'pagina_atual' => $pagina_atual,
+            'link_per_page' => $link_per_page, 
+            'page' => $page, 
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
+
+        ]); // array chave valor
     }
 
     public function acessUser()
@@ -285,7 +369,15 @@ class PagesController
 
         $pagina_atual = ['nome' =>"Usuários" ];
         $user = App::get('database')->read('person', 'id', $_POST['id']);
-        return view('admin/change-password', ['user' => $user[0], 'pagina_atual' => $pagina_atual]);
+        return view(
+            'admin/change-password', 
+        [
+            'user' => $user[0], 
+            'pagina_atual' => $pagina_atual,
+        
+        ]
+
+        );
     }
 
     /**
@@ -303,7 +395,36 @@ class PagesController
     {
         $this->verifyLogin();
 
-        $categorias = App::get('database')->selectAll("category");
+        $total_rows = App::get('database')->getTotalRows('category');
+        $rows_page = 6;
+        $link_per_page = 3;
+        $page = '';
+        $total_links = ceil($total_rows/$rows_page);
+
+      
+       
+        if(isset($_GET['pagination'])){
+
+            $page = $_GET["pagination"];
+
+            if($page >= $total_links){
+                $page =  $total_links;
+            }
+            
+            if($page <= 0 ){
+                $page = 1;
+            }
+
+        }
+        else{
+            $page = 1;
+        }
+
+        $startPoint = ($page-1)*$rows_page;
+
+
+
+        $categorias = App::get('database')->Select_Set_Amount('category','id',$startPoint,$rows_page); //adicionar parametro de condição para funcionar com pesquisa
         $acao = ['nome' => 'nenhuma'];
         $pagina_atual = ['nome' =>"Categorias" ];
 
@@ -311,9 +432,17 @@ class PagesController
             "num" => count($categorias)
         ];
         return view('admin/lista-categoria',
-         ['categorias' => $categorias, 'num_categorias' => $num_categorias,
-         'pagina_atual' => $pagina_atual]
+         [
+            'categorias' => $categorias, 
+            'num_categorias' => $num_categorias,
+            'pagina_atual' => $pagina_atual,
+            'link_per_page' => $link_per_page, 
+            'page' => $page, 
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
+         ]
         );
+
     }
 
     public function Acategoria()
@@ -332,16 +461,51 @@ class PagesController
     {
         $this->verifyLogin();
 
-        $atracoes = App::get('database')->selectAll('atracoes');
+        $total_rows = App::get('database')->getTotalRows('atracoes');
+        $rows_page = 6;
+        $link_per_page = 3;
+        $page = '';
+        $total_links = ceil($total_rows/$rows_page);
+
+      
+       
+        if(isset($_GET['pagination'])){
+
+            $page = $_GET["pagination"];
+
+            if($page >= $total_links){
+                $page =  $total_links;
+            }
+            
+            if($page <= 0 ){
+                $page = 1;
+            }
+
+        }
+        else{
+            $page = 1;
+        }
+
+        $startPoint = ($page-1)*$rows_page;
+
+
+
+        $atracoes = App::get('database')->Select_Set_Amount('atracoes','id_atracao',$startPoint,$rows_page);
+        
         $pagina_atual = ['nome' =>"Atrações" ];
 
         $num_atracoes = [
             "num" => count($atracoes)
         ];
+
         return view('/admin/lista-atracoes', [
             'atracoes' => $atracoes,
-             'num_atracoes' => $num_atracoes,
-             'pagina_atual' => $pagina_atual,
+            'num_atracoes' => $num_atracoes,
+            'pagina_atual' => $pagina_atual,
+            'link_per_page' => $link_per_page, 
+            'page' => $page, 
+            'total_links' => $total_links,
+            'total_rows' => $total_rows,
             ]);      
     }
 
@@ -456,6 +620,8 @@ class PagesController
 
     public function contato(){ //função movida para melhor organização //vai precisar de inputs mais tarde
         $titulo = 'Contato';
-        return view('/site/contato', ['titulo' => $titulo]);
+        $acao = ['nome' => 'none'];
+        return view('/site/contato', ['titulo' => $titulo, 'acao' => $acao]);
     }
 }
+

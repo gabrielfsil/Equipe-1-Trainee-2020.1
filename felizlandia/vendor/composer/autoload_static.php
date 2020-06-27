@@ -13,6 +13,7 @@ class ComposerStaticInit5038c690ad386a71950e76f828b96588
     public static $classMap = array (
         'App\\Controllers\\AtracoesController' => __DIR__ . '/../..' . '/app/controllers/AtracoesController.php',
         'App\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/controllers/CategoryController.php',
+        'App\\Controllers\\ContatoController' => __DIR__ . '/../..' . '/app/controllers/ContatoController.php',
         'App\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
         'App\\Controllers\\UsersController' => __DIR__ . '/../..' . '/app/controllers/UsersController.php',
         'App\\Core\\App' => __DIR__ . '/../..' . '/core/App.php',
@@ -23,6 +24,11 @@ class ComposerStaticInit5038c690ad386a71950e76f828b96588
         'ComposerAutoloaderInit5038c690ad386a71950e76f828b96588' => __DIR__ . '/..' . '/composer/autoload_real.php',
         'Composer\\Autoload\\ClassLoader' => __DIR__ . '/..' . '/composer/ClassLoader.php',
         'Composer\\Autoload\\ComposerStaticInit5038c690ad386a71950e76f828b96588' => __DIR__ . '/..' . '/composer/autoload_static.php',
+        'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/../..' . '/app/controllers/PHPMailer-6.0/src/Exception.php',
+        'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/../..' . '/app/controllers/PHPMailer-6.0/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/../..' . '/app/controllers/PHPMailer-6.0/src/PHPMailer.php',
+        'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/../..' . '/app/controllers/PHPMailer-6.0/src/POP3.php',
+        'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/../..' . '/app/controllers/PHPMailer-6.0/src/SMTP.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -25,18 +25,28 @@
       <div class="menu">
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-            <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+            <?php $cont = 0; ?>
+            <?php foreach ($ultimas_atracoes as $atracao) : ?>
+            <?php if($cont==0) : ?>
+              <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>" class="active"></li>
+            <?php else :?>
+              <li data-target="#carouselExampleCaptions" data-slide-to="<?=$cont ?>"></li>
+            <?php endif ?>
+            <?php $cont++; ?>
+            <?php endforeach ?>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="../../../public/img/montanha.gif" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-              </div>
-            </div>
+            <?php $cont =0 ;?>
             <?php foreach ($ultimas_atracoes as $atracao) : ?>
-            <div class="carousel-item">
+              <?php 
+                if($cont==0){
+                  echo '<div class="carousel-item active">';
+
+              }else{
+                echo '<div class="carousel-item">';
+              }
+              $cont++;
+              ?>
               <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
@@ -61,10 +71,10 @@
 
         <p>
           <h1>Crazy Fun!</h1>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
-           accusantium doloremque laudantium, totam rem aperiam, eaque <br>
-           ipsa quae ab illo inventore veritatis et quasi architecto beatae 
-           vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas <br>
+            Veja as atrações em alta de nosso parque, 
+            Com preços acessíveis e diversão garantida!<br>
+           Você poderá aproveitar desde aventuras radicais a inesquecíveis momentos para toda a família! <br>
+           
           </p>
 
     </div>
@@ -83,7 +93,6 @@
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><h5 class="card-title blue"><?= $atracao->nome ?></h5></p>
-          <p><?= $atracao->descricao ?></p>
         
         </blockquote>
       </div>
@@ -99,9 +108,11 @@
   <p>
   <h1>Saiba onde nos encontrar!</h1>
   <img src="../../../public/img/mapa.png">
-  Ut enim ad minima veniam, quis nostrum exercitationem 
-  ullam corporis suscipit laboriosam, nisi ut aliquid consequatur? <br>
-  Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil 
+  Se perdeu? Está em dúvida de como transitar pelo parque? <br>
+  Veja nosso mapa detalhado
+  que está localizados em todos os portões de entrada e em nossa área principal.  <br>
+  Para mais informações sobre nossa localização veja nossa página de contato! <br>
+  
   </p>
 </div>
 

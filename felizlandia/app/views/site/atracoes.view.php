@@ -35,12 +35,11 @@
       <div class="input-group-append">
   
       <button type="submit" class="btn btn-outline-secondary" style="background-color:#ffa100;color:white;border-style: none;">Buscar</button>
-    
-        <button class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-flip="false" style="background-color:#f7c063;border-style: none;color:white;"data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <span class="sr-only">Dropdown</span>
         </button>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" style="max-height:150px;overflow:auto;">
         <?php foreach( $categorias as $categoria) : ?>
           <button class="dropdown-item" type="submit" name="categoria" value="<?= $categoria->id ?>"><?= $categoria->name   ?></button>
 
@@ -54,7 +53,7 @@
     </div>
     </form>
        
-      <span class="mt-4 d-flex results justify-content-left">Foram encontradas <?= $num_atracoes['num'] ?> atrações </span>
+      <span class="mt-4 d-flex results justify-content-left">Mostrando <?= $num_atracoes['num'] ?> de <?=$total_rows ?> atrações </span>
       <a class="d-flex mb-3" href="#paginacao">Ir para o fim da página</a>
        
       <div class="row mt-3 justify-content-start">
@@ -84,27 +83,8 @@
              
          </div>
         
-      <nav aria-label="Páginas de resultado de pesquisa de atrações" id="paginacao">
-        <ul class="pagination" style="justify-content: center;">
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Anterior">
-              <span aria-hidden="true">&laquo;</span>
-              <span class="sr-only">Anterior</span>
-            </a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#" aria-label="Próximo">
-              <span aria-hidden="true">&raquo;</span>
-              <span class="sr-only">Próximo</span>
-            </a>
-          </li>
-          <li class="ml-1 pt-2"><a href="#atracoes-topo">Voltar ao topo</a></li>
-        </ul>
-      </nav>
-   
+         <?php require "app/views/partials/pagination.php" ;?>
+    
    <!--IMPORTANDO MODELS-->
    <!-- Modals -->
   <?php foreach ($atracoes as $atracao) : ?>
@@ -128,10 +108,15 @@
           </li>
           <li class="list-group-item"><strong>Categoria</strong> <?= $atracao->name?></li>
           <li class="list-group-item"><strong>Valor:</strong>
-           <?php 
-           $formatter = new \NumberFormatter('pt_BR',  NumberFormatter::CURRENCY);
+           <?php
+           /*$formatter = new \NumberFormatter('pt_BR',  NumberFormatter::CURRENCY);
                echo  $formatter->formatCurrency($atracao->valor
                , 'BRL');
+               
+               nao tem esse comando/biblioteca?
+               
+               */
+               echo "R$ ".$atracao->valor;
      
            ?>
            
@@ -163,4 +148,4 @@
   
 
 
-<?php require"app/views/partials/footer.php" ;?>
+<?php require "app/views/partials/footer.php" ;?>
