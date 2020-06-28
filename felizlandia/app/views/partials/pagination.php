@@ -17,6 +17,12 @@
             ?>
           <li class="page-item" >  
           <form method="GET">
+            <?php if(isset($_GET['conteudo'])) 
+              echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
+            ?>
+            <?php if(isset($_GET['categoria'])) 
+              echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
+            ?>
             <input type='hidden' value="<?=$y?>" name="pagination">
             <button type="submit" class="page-link  <?php if($y == $page){ echo " ativado ";}?>" ><?=$y?></button>
           </form>
@@ -27,6 +33,12 @@
 
             <li class="page-item">
               <form method="GET">
+                <?php if(isset($_GET['conteudo'])) 
+                  echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
+                ?>
+                <?php if(isset($_GET['categoria'])) 
+                  echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
+                ?>
                 <input type='hidden' value="<?=$page+1?>" name="pagination">
                 <button type="submit" class="page-link"> > </button>
               </form>

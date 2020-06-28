@@ -24,12 +24,15 @@ class QueryBuilder
     }
 
 
-    public function advancedSearchAtracaoCategoria($conteudo, $categoria = "")
+    public function advancedSearchAtracaoCategoria($conteudo, $count, $categoria = "", $start=-1, $rows=-1)
     {
         $conteudo = explode(' ', $conteudo);
         $size = count($conteudo);
 
-        $sql = "select * from atracoes, category where " ;
+        if($count)
+            $sql = "select count(*) from atracoes, category where " ;
+        else
+            $sql = "select * from atracoes, category where " ;
         
         if($categoria !== "")
             $sql = $sql . "category.id=" . $categoria . " and ";
@@ -44,6 +47,10 @@ class QueryBuilder
                 $sql = $sql . ' or ';
         }
         $sql = $sql . ') group by id_atracao';
+
+        // limite de linhas para exibir da paginação
+        if($start != -1)
+            $sql = $sql . " limit {$start}, {$rows}";
 
         //echo $sql;
         //die(var_dump($sql));
@@ -196,8 +203,7 @@ class QueryBuilder
 
         
         if($action['metodo'] != 'all')
-        {
-            
+        {   
             if($action['metodo']=='last'){
                     $sql = $sql . " ORDER BY {$action['orderbyfield']} {$action['direction']}";
             }
