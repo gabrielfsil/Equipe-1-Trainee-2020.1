@@ -2,7 +2,25 @@
         <ul class="pagination" style="justify-content: center;">
         <li class="page-item">
               <form method="GET">
-                <input type='hidden' value="<?=$page-1?>" name="pagination">
+              <?php if(isset($_GET['conteudo'])) 
+                echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
+              ?>
+              <?php if(isset($_GET['categoria'])) 
+                echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
+              ?>
+                <input type='hidden' value="1" name="pagination">
+                <button type="submit" class="page-link"> << </button>
+              </form>
+            </li>
+        <li class="page-item">
+              <form method="GET">
+              <?php if(isset($_GET['conteudo'])) 
+                echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
+              ?>
+              <?php if(isset($_GET['categoria'])) 
+                echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
+              ?>
+                <input type='hidden' value="<?= $page==1 ? 1 : $page-1 ?>" name="pagination">
                 <button type="submit" class="page-link"> < </button>
               </form>
             </li>
@@ -39,11 +57,22 @@
                 <?php if(isset($_GET['categoria'])) 
                   echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
                 ?>
-                <input type='hidden' value="<?=$page+1?>" name="pagination">
+                <input type='hidden' value="<?= $page==$total_links ? $total_links : $page+1 ?>" name="pagination">
                 <button type="submit" class="page-link"> > </button>
               </form>
             </li>
-          <li class="ml-1 pt-2"><a href="#atracoes-topo">Voltar ao topo</a></li>   
+            <li class="page-item">
+              <form method="GET">
+                <?php if(isset($_GET['conteudo'])) 
+                  echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
+                ?>
+                <?php if(isset($_GET['categoria'])) 
+                  echo "<input type='hidden' value=" . "'" . $_GET['categoria'] . "'" . " name='conteudo'>";
+                ?>
+                <input type='hidden' value="<?=$total_links?>" name="pagination">
+                <button type="submit" class="page-link"> >> </button>
+              </form>
+            </li> 
         </ul>
       </nav>
-   
+      <a class="h6 row align-items-center" style="justify-content: center;" href="#atracoes-topo">Voltar ao topo</a>
