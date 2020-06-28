@@ -784,7 +784,12 @@ border-radius: 2%;
 
 	  
 }
-
+@media (min-width:1685px){
+	
+	.atracoes .card img{
+		height: 20rem;
+	}
+}
 
 @media (max-width: 767px){ 
 
