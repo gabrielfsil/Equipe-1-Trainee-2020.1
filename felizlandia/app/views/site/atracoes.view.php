@@ -31,7 +31,7 @@
     <form method="GET" action="search">
     <div class="input-group d-flex justify-content-left mb-3">
     
-      <input name="conteudo" value="<?= $_GET['conteudo'] ?>" type="text" class="form-control col-sm-6" aria-label="Input dropdown com botão dropdown segmentado" placeholder="Busque por nome da atração ou categoria">
+      <input name="conteudo" value="<?= $_GET['conteudo'] ?>" type="text" class="form-control col-sm-6" aria-label="Input dropdown com botão dropdown segmentado" placeholder="Busque pelo nome da atração ou categoria">
       <div class="input-group-append">
   
       <button type="submit" class="btn btn-outline-secondary" style="background-color:#ffa100;color:white;border-style: none;">Buscar</button>

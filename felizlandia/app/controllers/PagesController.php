@@ -255,13 +255,41 @@ class PagesController
     public function searchAtracao()
     {
         if(isset($_GET['categoria']))
+            $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True, $_GET['categoria']));
+        else
+            $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True));
+        $rows_page = 6;
+        $link_per_page = 3;
+        $page = '';
+        $total_links = ceil($total_rows/$rows_page);
+       
+        if(isset($_GET['pagination'])){
+
+            $page = $_GET["pagination"];
+
+            if($page >= $total_links){
+                $page =  $total_links;
+            }
+            
+            if($page <= 0 ){
+                $page = 1;
+            }
+
+        }
+        else{
+            $page = 1;
+        }
+
+        $startPoint = ($page-1)*$rows_page;
+
+        if(isset($_GET['categoria']))
         {
-            $atracoes = App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], $_GET['categoria']);
+            $atracoes = App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], False, $_GET['categoria'], $startPoint, $rows_page);
             
         }
         else
         {
-            $atracoes = App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo']);
+            $atracoes = App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], False, "", $startPoint, $rows_page);
         }
              
         $categorias = App::get('database')->selectAll("category");
@@ -278,7 +306,10 @@ class PagesController
             'num_atracoes' => $num_atracoes,
             'pagina_atual' => $pagina_atual,
             'titulo' => $titulo,
-            
+            'link_per_page' => $link_per_page, 
+            'page' => $page, 
+            'total_links' => $total_links,
+            'total_rows' => $total_rows
         ]);
     }
 
