@@ -86,7 +86,7 @@
 <div class="paralax3">
 <div class="rodape" style="font-weight:bold;">Veja nossas <a href="/atracoes" style="color:orange;text-decoration:none;">atrações</a>!</div>
 <div class="Cartoes">
-  <div class="card-columns atracoes" style="background-color:transparent;margin-top:0;">
+  <div class="card-columns atracoes atracoes-home" style="background-color:transparent;margin-top:0;">
     <?php foreach ($mais_atracoes as $atracao) : ?>
       <div class="card bg-white text-black">
        <img src="/public/img/atracoes-img/<?= $atracao->foto?>" class="card-img-top" alt="...">

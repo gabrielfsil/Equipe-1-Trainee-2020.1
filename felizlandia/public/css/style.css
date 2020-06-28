@@ -142,7 +142,7 @@ li.nav-item:hover{
 
 .carousel-inner > .carousel-item > img {
 	width: 40em;
-	height: 30em;
+	/*height: 30em;*/
 	max-width: 2000px; /*de 1100 para 2000px*/
 	max-height: 1200px; /*de 900 para 1200px*/
   }
@@ -162,7 +162,7 @@ li.nav-item:hover{
 	color: rgba(247, 211, 8, 0.95); 
 	text-align: center;
 	font-size: 80px;
-	line-height: 100px;
+	/*line-height: 100px;*/
 	padding: 30px;
 
 }
@@ -457,9 +457,12 @@ h5.blue{
 
 /* IÍCIO ESTILIZAÇÃO PÁGINA DE ATRAÇÕES */
 /*para pagina atrações*/
+
 .paginaAtracoesFrase{
 	display: none;
 }
+
+
 .atracoes .card-body{
 	padding: 0;
 	padding-top: 1rem;
@@ -469,10 +472,12 @@ h5.blue{
 	text-align: justify;
 }
 .atracoes .card img{
-	width: 100%;
+	max-width: 100%;
 }
+
+
 .atracoes .card img{
-	height: 260px;
+	height: 13em;
 }
 .atracoes .cards-cat{
 	color: #fc2c2a;
@@ -758,29 +763,16 @@ border-radius: 2%;
 	height: 320px;
 }
 
-@media (min-width:320px) and (max-width:575px)
+@media (max-width:938px)
 {
-	.atracoes .card img{
-		height: 250px;
+	.atracoes .card-title{
+		font-size: 1rem;
 	}
 }
-@media (min-width:576px) and (max-width:767px)
-{
-	.atracoes .card img{
-		height: 180px;
-	}
-}
-
-@media (min-width:769px) and (max-width:1065px)
-{
-	.atracoes .card img{
-		height: 200px;
-	}
-}
-
 @media (width:768px){
+	
 	.atracoes .card img{
-		height: 180px;
+		height: 9rem;
 	}
 	
 	.carousel-inner > .carousel-item > img {
@@ -795,11 +787,17 @@ border-radius: 2%;
 
 
 @media (max-width: 767px){ 
+
 	
+		.atracoes .card img {
+			
+			height: 100%;
+		}
+
 	
 	.carousel-inner > .carousel-item > img {
 		width: 15em;
-		height: 15em;
+		/*height: 15em;*/
 	}
 
 	.texto, .texto2, .caixaTexto{
@@ -1006,8 +1004,20 @@ border-radius: 2%;
 		}	
 
 }/*fim media query*/
-
-
+@media (min-width:576px) and (max-width:767px)
+{
+	.atracoes-home .card img {
+			
+		height: 8rem;
+	}
+	
+}
+@media (min-width:769px) and (max-width:1036px)
+{
+	.atracoes .card img{
+		height: 10rem;
+	}
+}
 
 
 
