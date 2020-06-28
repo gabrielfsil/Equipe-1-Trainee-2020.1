@@ -38,14 +38,16 @@ class AtracoesController
         $string = str_replace("applet", "", $string);
         $string = str_replace("object", "", $string);
         $string = str_replace("'", "", $string);
+        $string = str_replace("´", "", $string);
+        $string = str_replace("`", "", $string);
         $string = str_replace("#", "", $string);
         $string = str_replace("=", "", $string);
         $string = str_replace("--", "", $string);
-        $string = str_replace("-", "", $string);
         $string = str_replace(";", "", $string);
         $string = str_replace("*", "", $string);
         $string = str_replace("/", "", $string);
         $string = strip_tags($string);
+        //die(var_dump($string));
         return $string;
     }
     
@@ -63,6 +65,8 @@ class AtracoesController
             $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
             $nome = $_FILES[ 'foto' ][ 'name' ];
         
+            $nome_atracao = $this->protecao ($_POST['nome']);
+            $descricao = $this->protecao($_POST['descricao']);
             // Pega a extensão
             $extensao = pathinfo ( $nome, PATHINFO_EXTENSION );
         
@@ -88,7 +92,7 @@ class AtracoesController
                 $erro = "";
                 $erro = $erro . App::get('database')->checkExistence('atracoes',[
                     'campo' =>'nome',
-                    'conteudo'=> $_POST['nome'] 
+                    'conteudo'=> $nome_atracao
                 ], 'id_atracao');
                 if($erro==""){
                         
@@ -96,8 +100,8 @@ class AtracoesController
 
                           
                             App::get('database')->insert('atracoes',
-                            ['nome' => $this->protecao ($_POST['nome']),
-                            'descricao' => $this->protecao($_POST['descricao']),
+                            ['nome' => $nome_atracao,
+                            'descricao' => $descricao,
                             'categoria_id' => $_POST['categoria'],
                             'valor' => $_POST['valor'],
                             'foto' => $novoNome,]);
@@ -167,6 +171,8 @@ class AtracoesController
         $arquivo_tmp = $_FILES[ 'foto' ][ 'tmp_name' ];
         $nome_arquivo = $_FILES[ 'foto' ][ 'name' ];
     
+        $nome_atracao = $this->protecao ($_POST['nome']);
+        $descricao = $this->protecao($_POST['descricao']);
         // Pega a extensão
         $extensao = pathinfo ( $nome_arquivo, PATHINFO_EXTENSION );
     
@@ -177,7 +183,7 @@ class AtracoesController
         $erro = $erro . App::get('database')->checkExistence('atracoes',
         [
             'campo' =>'nome',
-            'conteudo'=> $_POST['nome'],
+            'conteudo'=> $nome_atracao,
             'id' => $_POST['id']
         ],'id_atracao');
 
@@ -207,8 +213,8 @@ class AtracoesController
                          }
 
                         App::get('database')->edit('atracoes',
-                            ['nome' => $this->protecao ($_POST['nome']),
-                            'descricao' => $this->protecao($_POST['descricao']),
+                            ['nome' => $nome_atracao,
+                            'descricao' => $descricao,
                             'categoria_id' => $_POST['categoria'],
                             'valor' => $_POST['valor'],
                             'foto' => $novoNome,
@@ -239,8 +245,8 @@ class AtracoesController
 
             }else{
                 App::get('database')->edit('atracoes',
-                ['nome' => $this->protecao ($_POST['nome']),
-                'descricao' => $this->protecao($_POST['descricao']),
+                ['nome' => $nome_atracao,
+                'descricao' => $descricao,
                 'categoria_id' => $_POST['categoria'],
                 'valor' => $_POST['valor'],
                 
