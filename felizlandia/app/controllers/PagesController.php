@@ -258,7 +258,7 @@ class PagesController
             $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True, $_GET['categoria']));
         else
             $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True));
-        $rows_page = 6;
+        $rows_page = 10;
         $link_per_page = 3;
         $page = '';
         $total_links = ceil($total_rows/$rows_page);
