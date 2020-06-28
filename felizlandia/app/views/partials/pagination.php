@@ -1,6 +1,7 @@
 <nav aria-label="Páginas de resultado de pesquisa de atrações" id="paginacao">
         <ul class="pagination" style="justify-content: center;">
-        <li class="page-item">
+          <?php if($page!=1): ?>    
+            <li class="page-item">
               <form method="GET">
               <?php if(isset($_GET['conteudo'])) 
                 echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
@@ -12,7 +13,7 @@
                 <button type="submit" class="page-link"> << </button>
               </form>
             </li>
-        <li class="page-item">
+            <li class="page-item">
               <form method="GET">
               <?php if(isset($_GET['conteudo'])) 
                 echo "<input type='hidden' value=" . "'" . $_GET['conteudo'] . "'" . " name='conteudo'>";
@@ -24,6 +25,7 @@
                 <button type="submit" class="page-link"> < </button>
               </form>
             </li>
+          <?php endif; ?>
 
             <?php for($y=$page-1;$y<$page-1+$link_per_page && $y <= $total_links; $y++) : ?>
 
@@ -48,7 +50,7 @@
       <?php endfor; ?>
 
       
-
+          <?php if($page!=$total_links): ?>        
             <li class="page-item">
               <form method="GET">
                 <?php if(isset($_GET['conteudo'])) 
@@ -73,6 +75,7 @@
                 <button type="submit" class="page-link"> >> </button>
               </form>
             </li> 
+          <?php endif; ?>
         </ul>
       </nav>
       <a class="h6 row align-items-center" style="justify-content: center;" href="#atracoes-topo">Voltar ao topo</a>

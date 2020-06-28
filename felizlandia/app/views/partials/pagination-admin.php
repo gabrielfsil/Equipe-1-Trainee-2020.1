@@ -36,20 +36,20 @@
       <?php endfor; ?>
 
       
-      <?php if($page!=$total_links): ?>                
-            <li class="page-item">
-              <form method="GET">
-                <input type='hidden' value="<?= $page==$total_links ? $total_links : $page+1 ?>" name="pagination">
-                <button type="submit" class="page-link text-dark"> > </button>
-              </form>
-            </li>
-            <li class="page-item">
-              <form method="GET">
-                <input type='hidden' value="<?=$total_links?>" name="pagination">
-                <button type="submit" class="page-link text-dark"> >> </button>
-              </form>
-            </li>
-      <?php endif; ?>
+            <?php if($page!=$total_links): ?>                
+              <li class="page-item">
+                <form method="GET">
+                  <input type='hidden' value="<?= $page==$total_links ? $total_links : $page+1 ?>" name="pagination">
+                  <button type="submit" class="page-link text-dark"> > </button>
+                </form>
+              </li>
+              <li class="page-item">
+                <form method="GET">
+                  <input type='hidden' value="<?=$total_links?>" name="pagination">
+                  <button type="submit" class="page-link text-dark"> >> </button>
+                </form>
+              </li>
+            <?php endif; ?>
             
            </ul>
         </nav>
