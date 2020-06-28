@@ -3,11 +3,17 @@
     <div class="container listar-pagination">
         <nav class="pagination-listar ">
            <ul class="pagination">
-
+           
+           <li class="page-item">
+              <form method="GET">
+                <input type='hidden' value="1" name="pagination">
+                <button type="submit" class="page-link text-dark"> << </button>
+              </form>
+            </li>
 
             <li class="page-item">
               <form method="GET">
-                <input type='hidden' value="<?=$page-1?>" name="pagination">
+                <input type='hidden' value="<?= $page==1 ? 1 : $page-1 ?>" name="pagination">
                 <button type="submit" class="page-link text-dark"> < </button>
               </form>
             </li>
@@ -32,8 +38,14 @@
 
             <li class="page-item">
               <form method="GET">
-                <input type='hidden' value="<?=$page+1?>" name="pagination">
+                <input type='hidden' value="<?= $page==$total_links ? $total_links : $page+1 ?>" name="pagination">
                 <button type="submit" class="page-link text-dark"> > </button>
+              </form>
+            </li>
+            <li class="page-item">
+              <form method="GET">
+                <input type='hidden' value="<?=$total_links?>" name="pagination">
+                <button type="submit" class="page-link text-dark"> >> </button>
               </form>
             </li>
 
