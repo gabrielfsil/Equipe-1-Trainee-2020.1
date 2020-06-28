@@ -56,7 +56,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <img src="../../../public/img/lixeira.png" class="img-modal">
+            <img src="/public/img/lixeira.png" class="img-modal">
             <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
         </div>
         <div class="modal-footer">

@@ -1,25 +1,14 @@
 <?php require "app/views/partials/head.php"; ?>
 <?php require "app/views/partials/navbar-admin.php"; ?>
 
-<body class="paralax-categoria" style="background-image: url(../../../public/img/bg3.jpg);background-size: cover;
+<body class="paralax-categoria" style="background-image: url(/public/img/bg3.jpg);background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
 background-position: center;
 	margin: 0;
 	padding: 0;
 ">
-
-<!--PARALAX
-<div class="atracoes-paralax1">
-     <br><br><br>
-     <br><br>
-    
-    </div>
-  
-
-FIM PARALAX-->
-
-  
+ 
 <!--CONTEÚDO PRINCIPAL-->
 
 <div class="apagar-atracao">
@@ -65,7 +54,7 @@ FIM PARALAX-->
               <label for="exampleFormControlFile1" >Foto</label>
               <div class="imagem-db">
               <img 
-                src="../../../public/img/atracoes-img/<?= $atracao->foto ?>" 
+                src="/public/img/atracoes-img/<?= $atracao->foto ?>" 
                 />              </div>
              
             </div>    
@@ -108,7 +97,7 @@ FIM PARALAX-->
             </button>
           </div>
           <div class="modal-body">
-              <img src="../../../public/img/lixeira.png" class="img-modal">
+              <img src="/public/img/lixeira.png" class="img-modal">
               <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
           </div>
           <div class="modal-footer">

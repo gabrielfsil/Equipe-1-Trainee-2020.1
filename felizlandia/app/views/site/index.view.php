@@ -47,7 +47,7 @@
               }
               $cont++;
               ?>
-              <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
+              <img src="/public/img/atracoes-img/<?= $atracao->foto?>" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
                 <h5></h5>
                 <p><?= $atracao->nome?></p>
@@ -89,7 +89,7 @@
   <div class="card-columns atracoes" style="background-color:transparent;margin-top:0;">
     <?php foreach ($mais_atracoes as $atracao) : ?>
       <div class="card bg-white text-black">
-       <img src="../../../public/img/atracoes-img/<?= $atracao->foto?>" class="card-img-top" alt="...">
+       <img src="/public/img/atracoes-img/<?= $atracao->foto?>" class="card-img-top" alt="...">
       <div class="card-body">
         <blockquote class="blockquote mb-0">
           <p><h5 class="card-title blue"><?= $atracao->nome ?></h5></p>
@@ -107,7 +107,7 @@
 <div class="texto2">
   <p>
   <h1>Saiba onde nos encontrar!</h1>
-  <img src="../../../public/img/mapa.png">
+  <img src="/public/img/mapa.png">
   Se perdeu? Está em dúvida de como transitar pelo parque? <br>
   Veja nosso mapa detalhado
   que está localizados em todos os portões de entrada e em nossa área principal.  <br>

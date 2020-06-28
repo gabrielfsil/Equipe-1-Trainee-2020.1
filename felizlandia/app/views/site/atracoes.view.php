@@ -100,7 +100,7 @@
         </div>
         <div class="modal-body">
           <div class="centraliza-img">
-            <img src="../../../public/img/atracoes-img/<?= $atracao->foto ?>"alt="Imagem de capa do card">
+            <img src="/public/img/atracoes-img/<?= $atracao->foto ?>"alt="Imagem de capa do card">
   
           </div>
         <ul class="list-group list-group-flush">

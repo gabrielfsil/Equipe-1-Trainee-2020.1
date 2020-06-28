@@ -58,7 +58,7 @@
         </div>
         <div class="col-sm-6 my-3">
           <div class="card px-3 py-3 cards-contact">
-            <a target="_blank" href="https://www.google.com/maps/dir/-18.7403631,-44.9132725/Pra%C3%A7a+do+Santu%C3%A1rio,+Felixl%C3%A2ndia+-+MG,+35794-000/@-18.7494791,-44.912314,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0xa806e2f0b62321:0xf718d2d6a8928e58!2m2!1d-44.8992619!2d-18.7569585!3e0"><img class="card-img-top" src="../../../public/img//felixlandia-map.png" alt="Mapa da Praça do Santuario ao Felizlândia Park"></a>
+            <a target="_blank" href="https://www.google.com/maps/dir/-18.7403631,-44.9132725/Pra%C3%A7a+do+Santu%C3%A1rio,+Felixl%C3%A2ndia+-+MG,+35794-000/@-18.7494791,-44.912314,15z/data=!4m9!4m8!1m0!1m5!1m1!1s0xa806e2f0b62321:0xf718d2d6a8928e58!2m2!1d-44.8992619!2d-18.7569585!3e0"><img class="card-img-top" src="/public/img//felixlandia-map.png" alt="Mapa da Praça do Santuario ao Felizlândia Park"></a>
             <div class="card-body">
               <div class="card-text">
               <p>Venha nos conhecer. Nos encontramos na cidade de Felixlândia, 
@@ -100,7 +100,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                        <img src="../../../public/img/correto.png" class="img-modal">
+                        <img src="/public/img/correto.png" class="img-modal">
                         <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
                     </div>
                     <div class="modal-footer">
@@ -122,7 +122,7 @@
                                 </button>
                               </div>
                               <div class="modal-body">
-                                  <img src="../../../public/img/errado.png" class="img-modal">
+                                  <img src="/public/img/errado.png" class="img-modal">
                                   <!--<img src="img/errado.png" class="img-modal">  Caso algum erro seja detectado-->
                               </div>
                               <div class="modal-footer">
