@@ -58,7 +58,11 @@ class UsersController
     {
         $user = App::get('database')->search("person", ['email' => $_POST['email']]);
 
-        if(count(array_keys($user)) > 0)
+        $emailoriginal = App::get('database')->read('person', 'id', $_POST['id']); //pegar email original, evitar bug de sempre ter que mudar email para poder editar
+    
+
+        
+        if(count(array_keys($user)) > 0 && $emailoriginal[0]->email !=  $_POST['email']) //segunda condição para evitar bug
         {
             $act = [
                 'error' => True,
@@ -67,7 +71,7 @@ class UsersController
 
 
             return view('admin/edit-user', ['user' => $user[0],'act' => $act]);
-        }
+        } 
 
         App::get('database')->edit('person', ['name' => $_POST['name'], 'email' => $_POST['email']], 'id', $_POST['id']);
 

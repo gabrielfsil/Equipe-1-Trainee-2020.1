@@ -181,7 +181,7 @@ class PagesController
         $categorias =  App::get('database')->selectAll('category');
 
         $total_rows = App::get('database')->getTotalRows('atracoes');
-        $rows_page = 10;
+        $rows_page = 6;
         $link_per_page = 3;
         $page = '';
         $total_links = ceil($total_rows/$rows_page);

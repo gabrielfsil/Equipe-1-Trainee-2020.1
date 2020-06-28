@@ -172,7 +172,13 @@ class ContatoController{
         //mail($destinatario, $assunto , $body, "From: $email\r\n");
 
         // redireciona para a página de obrigado
-        return view('/site/contato', ['acao' => $acao]);
+
+        //resolvendo bug do titulo -------
+        $titulo = "Contato";
+        //fim
+
+
+        return view('/site/contato', ['titulo' => $titulo,'acao' => $acao]);
     }
 
     
