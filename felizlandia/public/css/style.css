@@ -758,10 +758,16 @@ border-radius: 2%;
 	height: 320px;
 }
 
-@media (min-width:320px) and (max-width:767px)
+@media (min-width:320px) and (max-width:575px)
 {
 	.atracoes .card img{
 		height: 250px;
+	}
+}
+@media (min-width:576px) and (max-width:767px)
+{
+	.atracoes .card img{
+		height: 180px;
 	}
 }
 
