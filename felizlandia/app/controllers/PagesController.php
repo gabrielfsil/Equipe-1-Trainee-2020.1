@@ -181,7 +181,7 @@ class PagesController
         $categorias =  App::get('database')->selectAll('category');
 
         $total_rows = App::get('database')->getTotalRows('atracoes');
-        $rows_page = 10;
+        $rows_page = 9;
         $link_per_page = 3;
         $page = '';
         $total_links = ceil($total_rows/$rows_page);
@@ -258,7 +258,7 @@ class PagesController
             $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True, $_GET['categoria']));
         else
             $total_rows = count(App::get('database')->advancedSearchAtracaoCategoria($_GET['conteudo'], True));
-        $rows_page = 10;
+        $rows_page = 9;
         $link_per_page = 3;
         $page = '';
         $total_links = ceil($total_rows/$rows_page);
