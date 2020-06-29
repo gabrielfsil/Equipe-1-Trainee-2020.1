@@ -7,19 +7,39 @@
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
 --
 -- Database: `felizlandia_park`
 --
+
+-- Para utilizar esse banco de dados de teste
+-- Apenas execute o conteúdo inteiro desse sql no phpMyAdmin
+-- Assim o banco será adicionado ao phpMyAdmin
+-- Para ser utilizado pelo site do Felizlandia Park
+
+CREATE DATABASE felizlandia_park;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
+
+CREATE TABLE felizlandia_park.category (
+  `id` int(11) NOT NULL,
+  `name` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO felizlandia_park.category (`id`, `name`) VALUES
+(5, 'Show'),
+(6, 'Radical'),
+(7, 'Aventura'),
+(9, 'Infantil'),
+(10, 'Família'),
+(17, 'Tradicional');
 
 -- --------------------------------------------------------
 
@@ -27,7 +47,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `atracoes`
 --
 
-CREATE TABLE `atracoes` (
+CREATE TABLE felizlandia_park.atracoes (
   `id_atracao` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `valor` decimal(10,2) NOT NULL,
@@ -40,7 +60,7 @@ CREATE TABLE `atracoes` (
 -- Dumping data for table `atracoes`
 --
 
-INSERT INTO `atracoes` (`id_atracao`, `nome`, `valor`, `descricao`, `foto`, `categoria_id`) VALUES
+INSERT INTO felizlandia_park.atracoes (`id_atracao`, `nome`, `valor`, `descricao`, `foto`, `categoria_id`) VALUES
 (1, 'Carrossel', '23.00', 'Diversão suave e relaxante para as crianças, elas podem ouvir diferentes\r\n                      musicas enquanto usam o brinquedo.\r\nA idade mínima para esta atração é 3 anos e máxima 10 anos. A atração funciona de 00:00hs às 00:00hs.', '15924971055eeb93d13b6db.jpeg', 9),
 (3, 'Roda Gigante', '20.00', 'Uma das atrações mais tradicionais do parque que possibilita admirar uma linda vista do mesmo, você sua família e amigos podem curtir altura de forma relaxante. A atração funciona de 00hs as 00hs.', '15924974555eeb952f6feb3.jpg', 17),
 (4, 'Pets Park', '30.00', 'Não quer se divertir sozinho? Traga seu grande amigo temos espaços para seus pets também! Nessa área os bichinhos podem brincar e se exercitar com os donos. Funciona de 00hs às 00hs', '15933112225ef7fff66f92a.jpg', 10),
@@ -66,33 +86,10 @@ INSERT INTO `atracoes` (`id_atracao`, `nome`, `valor`, `descricao`, `foto`, `cat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
---
-
-CREATE TABLE `category` (
-  `id` int(11) NOT NULL,
-  `name` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `category`
---
-
-INSERT INTO `category` (`id`, `name`) VALUES
-(5, 'Show'),
-(6, 'Radical'),
-(7, 'Aventura'),
-(9, 'Infantil'),
-(10, 'Família'),
-(17, 'Tradicional');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `person`
 --
 
-CREATE TABLE `person` (
+CREATE TABLE felizlandia_park.person (
   `id` int(11) NOT NULL,
   `name` varchar(350) NOT NULL,
   `email` varchar(350) NOT NULL,
@@ -103,9 +100,14 @@ CREATE TABLE `person` (
 -- Dumping data for table `person`
 --
 
-INSERT INTO `person` (`id`, `name`, `email`, `password`) VALUES
-(2, ' teste', 'teste@gmail.com', '87654321'),
-(5, 'teste2', 'teste2@gmail.com', '87654321');
+INSERT INTO felizlandia_park.person (`id`, `name`, `email`, `password`) VALUES
+(1, ' teste', 'teste@gmail.com', '87654321'),
+(2, 'teste2', 'teste2@gmail.com', '87654321'),
+(3, 'Claudio Nasc.', 'mail1@mail.com', '1234'),
+(4, 'Alfasgato', 'mail@mail.com', '1234'),
+(5, 'Junior do Carmo', 'juca@gmail.com.br', 'ggb');
+
+
 
 --
 -- Indexes for dumped tables
@@ -114,20 +116,20 @@ INSERT INTO `person` (`id`, `name`, `email`, `password`) VALUES
 --
 -- Indexes for table `atracoes`
 --
-ALTER TABLE `atracoes`
+ALTER TABLE felizlandia_park.atracoes
   ADD PRIMARY KEY (`id_atracao`),
   ADD KEY `atracoes_ibfk_1` (`categoria_id`);
 
 --
 -- Indexes for table `category`
 --
-ALTER TABLE `category`
+ALTER TABLE felizlandia_park.category
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `person`
 --
-ALTER TABLE `person`
+ALTER TABLE felizlandia_park.person
   ADD PRIMARY KEY (`id`);
 
 --
@@ -137,20 +139,26 @@ ALTER TABLE `person`
 --
 -- AUTO_INCREMENT for table `atracoes`
 --
-ALTER TABLE `atracoes`
+ALTER TABLE felizlandia_park.atracoes
   MODIFY `id_atracao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
-ALTER TABLE `category`
+ALTER TABLE felizlandia_park.category
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `person`
 --
-ALTER TABLE `person`
+ALTER TABLE felizlandia_park.person
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+ 
+--
+-- UNIQUE type for attibute email in table `person`
+--
+ ALTER TABLE felizlandia_park.person ADD UNIQUE(`email`);
 
 --
 -- Constraints for dumped tables
@@ -159,10 +167,6 @@ ALTER TABLE `person`
 --
 -- Constraints for table `atracoes`
 --
-ALTER TABLE `atracoes`
+ALTER TABLE felizlandia_park.atracoes
   ADD CONSTRAINT `atracoes_ibfk_1` FOREIGN KEY (`categoria_id`) REFERENCES `category` (`id`) ON DELETE SET NULL;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
